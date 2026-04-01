@@ -1,0 +1,278 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="Zkiosv9l-KzH-_nBwJ6K">
+    <mxGraphModel dx="1538" dy="648" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title-cur" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;" value="Current State" vertex="1">
+          <mxGeometry height="40" width="560" x="80" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title-tgt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;" value="Target State (AIO)" vertex="1">
+          <mxGeometry height="40" width="560" x="860" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="div" parent="1" style="line;strokeColor=#999999;fillColor=none;dashed=1;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="880" width="10" x="720" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-floor-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="Factory floor" vertex="1">
+          <mxGeometry height="133" width="201" x="40" y="77" as="geometry" />
+        </mxCell>
+        <mxCell id="c-plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="PLC machines" vertex="1">
+          <mxGeometry height="44" width="160" x="60" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="c-ignition" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Contoso gateway&#xa;(Ignition)" vertex="1">
+          <mxGeometry height="44" width="160" x="60" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="c-prod-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="Production zone" vertex="1">
+          <mxGeometry height="340" width="400" x="40" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="c-alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="ALT Core API&#xa;(4 nodes, HA proxy)" vertex="1">
+          <mxGeometry height="50" width="180" x="60" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="c-iotbasics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="IoT Basics&#xa;(logging + MQTT pub)" vertex="1">
+          <mxGeometry height="50" width="160" x="260" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="c-flux" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Flux / ALT UI" vertex="1">
+          <mxGeometry height="44" width="160" x="60" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c-lets" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="LETSStateService&#xa;CurrentLineState" vertex="1">
+          <mxGeometry height="44" width="160" x="260" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c-ag" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="SQL Server AG&#xa;(4 nodes, 3TB RAM each)" vertex="1">
+          <mxGeometry height="44" width="360" x="60" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="c-filebeat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Filebeat → ES → Graylog → Grafana" vertex="1">
+          <mxGeometry height="40" width="360" x="60" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="c-idmz-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="IDMZ" vertex="1">
+          <mxGeometry height="170" width="400" x="40" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="c-mqtt-vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="&lt;font style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;VM-based MQTT broker&lt;br&gt;(HA proxy clustered)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="220" x="60" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="c-mqtt2eh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="MQTTtoEventHub&#xa;(bridge service)" vertex="1">
+          <mxGeometry height="50" width="120" x="300" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="c-haproxy-mqtt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="HA proxy (MQTT)" vertex="1">
+          <mxGeometry height="40" width="360" x="60" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="c-azure-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="Azure (minimal today)" vertex="1">
+          <mxGeometry height="170" width="240" x="460" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="c-eh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Event Hubs&#xa;(partially working)" vertex="1">
+          <mxGeometry height="50" width="200" x="480" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="c-databricks-cur" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Databricks&#xa;(Event Hub path broken)" vertex="1">
+          <mxGeometry height="40" width="200" x="480" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="ca1" edge="1" parent="1" source="c-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-ignition">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca2" edge="1" parent="1" source="c-ignition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-alt" value="HTTP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca3" edge="1" parent="1" source="c-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-iotbasics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca4" edge="1" parent="1" source="c-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-flux">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca5" edge="1" parent="1" source="c-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-ag">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca6" edge="1" parent="1" source="c-iotbasics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-filebeat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca7" edge="1" parent="1" source="c-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-mqtt-vm" value="MQTT publish">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca8" edge="1" parent="1" source="c-iotbasics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-mqtt-vm" value="MQTT publish">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca9" edge="1" parent="1" source="c-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-mqtt-vm" value="MQTT publish">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca10" edge="1" parent="1" source="c-mqtt-vm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-mqtt2eh">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca11" edge="1" parent="1" source="c-mqtt2eh" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="c-eh" value="subscribe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ca12" edge="1" parent="1" source="c-eh" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#b85450;" target="c-databricks-cur" value="broken">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t-floor-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="Factory floor" vertex="1">
+          <mxGeometry height="143" width="201" x="780" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t-plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="PLC machines" vertex="1">
+          <mxGeometry height="44" width="160" x="800" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="t-ignition" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Contoso gateway&#xa;(Ignition — separate)" vertex="1">
+          <mxGeometry height="44" width="160" x="800" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t-cluster-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="K3s edge cluster (Arc-enabled)" vertex="1">
+          <mxGeometry height="560" width="612" x="780" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="t-alt-ns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=10;verticalAlign=top;strokeWidth=1;" value="alt-system namespace" vertex="1">
+          <mxGeometry height="220" width="340" x="795" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="t-alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="ALT Core API" vertex="1">
+          <mxGeometry height="44" width="150" x="810" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="t-iotbasics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;IoT Basics&lt;br&gt;(OTEL_Only mode)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="44" width="150" x="970" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="t-flux" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Flux / ALT UI" vertex="1">
+          <mxGeometry height="44" width="150" x="810" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="t-lets" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="LETSStateService&#xa;CurrentLineState" vertex="1">
+          <mxGeometry height="44" width="150" x="970" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="t-otel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="OTEL Collector" vertex="1">
+          <mxGeometry height="44" width="150" x="890" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="t-aio-ns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;fontSize=10;verticalAlign=top;strokeWidth=1;" value="aio-system namespace" vertex="1">
+          <mxGeometry height="120" width="340" x="795" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="t-aio-broker" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;AIO MQTT broker&lt;br&gt;(mTLS · MQTT v5 · single instance)&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="67" width="185" x="810" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="t-dataflows" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;AIO dataflows&lt;br&gt;(replaces MQTTtoEventHub)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="54" width="98" x="1021" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="t-db-ns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=10;verticalAlign=top;strokeWidth=1;" value="edge-db namespace" vertex="1">
+          <mxGeometry height="72" width="340" x="795" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="t-edgedb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="PostgreSQL / MySQL&#xa;(StatefulSet · ACSA volume)" vertex="1">
+          <mxGeometry height="40" width="310" x="810" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="t-mon-ns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=10;verticalAlign=top;strokeWidth=1;" value="monitoring namespace" vertex="1">
+          <mxGeometry height="220" width="185" x="1155" y="252" as="geometry" />
+        </mxCell>
+        <mxCell id="t-loki" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Loki" vertex="1">
+          <mxGeometry height="40" width="150" x="1170" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="t-grafana" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Grafana" vertex="1">
+          <mxGeometry height="40" width="150" x="1170" y="332" as="geometry" />
+        </mxCell>
+        <mxCell id="t-alertmgr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Alertmanager" vertex="1">
+          <mxGeometry height="40" width="150" x="1170" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="t-certmgr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="cert-manager" vertex="1">
+          <mxGeometry height="40" width="150" x="1172.5" y="429" as="geometry" />
+        </mxCell>
+        <mxCell id="1Q9uipDwISi-JOk2tLpY-2" edge="1" parent="1" source="t-azure-zone" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="t-certmgr" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1248" y="486" />
+              <mxPoint x="1248" y="486" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t-azure-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="Azure — NA Aladdin (IT tenant)" vertex="1">
+          <mxGeometry height="265" width="205" x="1155" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="t-eventgrid" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Event Grid&#xa;(Andon fast-path)" vertex="1">
+          <mxGeometry height="44" width="185" x="1165" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="t-eventhubs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Event Hubs&#xa;(real-time telemetry)" vertex="1">
+          <mxGeometry height="44" width="185" x="1165" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="t-adls" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ADLS Gen2&#xa;(archive + historical)" vertex="1">
+          <mxGeometry height="44" width="185" x="1165" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="t-azmon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Monitor + Loki" vertex="1">
+          <mxGeometry height="44" width="185" x="1165" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="ta1" edge="1" parent="1" source="t-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-ignition">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta2" edge="1" parent="1" source="t-ignition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-alt" value="HTTP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta3" edge="1" parent="1" source="t-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-iotbasics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta4" edge="1" parent="1" source="t-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-flux">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta5" edge="1" parent="1" source="t-iotbasics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-otel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta6" edge="1" parent="1" source="t-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-aio-broker" value="MQTT publish (mTLS)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="885" y="422" />
+              <mxPoint x="903" y="422" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ta7" edge="1" parent="1" source="t-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-aio-broker" value="MQTT publish (mTLS)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta8" edge="1" parent="1" source="t-alt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-edgedb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta9" edge="1" parent="1" source="t-aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-dataflows" value="subscribe + route">
+          <mxGeometry relative="1" x="-0.1721" y="-39" as="geometry">
+            <mxPoint x="-36" y="38" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ta10" edge="1" parent="1" source="t-dataflows" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;" target="t-eventgrid" value="Andon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta11" edge="1" parent="1" source="t-dataflows" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-eventhubs" value="telemetry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta12" edge="1" parent="1" source="t-dataflows" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-adls" value="archive">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta13" edge="1" parent="1" source="t-otel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-loki">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ta14" edge="1" parent="1" source="t-otel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-azmon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1274" y="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ta15" edge="1" parent="1" source="t-loki" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="t-grafana">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="retired-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;" value="Retired in target state" vertex="1">
+          <mxGeometry height="36" width="660" x="40" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="ret1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="VM-based MQTT broker (HA proxy)" vertex="1">
+          <mxGeometry height="36" width="200" x="40" y="846" as="geometry" />
+        </mxCell>
+        <mxCell id="ret2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="MQTTtoEventHub bridge service" vertex="1">
+          <mxGeometry height="36" width="200" x="250" y="846" as="geometry" />
+        </mxCell>
+        <mxCell id="ret3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Filebeat + Elasticsearch + Graylog" vertex="1">
+          <mxGeometry height="36" width="200" x="460" y="846" as="geometry" />
+        </mxCell>
+        <mxCell id="ret4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="HA proxy in front of MQTT" vertex="1">
+          <mxGeometry height="36" width="200" x="40" y="892" as="geometry" />
+        </mxCell>
+        <mxCell id="ret5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="SQL Server AG (4-node on-prem)" vertex="1">
+          <mxGeometry height="36" width="200" x="250" y="892" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="30" width="80" x="780" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Legacy — retired in target" vertex="1">
+          <mxGeometry height="36" width="190" x="780" y="835" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="ALT stack — unchanged function" vertex="1">
+          <mxGeometry height="36" width="200" x="980" y="835" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="New AIO / Azure component" vertex="1">
+          <mxGeometry height="36" width="190" x="1190" y="835" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="New edge component (no Azure dep)" vertex="1">
+          <mxGeometry height="36" width="220" x="780" y="881" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
