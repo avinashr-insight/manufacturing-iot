@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="xHQpAgGzx8T4W5MIcefK">
+    <mxGraphModel dx="3346" dy="1823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="historical load container" vertex="1">
+          <mxGeometry height="130" width="634" x="76" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-14" parent="ZfQlKsp0VqTdwZ3b3c_7-1" style="rounded=1;whiteSpace=wrap;html=1;" value="target schema/table/data.parquet" vertex="1">
+          <mxGeometry height="60" width="456" x="34" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-20" edge="1" parent="ZfQlKsp0VqTdwZ3b3c_7-1" source="ZfQlKsp0VqTdwZ3b3c_7-14" style="endArrow=classic;html=1;rounded=0;exitX=0.561;exitY=1.05;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="288.5" y="123" as="sourcePoint" />
+            <mxPoint x="286" y="273" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-2" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="SQL Server" vertex="1">
+          <mxGeometry height="120" width="120" x="305" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-3" edge="1" parent="1" source="ZfQlKsp0VqTdwZ3b3c_7-2" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="435" y="350" as="sourcePoint" />
+            <mxPoint x="365" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-12" edge="1" parent="1" source="ZfQlKsp0VqTdwZ3b3c_7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ZfQlKsp0VqTdwZ3b3c_7-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-4" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Integration Runtime" vertex="1">
+          <mxGeometry height="60" width="120" x="305" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-6" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="ADF" vertex="1">
+          <mxGeometry height="60" width="120" x="305" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-15" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="200" width="264" x="240" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-16" parent="ZfQlKsp0VqTdwZ3b3c_7-15" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Target Table" vertex="1">
+          <mxGeometry height="80" width="60" x="93" y="84" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-18" parent="ZfQlKsp0VqTdwZ3b3c_7-15" style="swimlane;whiteSpace=wrap;html=1;" value="Target Schema" vertex="1">
+          <mxGeometry height="140" width="222" x="28" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-22" edge="1" parent="1" source="ZfQlKsp0VqTdwZ3b3c_7-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.457;entryY=-0.031;entryDx=0;entryDy=0;entryPerimeter=0;" target="ZfQlKsp0VqTdwZ3b3c_7-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
