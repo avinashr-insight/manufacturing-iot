@@ -53,7 +53,7 @@ Once the data is in the topic, it will be read by a Databricks process that will
 
 To keep the data in the edge database small, there will be a purge process with two facets:
 1. purge PLMS non-part data
-2. PLMS part data (PLMS_<site> schemas)
+2. PLMS part data (PLMS site schemas)
 
 For non-part data, each table will have a TTL defined.  When the purge process runs, the process will query databricks
 for the table TTL, the column that determines the TTL, and primary key column.  The process will query the edge database
@@ -99,5 +99,22 @@ there are no requests.  ALT-API will be utilizing these endpoints to query histo
 seconds to spin up, timeouts may need to be adjusted.  Power BI will also be connected to show near real time dashboards.
 
 
+## Archiving Data (data older than 100 days)
 
+Once data is older than 100 days, it will be moved to a cold tier and stored in JSON format.  
 
+Recommendations: 
+1. Once data is bundled into the final JSON format, have a table that contains paths references with a minimal number of columns to make
+   searching simpler without incurring unnecessary warm up costs.
+2. Run the process in Databricks environment to utilize parallel compute.  
+
+## Loading Historical Data
+
+The edge database and the Databricks will both need to be seeded with data.  An onprem container will be created with a directory organized by
+schema and table.  Using the current ADF, data can be read and saved in parquet format in the onrpem container.  An external location will 
+be configured in Databricks to allow access to the directory.  Once the data is writtena Databrick job load the destination table.
+
+## Loading Archived Data
+
+Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
+catalog to allow the new archive process to be developed.
