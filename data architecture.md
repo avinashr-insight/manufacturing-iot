@@ -1,8 +1,8 @@
-#Fast Path and Slow Path
+# Fast Path and Slow Path
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).
 
-#Edge Database 
+# Edge Database 
 
 The edge database will have a limited number of clients and contain the minimal amount of data to keep access fast.  The 
 ALT API and data purging processes should be the only clients with direct access.  For reporting, users should use the Databricks
