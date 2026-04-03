@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="qav93GogIbccc2TEc03x">
+    <mxGraphModel dx="1139" dy="1095" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ALT API" vertex="1">
+          <mxGeometry height="60" width="120" x="350" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="140" width="200" x="590" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-9" parent="Uu5caPFkUQ7pgAjo8Tyw-2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="70" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Edge Database" vertex="1">
+          <mxGeometry height="140" width="200" x="50" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-10" parent="Uu5caPFkUQ7pgAjo8Tyw-3" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="70" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-4" edge="1" parent="1" source="Uu5caPFkUQ7pgAjo8Tyw-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.46;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="Uu5caPFkUQ7pgAjo8Tyw-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-6" edge="1" parent="1" source="Uu5caPFkUQ7pgAjo8Tyw-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.445;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="Uu5caPFkUQ7pgAjo8Tyw-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-7" connectable="0" parent="Uu5caPFkUQ7pgAjo8Tyw-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="For archived data" vertex="1">
+          <mxGeometry relative="1" x="-0.6038" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Uu5caPFkUQ7pgAjo8Tyw-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="The edge database and Databricks will have identical schemas for tables.&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;SQL to the edge database should execute the same on the Databricks side.&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="290" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="QdR8ByOSwR7u54IYZmuP-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Low latency path" vertex="1">
+          <mxGeometry height="30" width="120" x="170" y="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
