@@ -1,15 +1,12 @@
-#Edge Database
+#Fast Path and Slow Path
+
+The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).
+
+#Edge Database 
 
 The edge database will have a limited number of clients and contain the minimal amount of data to keep access fast.  The 
 ALT API and data purging processes should be the only clients with direct access.  For reporting, users should use the Databricks
 tables with will have a near real time copy of the edge database data.
-
-The data will be replicated to Databricks via a change data capture process.  As changes are made to the database tables (insert, update, delete), the
-transaction log files will be read by the change data capture process, translated to JSON, and pushed to an event hub queue (one
-per monitored database).  This will allow the system to self heal when the connectivity to Azure is interrupted.  Once 
-connectivity has been restored, the CDC process will pick up at the last transaction log entry and start sending data again.  Since
-the critical data is all in the edge database (PLMS operational data and PLMS_<site> part processing) all the entries will be able
-to keep processing regardless of Azure connectivity.  
 
 For the edge database, we have chosen Postgresql.  Features include:
 1. A better query optimizer than MySQL
@@ -18,13 +15,55 @@ For the edge database, we have chosen Postgresql.  Features include:
 4. Widely used and well documented
 5. Mature CDC implementation
 
+Since the critical data is all in the edge database (PLMS operational data and PLMS_<site> in process part processing) all the entries will be able
+to keep processing regardless of Azure connectivity.  
+
+# Databricks
+
+The Databricks data will be synced to the edge database with close to near real time latency (5 minutes or less) to allow:
+1. Operational dashboards to utilize the data without impacting the edge database
+2. Future curated reporting tables to be bult on top of near real time data instead of daily snapshots 
+3. Machine learning operations
+4. Any operation that may need to utilize a large number of data (planned storage will be 90-100 days) 
+5. Historical data lookup from the ALT API application.
+
+# Edge to Databricks Synch
+
+(see diagram _data flow detailed.drawio)
+
+To provide a low latency way to extract data that doesn't depend on watermark queries, the system will utilize a change data capture process.
+As the edge database processes inserts, deletes, and updates the edge database will populate the transaction log. The sync process will 
+utilize debezium to read the transaction log entries and translate them into JSON.  Once the data is in JSON format the events will
+be sent to an Azure Event Hub topic.  Once sent, the process will move on to the next entry.  If access to Azure is interrupted, the changes
+will queue up locally until it is reestablished.  Once that happens, all changes will be sent to the topic to be processed by databricks.
+
+Each schema will have it's own CDC monitor.
+
+Once the data is in the topic, it will be read by a Databricks process that will:
+- Determine the target table and group records by the table they will be getting sent to
+- Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged
+- If the table is purged filter out delete entries
+- Apply the table schema to the JSON data
+- Insert new records/Update existing records 
+
+
 # Purge process
 
+(see purge process.drawio)
+
 To keep the data in the edge database small, there will be a purge process with two facets:
-1. purge PLMS non part data
+1. purge PLMS non-part data
 2. PLMS part data (PLMS_<site> schemas)
 
+For non-part data, each table will have a TTL defined.  When the purge process runs, the process will query databricks
+for the table TTL, the column that determines the TTL, and primary key column.  The process will query the edge database
+table for all the potential deletes.  For each delete canidate the process will check if the value is in Databricks.  if it 
+exists, the edge database record is deleted.
 
+For part data tables (PLMS_<site> schema), the procoess will query all items that are in complete status and are below the TTL value.
+for each record, the process will verify that it exists in Databricks, then delete the local copy.
+
+If the connection to Azure is not available, both purge processes will not run.
 
 #Databricks 
 
