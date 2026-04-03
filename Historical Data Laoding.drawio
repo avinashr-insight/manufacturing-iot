@@ -46,6 +46,12 @@
         <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-22" edge="1" parent="1" source="ZfQlKsp0VqTdwZ3b3c_7-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.457;entryY=-0.031;entryDx=0;entryDy=0;entryPerimeter=0;" target="ZfQlKsp0VqTdwZ3b3c_7-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Using the existing ADF/Integration runtime, load the non archived data into files that be ingested into Databricks" vertex="1">
+          <mxGeometry height="70" width="240" x="460" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="ZfQlKsp0VqTdwZ3b3c_7-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Using the exported parquet files, load the tables" vertex="1">
+          <mxGeometry height="30" width="300" x="520" y="880" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
