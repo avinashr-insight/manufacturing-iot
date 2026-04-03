@@ -24,7 +24,7 @@ The Databricks data will be synced to the edge database with close to near real 
 1. Operational dashboards to utilize the data without impacting the edge database
 2. Future curated reporting tables to be bult on top of near real time data instead of daily snapshots 
 3. Machine learning operations
-4. Any operation that may need to utilize a large number of data (planned storage will be 90-100 days) 
+4. Any operation that may need to utilize a large amount of data (planned storage will be 90-100 days) 
 5. Historical data lookup from the ALT API application.
 
 # Edge to Databricks Synch
@@ -41,7 +41,7 @@ Each schema will have it's own CDC monitor.
 
 Once the data is in the topic, it will be read by a Databricks process that will:
 - Determine the target table and group records by the table they will be getting sent to
-- Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged
+- Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged.  These will be set via tags and looked up by querying the informamtion_schema.table_tags table.  
 - If the table is purged filter out delete entries
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
@@ -65,5 +65,39 @@ for each record, the process will verify that it exists in Databricks, then dele
 
 If the connection to Azure is not available, both purge processes will not run.
 
-#Databricks 
+# Non-operational data pipeline
+
+All machine metrics and MQTT data will be forwared to an event hub topic.  A Databricks streaming job will read the events (that will be
+in JSON format) and store them in a 'raw' table that will store the data in the JSON format.
+
+# Data Access
+
+(See Data access.drawio)
+
+## storage
+
+We will be utilizing ADLS Gen2 storage accounts to store the 'warm data' (data in Databricks).  Databricks access to storage accounts
+is done via a managed identity known as a 'Access Connector for Databricks'.  Once this created, the connector is given the 'Storage Blob Data 
+Contributor' role.  When granted, Databricks uses this managed identity to access the storage account.  Once done, a external location is 
+established.  This is a storage account URL that is associated with the access connector managed identity.  Once established, Databricks
+will access the storage URL on behalf of users, functioning as the access proxy.  Via this mechanism Databricks can enforce all data access ACLs.  
+
+Once the external location is established (container@storage account/directory) a catalog will be created using the external location as
+the default storage location.  Once created, the lower schemas are created (PLMS, PLMS_<site>), then the tables (mirroring the schema
+that is in the edge tables).  This setup takes advantage of Databricks managed tables, which enables using features such as Predictive 
+optimization.  All tables will be under the container@storage account/directory/<catalog>/ directory with UUID directory names.  
+It's not recommended to read these directories directly, but to go through the table entities.  
+
+## Compute
+
+The data will be accessable via two methos: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless warehouses 
+with private endpoints requires configuration in the Databricks account console, see 
+https://learn.microsoft.com/en-us/azure/databricks/security/network/serverless-network-security/serverless-private-link
+
+Serverless compute will spin up compute quickly as needed to handle incoming queries and will shut down after a set amount of time if
+there are no requests.  ALT-API will be utilizing these endpoints to query historical data.  Note: serverless warehouses can take 5-10
+seconds to spin up, timeouts may need to be adjusted.  Power BI will also be connected to show near real time dashboards.
+
+
+
 
