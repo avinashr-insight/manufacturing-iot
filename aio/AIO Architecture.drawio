@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="0Gjpr2_W_JzVRyyCFl5s">
-    <mxGraphModel dx="1175" dy="1079" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
+    <mxGraphModel dx="2568" dy="1785" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -22,7 +22,7 @@
         <mxCell id="ot-net-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" value="192.168.xx.xx — non-routable beyond DC" vertex="1">
           <mxGeometry height="37" width="185" x="35" y="381" as="geometry" />
         </mxCell>
-        <mxCell id="palo-fw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Palo Alto Firewall&#xa;OT ↔ DC boundary&#xa;⚠ TLS inspection — confirm [CLIENT]&#xa;Arc exemption required" vertex="1">
+        <mxCell id="palo-fw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Palo Alto Firewall&lt;br&gt;OT ↔ DC boundary&lt;br&gt;&amp;nbsp;TLS inspection — confirm [CLIENT]&lt;br&gt;Arc exemption required" vertex="1">
           <mxGeometry height="73" width="184" x="35" y="458" as="geometry" />
         </mxCell>
         <mxCell id="cluster-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=14;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;K3s Edge Cluster — Azure Arc Enabled (Maryville DMTN)&lt;/span&gt;" vertex="1">
@@ -124,7 +124,7 @@
         <mxCell id="arc-gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Arc Gateway&#xa;(consolidates outbound FW rules)" vertex="1">
           <mxGeometry height="40" width="210" x="660" y="518" as="geometry" />
         </mxCell>
-        <mxCell id="arc-tls-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;⚠ Arc requires TLS inspection exemption on Palo Alto — confirm with Brandon [CLIENT]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="arc-tls-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Arc requires TLS inspection exemption on Palo Alto — confirm with Brandon [CLIENT]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="468" x="880" y="518" as="geometry" />
         </mxCell>
         <mxCell id="ns-aio" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: aio-system" vertex="1">
@@ -202,16 +202,16 @@
         <mxCell id="kvip-n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Kube-VIP Pod · Node 1&amp;nbsp; ACTIVE" vertex="1">
           <mxGeometry height="32" width="200" x="670" y="980" as="geometry" />
         </mxCell>
-        <mxCell id="kvip-n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 2 ◎ STANDBY" vertex="1">
+        <mxCell id="kvip-n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 2 STANDBY" vertex="1">
           <mxGeometry height="32" width="220" x="880" y="980" as="geometry" />
         </mxCell>
-        <mxCell id="kvip-n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 3 ◎ STANDBY" vertex="1">
+        <mxCell id="kvip-n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 3 STANDBY" vertex="1">
           <mxGeometry height="32" width="220" x="1110" y="980" as="geometry" />
         </mxCell>
-        <mxCell id="ann-failover" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="⚡ Failover: Node failure → Kube-VIP standby wins ARP election ~1-2s · K3s reschedules pods ~40-60s (separate events) · etcd quorum survives if ≥2 nodes healthy · ⏱ NTP hard requirement: timestamp drift = video forensic correlation failure (250M tx/week at DMTN)" vertex="1">
+        <mxCell id="ann-failover" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Failover: Node failure → Kube-VIP standby wins ARP election ~1-2s · K3s reschedules pods ~40-60s (separate events) · etcd quorum survives if ≥2 nodes healthy · NTP hard requirement: timestamp drift = video forensic correlation failure (250M tx/week at DMTN)" vertex="1">
           <mxGeometry height="30" width="933" x="351" y="1032" as="geometry" />
         </mxCell>
-        <mxCell id="ann-ef" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;" value="⚠ Stored procedure → EF Core refactor (Hank&#39;s workstream) is a prerequisite before edge-db can replace on-prem SQL for any workload" vertex="1">
+        <mxCell id="ann-ef" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;" value="Stored procedure → EF Core refactor (Hank&#39;s workstream) is a prerequisite before edge-db can replace on-prem SQL for any workload" vertex="1">
           <mxGeometry height="28" width="932" x="352" y="1068" as="geometry" />
         </mxCell>
         <mxCell id="dc-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Data Center (DMTN)" vertex="1">
