@@ -76,7 +76,7 @@ for the table TTL, the column that determines the TTL, and primary key column.  
 table for all the potential deletes.  For each delete canidate the process will check if the value is in Databricks.  if it 
 exists, the edge database record is deleted.
 
-For part data tables (PLMS_\<site\> schema), the procoess will query all items that are in complete status and are below the TTL value.
+For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are below the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
 
 If the connection to Azure is not available, both purge processes will not run.
