@@ -1,0 +1,241 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="s339DZSj_oFYegxhRmIE">
+    <mxGraphModel dx="1461" dy="713" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="1900" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="DNS Resolution Scenarios — AIO Edge Cluster (Atlas/103 + BAS4) · Maryville DMTN" vertex="1">
+          <mxGeometry height="36" width="1860" x="20" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="h1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="#" vertex="1">
+          <mxGeometry height="44" width="40" x="20" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Scenario" vertex="1">
+          <mxGeometry height="44" width="200" x="60" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Who is asking" vertex="1">
+          <mxGeometry height="44" width="180" x="260" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Example FQDN" vertex="1">
+          <mxGeometry height="44" width="260" x="440" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Resolved by" vertex="1">
+          <mxGeometry height="44" width="220" x="700" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Returns" vertex="1">
+          <mxGeometry height="44" width="220" x="920" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Offline behaviour (ExpressRoute down)" vertex="1">
+          <mxGeometry height="44" width="260" x="1140" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Owner" vertex="1">
+          <mxGeometry height="44" width="160" x="1400" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="h9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;" value="Status" vertex="1">
+          <mxGeometry height="44" width="320" x="1560" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="r1n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="1" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Cross-namespace Kubernetes service" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Pod in alt-system" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;fontStyle=2;" value="aio-mqtt-broker.aio-system.svc.cluster.local" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="CoreDNS (internal — never leaves cluster)" vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Kubernetes internal ClusterIP (10.43.x.x)" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="Unaffected — fully internal, no external dependency" vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="Insight" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r1h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="Confirmed — standard K3s CoreDNS behaviour" vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="r2n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="2" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="External VIP name — factory floor device" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Contoso gateway / PLC on OT or IT network" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;fontStyle=2;" value="aio-mqtt.dmtnprod.lan" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="On-prem AD DNS (Brandon&#39;s team creates the record pointing to Kube-VIP VIP)" vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Kube-VIP external VIP (e.g. 192.168.1.101)" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="Unaffected — AD DNS is on-prem, no Azure dependency" vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="Brandon [CLIENT]" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r2h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] DNS record creation pending — Brandon or George depending on zone" vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r3n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="3" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="On-prem DC resource (SQL AG, NTP, admin)" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Pod inside cluster" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;fontStyle=2;" value="dmtn-sqlAG.dmtnprod.lan&#xa;ntp.dmtnprod.lan" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="CoreDNS forwards to on-prem AD DNS via NIC 2" vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="On-prem DC VLAN IP (e.g. 10.x.x.x)" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="Unaffected — AD DNS is on-prem, reachable via NIC 2 DC VLAN regardless of ExpressRoute" vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="Insight + Brandon [CLIENT]" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r3h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] CoreDNS forwarder IP = AD DNS server IP — confirm with Brandon" vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="r4n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="4" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Azure private endpoint (ADLS, Event Hubs, Key Vault, Arc)" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Pod inside cluster" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;fontStyle=2;" value="mystorageaccount.blob.core.windows.net&#xa;mynamespace.servicebus.windows.net" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="CoreDNS forwards specific suffix to Azure private DNS resolver via ExpressRoute (George&#39;s team)" vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Azure private endpoint IP (reachable via ExpressRoute only)" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;fontStyle=1;" value="DNS timeout — Azure private DNS unreachable. Pods fail to resolve Azure endpoints. CoreDNS negative TTL must be tuned to prevent cascade failures." vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="Insight + George [CLIENT]" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r4h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] Private DNS zones being set up by George. CoreDNS stub zone config required — Insight to implement." vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r5n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="5" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="GitOps / Flux repository (Azure DevOps)" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Flux CD controller pod inside cluster" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;fontStyle=2;" value="dev.azure.com" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="CoreDNS forwards to AD DNS, then resolves via ExpressRoute or internet" vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Public IP for Azure DevOps endpoint" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Flux config sync fails — expected and acceptable. Cluster continues running last known config. No impact to line operations." vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="Insight" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r5h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] Confirm if Azure DevOps is reachable via ExpressRoute or requires internet breakout — Brandon" vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r6n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="6" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Node-level OS resolution (bootstrapping, apt, system calls)" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="K3s node OS (/etc/resolv.conf) — NOT pods" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;fontStyle=2;" value="Any hostname the OS needs to resolve — apt repos, system services" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="On-prem AD DNS directly via NIC 2 — bypasses CoreDNS entirely. Configured in /etc/resolv.conf on each node during bootstrap." vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="On-prem DC VLAN IP — same as scenario 3 but via OS not CoreDNS" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="Unaffected — AD DNS is on-prem, reachable via NIC 2" vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="Insight" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r6h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;" value="Must be set during node bootstrap — separate from CoreDNS config. Common mistake to miss this step." vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r7n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="7" vertex="1">
+          <mxGeometry height="60" width="40" x="20" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Offline operation — Azure endpoint resolution during ExpressRoute outage" vertex="1">
+          <mxGeometry height="60" width="200" x="60" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="Any pod attempting to reach Azure service during outage" vertex="1">
+          <mxGeometry height="60" width="180" x="260" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;fontStyle=2;" value="*.blob.core.windows.net&#xa;*.servicebus.windows.net&#xa;*.vault.azure.net" vertex="1">
+          <mxGeometry height="60" width="260" x="440" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7d" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="CoreDNS attempts to forward to Azure private DNS resolver — times out. No response returned." vertex="1">
+          <mxGeometry height="60" width="220" x="700" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=left;" value="NXDOMAIN or timeout after TTL expires" vertex="1">
+          <mxGeometry height="60" width="220" x="920" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;fontStyle=1;" value="DNS timeouts cascade if negative TTL not tuned. Must set CoreDNS negative cache TTL to prevent blocking pod operations that do not need Azure. Design decision required." vertex="1">
+          <mxGeometry height="60" width="260" x="1140" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="Insight" vertex="1">
+          <mxGeometry height="60" width="160" x="1400" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="r7h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;" value="Design decision required — CoreDNS negative TTL tuning. Not addressed in current documents. Insight to design." vertex="1">
+          <mxGeometry height="60" width="320" x="1560" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="24" width="100" x="20" y="548" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Resolved — no action needed" vertex="1">
+          <mxGeometry height="30" width="220" x="20" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Client action required [CLIENT]" vertex="1">
+          <mxGeometry height="30" width="220" x="250" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Design decision or risk — action required" vertex="1">
+          <mxGeometry height="30" width="260" x="480" y="576" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
