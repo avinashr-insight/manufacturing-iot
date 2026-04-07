@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="j5MEOkNNpT68yAJ_Y8Vv">
-    <mxGraphModel dx="680" dy="332" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="1900" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1082" dy="528" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="1900" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -112,7 +112,7 @@
         <mxCell id="r3g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="Insight + Brandon [Denso]" vertex="1">
           <mxGeometry height="60" width="160" x="1400" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="r3h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] CoreDNS forwarder IP = AD DNS server IP — confirm with Brandon" vertex="1">
+        <mxCell id="r3h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[Denso] CoreDNS forwarder IP = AD DNS server IP — confirm with Brandon" vertex="1">
           <mxGeometry height="60" width="320" x="1560" y="220" as="geometry" />
         </mxCell>
         <mxCell id="r4n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="4" vertex="1">
@@ -139,7 +139,7 @@
         <mxCell id="r4g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="Insight + George [Denso]" vertex="1">
           <mxGeometry height="60" width="160" x="1400" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="r4h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] Private DNS zones being set up by George. CoreDNS stub zone config required — Insight to implement." vertex="1">
+        <mxCell id="r4h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[Denso] Private DNS zones being set up by George. CoreDNS stub zone config required — Insight to implement." vertex="1">
           <mxGeometry height="60" width="320" x="1560" y="280" as="geometry" />
         </mxCell>
         <mxCell id="r5n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="5" vertex="1">
@@ -166,7 +166,7 @@
         <mxCell id="r5g" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#b0c4d8;fontSize=11;align=center;" value="Insight" vertex="1">
           <mxGeometry height="60" width="160" x="1400" y="340" as="geometry" />
         </mxCell>
-        <mxCell id="r5h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[CLIENT] Confirm if Azure DevOps is reachable via ExpressRoute or requires internet breakout — Brandon" vertex="1">
+        <mxCell id="r5h" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="[Denso] Confirm if Azure DevOps is reachable via ExpressRoute or requires internet breakout — Brandon" vertex="1">
           <mxGeometry height="60" width="320" x="1560" y="340" as="geometry" />
         </mxCell>
         <mxCell id="r6n" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="6" vertex="1">
