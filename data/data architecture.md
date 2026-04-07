@@ -46,6 +46,22 @@ Once the data is in the topic, it will be read by a Databricks process that will
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
 
+# One time loads
+
+(see Historical Data Loading.drawio)
+
+There will be several one time loads that will be needed:
+1. Histrocial data (data from 0-90 days in the large on-prem database)
+2. Edge database (in process parts, master data) 
+3. Archived data (data in the offline archive databases) if needed
+
+For 1: We will use Azure Data Factory to load the contents of the tables SQL Server database into parquet files in a dedicated 
+storage container.  Once there, a dedicated process will ingest the parquet files and create the tables.
+
+For 2: The edge database will need to be loaded with the data that is specific to the line.
+
+For 3 (if needed): Depends on archive size, data will be loaded into a specific storage container.  Once in, data can be queried
+inside of databricks using sql.
 
 # Purge process
 
