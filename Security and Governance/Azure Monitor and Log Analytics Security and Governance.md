@@ -1,24 +1,23 @@
-# Azure Monitor and Log Analytics for an AIO Cluster Running K3s – Security and Governance Considerations
+# Azure Monitor and Log Analytics Security and Governance for an AIO Cluster Running K3s
 
 **File name:** `AzureMonitorandLogAnalyticsSecurityandGovernance.md`  
-**Scope:** Azure IoT Operations (AIO) running on an **Azure Arc-enabled K3s** cluster for a **factory production line**.  
-**Audience:** Platform engineering, security, OT/IT operations, cloud governance, and architecture teams.
+**Scope:** Azure IoT Operations (AIO) on an **Azure Arc-enabled K3s** cluster for a **factory production line**.  
+**Audience:** Cloud/platform architects, OT/IT operations, security engineering, governance teams, and SRE/platform operations.
 
 ---
 
 ## 1. Executive summary
 
-For a factory production line, Azure Monitor and Log Analytics should be implemented as a **controlled observability platform**, not merely as a log sink. In an AIO/K3s environment, the design should separate **metrics**, **logs**, **access**, **network paths**, **retention**, and **operational ownership** so that monitoring improves reliability without creating unnecessary cost, security exposure, or operational fragility.
+For a factory production line, Azure Monitor and Log Analytics should be implemented as a **governed observability platform**, not just a telemetry sink. Microsoft’s current AIO guidance recommends deploying observability resources **before** production cutover, and it uses **Azure Monitor managed service for Prometheus**, **Container Insights / Log Analytics**, and **Azure Managed Grafana** as the baseline observability stack for Arc-enabled Kubernetes in AIO scenarios. See [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines) and [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability).
 
-A production-grade implementation should:
+In practice, that means your design should:
 
-- Use **Azure Monitor managed service for Prometheus** for cluster and workload metrics, paired with **Azure Managed Grafana** for visualization.
-- Use **Container Insights / Log Analytics** for Kubernetes logs, events, and operational investigation.
-- Treat observability resources as **shared platform services** governed by Azure landing zone controls rather than project-by-project exceptions.
-- Prefer **private connectivity**, least privilege RBAC, controlled data collection, and explicit retention/cost policies.
-- Align monitoring with the realities of manufacturing: intermittent connectivity, OT/IT segmentation, change control, incident response, and forensic retention.
-
-Microsoft’s current Azure IoT Operations guidance recommends deploying observability resources **before** production deployment and using Azure Monitor / Grafana for curated dashboards and Prometheus alerting. See the references section for the source set used for this design.
+- Separate **metrics**, **logs**, **network access**, **retention**, and **ownership**.
+- Use **Azure Monitor workspaces** for Prometheus metrics and **Log Analytics workspaces** for logs.
+- Apply **least privilege** access to Arc, Azure Monitor, Log Analytics, and Grafana.
+- Prefer **private connectivity** using Azure Monitor Private Link Scope (AMPLS) where feasible.
+- Treat telemetry configuration as **governed platform configuration** subject to change control, versioning, and policy enforcement.
+- Align with AIO production realities such as **intermittent connectivity**, **OT/IT segmentation**, and **root-cause analysis after production incidents**.
 
 ---
 
@@ -26,26 +25,24 @@ Microsoft’s current Azure IoT Operations guidance recommends deploying observa
 
 This document assumes the following:
 
-- The factory platform runs **Azure IoT Operations** on an **Azure Arc-enabled Kubernetes** cluster.
-- The Kubernetes distribution is **K3s**, which is a supported production platform for AIO.
-- The factory may have **intermittent connectivity**, constrained outbound routes, or segmented OT networks.
-- Azure Monitor is used for:
-  - **Prometheus metrics** in an **Azure Monitor workspace**
-  - **Container Insights / logs** in a **Log Analytics workspace**
-  - **Alerting and visualization** via Azure Monitor alerts and Azure Managed Grafana
-- Governance is expected to follow enterprise landing zone practices for identity, networking, policy, and monitoring standards.
+- Azure IoT Operations runs on an **Azure Arc-enabled Kubernetes** cluster and K3s is the Kubernetes distribution in scope, consistent with [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines) and [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc).
+- The factory environment may be **bandwidth-constrained**, **segmented**, or **partially disconnected** for limited periods, consistent with [What is Azure IoT Operations?](https://learn.microsoft.com/en-us/azure/iot-operations/overview-iot-operations) and [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines).
+- Monitoring is implemented using:
+  - **Azure Monitor workspace** for Prometheus metrics per [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability) and [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc)
+  - **Log Analytics workspace** for container logs and investigations per [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability) and [Log Analytics workspace overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
+  - **Azure Managed Grafana** for dashboards per [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability)
 
 ---
 
-## 3. Target architecture principles
+## 3. Security and governance objectives
 
-1. **Security by design** – monitoring data is sensitive operational telemetry and should be protected accordingly.
-2. **Private-first connectivity** – avoid unnecessary public ingress/egress for monitoring paths where feasible.
-3. **Least privilege** – restrict who can onboard clusters, modify workspaces, view logs, and manage alert rules.
-4. **Operational resilience** – monitoring must continue to provide value during degraded connectivity and after recovery.
-5. **Cost-aware telemetry** – collect what is actionable; avoid indiscriminate ingestion.
-6. **Separation of duties** – distinguish platform owners, application owners, OT operators, and security responders.
-7. **Traceability** – monitoring configuration should be policy-governed, versioned, and auditable.
+A secure monitoring implementation for a production-line cluster should satisfy the following objectives:
+
+1. **Protect sensitive operational telemetry** such as node health, broker failures, connector errors, image references, certificate failures, and outage patterns, consistent with workspace access guidance in [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access) and [Manage access to Azure Monitor workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage-access).
+2. **Minimize exposure of monitoring traffic** through private connectivity patterns described in [Use Azure Private Link to connect networks to Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security) and [Design Azure Monitor private link configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-design).
+3. **Reduce governance drift** by pre-creating and governing workspaces instead of relying on defaults created during onboarding, per [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc) and [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+4. **Control cost and telemetry noise** through selective collection, retention planning, and workspace/table design, as recommended by [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers) and [Best practices for Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/best-practices-logs).
+5. **Support RCA and incident response** with enough retained, queryable telemetry to correlate cluster, application, and connectivity failures, using retention and access guidance in [Manage data retention in a Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure) and [Log Analytics workspace overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 ---
 
@@ -56,27 +53,34 @@ This document assumes the following:
 ```mermaid
 flowchart LR
     subgraph Factory[Factory Site / OT Network]
-        K3s[K3s Cluster\nAzure Arc-enabled]
-        AIO[AIO Services\nMQTT broker, connectors, data flows]
-        OTel[OpenTelemetry Collector\n(optional / recommended for AIO exports)]
-        AMA[Azure Monitor Extensions\nMetrics + Container Insights]
+        K3s[K3s Cluster
+Azure Arc-enabled]
+        AIO[AIO Services
+MQTT broker, connectors, data flows]
+        OTel[OpenTelemetry Collector
+optional / recommended for AIO exports]
+        Ext[Azure Monitor Extensions
+Metrics + Container Insights]
         K3s --> AIO
         AIO --> OTel
-        K3s --> AMA
-        OTel --> AMA
+        K3s --> Ext
+        OTel --> Ext
     end
 
     subgraph Azure[Azure Platform]
-        AMW[Azure Monitor Workspace\nPrometheus metrics]
-        LAW[Log Analytics Workspace\nLogs / events / investigations]
+        AMW[Azure Monitor Workspace
+Prometheus metrics]
+        LAW[Log Analytics Workspace
+Logs / events / investigations]
         AMG[Azure Managed Grafana]
-        Alerts[Azure Monitor Alerts\nAction Groups]
-        Policy[Azure Policy / Arc Policy\nGovernance]
+        Alerts[Azure Monitor Alerts
+Action Groups]
+        Policy[Azure Policy / Arc Policy]
         RBAC[Azure RBAC / PIM]
     end
 
-    AMA --> AMW
-    AMA --> LAW
+    Ext --> AMW
+    Ext --> LAW
     AMW --> AMG
     AMW --> Alerts
     LAW --> Alerts
@@ -86,7 +90,9 @@ flowchart LR
     RBAC --> AMG
 ```
 
-### 4.2 Network security view
+This model follows Microsoft’s AIO observability pattern in [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability), while aligning with the broader hybrid management guidance in [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
+
+### 4.2 Private connectivity pattern
 
 ```mermaid
 flowchart TB
@@ -104,7 +110,7 @@ flowchart TB
     subgraph Monitor[Azure Monitor Resources]
         LAW[Log Analytics Workspace]
         AMW[Azure Monitor Workspace]
-        DCE[Data Collection Endpoint(s) if used]
+        DCE[Data Collection Endpoint(s) if used)]
     end
 
     Nodes --> Proxy --> PE --> AMPLS
@@ -114,317 +120,213 @@ flowchart TB
     AMPLS --> DCE
 ```
 
----
-
-## 5. Core security considerations
-
-## 5.1 Resource organization and landing zone placement
-
-Observability resources for AIO/K3s should be placed deliberately in the enterprise landing zone rather than created ad hoc from the cluster onboarding workflow.
-
-### Recommendations
-
-- Place the **Arc-enabled cluster**, **Azure Monitor workspace**, **Log Analytics workspace**, **Managed Grafana**, and **alerting resources** in subscriptions/resource groups that align to your landing zone model.
-- Use a **central platform monitoring subscription** if your organization operates shared observability services across multiple factories or edge clusters.
-- If site autonomy or data residency requirements are strict, use **per-site** workspaces with centralized query/reporting patterns rather than one global workspace for everything.
-- Use **resource tags** to track plant/site, production line, environment, data classification, owner, cost center, and retention tier.
-- Avoid the anti-pattern where default workspaces are created silently during onboarding and later become unmanaged technical debt.
-
-### Why it matters
-
-Arc onboarding and Azure Monitor onboarding can create default resources if you do not specify them. In a production manufacturing environment, that creates governance drift, unclear ownership, and inconsistent retention, RBAC, and cost settings.
+This pattern is based on [Use Azure Private Link to connect networks to Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security), [Configure private link for Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-configure), and [Design Azure Monitor private link configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-design).
 
 ---
 
-## 5.2 Identity and access control
+## 5. Resource organization and landing zone placement
 
-Observability platforms often contain sensitive operational data: node names, namespace names, pod logs, service identities, certificate errors, failed auth attempts, industrial connector health, and outage telemetry. Access must be tightly controlled.
+Monitoring resources should be **intentionally placed** within your landing zone model rather than created ad hoc from portal defaults or first-run scripts. Microsoft’s Arc and workspace guidance explicitly recommends planning workspace architecture and resource organization rather than proliferating unmanaged default resources; see [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design), [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc), and [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
 
 ### Recommendations
 
-- Use **Azure RBAC** to control access to:
-  - Arc-enabled Kubernetes resources
-  - Azure Monitor workspace(s)
-  - Log Analytics workspace(s)
-  - Managed Grafana
-  - Alert rules and action groups
-- Grant onboarding permissions only to the **platform team**. Microsoft’s onboarding guidance calls out at least **Contributor** access for enabling monitoring and **Monitoring Reader/Contributor** to view data afterward.
+- Place the **Arc-connected K3s cluster**, **Azure Monitor workspace**, **Log Analytics workspace**, **Managed Grafana**, and **alerting resources** in subscriptions/resource groups aligned to your enterprise platform model, per [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
+- Start with the **fewest number of workspaces** that satisfy business, security, tenant, regional, and operational requirements, consistent with [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+- Consider **per-site or per-region workspaces** only when required for data residency, autonomy, access boundary, or cost-allocation reasons, again following [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+- Apply tags for **site**, **production line**, **environment**, **data classification**, **owner**, **cost center**, and **retention tier**, leveraging the Azure resource organization model described in [Overview of Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview).
+- Avoid allowing onboarding workflows to create opaque default workspaces unless that is a conscious exception with documented ownership, because [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc) notes that default workspaces can be created automatically if you do not specify them.
+
+### Governance decision points
+
+Document the following before production:
+
+- Central platform-managed workspace versus site-specific workspace model.
+- Shared monitoring subscription versus application subscription placement.
+- Data residency constraints.
+- Separation of operational and security data if Microsoft Sentinel or other security tooling will also use the workspace, per [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+
+---
+
+## 6. Identity, RBAC, and access governance
+
+Azure Monitor and Log Analytics frequently contain sensitive data about the environment, and Microsoft documents distinct access models for **Azure Monitor workspaces** and **Log Analytics workspaces**. See [Manage access to Azure Monitor workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage-access) and [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access).
+
+### Recommendations
+
+- Use **Azure RBAC** and preferably **group-based assignments** for Arc, Azure Monitor, Log Analytics, Grafana, and alert resources, consistent with [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access) and [Overview of Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview).
+- Restrict onboarding of monitoring to the **platform team** because [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc) documents that Contributor-level permissions are needed to onboard and Monitoring Reader/Monitoring Contributor permissions are needed to view data.
 - Separate roles for:
-  - **Platform administrators** – enable extensions, manage workspaces, tune collection
-  - **Security operations** – investigate logs, alerts, incidents
-  - **Application/platform SRE** – create dashboards and service-level alerts
-  - **OT operators** – read-only dashboards and approved queries only
-- Use **Privileged Identity Management (PIM)** for high-impact roles where available.
-- Prefer **group-based** role assignment over direct user assignment.
-- Limit who can create or modify **action groups**, because alerting paths can expose sensitive operational signals or create notification fatigue.
-- Restrict access to **shared workspaces** carefully; broad workspace access can create cross-site visibility that may violate least-privilege principles.
+  - **Platform administrators** – manage extensions, workspaces, ingestion paths, and alert baselines.
+  - **Security operations** – investigate logs and incidents.
+  - **SRE / platform operations** – manage dashboards, queries, and service alerts.
+  - **OT operators** – read-only dashboards and constrained access where possible.
+- Prefer **resource-context access** where appropriate for operational users and tightly control **workspace-context access**, based on the access models described in [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access) and [Manage access to Azure Monitor workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage-access).
+- Use **table-level or granular RBAC** only where there is a clear governance requirement, because Microsoft notes these are advanced controls and should be used deliberately in [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access).
+- Use **PIM** or equivalent privileged elevation processes for highly privileged monitoring roles if your enterprise identity platform supports it, aligning to the privilege governance objectives in [Azure security baseline for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline) and the broader recommendations in [Security book for Azure Arc-enabled Kubernetes and AKS enabled by Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-security-book).
 
-### Governance note
+### Access governance checklist
 
-Use role assignment reviews and change control for any modification that can affect:
-
-- ingestion destinations
-- DCR / data collection settings
-- log retention
-- alert suppression
-- private link / access mode changes
-
-> **Important:** The user executing Azure Monitor onboarding for Arc-enabled Kubernetes requires appropriate permissions, and additional access is needed when linking Azure Monitor workspaces to Managed Grafana.
+- [ ] Workspace access mode documented.
+- [ ] Resource-context versus workspace-context access policy defined.
+- [ ] Group-based RBAC implemented.
+- [ ] Privileged roles reviewed periodically.
+- [ ] Export permissions defined and monitored.
+- [ ] Shared workspace access reviews scheduled.
 
 ---
 
-## 5.3 Network isolation and private connectivity
+## 7. Network isolation and private connectivity
 
-Monitoring traffic from a factory should be treated as regulated enterprise telemetry. Where business and network architecture permit, use private connectivity to reduce exposure and simplify egress governance.
+For a factory production line, monitoring traffic should be treated as enterprise-sensitive telemetry. Microsoft recommends using **Azure Monitor Private Link Scope (AMPLS)** when private connectivity is required for Azure Monitor resources. See [Use Azure Private Link to connect networks to Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security) and [Configure private link for Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-configure).
 
 ### Recommendations
 
-- Use **Azure Monitor Private Link Scope (AMPLS)** for private access to Azure Monitor resources such as Log Analytics workspaces, Azure Monitor workspaces, and data collection endpoints.
-- Prefer a **hub-and-spoke** or similar centrally managed private connectivity pattern for multiple plants or spoke VNets.
-- Use **private DNS** and validate name resolution for all Azure Monitor endpoints used by your connectivity model.
-- For highly segmented plants, route monitoring traffic through an approved **outbound proxy** or firewall path and explicitly allow only the required Azure endpoints.
-- Document whether ingestion and query access are:
-  - public
-  - private-only
-  - mixed (temporary transition state)
-- Avoid opening public network access broadly “just to get telemetry working.”
+- Prefer **AMPLS + private endpoint** for plant-to-Azure Monitor access where your network topology permits it, per [Use Azure Private Link to connect networks to Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security).
+- Design private link according to your topology—**hub-and-spoke**, **peered VNets**, or **isolated site networks**—using the constraints in [Design Azure Monitor private link configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-design).
+- Be careful with **DNS design**; Microsoft explicitly warns about DNS overrides when multiple AMPLS instances are used across networks that share DNS, per [Design Azure Monitor private link configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-design).
+- Explicitly choose **ingestion** and **query** access modes (for example, PrivateOnly for ingestion and controlled query access) based on [Configure private link for Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-configure).
+- If the factory uses proxies or outbound firewalls, include required endpoints in the allow list as recommended by [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines) and [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
 
-### Why it matters
+### Governance considerations
 
-Microsoft documents Azure Monitor private link through **AMPLS**, enabling private connectivity for Log Analytics and Azure Monitor resources and allowing you to control ingestion and query access modes. In a factory context, this supports OT/IT segmentation and reduces unnecessary internet exposure.
+- Document whether the site uses **public**, **private-only**, or **mixed/transitional** monitoring connectivity.
+- Treat AMPLS, private endpoints, private DNS zones, and DCE/DCR dependencies as **platform-owned network assets**.
+- Review any temporary public access exception during commissioning and remove it after validation.
 
 ---
 
-## 5.4 Data protection and data classification
+## 8. Data protection, encryption, and data classification
 
-Logs and metrics can contain operationally sensitive content, including endpoint names, namespace labels, image names, IP information, event details, and potentially application-level payload fragments if logging is uncontrolled.
+Monitoring data often includes infrastructure details and operationally sensitive failure information. Microsoft documents encryption-at-rest defaults, workspace controls, and customer-managed key options for specific scenarios. See [Azure Monitor customer-managed keys](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/customer-managed-keys), [Log Analytics workspace overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview), and [Azure Monitor Logs overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs).
 
 ### Recommendations
 
-- Classify monitoring data at least as **Confidential – Operational** (or your equivalent policy tier) unless proven otherwise.
-- Review application and connector logging so that **secrets, credentials, certificate private material, connection strings, and sensitive payload data are never written to stdout/stderr**.
-- Limit collection of verbose debug logs in normal operations; enable them only through change control or incident procedures.
-- Consider data minimization and table-level controls for nonessential high-volume data.
-- If your compliance regime requires it, evaluate **customer-managed key (CMK)** and workspace encryption options as part of the broader monitoring security design.
-- Document who may export logs, where exports may be sent, and how exported data is protected.
+- Classify monitoring data at least as **confidential operational telemetry** unless your internal classification model defines a different tier.
+- Ensure workloads and connectors do **not log secrets**, credential material, or sensitive payload contents to stdout/stderr; this aligns with the need to control data collection and transformations described in [Azure Monitor Logs overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs) and with the operational security focus in [Security book for Azure Arc-enabled Kubernetes and AKS enabled by Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-security-book).
+- Consider **CMK** only when there is a clear compliance or key-lifecycle requirement, noting that Microsoft’s CMK guidance applies to **dedicated clusters** and has commitment-tier implications described in [Azure Monitor customer-managed keys](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/customer-managed-keys).
+- If you have specialized ingestion scenarios involving private links and customer-managed storage, validate the current platform requirements in [Use customer-managed storage accounts in Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/private-storage).
+- Define and govern who can **export** log data and what downstream stores are approved.
 
-### Factory-specific concern
+### Factory-specific considerations
 
-Manufacturing telemetry may reveal production rates, downtime patterns, equipment identifiers, and process dependencies. Even if it is not regulated personal data, it can be highly sensitive business data.
+In a manufacturing environment, telemetry can reveal:
 
----
+- site topology
+- equipment identifiers
+- production downtime patterns
+- certificate/authentication failures
+- message flow degradation
+- plant connectivity issues
 
-## 5.5 Kubernetes and Arc governance integration
-
-Monitoring should be governed together with the Arc-enabled cluster rather than treated as an isolated add-on.
-
-### Recommendations
-
-- Use **Azure Policy** for Arc-enabled Kubernetes to audit/deploy required extensions and security add-ons where appropriate.
-- Use built-in policies to detect whether required protections or extensions are missing.
-- Align the monitoring baseline with the **Azure Arc-enabled Kubernetes security baseline** and your enterprise benchmark controls.
-- Govern extension lifecycle, upgrade cadence, and approved versions under change control.
-- For AIO production environments, turn off uncontrolled auto-upgrade behavior where it conflicts with plant change windows and use a tested upgrade motion instead.
-
-### What to govern
-
-- Azure Monitor extension presence
-- approved workspace targets
-- required tags
-- allowed regions
-- private connectivity posture
-- diagnostic / alerting baseline
-- Defender / policy integrations where required by security policy
+Treat this as sensitive business telemetry even when it is not regulated personal data.
 
 ---
 
-## 6. Log collection and telemetry design considerations
+## 9. Workspace strategy, data collection scope, and telemetry minimization
 
-## 6.1 Separate metrics from logs
+Microsoft recommends using the fewest workspaces that meet your requirements and carefully scoping telemetry collection to avoid cost and operational noise. See [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design), [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers), and [Best practices for Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/best-practices-logs).
 
-A clean production design should explicitly separate **metrics** and **logs**:
+### 9.1 Separate metrics from logs
 
-- **Azure Monitor workspace** → Prometheus metrics
-- **Log Analytics workspace** → Container logs, Kubernetes events, and related investigations
+For AIO on Arc-enabled K3s, the recommended model is:
 
-This separation follows Microsoft’s current Arc-enabled Kubernetes and AIO observability model and helps with RBAC, cost management, and operational clarity.
+- **Azure Monitor workspace** for Prometheus metrics, consistent with [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability).
+- **Log Analytics workspace** for container logs, events, and operational investigations, consistent with [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability) and [Log Analytics workspace overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
-### Recommendation
+### 9.2 Collect only actionable data
 
-Do not rely on a single “monitoring workspace” concept operationally; define ownership and controls separately for metrics and logs.
+Collect by default:
 
----
-
-## 6.2 Decide what to collect
-
-More data is not always better. Production-line clusters can generate large volumes of repetitive container logs, Kubernetes events, and noisy metrics.
-
-### Recommended collection baseline
-
-Collect:
-
-- Node and cluster health metrics
-- Kubernetes object state relevant to reliability
-- Namespace/pod/container logs for AIO platform components and approved workloads
-- Critical events and restart patterns
-- Ingress / broker / connector health metrics
-- Control-plane-related telemetry where supported and operationally relevant
+- cluster and node health metrics
+- pod/container lifecycle and restart indicators
+- Kubernetes events with operational value
+- logs for AIO platform components and approved workloads
+- Prometheus alerts and ingestion-health signals
 
 Collect conditionally:
 
-- Verbose application logs
-- Short-lived troubleshooting traces
-- per-message diagnostic payloads
-- large-volume debug streams
+- verbose debug logs
+- ad hoc troubleshooting traces
+- high-frequency custom metrics
+- payload-adjacent diagnostics that may increase sensitivity or cost
 
 Avoid by default:
 
-- Any telemetry containing secrets or sensitive production payloads
-- High-cardinality labels with little operational value
-- Duplicate metrics already represented elsewhere
+- secrets or payload data in logs
+- overly broad namespace collection without an operational need
+- unnecessary high-cardinality labels
+- duplicate telemetry sources that answer the same question
 
-### AIO-specific note
+These recommendations align with [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers), [Azure Monitor Logs overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs), and [Query container logs in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query).
 
-The current AIO observability guidance uses Azure Monitor managed Prometheus, Container Insights, and optional OpenTelemetry Collector-based export paths for observability configuration. That should be your baseline starting point unless you have a deliberate exception.
+### 9.3 Treat telemetry configuration as controlled code
+
+Version and govern:
+
+- Arc extension deployment commands/templates
+- DCR/DCE configuration where used
+- Prometheus scrape config
+- OpenTelemetry Collector configuration
+- alert rules and action groups
+- Grafana dashboards
+
+That operational model aligns with the staged rollout and controlled upgrade guidance in [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines) and the hybrid management model in [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
 
 ---
 
-## 6.3 Data collection configuration and change control
+## 10. Cost management, retention, and forensic readiness
 
-Data collection settings should be treated as controlled configuration artifacts.
+Microsoft provides explicit guidance for retention design and cost control in Azure Monitor Logs and Azure Monitor for Kubernetes. See [Manage data retention in a Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure), [Log Analytics workspace overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview), [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers), and [Best practices for Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/best-practices-logs).
 
 ### Recommendations
 
-- Manage collection settings through **infrastructure as code** or controlled automation where possible.
-- Version the following artifacts:
-  - extension deployment commands / templates
-  - Prometheus scrape configuration
-  - OpenTelemetry Collector configuration
-  - alert definitions
-  - Grafana dashboards
-  - action groups and notification routing
-- Require approval for changes that materially affect:
-  - data volume
-  - retention
-  - visibility gaps
-  - alert fidelity
-  - egress/network posture
+- Define separate retention expectations for **operational analytics**, **security investigations**, and **long-term audit/forensic** needs, using the analytics and long-term retention model in [Manage data retention in a Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure).
+- Do not assume every table needs the same retention; Microsoft supports table-level retention design per [Log Analytics workspace overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview) and [Manage data retention in a Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure).
+- Review high-ingestion tables and noisy data sources regularly, in line with [Best practices for Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/best-practices-logs).
+- Use commitment tiers or workspace architecture only after evaluating actual usage patterns, per [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+- Preserve observability **configuration artifacts** even if you do not keep all telemetry indefinitely, so the monitoring platform can be rebuilt consistently.
 
-### Operational pattern
+### Factory-specific retention questions
 
-Use a **staging cluster** or non-production factory test environment to validate collection changes before applying them to the primary production line.
+Document:
+
+- How long operators need interactive telemetry for common outages.
+- How long security/compliance teams need telemetry for investigations.
+- Whether post-incident RCA requires older data to be retrieved from long-term retention.
+- Whether exported evidence is needed for legal, safety, or quality investigations.
 
 ---
 
-## 6.4 High-cardinality and cost management
+## 11. Alerting, incident response, and monitoring of the monitoring platform
 
-Kubernetes observability costs can rise quickly due to label cardinality, repeated log lines, short scrape intervals, and excessive retention.
-
-### Recommendations
-
-- Keep scrape intervals aligned to operational need; do not oversample edge workloads without a reason.
-- Avoid ingesting every metric from every exporter by default.
-- Review namespace- and workload-level logging volume regularly.
-- Tune collection to reduce low-value logs and noisy events.
-- Use separate retention/tiering decisions for:
-  - active troubleshooting data
-  - security investigation data
-  - long-term audit/forensic exports
-- Define budget thresholds and monitor ingestion volume per site/cluster.
-
-### Governance controls
-
-- Cost ownership must be assigned to a platform owner or factory owner.
-- Tag resources for cost allocation.
-- Review ingestion, alert volume, and dashboard sprawl quarterly.
-
----
-
-## 6.5 Retention, recovery, and forensic readiness
-
-Retention policy should reflect both operational and investigative needs.
-
-### Recommendations
-
-- Define a standard retention policy for operational logs and a longer policy for security or incident-response data when required.
-- Do not keep all tables at the same retention setting without justification.
-- For business-critical or forensic scenarios, define whether logs should also be **exported** or otherwise preserved outside the active workspace retention window.
-- Document recovery expectations for the monitoring platform itself:
-  - how workspaces are recreated if needed
-  - how dashboards and alerts are restored
-  - how data access continues after networking changes or subscription recovery
-- Preserve observability configuration as code so the monitoring stack can be rebuilt predictably.
-
-### Factory-specific concern
-
-When a production event occurs, operators often need to correlate:
-
-- node degradation
-- connector faults
-- message backlog
-- broker health
-- external dependency issues
-- certificate / auth failures
-
-Retention should support root-cause analysis across realistic investigation windows, not just short operational dashboards.
-
----
-
-## 7. Alerting and incident response considerations
-
-Alerting in a production-line environment must be precise, actionable, and resilient to noise.
-
-## 7.1 Alert design
+Microsoft recommends enabling Prometheus metrics, Container Insights, and alert rules to improve reliability of Kubernetes monitoring. See [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers) and [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability).
 
 ### Recommended alert categories
 
-- Cluster/node availability degradation
+- cluster and node availability degradation
 - pod restart storms / crash loops
-- connector health failures
-- MQTT broker or data-flow degradation
-- log ingestion or metrics ingestion failure
-- certificate expiry / auth failures where surfaced in telemetry
-- storage pressure / memory pressure / CPU saturation
-- site connectivity degradation affecting cloud management
+- connector or broker health failures
+- low disk / memory pressure / CPU saturation
+- telemetry ingestion failure
+- private connectivity failures to monitoring services
+- certificate or authentication-related failures surfaced in logs/metrics
+- abnormal ingestion spikes that suggest noisy telemetry or incident conditions
 
 ### Recommendations
 
-- Build a layered alert model:
-  - **platform alerts** for cluster health
-  - **AIO service alerts** for broker/connectors/data flows
-  - **security alerts** for suspicious events / failed auth / policy drift
-  - **cost/telemetry health alerts** for ingestion failures or abnormal volume spikes
-- Route alerts through approved **action groups** with documented escalation paths.
-- Use severity mapping aligned to plant operations and incident management.
-- Suppress or aggregate known-noisy signals after validation; do not suppress by habit.
-- Test alerts during commissioning and after any major change.
-
----
-
-## 7.2 Monitor the monitoring platform
-
-If observability fails silently, outages become harder to diagnose.
-
-### Recommendations
-
-Create checks for:
-
-- extension health
-- workspace connectivity
-- sudden drop in expected metric series
-- sudden reduction in log ingestion
-- failed scrape targets
-- dashboard data-source failures
-- stale alerts or disabled action groups
+- Build alert layers for **platform health**, **AIO service health**, **security-relevant failures**, and **telemetry pipeline health**, aligning to [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers).
+- Route alerts through governed **action groups** with documented ownership and escalation paths.
+- Validate alert thresholds during commissioning, maintenance windows, and simulated plant/network failure scenarios, consistent with the staging and controlled rollout guidance in [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines).
+- Monitor the monitoring platform itself—loss of scrape targets, sudden drop in log volume, disabled rules, or broken dashboards—because silent telemetry failure undermines RCA.
 
 ```mermaid
 flowchart LR
-    A[K3s / AIO workload issue] --> B[Azure Monitor collects metrics/logs]
+    A[K3s or AIO issue] --> B[Azure Monitor collects logs and metrics]
     B --> C[Alert rule evaluates]
-    C --> D[Action Group notifies]
-    D --> E[OT / IT Ops triage]
-    E --> F[Runbook execution]
-    F --> G[Recovery + Post-incident review]
+    C --> D[Action group notifies]
+    D --> E[OT/IT operations triage]
+    E --> F[Runbook or remediation]
+    F --> G[Recovery and post-incident review]
 
     H[Monitoring pipeline issue] --> I[Meta-monitoring alert]
     I --> E
@@ -432,210 +334,105 @@ flowchart LR
 
 ---
 
-## 8. Compliance and governance considerations
+## 12. Azure Policy, Defender, and platform governance integration
 
-## 8.1 Policy and standard alignment
-
-Your monitoring implementation should map back to enterprise control domains, for example:
-
-- identity and access management
-- network security / segmentation
-- logging and monitoring
-- incident response
-- change management
-- data retention and protection
-- backup / recovery of configuration artifacts
+Monitoring should be part of the broader Arc governance baseline rather than a stand-alone add-on. Microsoft provides Arc policy references, security baseline guidance, and management recommendations for hybrid Kubernetes. See [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/policy-reference), [Azure security baseline for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline), and [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
 
 ### Recommendations
 
-- Create a documented **monitoring standard** for Arc-enabled K3s / AIO sites.
-- Enforce required configuration through **Azure Policy**, templates, and deployment pipelines.
-- Maintain evidence of:
-  - workspace configuration
-  - RBAC assignments
-  - private link topology
-  - retention settings
-  - alert rules and action groups
-  - periodic access reviews
-  - extension versions / upgrade history
+- Use **Azure Policy** to audit or deploy required cluster extensions and governance components where appropriate, based on [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/policy-reference).
+- Align observability controls with the **Azure Arc-enabled Kubernetes security baseline**, including identity, privileged access, and operational governance in [Azure security baseline for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline).
+- Decide whether monitoring data and security data are shared or separated if other services like Defender for Cloud or Sentinel are part of the environment, using the separation criteria in [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+- Control upgrade cadence for Arc agents/extensions to fit plant change windows, per [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines) and [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
 
 ---
 
-## 8.2 Auditability and change history
+## 13. Prescriptive implementation pattern
 
-### Recommendations
+A practical implementation pattern for most factory AIO/K3s deployments is:
 
-- Log administrative changes to monitoring resources.
-- Use source control for dashboards, rules, and collector configuration.
-- Document emergency-change procedures for telemetry tuning during production incidents.
-- Keep a formal runbook for onboarding new clusters and new factory sites.
-
----
-
-## 9. Recommended prescriptive implementation pattern
-
-Below is a practical implementation pattern for most factory production deployments.
-
-## 9.1 Baseline pattern
-
-1. **Prepare the Arc-enabled K3s cluster** for AIO using supported production guidance.
-2. **Deploy observability resources before production cutover**.
-3. Create and govern separately:
-   - **Azure Monitor workspace** for Prometheus metrics
-   - **Log Analytics workspace** for logs
-   - **Managed Grafana** for dashboards
-4. Enable the Azure Monitor extensions for:
-   - metrics (`Microsoft.AzureMonitor.Containers.Metrics`)
-   - container/log collection (`Microsoft.AzureMonitor.Containers`)
-5. If using AIO observability enhancements, deploy and govern the **OpenTelemetry Collector** configuration.
-6. Use **private link / AMPLS** where network architecture permits.
-7. Apply **Azure Policy** for Arc governance and extension compliance.
-8. Create a standard alert pack and dashboard pack.
-9. Validate telemetry during commissioning and with plant failover / outage tests.
-10. Transition to steady-state operations with cost, retention, and access reviews.
+1. **Prepare and Arc-enable the K3s cluster** in accordance with [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines) and [Overview of Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview).
+2. **Pre-create and govern** the Azure Monitor workspace, Log Analytics workspace, Grafana instance, and alerting resources instead of relying on first-run defaults, per [Enable monitoring for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc) and [Design a Log Analytics workspace architecture](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design).
+3. **Deploy observability resources before AIO go-live**, as recommended by [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines).
+4. **Enable Azure Monitor metrics and container insights extensions** using the pattern in [Deploy observability resources and set up logs](https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability).
+5. **Implement AMPLS/private connectivity** where feasible, using [Use Azure Private Link to connect networks to Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security) and [Design Azure Monitor private link configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-design).
+6. **Apply RBAC and policy** before granting broad user access, using [Manage access to Log Analytics workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access), [Manage access to Azure Monitor workspaces](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage-access), and [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/policy-reference).
+7. **Commission alerts, dashboards, and runbooks** before plant handoff.
+8. **Test telemetry during disconnected, degraded, and restored network conditions**, aligning to the AIO operational model in [What is Azure IoT Operations?](https://learn.microsoft.com/en-us/azure/iot-operations/overview-iot-operations) and [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines).
 
 ---
 
-## 9.2 Preferred resource ownership model
+## 14. Implementation checklist
 
-- **Platform team**
-  - workspaces
-  - alerting baseline
-  - AMPLS / private endpoints
-  - Grafana platform
-  - extension lifecycle
-- **Factory / application operations**
-  - site dashboards
-  - approved service alerts
-  - first-line operational triage
-- **Security team**
-  - log access for investigation
-  - policy/compliance review
-  - incident response integration
+### 14.1 Architecture
 
----
+- [ ] Workspace topology chosen and documented.
+- [ ] Subscription/resource-group placement approved.
+- [ ] Tags and naming standards applied.
+- [ ] Site, region, and data residency requirements documented.
 
-## 10. Implementation checklist
+### 14.2 Security and access
 
-### 10.1 Architecture and landing zone
+- [ ] Azure RBAC model defined for Arc, Monitor, Log Analytics, and Grafana.
+- [ ] Shared workspace access reviewed.
+- [ ] Workspace access mode documented.
+- [ ] Export permissions and data handling defined.
 
-- [ ] Decide central vs per-site workspace strategy
-- [ ] Choose resource group / subscription placement
-- [ ] Define tagging standard
-- [ ] Define naming standard
-- [ ] Define region / residency requirements
+### 14.3 Network
 
-### 10.2 Security
+- [ ] Public vs private connectivity decision approved.
+- [ ] AMPLS/private endpoint design completed if applicable.
+- [ ] DNS model validated.
+- [ ] Firewall/proxy allow lists approved.
 
-- [ ] Define RBAC model for Arc, Azure Monitor, Log Analytics, and Grafana
-- [ ] Use group-based assignments
-- [ ] Review privileged roles / PIM
-- [ ] Confirm private connectivity posture
-- [ ] Validate firewall / proxy allow lists
-- [ ] Confirm monitoring data classification
+### 14.4 Telemetry and cost
 
-### 10.3 Telemetry design
+- [ ] Metrics baseline defined.
+- [ ] Log collection scope defined.
+- [ ] Noisy data sources identified.
+- [ ] Retention by table/class of data documented.
+- [ ] Cost ownership assigned.
 
-- [ ] Define metrics baseline
-- [ ] Define log collection scope
-- [ ] Review high-cardinality metrics
-- [ ] Review verbose logging sources
-- [ ] Create retention plan by data type
-- [ ] Define export / preservation requirements for forensic scenarios
+### 14.5 Operations and governance
 
-### 10.4 Operations
-
-- [ ] Build standard alert rules
-- [ ] Build action groups and escalation paths
-- [ ] Test alert routing
-- [ ] Monitor the monitoring pipeline
-- [ ] Version configurations as code
-- [ ] Define upgrade and rollback runbooks
-
-### 10.5 Governance
-
-- [ ] Apply Azure Policy / Arc governance controls
-- [ ] Document approved exceptions
-- [ ] Maintain access reviews
-- [ ] Review costs monthly
-- [ ] Review telemetry value/noise quarterly
+- [ ] Alert rules and action groups implemented.
+- [ ] Runbooks created for telemetry failure and platform issues.
+- [ ] Monitoring configuration version-controlled.
+- [ ] Azure Policy assignments reviewed.
+- [ ] Upgrade/change control process defined.
 
 ---
 
-## 11. Key design decisions to document explicitly
+## 15. Reference links (table)
 
-Before production approval, capture the following decisions:
-
-1. **Workspace strategy** – central, regional, or per-site?
-2. **Private connectivity** – AMPLS/private-only or controlled public access?
-3. **Retention model** – operational vs security/investigative duration?
-4. **Access model** – who can view site telemetry, edit queries, and export data?
-5. **Collection scope** – which namespaces/workloads are in scope?
-6. **Alert ownership** – who responds to which class of alert?
-7. **Upgrade policy** – how are Arc / monitoring extensions tested and rolled out?
-8. **Incident support** – what logs/metrics must exist to support RCA for production outages?
-
----
-
-## 12. Opinionated recommendations for most factory AIO/K3s deployments
-
-If you need a concise “default good pattern,” use the following:
-
-- **Deploy observability before AIO production go-live**.
-- Use **Azure Monitor workspace + Log Analytics workspace + Managed Grafana** as separate, governed resources.
-- Put them under a **platform-owned landing zone** with explicit tags, retention, and RBAC.
-- Use **AMPLS/private connectivity** when possible.
-- Keep **metrics and logs separate** operationally and administratively.
-- Collect only what is needed for reliability, security, and RCA.
-- Use **Azure Policy** and version-controlled configuration to avoid drift.
-- Test monitoring during failover, maintenance, and disconnected/reconnected site scenarios.
-- Review **ingestion cost and noisy telemetry** regularly.
-- Treat monitoring as a production dependency with its own health checks and runbooks.
+| Title                                                                       | Link                                                                                                                                                | Why it matters                                                                                                                         |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Deploy observability resources and set up logs                              | https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability                             | Primary Microsoft guidance for AIO observability using Azure Monitor workspace, Log Analytics workspace, and Grafana.                  |
+| Production deployment guidelines                                            | https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines                                                 | Recommends deploying observability resources before production and highlights K3s production guidance, networking, and staged rollout. |
+| What is Azure IoT Operations?                                               | https://learn.microsoft.com/en-us/azure/iot-operations/overview-iot-operations                                                                      | Describes AIO architecture, edge capabilities, and offline operation characteristics relevant to factories.                            |
+| Enable monitoring for Arc-enabled Kubernetes clusters                       | https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc                                                   | Official Azure Monitor onboarding guidance for Arc-enabled Kubernetes, including K3s support and workspace requirements.               |
+| Best practices for monitoring Kubernetes with Azure Monitor                 | https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers                                                          | Reliability, security, cost, and operational excellence guidance for Kubernetes monitoring.                                            |
+| Design a Log Analytics workspace architecture                               | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design                                                                         | Helps determine workspace count, placement, and separation strategy.                                                                   |
+| Log Analytics workspace overview                                            | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview                                                         | Summarizes workspace concepts, table access, and retention model.                                                                      |
+| Azure Monitor Logs overview                                                 | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs                                                                       | Covers data collection, transformation, table plans, and cost-management concepts.                                                     |
+| Manage access to Log Analytics workspaces                                   | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access                                                                            | Defines workspace-context/resource-context access and RBAC model for logs.                                                             |
+| Manage access to Azure Monitor workspaces                                   | https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage-access                                                 | Defines access model for Azure Monitor workspaces used for metrics.                                                                    |
+| Manage data retention in a Log Analytics workspace                          | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure                                                                 | Explains analytics and long-term retention options and implications.                                                                   |
+| Use Azure Private Link to connect networks to Azure Monitor                 | https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security                                                            | Describes AMPLS, private endpoints, and monitoring traffic isolation.                                                                  |
+| Configure private link for Azure Monitor                                    | https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-configure                                                           | Implementation guidance for AMPLS and private endpoints.                                                                               |
+| Design Azure Monitor private link configuration                             | https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-design                                                              | Topology and DNS planning guidance for AMPLS.                                                                                          |
+| Azure Monitor customer-managed keys                                         | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/customer-managed-keys                                                                    | Explains CMK options and constraints for Azure Monitor logs.                                                                           |
+| Use customer-managed storage accounts in Azure Monitor Logs                 | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/private-storage                                                                          | Relevant for special ingestion and private-link storage scenarios.                                                                     |
+| Management and monitoring for Azure Arc-enabled Kubernetes                  | https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines | Hybrid/cloud adoption guidance for Arc governance, network, and management.                                                            |
+| Overview of Azure Arc-enabled Kubernetes                                    | https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview                                                                               | Foundational Arc capabilities including tagging, policy, and monitoring integration.                                                   |
+| Azure Policy built-in definitions for Azure Arc-enabled Kubernetes          | https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/policy-reference                                                                       | Reference point for policy-based governance of Arc-enabled Kubernetes.                                                                 |
+| Azure security baseline for Azure Arc-enabled Kubernetes                    | https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline                                 | Security benchmark alignment for Arc-enabled Kubernetes environments.                                                                  |
+| Security book for Azure Arc-enabled Kubernetes and AKS enabled by Azure Arc | https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-security-book                                                               | Broader security recommendations for hybrid/edge Kubernetes.                                                                           |
+| Query container logs in Azure Monitor                                       | https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query                                                       | Useful for operational querying and understanding collected data types.                                                                |
+| Best practices for Azure Monitor Logs                                       | https://learn.microsoft.com/en-us/azure/azure-monitor/logs/best-practices-logs                                                                      | Additional guidance on Azure Monitor Logs design, performance, and cost optimization.                                                  |
 
 ---
 
-## 13. References
+## 16. Closing note
 
-The following Microsoft documentation informed this design:
-
-1. **Deploy observability resources and set up logs – Azure IoT Operations**  
-   https://learn.microsoft.com/en-us/azure/iot-operations/configure-observability-monitoring/howto-configure-observability
-
-2. **Production deployment guidelines – Azure IoT Operations**  
-   https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines
-
-3. **Deployment overview – Azure IoT Operations**  
-   https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/overview-deploy
-
-4. **Prepare your Azure Arc-enabled Kubernetes cluster – Azure IoT Operations**  
-   https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/howto-prepare-cluster
-
-5. **Enable monitoring for Arc-enabled Kubernetes clusters – Azure Monitor**  
-   https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable-arc
-
-6. **Kubernetes monitoring in Azure Monitor**  
-   https://docs.azure.cn/en-us/azure-monitor/containers/kubernetes-monitoring-overview
-
-7. **Use Azure Private Link to connect networks to Azure Monitor**  
-   https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-security
-
-8. **Configure private link for Azure Monitor**  
-   https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/private-link-configure
-
-9. **Query container logs in Azure Monitor**  
-   https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query
-
-10. **Management and monitoring for Azure Arc-enabled Kubernetes – Cloud Adoption Framework**  
-    https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines
-
-11. **Azure Policy built-in definitions for Azure Arc-enabled Kubernetes**  
-    https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/policy-reference
-
-12. **Azure security baseline for Azure Arc-enabled Kubernetes**  
-    https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline
-
----
-
-## 14. Closing note
-
-For this scenario, the most important governance decision is **not** which dashboard to build first; it is whether observability is being treated as a governed enterprise platform service. In factory environments, good monitoring design directly affects uptime, change safety, and mean-time-to-recover.
+For this scenario, the most important decision is not which dashboard to build first. It is whether observability is being treated as a **governed production platform service**. In factory environments, that decision directly affects uptime, operational safety, and mean-time-to-recover, as reflected across [Production deployment guidelines](https://learn.microsoft.com/en-us/azure/iot-operations/deploy-iot-ops/concept-production-guidelines), [Best practices for monitoring Kubernetes with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/best-practices-containers), and [Management and monitoring for Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-management-disciplines).
