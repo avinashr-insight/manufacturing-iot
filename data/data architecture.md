@@ -1,4 +1,4 @@
-# Fast Path and Slow Path
+ # Fast Path and Slow Path
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).
 
@@ -15,7 +15,7 @@ For the edge database, we have chosen Postgresql.  Features include:
 4. Widely used and well documented
 5. Mature CDC implementation
 
-Since the critical data is all in the edge database (PLMS operational data and PLMS_<site> in process part processing) all the entries will be able
+Since the critical data is all in the edge database (PLMS operational data and PLMS_\<site\> in process part processing) all the entries will be able
 to keep processing regardless of Azure connectivity.  
 
 # Databricks
@@ -25,7 +25,6 @@ The Databricks data will be synced to the edge database with close to near real 
 2. Future curated reporting tables to be bult on top of near real time data instead of daily snapshots 
 3. Machine learning operations
 4. Any operation that may need to utilize a large amount of data (planned storage will be 90-100 days) 
-5. Historical data lookup from the ALT API application.
 
 # Edge to Databricks Synch
 
@@ -45,6 +44,10 @@ Once the data is in the topic, it will be read by a Databricks process that will
 - If the table is purged filter out delete entries
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
+
+# MQTT Data
+
+MQTT events are forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  First, it'll extract a set of fields from the JSON (line, message type, timestamp, machine) if they exist.  Next it will append to the bronze mqtt_events.   
 
 # One time loads
 
@@ -76,7 +79,7 @@ for the table TTL, the column that determines the TTL, and primary key column.  
 table for all the potential deletes.  For each delete canidate the process will check if the value is in Databricks.  if it 
 exists, the edge database record is deleted.
 
-For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are below the TTL value.
+For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are above the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
 
 If the connection to Azure is not available, both purge processes will not run.
@@ -84,11 +87,16 @@ If the connection to Azure is not available, both purge processes will not run.
 # Non-operational data pipeline
 
 All machine metrics and MQTT data will be forwared to an event hub topic.  A Databricks streaming job will read the events (that will be
-in JSON format) and store them in a 'raw' table that will store the data in the JSON format.
+in JSON format) and store them in a 'raw' delta table that will store the data in the JSON format.  The JSON data can be queried via SQL directly 
+or pyspark.
 
 # Data Access
 
 (See Data access.drawio)
+
+## ALT API
+
+ALT API will not have direct access to the historical data in Databricks due to it's current archiecture.  A Dashboard can be constructed to lookup part data from 0 90 days.
 
 ## storage
 
@@ -106,7 +114,7 @@ It's not recommended to read these directories directly, but to go through the t
 
 ## Compute
 
-The data will be accessable via two methos: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless warehouses 
+The data will be accessable via two methos: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless compute 
 with private endpoints requires configuration in the Databricks account console, see 
 https://learn.microsoft.com/en-us/azure/databricks/security/network/serverless-network-security/serverless-private-link
 
@@ -115,7 +123,11 @@ there are no requests.  ALT-API will be utilizing these endpoints to query histo
 seconds to spin up, timeouts may need to be adjusted.  Power BI will also be connected to show near real time dashboards.
 
 
-## Archiving Data (data older than 100 days)
+## Archiving Data (data older than 100 days, short term)
+
+Weekly a process will run across all the tables in the PLMS_\<site\> schemas that will take any record with an age > 100 days and put it in the coorsponding table in the PLMS_\<site\>_archive schema.  It will then delete the records from the source table.  For the PLMS schema, for each table with historical information it will copy the records to the corresponding table in the PLMS_ARCHIVE schema 
+
+## Long Term Archive Plan ( data older than 100 days, long term)
 
 Once data is older than 100 days, it will be moved to a cold tier and stored in JSON format.  
 
@@ -134,3 +146,11 @@ be configured in Databricks to allow access to the directory.  Once the data is 
 
 Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
 catalog to allow the new archive process to be developed.
+
+# Databricks Jobs
+
+All streaming jobs will use job compute to keep costs lower, each job cluster will have a defined minimum (1) and max nubmer of workers to
+read teh assigned topics.  Each line will have it's own Azure Event Hub topics for edge database replication and MQTT messages to provide 
+isoliation by line.  The architecture will allow a single job to montior multiple lines (with the same kind of data).  If the volume requires 
+it, a topic can have a single consumer job.
+
