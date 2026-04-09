@@ -97,11 +97,12 @@ A controller job will run on a 10 minute interval schedule When triggered, the j
 - Query the Databricks jobs API endpoint and find all the streaming jobs (tagged with the 'streaming' tag)
 - For each job:
    - Check the line hours for all the lines the job monitors (a comma delimited list under the 'lines' tag)
-   - if  it's 30 minutes or less before the start any of the lines it's monitoring, trigger the streaming job
+   - If it's 30 minutes or less before the start any of the lines it's monitoring, trigger the streaming job
    - If the job is running and it's past the end time for all the lines it is monitoring, terminate the job.  
 
 The job will have the following parameters:
-1. 
+1. Secret name for the service principal client id
+2. Secret name for the service principal OAuth secret
 
 # One time loads
 
