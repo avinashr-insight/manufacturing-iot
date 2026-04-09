@@ -112,15 +112,16 @@ that is in the edge tables).  This setup takes advantage of Databricks managed t
 optimization.  All tables will be under the container@storage account/directory/<catalog>/ directory with UUID directory names.  
 It's not recommended to read these directories directly, but to go through the table entities.  
 
-## Compute
+## Serverless Compute
 
-The data will be accessable via two methos: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless compute 
+The data will be accessable via two methods: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless compute 
 with private endpoints requires configuration in the Databricks account console, see 
 https://learn.microsoft.com/en-us/azure/databricks/security/network/serverless-network-security/serverless-private-link
 
 Serverless compute will spin up compute quickly as needed to handle incoming queries and will shut down after a set amount of time if
-there are no requests.  ALT-API will be utilizing these endpoints to query historical data.  Note: serverless warehouses can take 5-10
-seconds to spin up, timeouts may need to be adjusted.  Power BI will also be connected to show near real time dashboards.
+there are no requests.  External applications that need to query data will connect to connect to a Databricks endpoint using the 
+appropiate drivers.  Note: serverless warehouses can take 5-10 seconds to spin up, timeouts may need to be adjusted.  Power BI will 
+also be connected to show near real time dashboards.
 
 
 ## Archiving Data (data older than 100 days, short term)
@@ -136,11 +137,25 @@ Recommendations:
    searching simpler without incurring unnecessary warm up costs.
 2. Run the process in Databricks environment to utilize parallel compute.  
 
-## Loading Historical Data
+## Loading Historical Databricks Data
 
-The edge database and the Databricks will both need to be seeded with data.  An onprem container will be created with a directory organized by
-schema and table.  Using the current ADF, data can be read and saved in parquet format in the onrpem container.  An external location will 
-be configured in Databricks to allow access to the directory.  Once the data is writtena Databrick job load the destination table.
+An storage container will be created with a directories 
+organized by schema and table.  Using the current ADF installation, data can be read and saved in parquet format in the container in the 
+appropiate directory.  An external location will be configured in the Databricks workspace to allow Databricks jobs to  access to the directory.  
+Once the data is written, a Databricks job will create the desintation table based on the parquet data (which will match the columns/types of 
+the soruce table exactly).
+
+## Seeding the Edge Databases
+
+Each edge database will need to be seeded with:
+1. A copy of all the tables in the PLMS Database (with some historical data)
+2. The tables from the PLMS_\<site\> schema that store the part related data.
+
+## Updating the Edge Database
+
+When tables that contain control data need to be updated, they will be updated on the Databricks side (tables that contain control data
+will be tagged with 'control').  Once the updates are complete, the user will trigger a databricks job that will publish a message that will
+cause the cooresponding edge tables to be reloaded from Databricks.
 
 ## Loading Archived Data
 
