@@ -1,0 +1,271 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="qTOlw2gOdShMVgrJY-iz">
+    <mxGraphModel dx="2293" dy="2714" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="AIO Edge Cluster — Network Topology&#xa;Maryville DMTN · Atlas/103 + BAS4" vertex="1">
+          <mxGeometry height="36" width="2560" x="17" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="ot-atlas-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="OT Factory Floor — Atlas/103&#xa;(IT network on-prem · Atlas line side)" vertex="1">
+          <mxGeometry height="220" width="260" x="20" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="atlas-plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Atlas/103 PLCs&#xa;(IT network · no OT firewall crossing)&#xa;192.168.xx" vertex="1">
+          <mxGeometry height="50" width="220" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="atlas-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Contoso Gateway&#xa;(OPC-UA · REST · Ignition&#xa;Stratum 3 NTP for PLCs)" vertex="1">
+          <mxGeometry height="60" width="220" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ot-bas4-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="OT Factory Floor — BAS4&#xa;(OT network on-prem · BAS4 line side)" vertex="1">
+          <mxGeometry height="220" width="260" x="20" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="bas4-plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="BAS4 PLCs&#xa;(OT network · isolated · ~46 machines)&#xa;192.168.xx" vertex="1">
+          <mxGeometry height="50" width="220" x="40" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="bas4-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Contoso Gateway&#xa;(OPC-UA · REST · Ignition&#xa;Stratum 3 NTP for PLCs)" vertex="1">
+          <mxGeometry height="60" width="220" x="40" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="cluster1-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="Cluster 1 — Atlas/103&#xa;3-node K3s · Arc-enabled&#xa;Both clusters connect to OT hub" vertex="1">
+          <mxGeometry height="317" width="398" x="340" y="53" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-node1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Node 1&#xa;NIC1: line-side&#xa;NIC2: DC VLAN" vertex="1">
+          <mxGeometry height="60" width="110" x="355" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-node2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Node 2&#xa;NIC1: line-side&#xa;NIC2: DC VLAN" vertex="1">
+          <mxGeometry height="60" width="110" x="480" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-node3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Node 3&#xa;NIC1: line-side&#xa;NIC2: DC VLAN" vertex="1">
+          <mxGeometry height="60" width="110" x="605" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-kv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Kube-VIP L2 ARP · MQTT VIP :8883 · API VIP :443" vertex="1">
+          <mxGeometry height="26" width="360" x="355" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-pg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="PostgreSQL StatefulSet · edge-db&#xa;Local disk replication across 3 nodes&#xa;R2P · StoreResults · Recipe · 8h retention&#xa;Storage pattern: pending Microsoft review" vertex="1">
+          <mxGeometry height="60" width="360" x="355" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Atlas option: IT or OT network — decision pending internal client alignment" vertex="1">
+          <mxGeometry height="35" width="361" x="355" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="cluster2-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="Cluster 2 — BAS4&#xa;3-node K3s · Arc-enabled&#xa;Both clusters connect to OT hub" vertex="1">
+          <mxGeometry height="320" width="395" x="340" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-node1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Node 1&#xa;NIC1: OT line-side&#xa;NIC2: DC VLAN" vertex="1">
+          <mxGeometry height="60" width="110" x="355" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-node2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Node 2&#xa;NIC1: OT line-side&#xa;NIC2: DC VLAN" vertex="1">
+          <mxGeometry height="60" width="110" x="480" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-node3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Node 3&#xa;NIC1: OT line-side&#xa;NIC2: DC VLAN" vertex="1">
+          <mxGeometry height="60" width="110" x="605" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-kv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Kube-VIP L2 ARP · MQTT VIP :8883 · API VIP :443" vertex="1">
+          <mxGeometry height="26" width="360" x="355" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-pg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="PostgreSQL StatefulSet · edge-db&#xa;Local disk replication across 3 nodes&#xa;R2P · StoreResults · Recipe · 8h retention&#xa;Storage pattern: pending Microsoft review" vertex="1">
+          <mxGeometry height="60" width="360" x="355" y="596" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;" value="BAS4 must stay on OT network · NIC2 must cross Palo Alto to reach DC VLAN · [CLIENT] Brandon" vertex="1">
+          <mxGeometry height="39" width="362" x="355" y="666" as="geometry" />
+        </mxCell>
+        <mxCell id="palo-fw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Palo Alto Firewall&lt;br&gt;OT to DC boundary&lt;br&gt;BAS4 NIC2 must cross this&lt;br&gt;TLS inspection exemption for Arc · [CLIENT] Brandon&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="420" x="340" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-vlan-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;On-premises Network Transit — DC VLAN&lt;br&gt;Cluster NIC 2 uplink path to ExpressRoute&lt;br&gt;No AIO project servers here · existing shared infrastructure only&lt;br&gt;Clusters sit line-side on factory floor — not in this building&lt;/span&gt;" vertex="1">
+          <mxGeometry height="667" width="492" x="801" y="43" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-switch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Building Core Switch&#xa;(routing transit only · new routable VLAN · [CLIENT] Brandon)" vertex="1">
+          <mxGeometry height="50" width="240" x="920" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-dns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="AD DNS (on-prem)&#xa;Cluster dependency — CoreDNS forwards here&#xa;Brandon to supply DNS server IPs&#xa;Conditional forwarders to Azure already in place" vertex="1">
+          <mxGeometry height="90" width="225" x="811" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-ntp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="NTP Servers — Stratum 2 (on-prem)&#xa;Cluster dependency — hard requirement&#xa;Timestamp accuracy for video forensics&#xa;Windows + Linux · DNS alias LB" vertex="1">
+          <mxGeometry height="89" width="220" x="1056" y="207" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Admin / Management access&#xa;Secure Link / VDI · kubectl :6443&#xa;Insight + client ops team access path" vertex="1">
+          <mxGeometry height="50" width="360" x="860" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-vlan-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;New routable VLAN required for NIC 2 of both clusters&lt;br&gt;Current 10.140.45.xx non-unique and non-routable · [CLIENT] Brandon to allocate&lt;/span&gt;" vertex="1">
+          <mxGeometry height="44" width="360" x="860" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-closed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="Closed network — no internet in or out&#xa;Patches via on-prem satellite server (Red Hat)&#xa;Containers via ACR private endpoint in Azure" vertex="1">
+          <mxGeometry height="50" width="360" x="863" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-er-ot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;OT ExpressRoute · Cisco SD WAN&lt;br&gt;Equinix · ~15-17ms&lt;br&gt;Both clusters use this path to OT hub&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="360" x="860" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-er-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="IT ExpressRoute · Equinix Ashburn&#xa;~30-40ms · IT hub path&#xa;(Arc · Key Vault · Azure Monitor · Databricks)" vertex="1">
+          <mxGeometry height="50" width="356" x="860" y="554" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-double-hop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=left;" value="OT to IT traffic: OT ExpressRoute → Equinix → IT ExpressRoute&#xa;Cannot peer hubs directly — Azure VWAN + DNJP policy&#xa;Databricks reads from OT hub traverse both express routes" vertex="1">
+          <mxGeometry height="60" width="360" x="860" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="tenant-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=14;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="NA Aladdin — Single Azure Tenant (Denso)" vertex="1">
+          <mxGeometry height="755" width="1230" x="1330" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="az-ot-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="OT Hub · OT Spoke&#xa;(both clusters register and send data here)" vertex="1">
+          <mxGeometry height="560" width="560" x="1340" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="az-arc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Azure Arc&#xa;Both clusters registered here&#xa;as separate Arc resources&#xa;Arc agents run on cluster nodes — not here" vertex="1">
+          <mxGeometry height="70" width="240" x="1360" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="az-eh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Event Hubs&#xa;Real-time telemetry ingestion&#xa;Traceability · OEE · HourlyAttainment" vertex="1">
+          <mxGeometry height="70" width="240" x="1620" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="az-eg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Event Grid&#xa;Andon fast-path · sub-second SLA&#xa;LineStateDown alerting" vertex="1">
+          <mxGeometry height="60" width="240" x="1360" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="az-kv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Key Vault&#xa;Cluster secrets · mTLS certs&#xa;Private endpoint" vertex="1">
+          <mxGeometry height="60" width="240" x="1620" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="az-mon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Azure Monitor&#xa;Logs + metrics · both clusters&#xa;Replaces Graylog + Elasticsearch" vertex="1">
+          <mxGeometry height="60" width="240" x="1360" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="az-acr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Azure Container Registry&#xa;ALT container images&#xa;Private endpoint · [CLIENT] confirm with Jason" vertex="1">
+          <mxGeometry height="60" width="240" x="1620" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="az-adls-ot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="ADLS Gen2&#xa;Archive · both lines · partitioned by line&#xa;Co-location: open design decision — see IT hub note" vertex="1">
+          <mxGeometry height="60" width="500" x="1360" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="az-idmz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="IDMZ VNet (Azure)&#xa;Lives in IT hub — not on-premises&#xa;OT spoke communicates to IT hub via IDMZ&#xa;Per George: IDMZ is in the IT side now" vertex="1">
+          <mxGeometry height="60" width="500" x="1360" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="az-ot-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;" value="NAIOT.com Auth · Closed network · no internet · all traffic stays within tenant or on-prem" vertex="1">
+          <mxGeometry height="34" width="500" x="1360" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="az-it-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="IT Hub · IT Spoke&#xa;(Databricks · IDMZ · IT workloads)" vertex="1">
+          <mxGeometry height="560" width="600" x="1940" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="az-databricks" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Azure Databricks&#xa;Delta Live Tables · analytics&#xa;Cannot move — stays in IT hub" vertex="1">
+          <mxGeometry height="70" width="240" x="1960" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="az-powerbi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Power BI&#xa;Cloud dashboards&#xa;Connects to Databricks gold layer" vertex="1">
+          <mxGeometry height="70" width="240" x="2230" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="az-adls-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="ADLS Gen2 (option)&#xa;If co-located with Databricks for performance&#xa;Open design decision — Mike to decide&#xa;Avoids double hop on Databricks reads" vertex="1">
+          <mxGeometry height="60" width="510" x="1960" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="az-idmz-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="IDMZ VNet&#xa;Lives here in IT hub per George&#xa;OT to IT traffic must traverse IDMZ&#xa;Firewall rules required — [CLIENT] George" vertex="1">
+          <mxGeometry height="70" width="510" x="1960" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="az-ado" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Azure DevOps&#xa;Self-hosted agent in IT hub&#xa;CI/CD pipelines · Flux CD&#xa;~60-70/month for agent" vertex="1">
+          <mxGeometry height="70" width="240" x="2090" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="az-it-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;align=left;" value="NA.Denso.com Auth · Cannot peer with OT hub directly · Azure VWAN + DNJP policy" vertex="1">
+          <mxGeometry height="32" width="510" x="1960" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="no-conn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;No direct connectivity between OT hub and IT hub within the tenant&lt;br&gt;OT to IT traffic: OT ExpressRoute → Equinix → IT ExpressRoute (double hop)&lt;br&gt;Cannot peer — Azure VWAN on IT side + DNJP policy prohibits direct peering&lt;/span&gt;" vertex="1">
+          <mxGeometry height="68" width="660" x="1622" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="e-atlas-plc-gw" edge="1" parent="1" source="atlas-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="atlas-gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-atlas-gw-c1" edge="1" parent="1" source="atlas-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c1-node1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="319" y="230" />
+              <mxPoint x="319" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-bas4-plc-gw" edge="1" parent="1" source="bas4-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="bas4-gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-bas4-gw-c2" edge="1" parent="1" source="bas4-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c2-node1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="317" y="600" />
+              <mxPoint x="317" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-c1-dc" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;entryX=0;entryY=0.54;entryDx=0;entryDy=0;entryPerimeter=0;" target="dc-switch">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="183" />
+              <mxPoint x="898" y="183" />
+              <mxPoint x="898" y="147" />
+            </Array>
+            <mxPoint x="535" y="171" as="sourcePoint" />
+            <mxPoint x="794" y="173" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-c2-fw" edge="1" parent="1" source="c2-node2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="palo-fw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="553" />
+              <mxPoint x="760" y="553" />
+              <mxPoint x="760" y="753" />
+              <mxPoint x="550" y="753" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-fw-dc" edge="1" parent="1" source="palo-fw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="dc-switch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dc-dns" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-dns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dc-ntp" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-ntp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dc-admin" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-admin">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="205" />
+              <mxPoint x="1050" y="205" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-dc-ot-er" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="dc-er-ot">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1284" y="145" />
+              <mxPoint x="1284" y="489" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-er-ot-az" edge="1" parent="1" source="dc-er-ot" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="az-arc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-er-it-az" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1217" y="586" />
+              <mxPoint x="1217" y="584" />
+              <mxPoint x="1233" y="584" />
+              <mxPoint x="1233" y="625" />
+              <mxPoint x="2066" y="625" />
+            </Array>
+            <mxPoint x="1221" y="586" as="sourcePoint" />
+            <mxPoint x="2066" y="238" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="24" width="100" x="199" y="904" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Red solid — line-side traffic (NIC 1)" vertex="1">
+          <mxGeometry height="28" width="230" x="199" y="932" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;strokeWidth=2;" value="Red dashed — BAS4 NIC2 crossing Palo Alto" vertex="1">
+          <mxGeometry height="28" width="230" x="199" y="975" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Gold — DC VLAN transit / NIC 2" vertex="1">
+          <mxGeometry height="28" width="220" x="475" y="932" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Blue — IT hub path via IT ExpressRoute" vertex="1">
+          <mxGeometry height="28" width="220" x="475" y="977" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Red — OT hub path via OT ExpressRoute" vertex="1">
+          <mxGeometry height="28" width="230" x="199" y="1016" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Green — Edge components (no Azure dependency)" vertex="1">
+          <mxGeometry height="28" width="222" x="475" y="1022" as="geometry" />
+        </mxCell>
+        <mxCell id="leg7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Yellow — Open design decision pending" vertex="1">
+          <mxGeometry height="28" width="230" x="197" y="1050" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
