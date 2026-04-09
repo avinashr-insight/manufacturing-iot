@@ -1,11 +1,26 @@
+# Topics
+
+Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  Lines can share CDC lines or MQTT topics, but data must be segregated
+by message type (CDC or MQTT).
+
+# Databricks Jobs
+
+Due to a maximum number of concurrent jobs (1000) and other resoruce limits in Databricks, each CDC and MQTT streaming job will read more than
+one line's data at once.  All streaming jobs will use job compute and each job cluster will have a defined minimum (1) and max 
+nubmer of workers to read the assigned topics.  
+
+
+All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called 
+Declarative Automation Bundles).
+
 # Fast Path and Slow Path
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
 
 # Edge Database 
 
-The edge database will have a limited number of clients and contain the minimal amount of data to keep access fast.  The 
-ALT API and data purging processes should be the only clients with direct access.  For reporting, users should use the Databricks
+The edge database will have a limited number of clients and contain the minimal amount of data to keep access as fast as possible.  
+The ALT API and data purging processes should be the only clients with direct access.  For reporting, users should use the Databricks
 tables with will have a near real time copy of the edge database data.
 
 For the edge database, we have chosen Postgresql.  Features include:
@@ -17,6 +32,10 @@ For the edge database, we have chosen Postgresql.  Features include:
 
 Since the critical data is all in the edge database (PLMS operational data and PLMS_\<site\> in process part processing) all the entries will be able
 to keep processing regardless of Azure connectivity.  
+
+This assumes:
+1. ALT API does not use any MSSQL only features
+2. There is no need for stored procedures (even though PostgreSQL does suppor them)
 
 # Databricks
 
@@ -47,7 +66,8 @@ The jobs that read CDC information will have the following paramters:
 
 Once the data is in the topic, it will be read by a Databricks process that will:
 - Determine the target table and group records by the table they will be getting sent to (each message will have source schema and source table)
-- Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged.  These will be set via tags and looked up by querying the informamtion_schema.table_tags table.  
+- Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged.
+  These values will be set via table level tags and looked up by querying the informamtion_schema.table_tags table.  
 - If the table is purged filter out delete entries
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
@@ -67,7 +87,21 @@ Each MQTT job will have the following parameters:
 6. broker URL
 7. Secret name with broker access key
 
-MQTT events will be forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  First, it'll extract a set of fields from the JSON (message type, timestamp, machine) if they exist.  Next it will append to the mqtt_bronze.\<line\>_mqtt_events.
+MQTT events will be forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  
+First, it'll extract a set of fields from the JSON (message type, timestamp, machine) if they exist.  Next it will append to 
+the mqtt_bronze.\<line\>_mqtt_events.
+
+# Controller Job
+
+A controller job will run on a 10 minute interval schedule When triggered, the job will:
+- Query the Databricks jobs API endpoint and find all the streaming jobs (tagged with the 'streaming' tag)
+- For each job:
+   - Check the line hours for all the lines the job monitors (a comma delimited list under the 'lines' tag)
+   - if  it's 30 minutes or less before the start any of the lines it's monitoring, trigger the streaming job
+   - If the job is running and it's past the end time for all the lines it is monitoring, terminate the job.  
+
+The job will have the following parameters:
+1. 
 
 # One time loads
 
@@ -102,13 +136,8 @@ exists, the edge database record is deleted.
 For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are above the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
 
-If the connection to Azure is not available, both purge processes will not run.
-
-# Non-operational data pipeline
-
-All machine metrics and MQTT data will be forwared to an event hub topic.  A Databricks streaming job will read the events (that will be
-in JSON format) and store them in a 'raw' delta table that will store the data in the JSON format.  The JSON data can be queried via SQL directly 
-or pyspark.
+If the connection to Azure is not available, both purge processes will not run.  If a line has offline time, the purge process for 
+the line will be scheduled during the line downtime.
 
 # Data Access
 
@@ -146,7 +175,9 @@ also be connected to show near real time dashboards.
 
 ## Archiving Data (data older than 100 days, short term)
 
-Weekly a process will run across all the tables in the PLMS_\<site\> schemas that will take any record with an age > 100 days and put it in the coorsponding table in the PLMS_\<site\>_archive schema.  It will then delete the records from the source table.  For the PLMS schema, for each table with historical information it will copy the records to the corresponding table in the PLMS_ARCHIVE schema 
+Weekly a process will run across all the tables in the PLMS_\<site\> schemas that will take any record with an age > 100 days and put it 
+in the coorsponding table in the PLMS_\<site\>_archive schema.  It will then delete the records from the source table.  For the PLMS schema, 
+for each table with historical information it will copy the records to the corresponding table in the PLMS_ARCHIVE schema 
 
 ## Long Term Archive Plan ( data older than 100 days, long term)
 
@@ -167,29 +198,20 @@ the soruce table exactly).
 
 ## Seeding the Edge Databases
 
+Using the exported schema from the SQL server database, All the PLMS tables will be created in the edge database.  For the site and line the 
+appropate PLMS_\<site\> tables will be created.
+
 Each edge database will need to be seeded with:
 1. A copy of all the tables in the PLMS Database (with some historical data)
 2. Any tables from the PLMS_\<site\> schema that store the part related data for the line.
 
 ## Updating Control Data on the Edge Database
 
-The K3s cluster will not have access to original SQL Server database, updates to configuration will be done via the ALT API instance running in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
+The K3s cluster will not have access to original SQL Server database, updates to configuration will be done via the ALT API instance running 
+in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
 
 ## Loading Archived Data
 
 Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
 catalog to allow the new archive process to be developed.
 
-# Databricks Jobs
-
-Due to a maximum number of concurrent jobs (1000) and other resoruce limits in Databricks, each CDC and MQTT streaming job will read more than
-one line's data at once.  All streaming jobs will use job compute to keep costs lower, each job cluster will have a defined minimum (1) and max nubmer of workers to read the assigned topics.  Each line will have it's own Azure Event Hub topics for edge database replication and MQTT messages to provide 
-isoliation by line.  
-
-The streaming jobs will be designed to have operating hours defined for lines that don't operate 24/7.
-
-A controller job will run on an interval schedule to shut down idle jobs that are monitoring lines that are outside of operating hours. 
-
-# Topics
-
-Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  
