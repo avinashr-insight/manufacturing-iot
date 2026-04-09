@@ -72,7 +72,7 @@ inside of databricks using sql.
 
 To keep the data in the edge database small, there will be a purge process with two facets:
 1. purge PLMS non-part data
-2. PLMS part data (PLMS site schemas)
+2. PLMS part data (PLMS_\<site\> schemas)
 
 For non-part data, each table will have a TTL defined.  When the purge process runs, the process will query databricks
 for the table TTL, the column that determines the TTL, and primary key column.  The process will query the edge database
@@ -149,13 +149,11 @@ the soruce table exactly).
 
 Each edge database will need to be seeded with:
 1. A copy of all the tables in the PLMS Database (with some historical data)
-2. The tables from the PLMS_\<site\> schema that store the part related data.
+2. Any tables from the PLMS_\<site\> schema that store the part related data for the line.
 
-## Updating the Edge Database
+## Updating Control Data on the Edge Database
 
-When tables that contain control data need to be updated, they will be updated on the Databricks side (tables that contain control data
-will be tagged with 'control').  Once the updates are complete, the user will trigger a databricks job that will publish a message that will
-cause the cooresponding edge tables to be reloaded from Databricks.
+The K3s cluster will not have access to original SQL Server database, updates to configuration will be done via the ALT API instance running in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
 
 ## Loading Archived Data
 
@@ -164,12 +162,30 @@ catalog to allow the new archive process to be developed.
 
 # Databricks Jobs
 
-All streaming jobs will use job compute to keep costs lower, each job cluster will have a defined minimum (1) and max nubmer of workers to
-read teh assigned topics.  Each line will have it's own Azure Event Hub topics for edge database replication and MQTT messages to provide 
-isoliation by line.  The architecture will allow a single job to montior multiple lines (with the same kind of data).  If the volume requires 
-it, a topic can have a single consumer job.
+Each line will have two streaming jobs associated with it:  One to read MQTT data and one to read the CDC messages from the edge database. 
+The jobs that read CDC information will have the following paramters:
+1. Lines to monitor  
+2. Hours of operation for each line
+3. Target catalog
+
+Based on the line names to monitor, the job will deduce the topic names to monitor.  Each CDC message will have the source table and schema.
+
+Each MQTT job will have the following parameters:
+1. Lines to monitor
+2. Hours of operation for each line
+4. Target Catalog
+5. Target schema (defaults to mqtt_data)
+
+Based on the line names the job will deduce the topic names to monitor and the target table name for the MQTT data.
+
+Due to a maximum number of concurrent jobs (1000) and other resoruce limits in Databricks, each CDC and MQTT streaming job will read more than
+one line's data at once.  All streaming jobs will use job compute to keep costs lower, each job cluster will have a defined minimum (1) and max nubmer of workers to read the assigned topics.  Each line will have it's own Azure Event Hub topics for edge database replication and MQTT messages to provide 
+isoliation by line.  
+
+The streaming jobs will be designed to have operating hours defined for lines that don't operate 24/7.
+
+A controller job will run on an interval schedule to shut down idle jobs that are monitoring lines that are outside of operating hours. 
 
 # Topics
 
 Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  
-
