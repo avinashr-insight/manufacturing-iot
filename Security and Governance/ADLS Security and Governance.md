@@ -138,7 +138,7 @@ A good private DNS design is what allows clients to keep using the normal storag
 
 ### 4.5 Encryption and Key Management
 
-- Azure Storage data is encrypted at rest by default with service-side encryption, and Microsoft documents that encryption applies across storage types and redundancy options. citeturn2search42
+- Azure Storage data is encrypted at rest by default with service-side encryption, and Microsoft documents that encryption applies across storage types and redundancy options. [Azure Storage encryption for data at rest](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 - Where stronger control of cryptographic material is required, configure **customer-managed keys (CMK)** in Azure Key Vault or Managed HSM. Microsoft documents that Azure Storage can use a managed identity to access the CMK with `get`, `wrapKey`, and `unwrapKey` permissions. [Customer-managed keys for Azure Storage encryption](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview)
 - Use **separation of duties** between storage administrators, key administrators, and data consumers so CMK adds meaningful governance instead of just additional complexity. Azure Storage CMK guidance explicitly relies on an identity-to-Key Vault permission model. [Customer-managed keys for Azure Storage encryption](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview)
 - Use **Azure Policy** to require CMK where regulatory or client policy demands it. Microsoft notes that built-in policy support exists for requiring customer-managed keys for applicable storage workloads. [Customer-managed keys for Azure Storage encryption](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview)
@@ -162,7 +162,7 @@ A good private DNS design is what allows clients to keep using the normal storag
 
 Recommended Azure Policy themes include:
 
-- Storage accounts should **disable public network access** or otherwise restrict exposure. citeturn1search46turn1search51
+- Storage accounts should **disable public network access** or otherwise restrict exposure. [Azure Storage network security overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security-overview)
 - Storage accounts should require **secure transfer**. Microsoft maps this control in storage compliance guidance. [Azure Storage network security overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security-overview)
 - Storage encryption should use **customer-managed keys** where required. [Customer-managed keys for Azure Storage encryption](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview)
 - Arc-enabled Kubernetes clusters should be governed through **Azure Policy** and protected with **Defender for Containers**. [Azure Arc-enabled Kubernetes overview](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview), [Defender for Containers on Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-arc-overview)
@@ -326,7 +326,7 @@ For ADLS Gen2, the crucial design point is that **delete recovery is native**, b
 ### Monitoring / Governance
 - [ ] Enable diagnostic settings and send logs/metrics to Log Analytics or approved destinations. [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings)
 - [ ] Define alerting for denied access, request failures, abnormal deletes, and edge-to-cloud export failures. [Monitor Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage), [Defender for Containers on Arc-enabled Kubernetes](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-arc-overview)
-- [ ] Assign Azure Policy guardrails for storage network access, secure transfer, and encryption. citeturn1search46turn1search51
+- [ ] Assign Azure Policy guardrails for storage network access, secure transfer, and encryption. [Azure Storage network security overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security-overview)
 
 ---
 

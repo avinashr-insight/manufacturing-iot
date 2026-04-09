@@ -107,7 +107,7 @@ If you evaluate **Event Grid on Kubernetes** for a future supported platform, Mi
 
 **Prescriptive secret and certificate recommendations:**
 - Use a **central certificate authority model** and defined issuance/rotation windows for all eventing certificates. (Design recommendation.)
-- Keep private keys out of repositories and store external secrets in a governed secret store; Azure Arc documentation includes the ability to access secrets from Azure Key Vault for Arc-enabled Kubernetes scenarios. citeturn1search2
+- Keep private keys out of repositories and store external secrets in a governed secret store; Azure Arc documentation includes the ability to access secrets from Azure Key Vault for Arc-enabled Kubernetes scenarios. 
 - Rotate eventing certificates and keys on a schedule aligned to plant maintenance windows and rehearse rollback. (Design recommendation.)
 
 ### 4.4 Network Security and Segmentation
