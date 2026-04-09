@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="fi1z0rKmqK9VEJAy-eu1">
+    <mxGraphModel dx="1199" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Purge Process" vertex="1">
+          <mxGeometry height="640" width="370" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-14" edge="1" parent="Q8Rqce8XoDtzBNLLLjoL-3" source="Q8Rqce8XoDtzBNLLLjoL-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q8Rqce8XoDtzBNLLLjoL-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-7" parent="Q8Rqce8XoDtzBNLLLjoL-3" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="query table_tags for all tables with &#39;purged&#39; tag" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-16" edge="1" parent="Q8Rqce8XoDtzBNLLLjoL-3" source="Q8Rqce8XoDtzBNLLLjoL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="223" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-10" parent="Q8Rqce8XoDtzBNLLLjoL-3" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="select TTL and PK values from table_tags" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-17" parent="Q8Rqce8XoDtzBNLLLjoL-3" style="swimlane;whiteSpace=wrap;html=1;" value="For each table" vertex="1">
+          <mxGeometry height="220" width="320" x="30" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-23" parent="Q8Rqce8XoDtzBNLLLjoL-17" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Query Databricks table to see if the record exists" vertex="1">
+          <mxGeometry height="60" width="170" x="20" y="41" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-26" parent="Q8Rqce8XoDtzBNLLLjoL-17" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="If record exists in Databricks delete from edge database" vertex="1">
+          <mxGeometry height="60" width="170" x="20" y="117" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-31" parent="Q8Rqce8XoDtzBNLLLjoL-3" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="query all records from edge database that are greater than the TTL that are marked &#39;complete&#39;" vertex="1">
+          <mxGeometry height="126" width="170" x="30" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="kSw08hDLV32XRJhW2H09-1" edge="1" parent="Q8Rqce8XoDtzBNLLLjoL-3" source="Q8Rqce8XoDtzBNLLLjoL-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.275;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q8Rqce8XoDtzBNLLLjoL-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-4" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="300" width="330" x="480" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-6" parent="Q8Rqce8XoDtzBNLLLjoL-4" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="informational_schema.table_tags" vertex="1">
+          <mxGeometry height="60" width="210" x="40" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-20" parent="Q8Rqce8XoDtzBNLLLjoL-4" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="110" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-9" edge="1" parent="1" source="Q8Rqce8XoDtzBNLLLjoL-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.033;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q8Rqce8XoDtzBNLLLjoL-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-11" edge="1" parent="1" source="Q8Rqce8XoDtzBNLLLjoL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.462;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q8Rqce8XoDtzBNLLLjoL-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-18" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Edge Database (PLMS_&amp;lt;site&amp;gt;)" vertex="1">
+          <mxGeometry height="200" width="200" x="440" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-19" parent="Q8Rqce8XoDtzBNLLLjoL-18" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-24" edge="1" parent="1" source="Q8Rqce8XoDtzBNLLLjoL-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Q8Rqce8XoDtzBNLLLjoL-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="The idea is to have the purge logic coupled to the edge as well as the cloud so data does not get lost when not connected to Azure." vertex="1">
+          <mxGeometry height="80" width="310" x="40" y="709" as="geometry" />
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-25" edge="1" parent="1" source="Q8Rqce8XoDtzBNLLLjoL-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q8Rqce8XoDtzBNLLLjoL-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="330" as="sourcePoint" />
+            <mxPoint x="530" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q8Rqce8XoDtzBNLLLjoL-30" edge="1" parent="1" source="Q8Rqce8XoDtzBNLLLjoL-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" target="Q8Rqce8XoDtzBNLLLjoL-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
