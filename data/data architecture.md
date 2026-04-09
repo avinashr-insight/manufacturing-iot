@@ -1,6 +1,6 @@
- # Fast Path and Slow Path
+# Fast Path and Slow Path
 
-The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).
+The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
 
 # Edge Database 
 
@@ -153,4 +153,8 @@ All streaming jobs will use job compute to keep costs lower, each job cluster wi
 read teh assigned topics.  Each line will have it's own Azure Event Hub topics for edge database replication and MQTT messages to provide 
 isoliation by line.  The architecture will allow a single job to montior multiple lines (with the same kind of data).  If the volume requires 
 it, a topic can have a single consumer job.
+
+# Topics
+
+Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  
 
