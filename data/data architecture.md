@@ -34,20 +34,40 @@ To provide a low latency way to extract data that doesn't depend on watermark qu
 As the edge database processes inserts, deletes, and updates the edge database will populate the transaction log. The sync process will 
 utilize debezium to read the transaction log entries and translate them into JSON.  Once the data is in JSON format the events will
 be sent to an Azure Event Hub topic.  Once sent, the process will move on to the next entry.  If access to Azure is interrupted, the changes
-will queue up locally until it is reestablished.  Once that happens, all changes will be sent to the topic to be processed by databricks.
+will queue up locally until it is reestablished.  Once that happens, all changes will be sent to the topic to be processed by databricks.  Each 
+schema in the edge database will have it's own CDC monitor.  
 
-Each schema will have it's own CDC monitor.
+The jobs that read CDC information will have the following paramters:
+1. Lines to monitor
+2. topics to monitor
+3. Hours of operation for each line
+4. Target catalog
+5. broker URL
+6. Secret name with broker access key
 
 Once the data is in the topic, it will be read by a Databricks process that will:
-- Determine the target table and group records by the table they will be getting sent to
+- Determine the target table and group records by the table they will be getting sent to (each message will have source schema and source table)
 - Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged.  These will be set via tags and looked up by querying the informamtion_schema.table_tags table.  
 - If the table is purged filter out delete entries
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
 
+This flow will no use a bronze table because the data is considered finished state data (silver).
+
 # MQTT Data
 
-MQTT events are forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  First, it'll extract a set of fields from the JSON (line, message type, timestamp, machine) if they exist.  Next it will append to the bronze mqtt_events.   
+MQTT Data for each line will be stored in it's own table under the mqtt_bronze schema.  It's considered bronze due to it being unprocessed MQTT events.
+
+Each MQTT job will have the following parameters:
+1. Lines to monitor
+2. Topics to monitor
+3. Hours of operation for each line
+4. Target Catalog
+5. Target schema (defaults to mqtt_data)
+6. broker URL
+7. Secret name with broker access key
+
+MQTT events will be forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  First, it'll extract a set of fields from the JSON (message type, timestamp, machine) if they exist.  Next it will append to the mqtt_bronze.\<line\>_mqtt_events.
 
 # One time loads
 
@@ -161,22 +181,6 @@ Depending on the data size, a solution such as Azure Data Box may be used.  Once
 catalog to allow the new archive process to be developed.
 
 # Databricks Jobs
-
-Each line will have two streaming jobs associated with it:  One to read MQTT data and one to read the CDC messages from the edge database. 
-The jobs that read CDC information will have the following paramters:
-1. Lines to monitor  
-2. Hours of operation for each line
-3. Target catalog
-
-Based on the line names to monitor, the job will deduce the topic names to monitor.  Each CDC message will have the source table and schema.
-
-Each MQTT job will have the following parameters:
-1. Lines to monitor
-2. Hours of operation for each line
-4. Target Catalog
-5. Target schema (defaults to mqtt_data)
-
-Based on the line names the job will deduce the topic names to monitor and the target table name for the MQTT data.
 
 Due to a maximum number of concurrent jobs (1000) and other resoruce limits in Databricks, each CDC and MQTT streaming job will read more than
 one line's data at once.  All streaming jobs will use job compute to keep costs lower, each job cluster will have a defined minimum (1) and max nubmer of workers to read the assigned topics.  Each line will have it's own Azure Event Hub topics for edge database replication and MQTT messages to provide 
