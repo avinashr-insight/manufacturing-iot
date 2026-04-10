@@ -130,6 +130,22 @@ The job will have the following parameters:
 1. Secret name for the service principal client id
 2. Secret name for the service principal OAuth secret
 
+```mermaid
+sequenceDiagram
+    Query Streaming jobs->>+for each job: Streaming jobs
+    for each job->>+Get Lines: Job ID
+    Get Lines->>+for each job: Lines Monitored
+    for each job->>+for each line: Lines Monitored
+    for each line->>+should job be started: Line to check
+    should job be started->>+Check Line: True
+    Check Line->>+Is Running: 
+    Is Running->>+Start Job: False
+    should job be started->>+Check Line: False
+    Check Line->>+Is Running:
+    Is Running->>+Stop Job: True
+
+```
+
 # One time loads
 
 (see Historical Data Loading.drawio)
