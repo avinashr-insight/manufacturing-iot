@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alt-core-api
+  labels:
+    app: alt-core-api
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: alt-core-api
+  template:
+    metadata:
+      labels:
+        app: alt-core-api
+    spec:
+      containers:
+        - name: alt-core-api
+          image: "{{ .Values.image.repository }}/{{ .Values.image.altCoreApi.name }}:{{ .Values.image.altCoreApi.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+          env:
+            - name: ALT_CORE_ENV
+              value: "URLS" # see appsettings.json for expected env vars
+            - name: ConnectionStrings__DefaultConnection # move secrets from appsettings to key vault
+              valueFrom:
+                secretKeyRef:
+                  name: alt-core-api-secrets
+                  key: db-connection-string
+          resources:
+            requests:
+              memory: "{{ .Values.resources.requests.memory }}"
+              cpu: "{{ .Values.resources.requests.cpu }}"
+            limits:
+              memory: "{{ .Values.resources.limits.memory }}"
+              cpu: "{{ .Values.resources.limits.cpu }}"
+          volumeMounts:
+            - name: secrets-store-inline
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+      volumes:
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "azure-keyvault-altcoreapi"

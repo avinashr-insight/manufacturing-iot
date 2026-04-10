@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux
+  labels:
+    app: flux
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: flux
+  template:
+    metadata:
+      labels:
+        app: flux
+    spec:
+      containers:
+        - name: flux
+          image: "{{ .Values.image.repository }}/{{ .Values.image.flux.name }}:{{ .Values.image.flux.tag }}"
+          ports:
+            - containerPort: 80
+          env:
+            - name: FLUX_ENV
+              value: "URLS" # see clientApp angluar environment.ts for expected env vars
+          resources:
+            requests:
+              cpu: "{{ .Values.resources.flux.requests.cpu }}"
+              memory: "{{ .Values.resources.flux.requests.memory }}"
+            limits:
+              cpu: "{{ .Values.resources.flux.limits.cpu }}"
+              memory: "{{ .Values.resources.flux.limits.memory }}"

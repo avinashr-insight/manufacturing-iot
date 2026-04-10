@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alt-ui
+  labels:
+    app: alt-ui
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: alt-ui
+  template:
+    metadata:
+      labels:
+        app: alt-ui
+    spec:
+      containers:
+        - name: alt-ui
+          image: "{{ .Values.image.repository }}/{{ .Values.image.altUi.name }}:{{ .Values.image.altUi.tag }}"
+          ports:
+            - containerPort: 80
+          env:
+            - name: ALT_UI_ENV
+              value: "URLS" # see clientApp angluar environment.ts for expected env vars
+          resources:
+            requests:
+              cpu: "{{ .Values.resources.altUi.requests.cpu }}"
+              memory: "{{ .Values.resources.altUi.requests.memory }}"
+            limits:
+              cpu: "{{ .Values.resources.altUi.limits.cpu }}"
+              memory: "{{ .Values.resources.altUi.limits.memory }}"

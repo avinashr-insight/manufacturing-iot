@@ -1,0 +1,44 @@
+replicaCount: 3
+
+image:
+  repository: azurecr.io/aioregistry
+  altCoreApi: 
+    name: alt-core-api
+    tag: "latest"
+  altUi: 
+    name: alt-ui
+    tag: "latest"
+  flux: 
+    name: flux
+    tag: "latest"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+resources:
+  altCoreApi:
+    limits:
+      cpu: 100m
+      memory: 1Gi
+    requests:
+      cpu: 50m
+      memory: 256Mi
+  altUi:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
+  flux:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
