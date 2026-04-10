@@ -7,7 +7,7 @@
         <mxCell id="tenant-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=14;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="NA Aladdin — Single Azure Tenant (Denso)" vertex="1">
           <mxGeometry height="1137" width="1230" x="1330" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="6MLanZ464Bdnay-qrb1a-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="IDMZ VNet&lt;div&gt;Traffic to IT HUB can traverse VNET Peering through VWAN FW&lt;/div&gt;&lt;div&gt;Traffic to OT Hub must traverse express route&lt;/div&gt;&lt;div&gt;FW Rules required for Ingress/Egress&lt;/div&gt;" vertex="1">
+        <mxCell id="6MLanZ464Bdnay-qrb1a-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="IDMZ VNet&lt;div&gt;Traffic to IT HUB can traverse VNET Peering through VWAN FW&lt;/div&gt;&lt;div&gt;Traffic to OT Hub must traverse express route&lt;/div&gt;&lt;div&gt;FW Rules required for Ingress/Egress&lt;/div&gt;&lt;div&gt;CIDR: xxx.xxx.xxx/27&lt;/div&gt;" vertex="1">
           <mxGeometry height="547" width="1041" x="1444" y="574" as="geometry" />
         </mxCell>
         <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="AIO Edge Cluster — Network Topology&#xa;Maryville DMTN · Atlas/103 + BAS4" vertex="1">
@@ -106,7 +106,7 @@
         <mxCell id="dc-double-hop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;OT to IT traffic: OT ExpressRoute → Equinix → IT ExpressRoute&lt;br&gt;Cannot peer hubs directly — Azure VWAN&lt;br&gt;Databricks reads from OT hub traverse both express routes&lt;/font&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="60" width="360" x="867" y="724" as="geometry" />
         </mxCell>
-        <mxCell id="az-ot-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;snapToPoint=0;fixDash=0;movable=1;pointerEvents=0;" value="OT Hub · OT Spoke&#xa;(both clusters register and send data here)" vertex="1">
+        <mxCell id="az-ot-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;snapToPoint=0;fixDash=0;movable=1;pointerEvents=0;" value="OT Hub · OT Spoke&lt;br&gt;(both clusters register and send data here)&lt;div&gt;CIDR: xxx.xxx.xxx/28&lt;/div&gt;" vertex="1">
           <mxGeometry height="210" width="546" x="1355" y="141" as="geometry" />
         </mxCell>
         <mxCell id="az-arc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Arc&#xa;Both clusters registered here&#xa;as separate Arc resources&#xa;Arc agents run on cluster nodes — not here" vertex="1">
