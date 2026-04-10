@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="qTOlw2gOdShMVgrJY-iz">
-    <mxGraphModel dx="1828" dy="2491" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="2568" dy="3021" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -160,23 +160,28 @@
         <mxCell id="e-atlas-plc-gw" edge="1" parent="1" source="atlas-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="atlas-gw">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-atlas-gw-c1" edge="1" parent="1" source="atlas-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c1-node1">
+        <mxCell id="e-atlas-gw-c1" edge="1" parent="1" source="atlas-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;entryX=0.11;entryY=0.683;entryDx=0;entryDy=0;entryPerimeter=0;" target="c1-kv">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="319" y="230" />
-              <mxPoint x="319" y="145" />
+              <mxPoint x="296" y="230" />
+              <mxPoint x="296" y="207" />
+              <mxPoint x="353" y="207" />
+              <mxPoint x="353" y="213" />
+              <mxPoint x="356" y="213" />
+              <mxPoint x="356" y="208" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="e-bas4-plc-gw" edge="1" parent="1" source="bas4-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="bas4-gw">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-bas4-gw-c2" edge="1" parent="1" source="bas4-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c2-node1">
+        <mxCell id="e-bas4-gw-c2" edge="1" parent="1" source="bas4-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c2-kv">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="317" y="600" />
-              <mxPoint x="317" y="515" />
+              <mxPoint x="317" y="572" />
             </Array>
+            <mxPoint x="370" y="578" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e-c1-dc" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;entryX=0;entryY=0.54;entryDx=0;entryDy=0;entryPerimeter=0;" target="dc-switch">
