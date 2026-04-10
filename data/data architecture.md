@@ -221,7 +221,7 @@ the line will be scheduled during the line downtime.
 
 ## ALT API
 
-ALT API will not have direct access to the historical data in Databricks due to it's current archiecture.  A Dashboard can be constructed to lookup part data from 0 90 days.
+ALT API will not have direct access to the historical data in Databricks due to it's current archiecture.  A dashboard will be constructed to lookup part data from 0 90 days.
 
 ## storage
 
@@ -236,6 +236,18 @@ the default storage location.  Once created, the lower schemas are created (PLMS
 that is in the edge tables).  This setup takes advantage of Databricks managed tables, which enables using features such as Predictive 
 optimization.  All tables will be under the container@storage account/directory/<catalog>/ directory with UUID directory names.  
 It's not recommended to read these directories directly, but to go through the table entities.  
+
+```mermaid
+sequenceDiagram
+    Read/Write->>+Table: Request (as user)
+    Table->>+Databricks: Request (as user)
+    Databricks->>+ACLS: Request (as user)
+    ACLS->>+Databricks: Allow/Deny
+    Databricks->>+Allowed: Request (as user)
+    Allowed->>+Private Storage Endpoint: Request (Using Access Connector)
+    Private Storage Endpoint->>+Files: Request (Using Access Connector)
+    
+```
 
 ## Serverless Compute
 
@@ -252,9 +264,11 @@ also be connected to show near real time dashboards.
 ## Archiving Data (data older than 100 days, short term)
 
 For each table in the PLMS_\<site\> schemas:
-- Select all records from the table that are greater than 100 days old
+- Select all records from the table that are greater than 90 days old
 - Insert the records in the coorsponding table in the PLMS_\<site\>_archive schema
 - Delete the records that were inserted into the archive table from the source table.
+
+
 
 for the tables in the PLMS schema that need to be archived (tagged with the 'archive' tag):
 - Select all records from the table that are greater than 100 days old
