@@ -10,13 +10,20 @@ Due to a maximum number of concurrent jobs (1000) and other resoruce limits in D
 one line's data at once.  All streaming jobs will use job compute and each job cluster will have a defined minimum (1) and max 
 nubmer of workers to read the assigned topics.  
 
-
 All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called 
 Declarative Automation Bundles).
 
 # Fast Path and Slow Path
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
+
+# Visualization
+
+There will three tools for visulaizations:
+- AIO cluster hosted ALT UI
+- Azure Log Analytics/Grafana (ALT-API stats only)
+- Power BI (Dashboards based on Databricks data)
+  - Two dashboards :TBD
 
 # Edge Database 
 
@@ -192,7 +199,6 @@ sequenceDiagram
 
 ```
 
-
 For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are above the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
 
@@ -221,7 +227,7 @@ the line will be scheduled during the line downtime.
 
 ## ALT API
 
-ALT API will not have direct access to the historical data in Databricks due to it's current archiecture.  A dashboard will be constructed to lookup part data from 0 90 days.
+ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to it's current archiecture.  A dashboard will be constructed to lookup part data from 0 90 days.
 
 ## storage
 
@@ -312,4 +318,23 @@ in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
 
 Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
 catalog to allow the new archive process to be developed.
+
+## Service Principals, groups, and Authenication
+
+### Service Principals
+
+We will be using three service principals:
+- The 'run as' principal for the jobs
+- The principal that Power BI will use access Databricks
+- A principal for the on prem purge jobs to query the warehouse endpoint.
+
+### Service Principals Authenication
+
+For both service principals, we will need OAuth secrets created.  
+
+### Groups
+
+We will need at least two groups defined:
+- Owner for the target schemas and tables
+- Read only group for users to access the data
 
