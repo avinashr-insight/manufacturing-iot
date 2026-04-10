@@ -1,3 +1,4 @@
+
 # Topics
 
 Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  Lines can share CDC lines or MQTT topics, but data must be segregated
@@ -74,6 +75,20 @@ Once the data is in the topic, it will be read by a Databricks process that will
 
 This flow will no use a bronze table because the data is considered finished state data (silver).
 
+```mermaid
+sequenceDiagram
+    ALT_API->>+Edge Database: Insert, Update, Delete
+    Edge Database->>+Transaction Log: CRUD Entries
+    Transaction Log->>+Transaction Log Reader: Transaction Log Entries
+    Transaction Log Reader->>+Azure Event Hub: Transaction Log Entries As JSON
+    Azure Event Hub->>+Databricks Streaming Job: Transaction Log Entries As JSON
+    Databricks Streaming Job->>+Table Rows: Convert JSON to a table row
+    Table Rows->>+Determine Primary Key: table rows, primary key
+    Determine Primary Key->>+Databricks Table: Merge data into table
+
+```
+
+
 # MQTT Data
 
 MQTT Data for each line will be stored in it's own table under the mqtt_bronze schema.  It's considered bronze due to it being unprocessed MQTT events.
@@ -90,6 +105,17 @@ Each MQTT job will have the following parameters:
 MQTT events will be forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  
 First, it'll extract a set of fields from the JSON (message type, timestamp, machine) if they exist.  Next it will append to 
 the mqtt_bronze.\<line\>_mqtt_events.
+
+```mermaid
+sequenceDiagram
+    MQTT->>+AIO: MQTT Messages
+    AIO->>+Azure Event Hub: MQTT Messages as JSON
+    Azure Event Hub->>+Databricks Streaming Source: MQTT Messages as JSON
+    Databricks Streaming Source->>+Extract fields: MQTT Messages as JSON
+    Extract fields->>+Table Row: MQTT Messages as JSON, metadata fields
+    Table Row->>+Databricks Table: Append Rows
+
+```
 
 # Controller Job
 
@@ -176,9 +202,17 @@ also be connected to show near real time dashboards.
 
 ## Archiving Data (data older than 100 days, short term)
 
-Weekly a process will run across all the tables in the PLMS_\<site\> schemas that will take any record with an age > 100 days and put it 
-in the coorsponding table in the PLMS_\<site\>_archive schema.  It will then delete the records from the source table.  For the PLMS schema, 
-for each table with historical information it will copy the records to the corresponding table in the PLMS_ARCHIVE schema 
+For each table in the PLMS_\<site\> schemas:
+- Select all records from the table that are greater than 100 days old
+- Insert the records in the coorsponding table in the PLMS_\<site\>_archive schema
+- Delete the records that were inserted into the archive table from the source table.
+
+for the tables in the PLMS schema that need to be archived (tagged with the 'archive' tag):
+- Select all records from the table that are greater than 100 days old
+- Insert the records in the coorsponding table in the PLMS_archive schema
+- Delete the records that were inserted into the archive table from the source table.
+
+
 
 ## Long Term Archive Plan ( data older than 100 days, long term)
 
