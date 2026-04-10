@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="qTOlw2gOdShMVgrJY-iz">
-    <mxGraphModel dx="2568" dy="3021" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="2019" dy="2491" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -97,7 +97,7 @@
         <mxCell id="dc-er-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="IT ExpressRoute&lt;br&gt;~30-40ms · IT hub path&lt;br&gt;(Databricks)" vertex="1">
           <mxGeometry height="50" width="356" x="866" y="658" as="geometry" />
         </mxCell>
-        <mxCell id="dc-double-hop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;OT to IT traffic: OT ExpressRoute → Equinix → IT ExpressRoute&lt;br&gt;Cannot peer hubs directly — Azure VWAN + DNJP policy&lt;br&gt;Databricks reads from OT hub traverse both express routes&lt;/font&gt;&lt;/span&gt;" vertex="1">
+        <mxCell id="dc-double-hop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;OT to IT traffic: OT ExpressRoute → Equinix → IT ExpressRoute&lt;br&gt;Cannot peer hubs directly — Azure VWAN&lt;br&gt;Databricks reads from OT hub traverse both express routes&lt;/font&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="60" width="360" x="867" y="724" as="geometry" />
         </mxCell>
         <mxCell id="tenant-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=14;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="NA Aladdin — Single Azure Tenant (Denso)" vertex="1">
@@ -160,27 +160,23 @@
         <mxCell id="e-atlas-plc-gw" edge="1" parent="1" source="atlas-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="atlas-gw">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-atlas-gw-c1" edge="1" parent="1" source="atlas-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c1-kv">
+        <mxCell id="e-atlas-gw-c1" edge="1" parent="1" source="atlas-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c1-node1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="319" y="230" />
-              <mxPoint x="319" y="203" />
+              <mxPoint x="319" y="145" />
             </Array>
-            <mxPoint x="375" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e-bas4-plc-gw" edge="1" parent="1" source="bas4-plc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="bas4-gw">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-bas4-gw-c2" edge="1" parent="1" source="bas4-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;">
+        <mxCell id="e-bas4-gw-c2" edge="1" parent="1" source="bas4-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="c2-node1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="317" y="600" />
-              <mxPoint x="317" y="585" />
-              <mxPoint x="387" y="585" />
-              <mxPoint x="387" y="574" />
+              <mxPoint x="317" y="515" />
             </Array>
-            <mxPoint x="427" y="574" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e-c1-dc" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;entryX=0;entryY=0.54;entryDx=0;entryDy=0;entryPerimeter=0;" target="dc-switch">
@@ -247,7 +243,7 @@
               <mxPoint x="2066" y="681" />
             </Array>
             <mxPoint x="1224" y="681" as="sourcePoint" />
-            <mxPoint x="2066" y="395" as="targetPoint" />
+            <mxPoint x="2066" y="429" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Legend" vertex="1">
@@ -289,7 +285,8 @@
         <mxCell id="uXp7gyp-TbIKBT9hIej--5" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=12;startSize=8;strokeColor=#0078D4;strokeWidth=2;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <Array as="points">
-              <mxPoint x="1054" y="614" />
+              <mxPoint x="1050" y="612" />
+              <mxPoint x="1050" y="614" />
               <mxPoint x="1052" y="614" />
             </Array>
             <mxPoint x="1052" y="612" as="sourcePoint" />
@@ -297,16 +294,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="uXp7gyp-TbIKBT9hIej--13" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" value="" vertex="1">
-          <mxGeometry height="65" width="60" x="348" y="795" as="geometry" />
+          <mxGeometry height="60" width="58" x="344" y="795" as="geometry" />
         </mxCell>
-        <mxCell id="QFA86JDCoxwDWkbW_FhT-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="1.&amp;nbsp; How are resources in OT tenant going to route to IT tenant.&lt;div&gt;2. Will we be deploying a new routable VLAN for the DC VLAN&lt;/div&gt;&lt;div&gt;3. Firewall whitelisting for egress to Azure.&amp;nbsp; - including azure arc onboarding.&lt;/div&gt;&lt;div&gt;4. In azure for the IT and OT spoke, what is the spoke design?&lt;/div&gt;&lt;div&gt;subnets, NSGs, UDRs, etc....&lt;/div&gt;&lt;div&gt;5. How will packages, patches, etc be installed?&amp;nbsp; egress internet acces?&lt;/div&gt;&lt;div&gt;6. Both klusters will need access to Data Bricks.&amp;nbsp; Is there a routed path?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="383" width="383" x="1202" y="884" as="geometry" />
+        <mxCell id="XPLaEcgZbxnR4bTUm_n7-1" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Express_Route.svg;" value="" vertex="1">
+          <mxGeometry height="32" width="53.33" x="891" y="668" as="geometry" />
         </mxCell>
-        <mxCell id="QFA86JDCoxwDWkbW_FhT-2" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" value="" vertex="1">
-          <mxGeometry height="45" width="39" x="1508" y="481" as="geometry" />
+        <mxCell id="XPLaEcgZbxnR4bTUm_n7-2" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Express_Route.svg;" value="" vertex="1">
+          <mxGeometry height="32" width="53.33" x="875" y="484" as="geometry" />
         </mxCell>
-        <mxCell id="QFA86JDCoxwDWkbW_FhT-3" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" value="" vertex="1">
-          <mxGeometry height="46" width="45" x="2043" y="350" as="geometry" />
+        <mxCell id="XPLaEcgZbxnR4bTUm_n7-3" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" value="" vertex="1">
+          <mxGeometry height="60" width="58" x="1512" y="475" as="geometry" />
+        </mxCell>
+        <mxCell id="XPLaEcgZbxnR4bTUm_n7-4" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" value="" vertex="1">
+          <mxGeometry height="60" width="58" x="2034" y="368" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
