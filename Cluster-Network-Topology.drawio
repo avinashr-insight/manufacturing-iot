@@ -40,7 +40,7 @@
         <mxCell id="c1-kv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Kube-VIP L2 ARP · MQTT VIP :8883 · API VIP :443" vertex="1">
           <mxGeometry height="26" width="360" x="355" y="190" as="geometry" />
         </mxCell>
-        <mxCell id="c1-pg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="PostgreSQL StatefulSet · edge-db&lt;br&gt;Local disk replication across 3 nodes&lt;br&gt;R2P · StoreResults · Recipe · 8h retention" vertex="1">
+        <mxCell id="c1-pg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;arcSize=0;" value="PostgreSQL StatefulSet · edge-db&lt;br&gt;Local disk replication across 3 nodes&lt;br&gt;R2P · StoreResults · Recipe · 8h retention" vertex="1">
           <mxGeometry height="60" width="360" x="355" y="226" as="geometry" />
         </mxCell>
         <mxCell id="c1-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Atlas option: IT or OT network — decision pending internal client alignment" vertex="1">
@@ -67,7 +67,7 @@
         <mxCell id="c2-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;" value="BAS4 must stay on OT network · NIC2 must cross Palo Alto to reach DC VLAN · [CLIENT] Brandon" vertex="1">
           <mxGeometry height="39" width="362" x="355" y="666" as="geometry" />
         </mxCell>
-        <mxCell id="palo-fw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Palo Alto Firewall&lt;br&gt;OT to DC boundary&lt;br&gt;BAS4 NIC2 must cross this&lt;br&gt;TLS inspection exemption for Arc · [CLIENT] Brandon&lt;/span&gt;" vertex="1">
+        <mxCell id="palo-fw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;points=[[0,0,0,0,0],[0,0.25,0,0,0],[0,0.5,0,0,0],[0,0.75,0,0,0],[0,1,0,0,0],[0.25,0,0,0,0],[0.25,1,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,0,0,0,0],[0.75,1,0,0,0],[1,0,0,0,0],[1,0.25,0,0,0],[1,0.5,0,0,0],[1,0.75,0,0,0],[1,1,0,0,0]];" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Palo Alto Firewall&lt;br&gt;OT to DC boundary&lt;br&gt;BAS4 NIC2 must cross this&lt;br&gt;TLS inspection exemption for Arc · [CLIENT] Brandon&lt;/span&gt;" vertex="1">
           <mxGeometry height="70" width="420" x="340" y="790" as="geometry" />
         </mxCell>
         <mxCell id="dc-vlan-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;On-premises Network Transit — DC VLAN&lt;br&gt;Cluster NIC 2 uplink path to ExpressRoute&lt;br&gt;No AIO project servers here · existing shared infrastructure only&lt;br&gt;Clusters sit line-side on factory floor — not in this building&lt;/span&gt;" vertex="1">
@@ -182,17 +182,6 @@
               <mxPoint x="317" y="572" />
             </Array>
             <mxPoint x="370" y="578" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e-c1-dc" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;entryX=0;entryY=0.54;entryDx=0;entryDy=0;entryPerimeter=0;" target="dc-switch">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="535" y="183" />
-              <mxPoint x="898" y="183" />
-              <mxPoint x="898" y="147" />
-            </Array>
-            <mxPoint x="535" y="171" as="sourcePoint" />
-            <mxPoint x="794" y="173" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e-c2-fw" edge="1" parent="1" source="c2-node2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="palo-fw">
