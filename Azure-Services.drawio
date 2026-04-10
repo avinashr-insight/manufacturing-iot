@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="fPjcsFPFG9Plfb9ltmlb">
+    <mxGraphModel dx="1461" dy="782" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="0" pageScale="1" pageWidth="1800" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="Azure Services — AIO PILOT&amp;nbsp; Maryville DMTN&amp;nbsp;" vertex="1">
+          <mxGeometry height="36" width="1760" x="26" y="2" as="geometry" />
+        </mxCell>
+        <mxCell id="tenant-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#66B2FF;dashed=1;fontSize=14;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="806" width="1762" x="20" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-aio" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="AIO Platform" vertex="1">
+          <mxGeometry height="220" width="540" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-ingest" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Real-time Ingestion&lt;/font&gt;" vertex="1">
+          <mxGeometry height="227" width="540" x="598" y="83" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-eh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Event Hubs&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Real-time telemetry ingestion&lt;br&gt;Traceability · OEE · HourlyAttainment&lt;br&gt;KanbanShipStatus · separate consumer groups per line" vertex="1">
+          <mxGeometry height="79" width="240" x="618" y="111" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-eg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Event Grid&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Andon fast-path alerting&lt;br&gt;LineStateDown sub-second SLA&lt;br&gt;Discrete event fan-out" vertex="1">
+          <mxGeometry height="70" width="240" x="878" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-er-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;ExpressRoute — IT Circuit&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Equinix Ashburn&lt;br&gt;30-40ms latency&lt;br&gt;Atlas/103 primary path" vertex="1">
+          <mxGeometry height="70" width="240" x="618" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-er-ot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;ExpressRoute — OT Circuit&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Cisco SD WAN&lt;br&gt;Nashville / Atlanta · 15-17ms&lt;br&gt;BAS4 primary path" vertex="1">
+          <mxGeometry height="70" width="240" x="878" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-identity" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Identity and Access" vertex="1">
+          <mxGeometry height="330" width="600" x="1160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-entra" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Microsoft Entra ID&lt;br&gt;&lt;/font&gt;&lt;/b&gt;NA Aladdin tenant&lt;br&gt;SPN registration · kubectl RBAC&lt;br&gt;Conditional access" vertex="1">
+          <mxGeometry height="70" width="240" x="1180" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-kv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Key Vault&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Cluster secrets · mTLS certs&lt;br&gt;SPN credentials&lt;br&gt;Private endpoint — no public access" vertex="1">
+          <mxGeometry height="70" width="240" x="1440" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-spn1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCE5FF;strokeColor=#CCE5FF;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Service Principal 1&lt;/font&gt;&lt;/b&gt;&lt;div&gt;Owner on sandbox subscription&lt;br&gt;Build phase only&lt;br&gt;Decommissioned post-infra setup&lt;/div&gt;" vertex="1">
+          <mxGeometry height="71" width="241" x="1180" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-spn2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCE5FF;strokeColor=#CCE5FF;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Service Principal 2&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Blob Contributor · EH Data Sender&lt;br&gt;KV Secrets User · Metrics Publisher&lt;br&gt;Runtime identity for AIO · stays post-deployment" vertex="1">
+          <mxGeometry height="76" width="244" x="1440" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-spn3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCE5FF;strokeColor=#CCE5FF;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Service Principal 3&lt;br&gt;&lt;/font&gt;&lt;/b&gt;AcrPush · Arc cluster access&lt;br&gt;KV Secrets User (pipeline runs)&lt;br&gt;CI/CD identity · stays post-deployment" vertex="1">
+          <mxGeometry height="70" width="240" x="1180" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="spn-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB570;strokeColor=#b85450;fontSize=11;align=left;" value="Production roadmap: replace all SPNs with Managed Identities (where applicable) — no credentials · no rotation · no expiry risk" vertex="1">
+          <mxGeometry height="35" width="503" x="1205" y="367" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-storage" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Storage and Analytics" vertex="1">
+          <mxGeometry height="220" width="820" x="40" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-adls" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;ADLS Gen2&lt;/font&gt;&lt;/b&gt;&lt;br&gt;System of record · Bronze and silver layers&lt;br&gt;0-400 days hot · 400 days to 50 years cold" vertex="1">
+          <mxGeometry height="80" width="240" x="60" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-databricks" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Azure Databricks&lt;br&gt;&lt;/b&gt;&lt;/font&gt;Delta Live Tables&lt;br&gt;Structured streaming from Event Hubs" vertex="1">
+          <mxGeometry height="80" width="240" x="320" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-powerbi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Power BI&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="240" x="584" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-blob" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Blob Storage&lt;br&gt;&lt;/font&gt;&lt;/b&gt;(7 day flush)&lt;br&gt;TBD" vertex="1">
+          <mxGeometry height="70" width="240" x="60" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-acr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Container Registry&lt;br&gt;&lt;/font&gt;&lt;/b&gt;ALT container image storage&lt;br&gt;Image scanning via Defender" vertex="1">
+          <mxGeometry height="70" width="240" x="320" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-mon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Monitoring and Observability&lt;/font&gt;" vertex="1">
+          <mxGeometry height="220" width="540" x="876" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-azmon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Monitor&lt;/font&gt;&lt;/b&gt;&lt;br&gt;Replaces Graylog + Elasticsearch&lt;br&gt;OTEL Collector exports here&lt;br&gt;Cross-campus log correlation" vertex="1">
+          <mxGeometry height="70" width="240" x="896" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-la" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Log Analytics Workspace&lt;br&gt;&lt;/b&gt;&lt;/font&gt;Arc infrastructure metrics&lt;br&gt;Cluster health · node status" vertex="1">
+          <mxGeometry height="70" width="240" x="1156" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-grafana" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Azure Managed Grafana&lt;/b&gt;&lt;/font&gt;&lt;br&gt;TBD" vertex="1">
+          <mxGeometry height="70" width="240" x="896" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-action" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Monitor Action Groups&lt;br&gt;&lt;/font&gt;&lt;/b&gt;TBD" vertex="1">
+          <mxGeometry height="70" width="240" x="1156" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-net" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Networking and Security" vertex="1">
+          <mxGeometry height="220" width="320" x="1440" y="437" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-vnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure VNet&lt;/font&gt;&lt;/b&gt;&lt;br&gt;Hosts all private endpoints&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="280" x="1460" y="467" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-pe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Private Endpoints&lt;/font&gt;&lt;/b&gt;&lt;br&gt;ADLS · Event Hubs · Key Vault&lt;br&gt;Databricks · no public exposure&lt;br&gt;Private DNS zones required" vertex="1">
+          <mxGeometry height="70" width="280" x="1460" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-devops" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;DevOps and Deployment&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="820" x="40" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-ado" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Azure DevOps&lt;/b&gt;&lt;/font&gt;&lt;br&gt;Currently in OT tenant (NAIOT)&lt;br&gt;CI/CD pipelines · self-hosted agents" vertex="1">
+          <mxGeometry height="80" width="240" x="60" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-dns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Private DNS Zones&lt;/font&gt;&lt;/b&gt;&lt;br&gt;ADLS · Event Hubs · Key Vault · Arc&lt;br&gt;CoreDNS on cluster forwards&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="240" x="320" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-arcgw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Arc Gateway&lt;/font&gt;&lt;/b&gt;&lt;br&gt;Consolidates Arc outbound traffic&lt;br&gt;Single FQDN for Palo Alto rules&lt;br&gt;Simplifies firewall management" vertex="1">
+          <mxGeometry height="80" width="240" x="580" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="24" width="100" x="54" y="753" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Core Azure service — IT tenant" vertex="1">
+          <mxGeometry height="30" width="220" x="48" y="781" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="OT tenant service or OT path" vertex="1">
+          <mxGeometry height="30" width="220" x="278" y="786" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="[Denso] — open item or pending confirmation" vertex="1">
+          <mxGeometry height="30" width="260" x="525" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="d0wRzbChQqNx2MRXVzlb-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Azure Arc&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Management endpoint in Azure portal&lt;br&gt;Both clusters register here as separate Arc-Managed Clusters&lt;br&gt;Hosts GitOps config · extension lifecycle management" vertex="1">
+          <mxGeometry height="91.5" width="402" x="111" y="112.5" as="geometry" />
+        </mxCell>
+        <mxCell id="d0wRzbChQqNx2MRXVzlb-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Note: Arc agents · AIO · ACSA · Flux CD all run on edge cluster nodes at DMTN — not in Azure" vertex="1">
+          <mxGeometry height="37" width="473" x="73.5" y="243" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
