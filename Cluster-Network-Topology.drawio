@@ -133,11 +133,11 @@
         <mxCell id="az-it-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="IT Hub · IT Spoke&#xa;(Databricks · IDMZ · IT workloads)" vertex="1">
           <mxGeometry height="290" width="580" x="1935" y="127" as="geometry" />
         </mxCell>
-        <mxCell id="az-databricks" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Azure Databricks&#xa;Delta Live Tables · analytics&#xa;Cannot move — stays in IT hub" vertex="1">
-          <mxGeometry height="70" width="240" x="1952" y="190" as="geometry" />
-        </mxCell>
         <mxCell id="az-powerbi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Power BI&#xa;Cloud dashboards&#xa;Connects to Databricks gold layer" vertex="1">
           <mxGeometry height="70" width="240" x="2224" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="az-databricks" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Azure Databricks&#xa;Delta Live Tables · analytics&#xa;Cannot move — stays in IT hub" vertex="1">
+          <mxGeometry height="70" width="240" x="1952" y="190" as="geometry" />
         </mxCell>
         <mxCell id="az-adls-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="ADLS Gen2 (option)&#xa;If co-located with Databricks for performance&#xa;Open design decision — Mike to decide&#xa;Avoids double hop on Databricks reads" vertex="1">
           <mxGeometry height="60" width="335" x="2164" y="284" as="geometry" />
@@ -344,6 +344,29 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="2211" y="516" as="sourcePoint" />
             <mxPoint x="2212" y="574" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5kvt1SimKbw7i0JJoSgu-1" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Private_Endpoints.svg;" value="" vertex="1">
+          <mxGeometry height="23.68" width="24.9" x="2315" y="853.16" as="geometry" />
+        </mxCell>
+        <mxCell id="5kvt1SimKbw7i0JJoSgu-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Azure Databricks Private Endpoint&lt;div&gt;for access to ADB in IT Spoke&lt;/div&gt;&lt;div&gt;Allow K3 node access to Databricks&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="240" x="2075" y="835" as="geometry" />
+        </mxCell>
+        <mxCell id="5kvt1SimKbw7i0JJoSgu-3" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.984;entryY=0.774;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;fillColor=#d5e8d4;strokeColor=#82b366;" target="5kvt1SimKbw7i0JJoSgu-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="2148" y="254" />
+              <mxPoint x="2148" y="444" />
+              <mxPoint x="2350" y="444" />
+              <mxPoint x="2350" y="872" />
+            </Array>
+            <mxPoint x="2148" y="259" as="sourcePoint" />
+            <mxPoint x="1322" y="675" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5kvt1SimKbw7i0JJoSgu-4" connectable="0" parent="5kvt1SimKbw7i0JJoSgu-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Azure Private Link" vertex="1">
+          <mxGeometry relative="1" x="0.5497" y="3" as="geometry">
+            <mxPoint x="-9" y="-58" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
