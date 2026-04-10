@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="Ur4Q62QEKeDjt2o7-a-E">
+    <mxGraphModel dx="1328" dy="711" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="Historical Data Loading —SQL Server to Azure&lt;br&gt;Maryville DMTN · Non-archived data (less than 90 days)" vertex="1">
+          <mxGeometry height="36" width="1360" x="20" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="onprem-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="On-premises — Maryville DMTN" vertex="1">
+          <mxGeometry height="740" width="560" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sql-server" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="SQL Server AG&#xa;4 nodes · 96 cores · 3TB RAM&#xa;Source of all historical data&#xa;Total size: pending [CLIENT] Rob/Hank" vertex="1">
+          <mxGeometry height="70" width="280" x="160" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="split-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="Data is split at 90-day boundary" vertex="1">
+          <mxGeometry height="30" width="280" x="160" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="recent-label" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Less than 90 days&#xa;(recent / warm data)" vertex="1">
+          <mxGeometry height="40" width="160" x="122" y="297" as="geometry" />
+        </mxCell>
+        <mxCell id="archive-label" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;" value="Older than 90 days&#xa;(cold archive)" vertex="1">
+          <mxGeometry height="40" width="160" x="380" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="ir" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Self-hosted Integration Runtime&lt;br&gt;On-prem - reads directly from SQL Server AG&lt;br&gt;Existing deployment - reused for this pipeline" vertex="1">
+          <mxGeometry height="60" width="280" x="62" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="adf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Azure Data Factory (ADF)&#xa;Orchestrates extraction and export&#xa;Converts SQL data to Parquet format&#xa;Manages pipeline retry and scheduling" vertex="1">
+          <mxGeometry height="70" width="280" x="80" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="parquet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Parquet files&#xa;(target schema / table / data.parquet)&#xa;Columnar · compressed · Databricks native&#xa;Staged locally before upload" vertex="1">
+          <mxGeometry height="70" width="280" x="80" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="archive-path" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Archive path (older than 90 days)&lt;br&gt;Migration method TBD&lt;br&gt;Size confirmation pending Rob/Hank&lt;br&gt;Options: ExpressRoute or Azure Data Box" vertex="1">
+          <mxGeometry height="91" width="191" x="370" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="az-it-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin · IT Hub&#xa;(ADLS container co-located with Databricks for performance)" vertex="1">
+          <mxGeometry height="740" width="692" x="620" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="adls-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;ADLS Gen2 Container&lt;br&gt;(historical load · Parquet files)&lt;br&gt;Co-located in IT hub with Databricks&lt;br&gt;Avoids double hop on Databricks reads&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="280" x="660" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="adls-archive" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="ADLS Gen2 Archive Tier&#xa;Data older than 90 days&#xa;Long-term cold storage&#xa;400 days hot · 50 years cold" vertex="1">
+          <mxGeometry height="70" width="280" x="1000" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="dbx-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure Databricks · IT Hub" vertex="1">
+          <mxGeometry height="360" width="560" x="640" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dbx-job" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Databricks Ingestion Job&#xa;Reads Parquet files from ADLS container&#xa;Validates schema · applies transformations&#xa;Writes to Delta format" vertex="1">
+          <mxGeometry height="70" width="280" x="660" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="target-schema" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="Target Schema&#xa;Delta Lake format" vertex="1">
+          <mxGeometry height="50" width="240" x="660" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="target-table" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Target Delta Tables&lt;div&gt;&lt;br&gt;Queryable by Databricks + Power BI&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="240" x="660" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="powerbi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Power BI&lt;br&gt;Historical dashboards&lt;br&gt;Reads from Delta silver layer" vertex="1">
+          <mxGeometry height="70" width="240" x="940" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="e-sql-split" edge="1" parent="1" source="sql-server" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="split-note">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-split-recent" edge="1" parent="1" source="split-note" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;strokeWidth=2;" target="recent-label">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-split-archive" edge="1" parent="1" source="split-note" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="archive-label">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-recent-ir" edge="1" parent="1" source="recent-label" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="ir">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-archive-path" edge="1" parent="1" source="archive-label" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="archive-path">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="368" />
+              <mxPoint x="460" y="368" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-ir-adf" edge="1" parent="1" source="ir" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="adf">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="202" y="489" />
+              <mxPoint x="202" y="489" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-adf-parquet" edge="1" parent="1" source="adf" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="parquet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-parquet-adls" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;exitX=1.006;exitY=0.486;exitDx=0;exitDy=0;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="672" />
+              <mxPoint x="808" y="672" />
+            </Array>
+            <mxPoint x="360.00000000000006" y="664.02" as="sourcePoint" />
+            <mxPoint x="808.32" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-archive-adls" edge="1" parent="1" source="archive-path" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="adls-archive">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-adls-dbx" edge="1" parent="1" source="adls-container" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="dbx-job">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="782" y="340" />
+              <mxPoint x="782" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-dbx-schema" edge="1" parent="1" source="dbx-job" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="target-schema">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="507" />
+              <mxPoint x="780" y="507" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-schema-table" edge="1" parent="1" source="target-schema" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="target-table">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-table-pbi" edge="1" parent="1" source="target-table" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="powerbi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="24" width="100" x="20" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="On-premises infrastructure" vertex="1">
+          <mxGeometry height="28" width="200" x="20" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Azure IT hub service" vertex="1">
+          <mxGeometry height="28" width="200" x="230" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Recent data path (less than 90 days)" vertex="1">
+          <mxGeometry height="28" width="240" x="440" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Archive path (older than 90 days) · method TBD" vertex="1">
+          <mxGeometry height="28" width="280" x="690" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Open item — pending confirmation" vertex="1">
+          <mxGeometry height="28" width="220" x="980" y="848" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
