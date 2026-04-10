@@ -176,11 +176,41 @@ for the table TTL, the column that determines the TTL, and primary key column.  
 table for all the potential deletes.  For each delete canidate the process will check if the value is in Databricks.  if it 
 exists, the edge database record is deleted.
 
+```mermaid
+sequenceDiagram
+    Query information schema for PLMS Tables->>+For each table: PLMS Tables
+    For each table->>+For table: Table
+    For table->>+Table has purged tag: Table
+    Table has purged tag->>+check table_tags: 
+    check table_tags->>+Check for purge tag:
+    check table_tags->>+Check for TTL tag:
+    check table_tags->>+For table:Purged Tag, TTL
+    For table ->>+Purge Table: True
+    Purge Table ->>+Records greater than TTL: Records to archive
+    Records greater than TTL ->>+Insert into archive schema table: Records to archive
+    Records greater than TTL ->>+delete from original table: Records to archive
 
+```
 
 
 For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are above the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
+
+```mermaid
+sequenceDiagram
+    Query information schema for PLMS site schema Tables for line->>+For each table: PLMS Tables
+    For each table->>+For table: Table
+    For table->>+Table has purged tag: Table
+    Table has purged tag->>+check table_tags: 
+    check table_tags->>+Check for purge tag:
+    check table_tags->>+Check for TTL tag:
+    check table_tags->>+For table:Purged Tag, TTL
+    For table ->>+Purge Table: True
+    Purge Table ->>+Records greater than TTL that are complete: Records to archive
+    Records greater than TTL that are complete ->>+Insert into archive schema table: Records to archive
+    Records greater than TTL that are complete ->>+delete from original table: Records to archive
+    
+```
 
 If the connection to Azure is not available, both purge processes will not run.  If a line has offline time, the purge process for 
 the line will be scheduled during the line downtime.
