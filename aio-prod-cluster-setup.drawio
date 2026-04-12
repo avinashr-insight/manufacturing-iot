@@ -1,0 +1,343 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="gz3R6OCw1Ue8fRtjfWdu">
+    <mxGraphModel dx="1459" dy="1113" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=17;fontStyle=1;align=center;fillColor=none;strokeColor=none;" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;AIO Production Cluster Setup&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="700" x="453" y="-44" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-m-box" parent="1" style="rounded=1;fillColor=#FAEEDA;strokeColor=#EF9F27;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="18" width="18" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-m-txt" parent="1" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" value="Manual — human required" vertex="1">
+          <mxGeometry height="22" width="200" x="44" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-a-box" parent="1" style="rounded=1;fillColor=#E1F5EE;strokeColor=#1D9E75;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="18" width="18" x="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-a-txt" parent="1" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" value="Automated — ADO Pipeline / GitOps / Flux CD" vertex="1">
+          <mxGeometry height="22" width="300" x="284" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-n-box" parent="1" style="rounded=1;fillColor=#EEEDFE;strokeColor=#7F77DD;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="18" width="18" x="600" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-n-txt" parent="1" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" value="Ansible opportunity / note" vertex="1">
+          <mxGeometry height="22" width="220" x="624" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-p-box" parent="1" style="rounded=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="18" width="18" x="860" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-p-txt" parent="1" style="text;html=1;fontSize=12;align=left;fillColor=none;strokeColor=none;" value="Platform / mechanism" vertex="1">
+          <mxGeometry height="22" width="200" x="884" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="c0" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="130" width="1460" x="20" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="l0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 0&lt;/b&gt;&#xa;Prerequisites" vertex="1">
+          <mxGeometry height="120" width="155" x="25" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="VLAN / IP allocation" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="117" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="DNS records (AD DNS / Infoblox)" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="117" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Firewall rules (Palo Alto)" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="117" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="TLS inspection exemption (Arc)" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="117" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="ADO repo structure" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="161" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="ACR provisioned" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="161" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Key Vault + secrets loaded" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="161" as="geometry" />
+        </mxCell>
+        <mxCell id="s0_8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Arc service principal" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="161" as="geometry" />
+        </mxCell>
+        <mxCell id="p0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ol&gt;&lt;li&gt;Brandon Hill (network)&lt;/li&gt;&lt;li&gt;AD DNS / Infoblox&lt;/li&gt;&lt;li&gt;az cli · Azure Portal&lt;/li&gt;&lt;/ol&gt;" vertex="1">
+          <mxGeometry height="104" width="430" x="1040" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="arr01" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#888780;strokeWidth=2;fillColor=#888780;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="230" as="sourcePoint" />
+            <mxPoint x="100" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c1" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="175" width="1460" x="20" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 1&lt;/b&gt;&#xa;OS Bootstrap&#xa;(× 3 nodes)" vertex="1">
+          <mxGeometry height="165" width="155" x="25" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Ubuntu 24.04 LTS install" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="NIC 1 static IP (OT line-side)" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="NIC 2 static IP (DC VLAN)" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Hostname + /etc/hosts" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Swap disabled" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="NTP → on-prem Stratum 2" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="SSH hardening + service account" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Kernel modules + sysctl params" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="ADO agent on jump box" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#7F77DD;fontColor=#3C3489;fontSize=11;fontStyle=2;align=left;" value="&amp;nbsp;Steps 1.2–1.10 identical across all 3 nodes — parallelise via Ansible playbook from jump box (strongly recommended)" vertex="1">
+          <mxGeometry height="36" width="601" x="408" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ol&gt;&lt;li&gt;netplan · cloud-init&lt;/li&gt;&lt;li&gt;chrony / systemd-timesyncd&lt;/li&gt;&lt;li&gt;Ansible playbook (jump box)&lt;/li&gt;&lt;li&gt;iDRAC / USB install&lt;/li&gt;&lt;/ol&gt;" vertex="1">
+          <mxGeometry height="159" width="430" x="1040" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="arr12" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#888780;strokeWidth=2;fillColor=#888780;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="425" as="sourcePoint" />
+            <mxPoint x="100" y="445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="130" width="1460" x="20" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 2&lt;/b&gt;&#xa;K3s Cluster&#xa;Formation" vertex="1">
+          <mxGeometry height="120" width="155" x="25" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="K3s Node 1 (cluster-init)" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Node token captured" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="K3s Node 2 join" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="K3s Node 3 join" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="etcd quorum verified (3/3)" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="506" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="kubeconfig distributed" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="506" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(4, 44, 83), rgb(174, 209, 242));&quot;&gt;k3s install script&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(4, 44, 83), rgb(174, 209, 242));&quot;&gt;kubectl get nodes&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(4, 44, 83), rgb(174, 209, 242));&quot;&gt;etcdctl member list&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(4, 44, 83), rgb(174, 209, 242));&quot;&gt;Secure Link / VDI&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" vertex="1">
+          <mxGeometry height="114" width="430" x="1040" y="453" as="geometry" />
+        </mxCell>
+        <mxCell id="arr23" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#888780;strokeWidth=2;fillColor=#888780;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="575" as="sourcePoint" />
+            <mxPoint x="100" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="130" width="1460" x="20" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 3&lt;/b&gt;&#xa;Kube-VIP + Cilium" vertex="1">
+          <mxGeometry height="120" width="155" x="25" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Kube-VIP RBAC manifest" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Kube-VIP DaemonSet (L2 ARP)" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="VIP reachability verified" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Cilium install (eBPF)" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Cilium status verified" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="656" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Hubble enabled + verified" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="656" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ol&gt;&lt;li&gt;kubectl apply -f&lt;/li&gt;&lt;li&gt;helm install cilium&lt;/li&gt;&lt;li&gt;cilium status&lt;/li&gt;&lt;li&gt;cilium connectivity test&lt;/li&gt;&lt;li&gt;hubble observe&lt;/li&gt;&lt;/ol&gt;" vertex="1">
+          <mxGeometry height="114" width="430" x="1040" y="603" as="geometry" />
+        </mxCell>
+        <mxCell id="arr34" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#888780;strokeWidth=2;fillColor=#888780;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="725" as="sourcePoint" />
+            <mxPoint x="100" y="745" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="90" width="1460" x="20" y="745" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 4&lt;/b&gt;&#xa;Azure Arc Registration" vertex="1">
+          <mxGeometry height="80" width="155" x="25" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="az connectedk8s connect" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Arc agents verified healthy" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="GitOps extension installed" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="GitRepository + Kustomization CRDs" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ol&gt;&lt;li&gt;az cli&lt;/li&gt;&lt;li&gt;az k8s-extension create&lt;/li&gt;&lt;li&gt;az k8s-configuration flux create&lt;/li&gt;&lt;li&gt;kubectl get pods -n azure-arc&lt;/li&gt;&lt;/ol&gt;" vertex="1">
+          <mxGeometry height="74" width="430" x="1040" y="753" as="geometry" />
+        </mxCell>
+        <mxCell id="arr4inf" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#534AB7;strokeWidth=2;fillColor=#534AB7;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="835" as="sourcePoint" />
+            <mxPoint x="100" y="848" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="inflection" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#3C3489;fontSize=13;fontStyle=1;strokeWidth=2;" value="AUTOMATION INFLECTION POINT — Arc + Flux CD wired to ADO repo. GitOps takes over from here. All steps below are pipeline-triggered and continuously reconciled." vertex="1">
+          <mxGeometry height="50" width="1460" x="20" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="arrinf5" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#534AB7;strokeWidth=2;fillColor=#534AB7;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="898" as="sourcePoint" />
+            <mxPoint x="100" y="913" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="130" width="1460" x="20" y="913" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 5&lt;/b&gt;&#xa;Platform Bootstrap" vertex="1">
+          <mxGeometry height="120" width="155" x="25" y="918" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Pod/Service CIDR conflict check" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Namespaces created" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="RBAC roles + bindings" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Key Vault CSI driver" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Secret Provider Classes" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="974" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="CoreDNS configmap patched" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="974" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&amp;nbsp;ADO Pipeline: platform-bootstrap&lt;br&gt;&lt;ul&gt;&lt;li&gt;Flux CD reconciliation&lt;/li&gt;&lt;li&gt;Helm (KV CSI driver)&lt;/li&gt;&lt;li&gt;kubectl apply&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="114" width="430" x="1040" y="921" as="geometry" />
+        </mxCell>
+        <mxCell id="arr56" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#888780;strokeWidth=2;fillColor=#888780;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="1043" as="sourcePoint" />
+            <mxPoint x="100" y="1063" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c6" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="175" width="1460" x="20" y="1063" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 6&lt;/b&gt;&#xa;AIO + ALT&#xa;Deployment" vertex="1">
+          <mxGeometry height="165" width="155" x="25" y="1068" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="AIO operator installed" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="MQTT broker VIP assigned" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="ACSA storage class applied" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Edge-db StatefulSet deployed" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="ALT containers built → ACR" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="1124" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="ALT services deployed" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="1124" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Cilium NetworkPolicies (PR-gated)" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="1124" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="OTEL collector deployed" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="1124" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Grafana + Loki deployed" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="1168" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ul&gt;&lt;li&gt;ADO Pipeline: aio-install&lt;br&gt;Helm + Flux CD&lt;/li&gt;&lt;li&gt;ADO Pipeline: alt-deploy&lt;br&gt;Docker build → ACR → kubectl rollout&lt;/li&gt;&lt;li&gt;ADO Pipeline: cilium-policy → Flux&lt;br&gt;Kube-VIP (running)&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="159" width="430" x="1040" y="1071" as="geometry" />
+        </mxCell>
+        <mxCell id="arr67" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#888780;strokeWidth=2;fillColor=#888780;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="1238" as="sourcePoint" />
+            <mxPoint x="100" y="1258" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c7" parent="1" style="rounded=1;fillColor=#F8F7F0;strokeColor=#B4B2A9;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="175" width="1460" x="20" y="1258" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D3D1C7;strokeColor=#888780;fontColor=#444441;fontSize=12;" value="&lt;b&gt;Phase 7&lt;/b&gt;&#xa;Day-2 Operations&#xa;(ongoing)" vertex="1">
+          <mxGeometry height="165" width="155" x="25" y="1263" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Config drift correction" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="1275" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="ALT updates (Mon 11AM canary)" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="1275" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="AIO operator upgrades" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="1275" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Secret rotation (KV CSI)" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="1275" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Certificate renewal (cert-manager)" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="1319" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Cluster health monitoring" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="1319" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=11;" value="Arc GitOps sync status" vertex="1">
+          <mxGeometry height="36" width="195" x="611" y="1319" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="OS patching (cordon + drain)" vertex="1">
+          <mxGeometry height="36" width="195" x="814" y="1319" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="K3s version upgrades" vertex="1">
+          <mxGeometry height="36" width="195" x="205" y="1363" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=11;" value="Firewall rule changes (Brandon)" vertex="1">
+          <mxGeometry height="36" width="195" x="408" y="1363" as="geometry" />
+        </mxCell>
+        <mxCell id="p7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#B5D4F4;fontColor=#042C53;fontSize=11;align=left;verticalAlign=middle;" value="&lt;ul&gt;&lt;li&gt;Flux CD (continuous reconcile)&lt;/li&gt;&lt;li&gt;Azure Monitor + Hubble + Grafana&lt;/li&gt;&lt;li&gt;cert-manager + Key Vault CSI&lt;/li&gt;&lt;li&gt;Arc compliance dashboard&lt;/li&gt;&lt;li&gt;kubectl drain · k3sup upgrade&lt;/li&gt;&lt;li&gt;Palo Alto (Brandon Hill)&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="159" width="430" x="1040" y="1266" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-m" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#EF9F27;fontColor=#633806;fontSize=13;fontStyle=1;" value="Manual Steps&lt;br&gt;Phases 0–4 · one-time front-load" vertex="1">
+          <mxGeometry height="60" width="460" x="72.5" y="1455" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#1D9E75;fontColor=#085041;fontSize=13;fontStyle=1;" value="Automated Steps&lt;br&gt;Phases 5–7 · GitOps-driven" vertex="1">
+          <mxGeometry height="60" width="460" x="570" y="1455" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
