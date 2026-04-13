@@ -1,4 +1,384 @@
-<mxfile host="app.diagrams.net" pages="5">
+<mxfile host="app.diagrams.net" pages="8">
+  <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
+    <mxGraphModel dx="2819" dy="1264" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yhA_NecXZdExneI3ux-p-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" value="K3s AIO Edge Cluster — Architecture&lt;br&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Atlas Line 103 + BAS4 · Maryville DMTN&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="44" width="1400" x="-424" y="-84" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="OT Factory Floor" vertex="1">
+          <mxGeometry height="520" width="215" x="-597" y="-7" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="PLC Machines&#xa;(~46 in POC scope)" vertex="1">
+          <mxGeometry height="46" width="185" x="-582" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Line-side Switch&#xa;(redundant 1G / 10G uplink)" vertex="1">
+          <mxGeometry height="46" width="185" x="-582" y="123" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Ignition Gateway&amp;nbsp;&lt;div&gt;stays separate for POC&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="185" x="-582" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" value="192.168.xx.xx — non-routable beyond DC" vertex="1">
+          <mxGeometry height="37" width="185" x="-582" y="314" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Palo Alto Firewall&lt;br&gt;OT ↔ DC boundary&lt;br&gt;&amp;nbsp;TLS inspection — confirm [CLIENT]&lt;br&gt;Arc exemption required" vertex="1">
+          <mxGeometry height="73" width="184" x="-582" y="391" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=14;fontStyle=1;verticalAlign=top;strokeWidth=3;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;K3s Edge Cluster — Azure Arc Enabled (Maryville DMTN)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="1060" width="1110" x="-359" y="-7" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;verticalAlign=top;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="249" width="330" x="-347" y="21" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-10" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" value="Dell Node 1 — Ubuntu 24.04 LTS" vertex="1">
+          <mxGeometry height="24" width="330" x="-347" y="23" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="K3s Server Role&#xa;(control plane + workloads)" vertex="1">
+          <mxGeometry height="44" width="150" x="-337" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="etcd Member #1&#xa;(2/3 quorum required)" vertex="1">
+          <mxGeometry height="44" width="150" x="-177" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Kube-VIP Speaker&lt;br&gt;ACTIVE — ARP Owner" vertex="1">
+          <mxGeometry height="44" width="150" x="-337" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Cilium Agent&#xa;(eBPF dataplane)" vertex="1">
+          <mxGeometry height="44" width="150" x="-177" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="NIC 1 → OT Switch · 192.168.xx.10" vertex="1">
+          <mxGeometry height="30" width="310" x="-337" y="159" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="NIC 2 → DC VLAN · 10.x.x.10 [TBC: Brandon]" vertex="1">
+          <mxGeometry height="30" width="310" x="-337" y="197" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;verticalAlign=top;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="249" width="330" x="3" y="21" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-18" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" value="Dell Node 2 — Ubuntu 24.04 LTS" vertex="1">
+          <mxGeometry height="24" width="330" x="3" y="23" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="K3s Server Role&#xa;(control plane + workloads)" vertex="1">
+          <mxGeometry height="44" width="150" x="13" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="etcd Member #2&#xa;(2/3 quorum required)" vertex="1">
+          <mxGeometry height="44" width="150" x="173" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Speaker&lt;br&gt;&amp;nbsp;STANDBY" vertex="1">
+          <mxGeometry height="44" width="150" x="13" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Cilium Agent&#xa;(eBPF dataplane)" vertex="1">
+          <mxGeometry height="44" width="150" x="173" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="NIC 1 → OT Switch · 192.168.xx.11" vertex="1">
+          <mxGeometry height="30" width="310" x="13" y="159" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="NIC 2 → DC VLAN · 10.x.x.11 [TBC: Brandon]&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="310" x="13" y="197" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;verticalAlign=top;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="248" width="330" x="353" y="21" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-26" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" value="Dell Node 3 — Ubuntu 24.04 LTS" vertex="1">
+          <mxGeometry height="24" width="330" x="353" y="23" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="K3s Server Role&#xa;(control plane + workloads)" vertex="1">
+          <mxGeometry height="44" width="150" x="363" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="etcd Member #3&#xa;(2/3 quorum required)" vertex="1">
+          <mxGeometry height="44" width="150" x="523" y="51" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Speaker&lt;br&gt;STANDBY" vertex="1">
+          <mxGeometry height="44" width="150" x="363" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Cilium Agent&#xa;(eBPF dataplane)" vertex="1">
+          <mxGeometry height="44" width="150" x="523" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="NIC 1 → OT Switch · 192.168.xx.12" vertex="1">
+          <mxGeometry height="30" width="310" x="363" y="159" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="NIC 2 → DC VLAN · 10.x.x.12 [TBC: Brandon]&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="310" x="363" y="197" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="&amp;nbsp;Embedded etcd HA — Quorum requires 2/3 nodes alive. Single node failure: cluster continues. Two simultaneous failures: quorum lost, K3s API server halts." vertex="1">
+          <mxGeometry height="28" width="1088" x="-347" y="289" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;" value="Kube-VIP L2 ARP Mode (DaemonSet) — VIPs (placeholder — final range from Brandon Hill):    K3s API VIP: 192.168.1.100   |   MQTT Broker VIP: 192.168.1.101 (:8883)   |   HTTPS / API VIP: 192.168.1.102 (:443)   |   Recommend reserving /28 for growth" vertex="1">
+          <mxGeometry height="28" width="1088" x="-347" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;" value="Cilium CNI — eBPF dataplane (Ubuntu 24.04 / kernel 6.x) · Replaces kube-proxy entirely · Native NetworkPolicy L3/L4/L7 · Hubble observability · K3s flags: --flannel-backend=none --disable-network-policy" vertex="1">
+          <mxGeometry height="28" width="1088" x="-347" y="357" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;" value="CoreDNS (K3s default) — Forwards to on-prem AD DNS · Split-brain: internal cluster FQDNs + Azure private DNS zones (ADLS / Event Hubs / Key Vault / Arc) · NTP: all nodes sync to on-prem Stratum 2 via NIC 2" vertex="1">
+          <mxGeometry height="28" width="1088" x="-347" y="391" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: azure-arc" vertex="1">
+          <mxGeometry height="90" width="1088" x="-347" y="427" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Arc Connected&#xa;Cluster Agent" vertex="1">
+          <mxGeometry height="40" width="180" x="-337" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Arc Config Agent&#xa;(Flux GitOps sync)" vertex="1">
+          <mxGeometry height="40" width="180" x="-147" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Arc Gateway&#xa;(consolidates outbound FW rules)" vertex="1">
+          <mxGeometry height="40" width="210" x="43" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Arc requires TLS inspection exemption on Palo Alto — confirm with Brandon [CLIENT]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="468" x="263" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: aio-system" vertex="1">
+          <mxGeometry height="90" width="1088" x="-347" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="AIO MQTT Broker&#xa;mTLS · MQTT v5 · StatefulSet · VIP :8883" vertex="1">
+          <mxGeometry height="52" width="230" x="-337" y="549" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="AIO Dataflows&lt;br&gt;(replaces MQTTtoEventHub)&lt;div&gt;&lt;br&gt;Traceability · OEE · Kanban → Azure&lt;/div&gt;" vertex="1">
+          <mxGeometry height="52" width="250" x="-97" y="549" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Andon Fast-Path&#xa;LineStateDown/# → Event Grid · Sub-second SLA" vertex="1">
+          <mxGeometry height="52" width="268" x="163" y="549" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Cilium NetworkPolicy: alt-system → aio-system MQTT publish ALLOW (:8883 mTLS) · All other cross-namespace ingress: DENY by default" vertex="1">
+          <mxGeometry height="26" width="1064" x="-339" y="623" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: alt-system" vertex="1">
+          <mxGeometry height="120" width="1088" x="-347" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="ALT Core API&#xa;(.NET 8 · Production Critical)" vertex="1">
+          <mxGeometry height="50" width="160" x="-337" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-49" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="ALT UI&#xa;(Angular)" vertex="1">
+          <mxGeometry height="50" width="120" x="-167" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Flux / Andon UI&#xa;(Angular)" vertex="1">
+          <mxGeometry height="50" width="120" x="-37" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="LETSStateService&#xa;CurrentLineState" vertex="1">
+          <mxGeometry height="50" width="148" x="93" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="OTEL Collector&#xa;(replaces Filebeat + Graylog&#xa;instrumented — deploy only)" vertex="1">
+          <mxGeometry height="50" width="170" x="251" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-53" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="IoT Basics&#xa;(OTEL_Only mode · :8000)" vertex="1">
+          <mxGeometry height="50" width="160" x="431" y="681" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-54" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;" value="&amp;nbsp;Cilium NetworkPolicy: all alt-system pods → IoT Basics :8000 ALLOW · ⚠ NLog blocker: NA_Data_API writes to c:\temp\logs\ — must replace with OTEL before containerising" vertex="1">
+          <mxGeometry height="28" width="928" x="-337" y="737" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: edge-db" vertex="1">
+          <mxGeometry height="90" width="540" x="-347" y="793" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="PostgreSQL StatefulSet&#xa;(JSONB for StoreResults · EF Core)" vertex="1">
+          <mxGeometry height="50" width="230" x="-337" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ACSA Replicated Volume&#xa;(3-node fault-tolerant · install before AIO)&#xa;8h retention · ~3,000–5,000 WIP rows" vertex="1">
+          <mxGeometry height="50" width="280" x="-97" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: monitoring" vertex="1">
+          <mxGeometry height="90" width="536" x="205" y="793" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Prometheus&#xa;(edge metrics)" vertex="1">
+          <mxGeometry height="50" width="116" x="215" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Grafana&#xa;(edge dashboards)" vertex="1">
+          <mxGeometry height="50" width="116" x="341" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Loki&#xa;(log aggregation)" vertex="1">
+          <mxGeometry height="50" width="116" x="467" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Alertmanager&#xa;(offline-capable)" vertex="1">
+          <mxGeometry height="50" width="138" x="593" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: cert-manager" vertex="1">
+          <mxGeometry height="60" width="380" x="-347" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="cert-manager · TLS lifecycle · mTLS per-client certs for AIO MQTT broker" vertex="1">
+          <mxGeometry height="32" width="360" x="-337" y="913" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-65" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: kube-system · Kube-VIP DaemonSet (pod on every node — ARP leader election)" vertex="1">
+          <mxGeometry height="60" width="698" x="43" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-66" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Kube-VIP Pod · Node 1&amp;nbsp; ACTIVE" vertex="1">
+          <mxGeometry height="32" width="200" x="53" y="913" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-67" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 2 STANDBY" vertex="1">
+          <mxGeometry height="32" width="220" x="263" y="913" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 3 STANDBY" vertex="1">
+          <mxGeometry height="32" width="220" x="493" y="913" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Failover: Node failure → Kube-VIP standby wins ARP election ~1-2s · K3s reschedules pods ~40-60s (separate events) · etcd quorum survives if ≥2 nodes healthy · NTP hard requirement: timestamp drift = video forensic correlation failure (250M tx/week at DMTN)" vertex="1">
+          <mxGeometry height="30" width="933" x="-266" y="965" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-70" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;" value="Stored procedure → EF Core refactor (Hank&#39;s workstream) is a prerequisite before edge-db can replace on-prem SQL for any workload" vertex="1">
+          <mxGeometry height="28" width="932" x="-265" y="1001" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Data Center (DMTN)" vertex="1">
+          <mxGeometry height="590" width="268" x="785" y="-7" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="DC Uplink Switch&#xa;(new routable VLAN · TBC Brandon)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-73" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="SQL Server AG&#xa;4 nodes · 96 cores / node&#xa;3TB RAM / node · AlwaysOn&#xa;(primary DB — remains on-prem for POC)" vertex="1">
+          <mxGeometry height="80" width="240" x="799" y="123" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="AD DNS (on-prem)&#xa;Split-brain DNS zones&#xa;Infoblox — confirm [CLIENT]" vertex="1">
+          <mxGeometry height="56" width="240" x="799" y="249" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-75" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Dual NTP Servers (Stratum 2)&#xa;Windows + Linux · DNS alias LB&#xa;K3s nodes sync via NIC 2&#xa;UDP 123 — confirm FW [CLIENT]" vertex="1">
+          <mxGeometry height="66" width="240" x="799" y="351" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-76" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ExpressRoute · Equinix Ashburn&#xa;→ Azure NA Aladdin IT tenant&#xa;~30-40ms latency" vertex="1">
+          <mxGeometry height="56" width="240" x="799" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin (IT Tenant)" vertex="1">
+          <mxGeometry height="590" width="268" x="785" y="627" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Arc&#xa;(cluster registration · GitOps)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Key Vault&#xa;(cluster secrets · mTLS certs)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="725" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Event Hubs&#xa;(real-time telemetry ingestion)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="785" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Event Grid&#xa;(Andon fast-path · sub-second)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="845" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ADLS Gen2&#xa;(bronze/gold · 400d hot · 50yr cold)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="905" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Monitor + Log Analytics&#xa;(replaces Graylog + Elasticsearch)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="965" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Databricks&#xa;(Delta Live Tables · analytics)" vertex="1">
+          <mxGeometry height="46" width="240" x="799" y="1025" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-85" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="2nd Hub (George Marantos)&#xa;OT traffic isolation · Target 4/13–4/18&#xa;[IN PROGRESS]" vertex="1">
+          <mxGeometry height="50" width="240" x="799" y="1085" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-86" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-87" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-88" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="yhA_NecXZdExneI3ux-p-48">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-266" y="248" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-89" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-90" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-91" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=3;" target="yhA_NecXZdExneI3ux-p-43">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-257" y="649" />
+              <mxPoint x="-222" y="649" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-92" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-93" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-94" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-43" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#b85450;strokeWidth=3;curved=0;" target="yhA_NecXZdExneI3ux-p-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-95" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-96" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;" target="yhA_NecXZdExneI3ux-p-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-97" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;" target="yhA_NecXZdExneI3ux-p-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-98" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;" target="yhA_NecXZdExneI3ux-p-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-99" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-100" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-101" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="yhA_NecXZdExneI3ux-p-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-102" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-103" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-104" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="yhA_NecXZdExneI3ux-p-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-105" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="yhA_NecXZdExneI3ux-p-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-106" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="yhA_NecXZdExneI3ux-p-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-107" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;" target="yhA_NecXZdExneI3ux-p-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-108" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Component Legend" vertex="1">
+          <mxGeometry height="24" width="200" x="-347" y="1083" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-109" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="OT / Legacy component" vertex="1">
+          <mxGeometry height="32" width="190" x="-347" y="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-110" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="ALT stack (unchanged function)" vertex="1">
+          <mxGeometry height="32" width="200" x="-147" y="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-111" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="New AIO / Azure component" vertex="1">
+          <mxGeometry height="32" width="200" x="63" y="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-112" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="New edge (no Azure dependency)" vertex="1">
+          <mxGeometry height="32" width="210" x="273" y="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-113" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Pending client confirmation [CLIENT]" vertex="1">
+          <mxGeometry height="32" width="210" x="493" y="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-114" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Arrow Colour Key" vertex="1">
+          <mxGeometry height="24" width="200" x="-347" y="1154" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-115" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Red thick — OT / HTTP REST (200ms SLA)" vertex="1">
+          <mxGeometry height="32" width="270" x="-347" y="1182" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-116" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Blue thick — MQTT mTLS publish" vertex="1">
+          <mxGeometry height="32" width="230" x="-67" y="1182" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-117" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Gold — DC VLAN / NIC 2 / internal DC" vertex="1">
+          <mxGeometry height="32" width="250" x="173" y="1182" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-118" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Dark blue solid — Azure data path" vertex="1">
+          <mxGeometry height="32" width="230" x="433" y="1182" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-119" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;dashed=1;strokeWidth=2;" value="Dark blue dashed — Azure control / management" vertex="1">
+          <mxGeometry height="32" width="310" x="-347" y="1222" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-120" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Green — Edge DB / storage reads and writes" vertex="1">
+          <mxGeometry height="32" width="270" x="-27" y="1222" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-121" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" value="Grey — K8s internal (metrics, logs)" vertex="1">
+          <mxGeometry height="32" width="240" x="253" y="1222" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
   <diagram name="AIO-Node-Analtomy" id="FOsjh2xecjuSs_W0Y3kG">
     <mxGraphModel dx="2019" dy="1714" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -1077,7 +1457,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Pzp33Ns1bQY7iETBuF0m" name="ACSA">
-    <mxGraphModel dx="1834" dy="1264" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2019" dy="1264" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1088,7 +1468,7 @@
           <mxGeometry height="34" width="1760" x="4" y="-37" as="geometry" />
         </mxCell>
         <mxCell id="acsa-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#0078d4;strokeWidth=2;fontSize=13;" value="" vertex="1">
-          <mxGeometry height="261" width="863" x="4" y="7" as="geometry" />
+          <mxGeometry height="258" width="863" x="4" y="7" as="geometry" />
         </mxCell>
         <mxCell id="acsa-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=13;fontStyle=1;align=left;" value="What is ACSA — Azure Container Storage enabled by Azure Arc" vertex="1">
           <mxGeometry height="30" width="860" x="4" y="7" as="geometry" />
@@ -1395,6 +1775,566 @@
         </mxCell>
         <mxCell id="06Tb77VjMIIdXQP24VUx-3" parent="1" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=node" value="" vertex="1">
           <mxGeometry height="39.96" width="41.62" x="1044" y="839" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="tzkhJsGiQeU2YHo1RxDJ" name="Failover">
+    <mxGraphModel dx="2524" dy="2280" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=left;fillColor=none;strokeColor=none;" value="Failover: Slow Events · T=40s to T=60s+ · Pod Rescheduling · Storage · Full Recovery" vertex="1">
+          <mxGeometry height="28" width="1100" x="498" y="-155" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;" value="VIPs already moved and etcd already has a new Leader (see Page 8A). This page covers what happens to workloads, storage, and the ALT production pipeline in the 40-60 seconds after Node 1 fails." vertex="1">
+          <mxGeometry height="28" width="1560" x="113" y="-115" as="geometry" />
+        </mxCell>
+        <mxCell id="col-lbl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;" value="Component" vertex="1">
+          <mxGeometry height="50" width="160" x="113" y="-79" as="geometry" />
+        </mxCell>
+        <mxCell id="col-context" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;" value="Context from 8A&#xa;(T=0 to T=5s)" vertex="1">
+          <mxGeometry height="50" width="280" x="283" y="-79" as="geometry" />
+        </mxCell>
+        <mxCell id="col-t40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;" value="T ~ 40s&#xa;kubelet timeout" vertex="1">
+          <mxGeometry height="50" width="280" x="573" y="-79" as="geometry" />
+        </mxCell>
+        <mxCell id="col-t50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;" value="T ~ 50s&#xa;Pods rescheduling" vertex="1">
+          <mxGeometry height="50" width="280" x="863" y="-79" as="geometry" />
+        </mxCell>
+        <mxCell id="col-t60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="T ~ 60s&#xa;Pods Ready" vertex="1">
+          <mxGeometry height="50" width="240" x="1153" y="-79" as="geometry" />
+        </mxCell>
+        <mxCell id="col-t60plus" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="T ~ 60s+&#xa;Fully Recovered" vertex="1">
+          <mxGeometry height="50" width="270" x="1403" y="-79" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-banner" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=2;align=center;" value="VIPs on Node 2 (since T~1-2s) · etcd Leader on Node 2 (since T~2s) · Clients reconnected (since T~2s) · Arc alerted (since T~5s)" vertex="1">
+          <mxGeometry height="28" width="1390" x="283" y="-19" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-lbl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=2;align=center;" value="Already&#xa;resolved" vertex="1">
+          <mxGeometry height="28" width="160" x="113" y="-19" as="geometry" />
+        </mxCell>
+        <mxCell id="rl-sched" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;align=center;" value="K3s&#xa;Scheduler" vertex="1">
+          <mxGeometry height="110" width="160" x="113" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="sched-ctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;" value="Scheduler running on Node 2&#xa;(etcd Leader since T~2s)&#xa;Watching for node health" vertex="1">
+          <mxGeometry height="110" width="280" x="283" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="sched-t40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" value="kubelet heartbeat from&#xa;Node 1 timeout expires&#xa;Node 1 marked NotReady&#xa;Pods flagged for eviction" vertex="1">
+          <mxGeometry height="110" width="280" x="573" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="sched-t50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" value="Scheduler selects&#xa;Node 2 or Node 3&#xa;for each evicted pod&#xa;Binding written to etcd" vertex="1">
+          <mxGeometry height="110" width="280" x="863" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="sched-t60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="All pods scheduled&#xa;to surviving nodes&#xa;containerd pulling&#xa;and starting images" vertex="1">
+          <mxGeometry height="110" width="240" x="1153" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="sched-t60p" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="All pods Running&#xa;Full replica count restored&#xa;Scheduler idle" vertex="1">
+          <mxGeometry height="110" width="270" x="1403" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="rl-alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;" value="ALT Services&#xa;(alt-system)" vertex="1">
+          <mxGeometry height="110" width="160" x="113" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-ctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;" value="Pods on Node 1 stopped at T=0&#xa;Pods on Nodes 2+3 still running&#xa;Partial capacity since T=0" vertex="1">
+          <mxGeometry height="110" width="280" x="283" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-t40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="Node 1 pods marked&#xa;for eviction by scheduler&#xa;Nodes 2+3 pods&#xa;continue serving" vertex="1">
+          <mxGeometry height="110" width="280" x="573" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-t50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" value="New pods being created&#xa;on Nodes 2+3&#xa;containerd starts&#xa;ALT containers from ACR" vertex="1">
+          <mxGeometry height="110" width="280" x="863" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-t60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="New pods become Ready&#xa;Full replica count restored&#xa;ALT Core API · ALT UI&#xa;NA Data API all running" vertex="1">
+          <mxGeometry height="110" width="240" x="1153" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-t60p" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="Full capacity&#xa;All services running&#xa;200ms SLA met" vertex="1">
+          <mxGeometry height="110" width="270" x="1403" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="rl-edb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="edge-db&#xa;(PostgreSQL)" vertex="1">
+          <mxGeometry height="130" width="160" x="113" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="edb-ctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;" value="edge-db-0 (Node 1) stopped at T=0&#xa;PVC bound to Node 1 disk&#xa;edge-db-1 + edge-db-2&#xa;still running on Nodes 2+3" vertex="1">
+          <mxGeometry height="130" width="280" x="283" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="edb-t40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="edge-db-0 pod evicted&#xa;Scheduler tries to place&#xa;edge-db-0 — cannot&#xa;PVC bound to Node 1 disk&#xa;pod stays PENDING" vertex="1">
+          <mxGeometry height="130" width="280" x="573" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="edb-t50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="edge-db-0 PENDING&#xa;2 of 3 replicas serving&#xa;PostgreSQL tolerates&#xa;1 replica loss&#xa;Reads + writes continue" vertex="1">
+          <mxGeometry height="130" width="280" x="863" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="edb-t60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="edge-db-0 still PENDING&#xa;2 of 3 replicas continue&#xa;Data on Node 1 disk&#xa;intact — not lost&#xa;reclaimPolicy: Retain" vertex="1">
+          <mxGeometry height="130" width="240" x="1153" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="edb-t60p" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;" value="edge-db-0 resumes ONLY&#xa;when Node 1 disk&#xa;is accessible again&#xa;Full 3-replica replication&#xa;restored on node recovery" vertex="1">
+          <mxGeometry height="130" width="270" x="1403" y="263" as="geometry" />
+        </mxCell>
+        <mxCell id="rl-acsa" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;" value="ACSA&#xa;(Storage)" vertex="1">
+          <mxGeometry height="110" width="160" x="113" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="acsa-ctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;" value="PV on Node 1 inaccessible&#xa;PVs on Nodes 2+3 healthy&#xa;reclaimPolicy: Retain active" vertex="1">
+          <mxGeometry height="110" width="280" x="283" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="acsa-t40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;align=center;" value="ACSA operator cannot&#xa;remount Node 1 PV&#xa;on another node&#xa;RWO — node-local only" vertex="1">
+          <mxGeometry height="110" width="280" x="573" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="acsa-t50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Nodes 2+3 PVs unaffected&#xa;edge-db-1 and edge-db-2&#xa;reading and writing normally&#xa;to their local disks" vertex="1">
+          <mxGeometry height="110" width="280" x="863" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="acsa-t60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;align=center;" value="No change — Node 1&#xa;PV still inaccessible&#xa;Data protected by&#xa;reclaimPolicy: Retain" vertex="1">
+          <mxGeometry height="110" width="240" x="1153" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="acsa-t60p" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;" value="Storage fully recovered&#xa;only when Node 1 disk&#xa;accessible and edge-db-0&#xa;pod can remount PV" vertex="1">
+          <mxGeometry height="110" width="270" x="1403" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="rl-cl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="Client&#xa;Experience" vertex="1">
+          <mxGeometry height="110" width="160" x="113" y="527" as="geometry" />
+        </mxCell>
+        <mxCell id="cl-ctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;" value="Clients reconnected to VIP&#xa;on Node 2 since T~2s&#xa;200ms SLA met&#xa;No client impact" vertex="1">
+          <mxGeometry height="110" width="280" x="283" y="527" as="geometry" />
+        </mxCell>
+        <mxCell id="cl-t40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="No additional client impact&#xa;VIP stable on Node 2&#xa;Partial ALT replica count&#xa;but requests still served" vertex="1">
+          <mxGeometry height="110" width="280" x="573" y="527" as="geometry" />
+        </mxCell>
+        <mxCell id="cl-t50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="No client impact&#xa;New pods coming online&#xa;Load balanced across&#xa;Nodes 2+3" vertex="1">
+          <mxGeometry height="110" width="280" x="863" y="527" as="geometry" />
+        </mxCell>
+        <mxCell id="cl-t60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Full capacity restored&#xa;All services Running&#xa;200ms SLA maintained&#xa;No config change needed" vertex="1">
+          <mxGeometry height="110" width="240" x="1153" y="527" as="geometry" />
+        </mxCell>
+        <mxCell id="cl-t60p" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="Fully recovered&#xa;Cluster operating normally&#xa;on 2 nodes until&#xa;Node 1 is restored" vertex="1">
+          <mxGeometry height="110" width="270" x="1403" y="527" as="geometry" />
+        </mxCell>
+        <mxCell id="div-lbl" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#444441;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="283" y="-79" as="sourcePoint" />
+            <mxPoint x="283" y="651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div-ctx" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#666666;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="573" y="-79" as="sourcePoint" />
+            <mxPoint x="573" y="651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div-t40" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="863" y="-79" as="sourcePoint" />
+            <mxPoint x="863" y="651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div-t50" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1153" y="-79" as="sourcePoint" />
+            <mxPoint x="1153" y="651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div-t60" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#82b366;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1403" y="-79" as="sourcePoint" />
+            <mxPoint x="1403" y="651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ann1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="edge-db-0 is the only component that does NOT fully recover within 60s. It remains PENDING until Node 1 disk is accessible. This is by design — ACSA RWO local disk cannot be remounted elsewhere. PostgreSQL continues with 2 replicas — no data loss." vertex="1">
+          <mxGeometry height="28" width="1560" x="113" y="653" as="geometry" />
+        </mxCell>
+        <mxCell id="ann2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="Client-visible impact: brief TCP reconnect at T~1-2s only. The 40-60s pod rescheduling window has no additional client impact because VIPs were already moved to Node 2 at T~1-2s and pods on Nodes 2+3 continued serving throughout." vertex="1">
+          <mxGeometry height="28" width="1560" x="113" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-53" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=left;fillColor=none;strokeColor=none;" value="Failover: Fast Events · T=0 to T=5s · Kube-VIP · etcd · Cilium" vertex="1">
+          <mxGeometry height="28" width="488" x="562" y="-1079" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-54" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;" value="The first 5 seconds after Node 1 failure. VIPs move in ~1-2s. etcd elects a new Leader in ~2s. Cilium agents on Nodes 2+3 are unaffected. Clients experience only a brief TCP reconnect — not a full outage." vertex="1">
+          <mxGeometry height="28" width="1560" x="113" y="-1033" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;" value="Component" vertex="1">
+          <mxGeometry height="50" width="160" x="113" y="-997" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;" value="T = 0&#xa;Node 1 fails" vertex="1">
+          <mxGeometry height="50" width="260" x="283" y="-997" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;" value="T ~ 300ms&#xa;Detection" vertex="1">
+          <mxGeometry height="50" width="260" x="553" y="-997" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="T ~ 1-2s&#xa;VIPs moved" vertex="1">
+          <mxGeometry height="50" width="260" x="823" y="-997" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;" value="T ~ 2s&#xa;etcd new Leader" vertex="1">
+          <mxGeometry height="50" width="260" x="1093" y="-997" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;" value="T ~ 5s&#xa;Arc detects" vertex="1">
+          <mxGeometry height="50" width="310" x="1363" y="-997" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;" value="Node 1&#xa;State" vertex="1">
+          <mxGeometry height="100" width="160" x="113" y="-929" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;" value="NODE 1 FAILS&#xa;Hardware crash · OS failure&#xa;planned maintenance" vertex="1">
+          <mxGeometry height="100" width="260" x="283" y="-929" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;" value="Node 1 unreachable&#xa;All processes stopped&#xa;No heartbeats sent" vertex="1">
+          <mxGeometry height="100" width="260" x="553" y="-929" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;" value="Node 1 still DOWN&#xa;Nodes 2+3 fully operational" vertex="1">
+          <mxGeometry height="100" width="260" x="823" y="-929" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-65" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;" value="Node 1 still DOWN&#xa;Cluster operating normally&#xa;on 2 remaining nodes" vertex="1">
+          <mxGeometry height="100" width="260" x="1093" y="-929" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-66" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;" value="Node 1 still DOWN&#xa;Azure Portal notified&#xa;Ops team alerted" vertex="1">
+          <mxGeometry height="100" width="310" x="1363" y="-929" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-67" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="Kube-VIP&#xa;(VIPs)" vertex="1">
+          <mxGeometry height="100" width="160" x="113" y="-815" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Node 1 was ACTIVE&#xa;Held all 3 VIPs via ARP&#xa;API · MQTT · HTTPS" vertex="1">
+          <mxGeometry height="100" width="260" x="283" y="-815" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="Node 2 + 3 speakers&#xa;detect no heartbeat&#xa;from Node 1 ACTIVE" vertex="1">
+          <mxGeometry height="100" width="260" x="553" y="-815" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-70" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="Node 2 wins election&#xa;Broadcasts GARP on OT /27&#xa;Switch ARP table updated&#xa;All 3 VIPs now on Node 2" vertex="1">
+          <mxGeometry height="100" width="260" x="823" y="-815" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Node 2 ACTIVE — stable&#xa;VIPs fully operational&#xa;Clients reconnect to&#xa;same VIP addresses" vertex="1">
+          <mxGeometry height="100" width="260" x="1093" y="-815" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Node 2 ACTIVE — stable&#xa;No change — VIPs settled" vertex="1">
+          <mxGeometry height="100" width="310" x="1363" y="-815" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-73" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;" value="etcd&#xa;(Raft)" vertex="1">
+          <mxGeometry height="100" width="160" x="113" y="-701" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" value="Node 1 was Leader&#xa;Nodes 2+3 were Followers&#xa;Raft quorum = 3 of 3" vertex="1">
+          <mxGeometry height="100" width="260" x="283" y="-701" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-75" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="Followers miss heartbeat&#xa;Election timeout fires&#xa;150-300ms randomised&#xa;Node 2 becomes Candidate" vertex="1">
+          <mxGeometry height="100" width="260" x="553" y="-701" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-76" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" value="Node 2 sends RequestVote&#xa;Wins 2 of 3 votes (self + Node 3)&#xa;Sends heartbeats immediately&#xa;Quorum maintained" vertex="1">
+          <mxGeometry height="100" width="260" x="823" y="-701" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;" value="Node 2 = NEW LEADER&#xa;Node 3 = Follower&#xa;All writes proceed&#xa;K3s API fully operational" vertex="1">
+          <mxGeometry height="100" width="260" x="1093" y="-701" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" value="Node 2 Leader — stable&#xa;No change — etcd healthy" vertex="1">
+          <mxGeometry height="100" width="310" x="1363" y="-701" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;align=center;" value="Cilium&#xa;(eBPF)" vertex="1">
+          <mxGeometry height="100" width="160" x="113" y="-587" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;" value="Agents healthy on all 3&#xa;eBPF policy enforced&#xa;Hubble relay active" vertex="1">
+          <mxGeometry height="100" width="260" x="283" y="-587" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;" value="Node 1 agent offline&#xa;eBPF maps on Node 1 gone&#xa;Node 1 pod routes lost" vertex="1">
+          <mxGeometry height="100" width="260" x="553" y="-587" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;" value="Nodes 2+3 agents unaffected&#xa;eBPF policy continues&#xa;NetworkPolicy enforced&#xa;Hubble relay continues" vertex="1">
+          <mxGeometry height="100" width="260" x="823" y="-587" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;" value="No change — Nodes 2+3&#xa;fully operational&#xa;Cilium does not require&#xa;all 3 agents to function" vertex="1">
+          <mxGeometry height="100" width="260" x="1093" y="-587" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;" value="No change — stable&#xa;All flows visible via&#xa;Hubble on Nodes 2+3" vertex="1">
+          <mxGeometry height="100" width="310" x="1363" y="-587" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-85" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;" value="Client&#xa;Experience" vertex="1">
+          <mxGeometry height="100" width="160" x="113" y="-473" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;" value="In-flight TCP connections&#xa;to Node 1 VIPs are dropped&#xa;MQTT publish fails briefly" vertex="1">
+          <mxGeometry height="100" width="260" x="283" y="-473" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-87" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="Clients retry connection&#xa;to same VIP addresses&#xa;VIP not yet moved&#xa;retries may fail" vertex="1">
+          <mxGeometry height="100" width="260" x="553" y="-473" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-88" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;" value="VIPs now on Node 2&#xa;Client reconnects succeed&#xa;MQTT publishing resumes&#xa;kubectl works via API VIP" vertex="1">
+          <mxGeometry height="100" width="260" x="823" y="-473" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-89" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Fully reconnected&#xa;200ms SLA met&#xa;No config change needed&#xa;Same VIP addresses" vertex="1">
+          <mxGeometry height="100" width="260" x="1093" y="-473" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;" value="Fully operational&#xa;No client impact&#xa;200ms SLA maintained" vertex="1">
+          <mxGeometry height="100" width="310" x="1363" y="-473" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-91" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;" value="Azure Arc&#xa;(GitOps)" vertex="1">
+          <mxGeometry height="100" width="160" x="113" y="-359" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-92" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" value="Arc agents healthy&#xa;GitOps sync active&#xa;Using API VIP :6443" vertex="1">
+          <mxGeometry height="100" width="260" x="283" y="-359" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-93" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;" value="Arc agent on Node 1&#xa;goes offline&#xa;Node 2+3 Arc agents&#xa;continue normally" vertex="1">
+          <mxGeometry height="100" width="260" x="553" y="-359" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-94" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" value="GitOps continues via&#xa;API VIP now on Node 2&#xa;Flux reconciliation&#xa;unaffected" vertex="1">
+          <mxGeometry height="100" width="260" x="823" y="-359" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-95" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" value="GitOps stable&#xa;No disruption to&#xa;config reconciliation" vertex="1">
+          <mxGeometry height="100" width="260" x="1093" y="-359" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-96" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;" value="Node 1 agent offline&#xa;detected by Azure Portal&#xa;Health alert raised&#xa;Ops team notified" vertex="1">
+          <mxGeometry height="100" width="310" x="1363" y="-359" as="geometry" />
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-97" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#444441;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279" y="-997" as="sourcePoint" />
+            <mxPoint x="279" y="-249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-98" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#b85450;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="553" y="-997" as="sourcePoint" />
+            <mxPoint x="553" y="-249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-99" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="823" y="-997" as="sourcePoint" />
+            <mxPoint x="823" y="-249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-100" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#82b366;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1093" y="-997" as="sourcePoint" />
+            <mxPoint x="1093" y="-249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-101" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1363" y="-997" as="sourcePoint" />
+            <mxPoint x="1363" y="-249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBfXgJ-zVMjUkh4Bxek9-102" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="All four systems respond independently and in parallel. Kube-VIP does not wait for etcd. etcd does not wait for Kube-VIP. The VIP moves fast (~1-2s). The new etcd Leader is elected fast (~2s). Clients are reconnected before pods are rescheduled." vertex="1">
+          <mxGeometry height="28" width="1560" x="113" y="-247" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="a4YcogJ4IALRdas3neiM" name="Page-7">
+    <mxGraphModel dx="4124" dy="4680" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=left;fillColor=none;strokeColor=none;" value="Namespace Isolation and NetworkPolicy · Zero-Trust Posture · Cilium Enforcement" vertex="1">
+          <mxGeometry height="28" width="1200" x="530" y="-28" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;align=left;" value="Every namespace is isolated by default. No inter-namespace traffic is permitted unless an explicit Cilium NetworkPolicy allows it. Enforced in eBPF on every node, on every packet." vertex="1">
+          <mxGeometry height="44" width="1760" x="20" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-allow" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;" value="ALLOW" vertex="1">
+          <mxGeometry height="20" width="70" x="20" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-drop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;" value="DROP" vertex="1">
+          <mxGeometry height="20" width="70" x="100" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-deny" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;align=center;" value="Default DENY ALL inter-namespace — explicit rules only" vertex="1">
+          <mxGeometry height="23" width="305" x="1051" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-contoso" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;" value="Contoso Gateway · OT /27" vertex="1">
+          <mxGeometry height="36" width="200" x="613" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-idmz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;" value="IDMZ · Event Hubs · ADLS" vertex="1">
+          <mxGeometry height="36" width="200" x="130" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-kubectl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;" value="kubectl · admin · Secure Link / VDI" vertex="1">
+          <mxGeometry height="36" width="240" x="1540" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-aio" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="azure-iot-operations" vertex="1">
+          <mxGeometry height="560" width="460" x="20" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-mqtt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=1;align=center;" value="mqtt-broker · :8883 TLS" vertex="1">
+          <mxGeometry height="40" width="200" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-edgedb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=1;align=center;" value="edge-db · PostgreSQL :5432" vertex="1">
+          <mxGeometry height="40" width="200" x="260" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-dataflow" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=1;align=center;" value="aio-dataflow" vertex="1">
+          <mxGeometry height="36" width="420" x="40" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-aio-op" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=1;align=center;" value="aio-operator" vertex="1">
+          <mxGeometry height="36" width="420" x="40" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="aio-np" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=13;align=left;fontFamily=Courier New;" value="NetworkPolicy&#xa;&#xa;INGRESS mqtt-broker :8883&#xa;  ALLOW from alt-system&#xa;  ALLOW from monitoring&#xa;  DENY all others&#xa;&#xa;INGRESS edge-db :5432&#xa;  ALLOW from azure-iot-operations only&#xa;  DENY all inter-namespace&#xa;&#xa;EGRESS aio-dataflow&#xa;  ALLOW to IDMZ endpoints&#xa;  DENY all other egress" vertex="1">
+          <mxGeometry height="354" width="420" x="40" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="alt-system" vertex="1">
+          <mxGeometry height="560" width="460" x="500" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-altcore" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;align=center;" value="alt-core-api · :80" vertex="1">
+          <mxGeometry height="40" width="200" x="520" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-nadata" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;align=center;" value="na-data-api · :80" vertex="1">
+          <mxGeometry height="40" width="200" x="740" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-altui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;align=center;" value="alt-ui-api · :80" vertex="1">
+          <mxGeometry height="36" width="200" x="520" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-andon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;align=center;" value="andon-ui" vertex="1">
+          <mxGeometry height="36" width="200" x="740" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-np" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=left;fontFamily=Courier New;" value="NetworkPolicy&#xa;&#xa;INGRESS alt-system pods&#xa;  ALLOW from Contoso gateway (OT /27)&#xa;  ALLOW from azure-arc namespace&#xa;  ALLOW from monitoring :9090&#xa;  DENY all other ingress&#xa;&#xa;EGRESS alt-core-api&#xa;  ALLOW to azure-iot-operations :8883&#xa;  ALLOW to kube-system :53 (DNS)&#xa;  ALLOW to edge-db :5432 (internal ns)&#xa;  DENY all other egress&#xa;&#xa;EGRESS na-data-api&#xa;  ALLOW to azure-iot-operations :8883&#xa;  ALLOW to kube-system :53 (DNS)&#xa;  DENY all other egress" vertex="1">
+          <mxGeometry height="400" width="420" x="520" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-mon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="monitoring" vertex="1">
+          <mxGeometry height="560" width="380" x="980" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-prom" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;" value="prometheus · :9090" vertex="1">
+          <mxGeometry height="40" width="160" x="1000" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-grafana" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;" value="grafana · :3000" vertex="1">
+          <mxGeometry height="40" width="160" x="1180" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-loki" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;" value="loki · :3100" vertex="1">
+          <mxGeometry height="36" width="340" x="1000" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="mon-np" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=left;fontFamily=Courier New;" value="NetworkPolicy&#xa;&#xa;EGRESS prometheus&#xa;  ALLOW scrape :9090 all namespaces&#xa;  ALLOW to kube-system :53&#xa;  DENY all other egress&#xa;&#xa;INGRESS grafana :3000&#xa;  ALLOW from admin via VDI only&#xa;  DENY all external access&#xa;&#xa;EGRESS all pods&#xa;  ALLOW to Azure Monitor (IDMZ)&#xa;  ALLOW to kube-system :53&#xa;  DENY all other egress" vertex="1">
+          <mxGeometry height="400" width="340" x="1000" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-arc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="azure-arc" vertex="1">
+          <mxGeometry height="220" width="200" x="1380" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-arc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=1;align=center;" value="arc-agent" vertex="1">
+          <mxGeometry height="36" width="160" x="1400" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-flux" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=1;align=center;" value="flux-agent" vertex="1">
+          <mxGeometry height="36" width="160" x="1400" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="arc-np" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;align=left;fontFamily=Courier New;" value="EGRESS — ALLOW all ns&#xa;INGRESS — DENY all" vertex="1">
+          <mxGeometry height="74" width="160" x="1400" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-ks" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="kube-system" vertex="1">
+          <mxGeometry height="220" width="180" x="1600" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-dns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=1;align=center;" value="CoreDNS :53" vertex="1">
+          <mxGeometry height="36" width="148" x="1616" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-kvip4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;" value="kube-vip" vertex="1">
+          <mxGeometry height="36" width="148" x="1616" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="ks-np" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=left;fontFamily=Courier New;" value="CoreDNS :53&#xa;ALLOW from all ns&#xa;(universal DNS)" vertex="1">
+          <mxGeometry height="74" width="148" x="1616" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-1" edge="1" parent="1" source="ext-contoso" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;" target="pod-altcore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-1-lbl" connectable="0" parent="fl-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW HTTP :80" vertex="1">
+          <mxGeometry relative="0.5" x="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-2" edge="1" parent="1" source="ext-contoso" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;" target="pod-nadata">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-2-lbl" connectable="0" parent="fl-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW HTTP :80" vertex="1">
+          <mxGeometry relative="0.5" x="-60" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-3" edge="1" parent="1" source="pod-altcore" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" target="pod-mqtt">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="188" />
+              <mxPoint x="140" y="188" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fl-3-lbl" connectable="0" parent="fl-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW :8883" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-4" edge="1" parent="1" source="pod-nadata" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" target="pod-mqtt">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="251" />
+              <mxPoint x="140" y="251" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fl-4-lbl" connectable="0" parent="fl-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW :8883" vertex="1">
+          <mxGeometry relative="0.5" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-5" edge="1" parent="1" source="pod-prom" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" target="pod-mqtt">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1080" y="244" />
+              <mxPoint x="500" y="244" />
+              <mxPoint x="500" y="244" />
+              <mxPoint x="140" y="244" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fl-5-lbl" connectable="0" parent="fl-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW scrape :9090" vertex="1">
+          <mxGeometry relative="0.3" y="-12" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-6" edge="1" parent="1" source="pod-prom" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" target="pod-altcore">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1080" y="212" />
+              <mxPoint x="720" y="212" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fl-6-lbl" connectable="0" parent="fl-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW scrape :9090" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-7" edge="1" parent="1" source="pod-dataflow" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;" target="ext-idmz">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="272" />
+              <mxPoint x="140" y="122" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fl-7-lbl" connectable="0" parent="fl-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW outbound" vertex="1">
+          <mxGeometry relative="0.5" x="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-8" edge="1" parent="1" source="ext-kubectl" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;" target="pod-kvip4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-8-lbl" connectable="0" parent="fl-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="ALLOW :6443" vertex="1">
+          <mxGeometry relative="0.5" x="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-drop1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;dashed=1;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="172" />
+              <mxPoint x="489" y="172" />
+              <mxPoint x="489" y="225" />
+            </Array>
+            <mxPoint x="620" y="205" as="sourcePoint" />
+            <mxPoint x="460" y="225" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fl-drop1-lbl" connectable="0" parent="fl-drop1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#b85450;fontStyle=1;" value="DROP :5432" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry">
+            <mxPoint x="-33" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#444441;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="260" width="1760" x="20" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-hdr" parent="1" style="text;html=1;fontSize=13;fontStyle=1;align=left;fillColor=none;strokeColor=none;" value="NetworkPolicy — All Explicit Allow Rules" vertex="1">
+          <mxGeometry height="22" width="500" x="30" y="746" as="geometry" />
+        </mxCell>
+        <mxCell id="th-src" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" value="Source" vertex="1">
+          <mxGeometry height="26" width="280" x="30" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="th-dst" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" value="Destination" vertex="1">
+          <mxGeometry height="26" width="280" x="320" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="th-port" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" value="Port / Protocol" vertex="1">
+          <mxGeometry height="26" width="180" x="610" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="th-reason" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" value="Reason" vertex="1">
+          <mxGeometry height="26" width="970" x="800" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="td-1" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;verticalAlign=top;" value="Contoso gateway (OT /27)&#xa;Contoso gateway (OT /27)&#xa;alt-system / alt-core-api&#xa;alt-system / na-data-api&#xa;monitoring / prometheus&#xa;monitoring / prometheus&#xa;monitoring / all pods&#xa;aio-dataflow&#xa;azure-arc agent&#xa;kubectl / admin (VDI)&#xa;All namespaces (DNS)&#xa;DROP — alt-core-api" vertex="1">
+          <mxGeometry height="188" width="280" x="30" y="802" as="geometry" />
+        </mxCell>
+        <mxCell id="td-2" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;verticalAlign=top;" value="alt-system / alt-core-api&#xa;alt-system / na-data-api&#xa;azure-iot-operations / mqtt-broker&#xa;azure-iot-operations / mqtt-broker&#xa;azure-iot-operations / mqtt-broker&#xa;alt-system / alt-core-api&#xa;IDMZ / Azure Monitor&#xa;IDMZ / Event Hubs + ADLS&#xa;All namespaces&#xa;kube-system / kube-vip :6443&#xa;kube-system / CoreDNS&#xa;azure-iot-operations / edge-db" vertex="1">
+          <mxGeometry height="188" width="280" x="320" y="802" as="geometry" />
+        </mxCell>
+        <mxCell id="td-3" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;verticalAlign=top;fontFamily=Courier New;" value=":80 HTTP&#xa;:80 HTTP&#xa;:8883 TCP TLS&#xa;:8883 TCP TLS&#xa;:9090 TCP&#xa;:9090 TCP&#xa;outbound&#xa;outbound&#xa;all ports&#xa;:6443 TCP&#xa;:53 UDP/TCP&#xa;:5432 DROP" vertex="1">
+          <mxGeometry height="188" width="180" x="610" y="802" as="geometry" />
+        </mxCell>
+        <mxCell id="td-4" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;verticalAlign=top;" value="Contoso gateway publishes telemetry to ALT Core API&#xa;Contoso gateway publishes telemetry to NA Data API&#xa;ALT Core API publishes MQTT to AIO broker&#xa;NA Data API publishes MQTT to AIO broker&#xa;Prometheus scrapes MQTT broker metrics&#xa;Prometheus scrapes ALT Core API metrics&#xa;Monitoring pods ship logs and metrics to Azure Monitor&#xa;AIO dataflow sends processed data to IDMZ for cloud ingestion&#xa;Arc agent must reach all cluster resources and API server&#xa;kubectl admin access via Kube-VIP API VIP&#xa;All pods require DNS — CoreDNS forwards to on-prem AD DNS&#xa;No direct DB access from alt-system — write path is via MQTT only" vertex="1">
+          <mxGeometry height="188" width="970" x="800" y="802" as="geometry" />
+        </mxCell>
+        <mxCell id="ann1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;align=left;" value="All NetworkPolicy is applied as CiliumNetworkPolicy CRDs — managed via GitOps (Flux CD). Any policy change requires a PR, peer review, and merge before Flux applies it. No ad-hoc kubectl apply to policy in production." vertex="1">
+          <mxGeometry height="26" width="1760" x="20" y="1010" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
