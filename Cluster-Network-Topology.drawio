@@ -565,6 +565,12 @@
         <mxCell id="2P4Tj3szFgoWL2Z9DeFa-26" parent="MyOj7_xp5qv6tebg8eNr-1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;" value="3.B" vertex="1">
           <mxGeometry height="43" width="43" x="1119" y="944.5" as="geometry" />
         </mxCell>
+        <mxCell id="tflx6-GjehxUgc8UbxwJ-0" parent="MyOj7_xp5qv6tebg8eNr-1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Express_Route.svg;" value="" vertex="1">
+          <mxGeometry height="32" width="53.33" x="815" y="484" as="geometry" />
+        </mxCell>
+        <mxCell id="tflx6-GjehxUgc8UbxwJ-1" parent="MyOj7_xp5qv6tebg8eNr-1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Express_Route.svg;" value="" vertex="1">
+          <mxGeometry height="32" width="53.33" x="815" y="558" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
