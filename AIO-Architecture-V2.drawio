@@ -1076,8 +1076,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="Pzp33Ns1bQY7iETBuF0m" name="Page-5">
-    <mxGraphModel dx="2054" dy="1480" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <diagram id="Pzp33Ns1bQY7iETBuF0m" name="ACSA">
+    <mxGraphModel dx="1834" dy="1264" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1106,10 +1106,10 @@
           <mxGeometry height="150" width="848" x="890" y="41" as="geometry" />
         </mxCell>
         <mxCell id="pvc-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#9673a6;strokeWidth=2;" value="" vertex="1">
-          <mxGeometry height="324" width="1795" x="20" y="294" as="geometry" />
+          <mxGeometry height="324" width="1762" x="20" y="294" as="geometry" />
         </mxCell>
         <mxCell id="pvc-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=left;" value="PVC and PV Lifecycle — How Storage is Claimed and Bound" vertex="1">
-          <mxGeometry height="30" width="1760" x="20" y="294" as="geometry" />
+          <mxGeometry height="37" width="1760" x="20" y="287" as="geometry" />
         </mxCell>
         <mxCell id="sts-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;align=left;" value="&amp;nbsp; PostgreSQL ·&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;StatefulSet&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; edge-db ·&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;3 replicas&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="101" width="160" x="30" y="334" as="geometry" />
@@ -1207,62 +1207,38 @@
         <mxCell id="retain-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=2;align=left;" value="reclaimPolicy: Retain — if a PVC is deleted, the PV and its data are NOT deleted. Data survives accidental PVC deletion. Manual cleanup required." vertex="1">
           <mxGeometry height="34" width="492" x="574" y="574" as="geometry" />
         </mxCell>
-        <mxCell id="ss-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#9673a6;strokeWidth=2;" value="" vertex="1">
-          <mxGeometry height="260" width="860" x="24" y="746" as="geometry" />
+        <mxCell id="ss-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#9673a6;strokeWidth=2;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="307" width="859" x="30" y="662" as="geometry" />
         </mxCell>
-        <mxCell id="ss-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=left;" value="StatefulSet Behaviour — Why StatefulSet and Not Deployment" vertex="1">
-          <mxGeometry height="30" width="860" x="24" y="746" as="geometry" />
+        <mxCell id="ss-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;align=left;" value="StatefulSet Behaviour — Why StatefulSet and Not Deployment" vertex="1">
+          <mxGeometry height="30" width="860" x="30" y="657" as="geometry" />
         </mxCell>
-        <mxCell id="ss-content" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;verticalAlign=top;" value="A Deployment treats all pods as identical and interchangeable — any pod can run on any node. This is fine for stateless workloads but catastrophic for databases. If edge-db-0 is rescheduled to a different node, it loses its data.&#xa;&#xa;A StatefulSet gives each pod a stable identity and a stable storage binding:&#xa;&#xa;  edge-db-0  →  always bound to PVC data-edge-db-0  →  always on Node 1&#xa;  edge-db-1  →  always bound to PVC data-edge-db-1  →  always on Node 2&#xa;  edge-db-2  →  always bound to PVC data-edge-db-2  →  always on Node 3&#xa;&#xa;If edge-db-0 pod crashes — K3s restarts it on Node 1 and remounts the same PV.&#xa;Pod identity is preserved. Data is preserved. No data loss.&#xa;&#xa;Ordered startup — StatefulSet starts pods in order (0, 1, 2) and waits for each&#xa;to be Ready before starting the next. Critical for PostgreSQL primary/replica setup.&#xa;&#xa;Ordered shutdown — pods stop in reverse order (2, 1, 0). Primary is last to stop." vertex="1">
-          <mxGeometry height="220" width="848" x="30" y="780" as="geometry" />
+        <mxCell id="ss-content" parent="1" style="text;html=1;fontSize=13;align=left;fillColor=none;strokeColor=none;verticalAlign=top;whiteSpace=wrap;" value="A Deployment treats all pods as identical and interchangeable — any pod can run on any node. This is fine for stateless workloads but catastrophic for databases. If edge-db-0 is rescheduled to a different node, it loses its data.&#xa;&#xa;A StatefulSet gives each pod a stable identity and a stable storage binding:&#xa;&#xa;  edge-db-0  →  always bound to PVC data-edge-db-0  →  always on Node 1&#xa;  edge-db-1  →  always bound to PVC data-edge-db-1  →  always on Node 2&#xa;  edge-db-2  →  always bound to PVC data-edge-db-2  →  always on Node 3&#xa;&#xa;If edge-db-0 pod crashes — K3s restarts it on Node 1 and remounts the same PV.&#xa;Pod identity is preserved. Data is preserved. No data loss.&#xa;&#xa;Ordered startup — StatefulSet starts pods in order (0, 1, 2) and waits for each&#xa;to be Ready before starting the next. Critical for PostgreSQL primary/replica setup.&#xa;&#xa;Ordered shutdown — pods stop in reverse order (2, 1, 0). Primary is last to stop." vertex="1">
+          <mxGeometry height="220" width="848" x="36" y="696" as="geometry" />
         </mxCell>
-        <mxCell id="nf-box" parent="1" style="rounded=1;html=1;fillColor=#f8f7f0;strokeColor=#b85450;strokeWidth=2;whiteSpace=wrap;" value="" vertex="1">
-          <mxGeometry height="275" width="860" x="904" y="746" as="geometry" />
+        <mxCell id="ret-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#d6b656;strokeWidth=2;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="111" width="859" x="32" y="978" as="geometry" />
         </mxCell>
-        <mxCell id="nf-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=left;" value="Node Failure Behaviour — What Happens to Storage" vertex="1">
-          <mxGeometry height="30" width="860" x="904" y="746" as="geometry" />
+        <mxCell id="ret-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;align=left;" value="Data Retention — Edge-db is a Buffer, Not a System of Record" vertex="1">
+          <mxGeometry height="30" width="860" x="32" y="978" as="geometry" />
         </mxCell>
-        <mxCell id="nf-s1-badge" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=left;" value="Node 1 fails — pod restarts on same node" vertex="1">
-          <mxGeometry height="24" width="848" x="910" y="782" as="geometry" />
+        <mxCell id="ret-content" parent="1" style="text;html=1;fontSize=13;align=left;fillColor=none;strokeColor=none;verticalAlign=top;fontFamily=Courier New;" value="&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Helvetica&quot;&gt;Minimum retention:   8 hours  (client confirmed hard requirement)&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Helvetica&quot;&gt;Buffer retention:    72 hours  (AIO max — provides buffer for sync failures or connectivity gaps)&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Helvetica&quot;&gt;System of record:    ADLS Gen2  (bronze layer · 400 days hot · 50 years cold archive)&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Helvetica&quot;&gt;Sync path:           AIO dataflow → ADLS Gen2 via OT ExpressRoute → IDMZ → Azure&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="60" width="848" x="25" y="996" as="geometry" />
         </mxCell>
-        <mxCell id="nf-s1-d" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;whiteSpace=wrap;" value="Node 1 recovers — K3s restarts edge-db-0 pod on Node 1 — remounts PV from Node 1 disk — data fully intact — PostgreSQL resumes normally. Other replicas (edge-db-1, edge-db-2) continued serving reads during the outage." vertex="1">
-          <mxGeometry height="44" width="848" x="910" y="808" as="geometry" />
+        <mxCell id="ann1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=left;" value="ACSA is an Arc extension — it must be registered and healthy before the edge-db StatefulSet is deployed. If ACSA is not running, PVC creation will hang in Pending state indefinitely." vertex="1">
+          <mxGeometry height="40" width="865" x="926" y="978" as="geometry" />
         </mxCell>
-        <mxCell id="nf-s2-badge" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=left;" value="Node 1 fails permanently — pod cannot be rescheduled to another node" vertex="1">
-          <mxGeometry height="24" width="848" x="910" y="860" as="geometry" />
+        <mxCell id="ann2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;" value="Local disk storage means data does NOT replicate automatically across nodes at the storage layer. PostgreSQL replication handles data redundancy at the application layer across the 3 StatefulSet replicas." vertex="1">
+          <mxGeometry height="35" width="864" x="926" y="1024" as="geometry" />
         </mxCell>
-        <mxCell id="nf-s2-d" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;whiteSpace=wrap;" value="edge-db-0 pod goes Pending — it cannot be moved because PVC data-edge-db-0 is bound to Node 1 disk which is unreachable. Cluster continues with 2 of 3 replicas. PostgreSQL can tolerate 1 replica loss. Data on Node 1 disk is not lost — it is inaccessible until node is recovered or disk is remounted." vertex="1">
-          <mxGeometry height="54" width="848" x="910" y="886" as="geometry" />
+        <mxCell id="ann3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;align=left;" value="reclaimPolicy: Retain is critical for production. If set to Delete, a kubectl delete pvc accidentally wipes all edge data. Retain means data survives — manual cleanup is required before storage can be reused." vertex="1">
+          <mxGeometry height="41" width="870" x="924" y="1120" as="geometry" />
         </mxCell>
-        <mxCell id="nf-s3-badge" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=left;" value="2 nodes fail — cluster AND storage both degraded" vertex="1">
-          <mxGeometry height="24" width="848" x="910" y="948" as="geometry" />
-        </mxCell>
-        <mxCell id="nf-s3-d" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;whiteSpace=wrap;" value="etcd loses quorum — K3s API halts — no pod rescheduling possible. Only 1 PostgreSQL replica remains. Once etcd quorum is restored (nodes recovered) the cluster resumes and data on surviving node is intact." vertex="1">
-          <mxGeometry height="30" width="848" x="910" y="974" as="geometry" />
-        </mxCell>
-        <mxCell id="ret-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#d6b656;strokeWidth=2;" value="" vertex="1">
-          <mxGeometry height="100" width="860" x="26" y="1033" as="geometry" />
-        </mxCell>
-        <mxCell id="ret-hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=left;" value="Data Retention — Edge-db is a Buffer, Not a System of Record" vertex="1">
-          <mxGeometry height="30" width="860" x="26" y="1033" as="geometry" />
-        </mxCell>
-        <mxCell id="ret-content" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=none;strokeColor=none;verticalAlign=top;fontFamily=Courier New;" value="Minimum retention:   8 hours  (client confirmed hard requirement)&#xa;Buffer retention:    72 hours  (AIO max — provides buffer for sync failures or connectivity gaps)&#xa;System of record:    ADLS Gen2  (bronze layer · 400 days hot · 50 years cold archive)&#xa;Sync path:           AIO dataflow → ADLS Gen2 via OT ExpressRoute → IDMZ → Azure" vertex="1">
-          <mxGeometry height="60" width="848" x="32" y="1067" as="geometry" />
-        </mxCell>
-        <mxCell id="ann1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;align=left;" value="ACSA is an Arc extension — it must be registered and healthy before the edge-db StatefulSet is deployed. If ACSA is not running, PVC creation will hang in Pending state indefinitely." vertex="1">
-          <mxGeometry height="30" width="860" x="906" y="1033" as="geometry" />
-        </mxCell>
-        <mxCell id="ann2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Local disk storage means data does NOT replicate automatically across nodes at the storage layer. PostgreSQL replication handles data redundancy at the application layer across the 3 StatefulSet replicas." vertex="1">
-          <mxGeometry height="30" width="860" x="906" y="1071" as="geometry" />
-        </mxCell>
-        <mxCell id="ann3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;" value="reclaimPolicy: Retain is critical for production. If set to Delete, a kubectl delete pvc accidentally wipes all edge data. Retain means data survives — manual cleanup is required before storage can be reused." vertex="1">
-          <mxGeometry height="30" width="860" x="26" y="1141" as="geometry" />
-        </mxCell>
-        <mxCell id="ann4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" value="WaitForFirstConsumer binding mode means the PV is not provisioned until a pod is scheduled. This ensures the PV is created on the same node as the pod — not on a random node before the pod is placed." vertex="1">
-          <mxGeometry height="30" width="860" x="906" y="1111" as="geometry" />
+        <mxCell id="ann4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;" value="WaitForFirstConsumer binding mode means the PV is not provisioned until a pod is scheduled. This ensures the PV is created on the same node as the pod — not on a random node before the pod is placed." vertex="1">
+          <mxGeometry height="45" width="864" x="926" y="1067" as="geometry" />
         </mxCell>
         <mxCell id="ann5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Edge-db holds 8h minimum and up to 72h of data. If the ExpressRoute to Azure is down for more than 72h and the buffer fills, older records are overwritten. The ADLS sync path must be monitored and alerted." vertex="1">
-          <mxGeometry height="30" width="1760" x="26" y="1177" as="geometry" />
+          <mxGeometry height="45" width="872" x="922" y="1169" as="geometry" />
         </mxCell>
         <mxCell id="6jhJDdahwVrgmBPOoBom-1" parent="1" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=pvc" value="" vertex="1">
           <mxGeometry height="39.36" width="41" x="319" y="487" as="geometry" />
@@ -1296,6 +1272,129 @@
         </mxCell>
         <mxCell id="6jhJDdahwVrgmBPOoBom-17" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Disks.svg;" value="" vertex="1">
           <mxGeometry height="39.3" width="40" x="1244" y="482.71" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f7f0;strokeColor=#b85450;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="303" width="854" x="948" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=left;" value="Node Failure Behaviour — What Happens to Storage" vertex="1">
+          <mxGeometry height="30" width="860" x="944" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;" value="&amp;nbsp;Scenario 1 –&amp;nbsp;&lt;div&gt;&amp;nbsp; Node recovers&lt;div&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; font-weight: 400; white-space: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20parent%3D%221%22%20style%3D%22aspect%3Dfixed%3Bsketch%3D0%3Bhtml%3D1%3Bdashed%3D0%3Bwhitespace%3Dwrap%3BverticalLabelPosition%3Dbottom%3BverticalAlign%3Dtop%3BfillColor%3D%232875E2%3BstrokeColor%3D%23ffffff%3Bpoints%3D%5B%5B0.005%2C0.63%2C0%5D%2C%5B0.1%2C0.2%2C0%5D%2C%5B0.9%2C0.2%2C0%5D%2C%5B0.5%2C0%2C0%5D%2C%5B0.995%2C0.63%2C0%5D%2C%5B0.72%2C0.99%2C0%5D%2C%5B0.5%2C1%2C0%5D%2C%5B0.28%2C0.99%2C0%5D%5D%3Bshape%3Dmxgraph.kubernetes.icon2%3BkubernetesLabel%3D1%3BprIcon%3Dnode%22%20value%3D%22%22%20vertex%3D%221%22%3E%3CmxGeometry%20height%3D%2245.12%22%20width%3D%2247%22%20x%3D%22282.57%22%20y%3D%22325.38%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="47" width="130" x="961" y="719" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" value="Node 1 fails&#xa;edge-db-0 stops" vertex="1">
+          <mxGeometry height="32" width="120" x="1099" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-5" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1219" y="733" as="sourcePoint" />
+            <mxPoint x="1231" y="733" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" value="Node 1 recovers&#xa;K3s restarts pod" vertex="1">
+          <mxGeometry height="32" width="120" x="1239" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-7" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1359" y="733" as="sourcePoint" />
+            <mxPoint x="1371" y="733" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" value="Same PV remounted&#xa;on Node 1 disk" vertex="1">
+          <mxGeometry height="32" width="120" x="1379" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-9" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="AVhJbBLsYbVpbcTlqR0A-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1499" y="733" as="sourcePoint" />
+            <mxPoint x="1511" y="733" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=center;" value="Data intact&#xa;PostgreSQL resumes" vertex="1">
+          <mxGeometry height="32" width="120" x="1519" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-11" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontStyle=2;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Nodes 2 + 3 continued serving reads throughout&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="544" x="1102" y="747" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontStyle=1;align=left;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&amp;nbsp;Scenario 2 –&amp;nbsp;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; Node gone&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; permanently&lt;/span&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="54" width="129" x="962" y="777" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" value="Node 1 gone&#xa;edge-db-0 stops" vertex="1">
+          <mxGeometry height="32" width="120" x="1099" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-14" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1219" y="791" as="sourcePoint" />
+            <mxPoint x="1231" y="791" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" value="Pod goes PENDING&#xa;PVC bound to Node 1" vertex="1">
+          <mxGeometry height="32" width="120" x="1239" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-16" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1359" y="791" as="sourcePoint" />
+            <mxPoint x="1371" y="791" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" value="2 of 3 replicas&#xa;continue serving" vertex="1">
+          <mxGeometry height="32" width="120" x="1379" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-18" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;strokeWidth=1.5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="AVhJbBLsYbVpbcTlqR0A-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1499" y="791" as="sourcePoint" />
+            <mxPoint x="1511" y="791" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontStyle=1;align=center;" value="Recover node or&#xa;remount disk" vertex="1">
+          <mxGeometry height="32" width="120" x="1519" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-20" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontStyle=2;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Data on Node 1 disk is NOT lost — inaccessible until node or disk is recovered&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="544" x="1099" y="809" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;align=left;" value="&amp;nbsp;Scenario 3 –&amp;nbsp;&amp;nbsp;&lt;div&gt;&amp;nbsp;2 nodes fail&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; font-weight: 400; white-space: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20parent%3D%221%22%20style%3D%22aspect%3Dfixed%3Bsketch%3D0%3Bhtml%3D1%3Bdashed%3D0%3Bwhitespace%3Dwrap%3BverticalLabelPosition%3Dbottom%3BverticalAlign%3Dtop%3BfillColor%3D%232875E2%3BstrokeColor%3D%23ffffff%3Bpoints%3D%5B%5B0.005%2C0.63%2C0%5D%2C%5B0.1%2C0.2%2C0%5D%2C%5B0.9%2C0.2%2C0%5D%2C%5B0.5%2C0%2C0%5D%2C%5B0.995%2C0.63%2C0%5D%2C%5B0.72%2C0.99%2C0%5D%2C%5B0.5%2C1%2C0%5D%2C%5B0.28%2C0.99%2C0%5D%5D%3Bshape%3Dmxgraph.kubernetes.icon2%3BkubernetesLabel%3D1%3BprIcon%3Dnode%22%20value%3D%22%22%20vertex%3D%221%22%3E%3CmxGeometry%20height%3D%2235.52%22%20width%3D%2237%22%20x%3D%221045%22%20y%3D%22792.48%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="53" width="127" x="964" y="835" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" value="Node 1 + 2 fail&#xa;2 pods stop" vertex="1">
+          <mxGeometry height="32" width="120" x="1099" y="833" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-23" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1219" y="849" as="sourcePoint" />
+            <mxPoint x="1231" y="849" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" value="etcd loses quorum&#xa;K3s API halts" vertex="1">
+          <mxGeometry height="32" width="120" x="1239" y="833" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-25" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1359" y="849" as="sourcePoint" />
+            <mxPoint x="1371" y="849" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" value="1 replica remains&#xa;no rescheduling" vertex="1">
+          <mxGeometry height="32" width="120" x="1379" y="833" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-27" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1499" y="849" as="sourcePoint" />
+            <mxPoint x="1511" y="849" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;align=center;" value="Recover nodes&#xa;quorum restored" vertex="1">
+          <mxGeometry height="32" width="120" x="1519" y="833" as="geometry" />
+        </mxCell>
+        <mxCell id="AVhJbBLsYbVpbcTlqR0A-29" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontStyle=2;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Data on surviving Node 3 disk intact — resume once quorum restored&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="544" x="1099" y="867" as="geometry" />
+        </mxCell>
+        <mxCell id="06Tb77VjMIIdXQP24VUx-1" parent="1" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=node" value="" vertex="1">
+          <mxGeometry height="39.36" width="41" x="1045" y="721.94" as="geometry" />
+        </mxCell>
+        <mxCell id="06Tb77VjMIIdXQP24VUx-2" parent="1" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=node" value="" vertex="1">
+          <mxGeometry height="40.76" width="42.46" x="1044" y="781" as="geometry" />
+        </mxCell>
+        <mxCell id="06Tb77VjMIIdXQP24VUx-3" parent="1" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=node" value="" vertex="1">
+          <mxGeometry height="39.96" width="41.62" x="1044" y="839" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
