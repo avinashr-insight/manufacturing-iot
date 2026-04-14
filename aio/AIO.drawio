@@ -1140,7 +1140,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5uWNU_ma_L4heWaUh8FW" name="DevOps-v2">
-    <mxGraphModel dx="1461" dy="713" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1222" dy="713" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1191,6 +1191,9 @@
         </mxCell>
         <mxCell id="fhbGeIohwPex055eoDC9-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Tag Image With Version" vertex="1">
           <mxGeometry height="44" width="148" x="594" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="zDywS-r__YvxfHkeHh9i-3" edge="1" parent="1" source="fhbGeIohwPex055eoDC9-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.465;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#82B366;strokeWidth=2;" target="fhbGeIohwPex055eoDC9-24" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="fhbGeIohwPex055eoDC9-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Push Image to Azure&#xa;Container Registry (ACR)" vertex="1">
           <mxGeometry height="56" width="148" x="594" y="722" as="geometry" />
@@ -1347,22 +1350,7 @@
             <mxPoint y="-4" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="fhbGeIohwPex055eoDC9-57" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="766" y="750" />
-              <mxPoint x="790" y="750" />
-            </Array>
-            <mxPoint x="742" y="750" as="sourcePoint" />
-            <mxPoint x="790" y="740" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fhbGeIohwPex055eoDC9-58" connectable="0" parent="fhbGeIohwPex055eoDC9-57" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="Image pushed to ACR" vertex="1">
-          <mxGeometry relative="0.5" y="-14" as="geometry">
-            <mxPoint y="-10" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fhbGeIohwPex055eoDC9-59" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+        <mxCell id="fhbGeIohwPex055eoDC9-59" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82B366;strokeWidth=1.5;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="920" y="762" as="sourcePoint" />
             <mxPoint x="920" y="782" as="targetPoint" />
