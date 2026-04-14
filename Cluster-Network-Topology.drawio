@@ -31,7 +31,7 @@
         <mxCell id="bas4-plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="BAS4 PLCs&#xa;(OT network · isolated · ~46 machines)&#xa;192.168.xx" vertex="1">
           <mxGeometry height="50" width="220" x="40" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="bas4-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Contoso Gateway&#xa;(OPC-UA · REST · Ignition&#xa;Stratum 3 NTP for PLCs)" vertex="1">
+        <mxCell id="bas4-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Gateway&lt;br&gt;(OPC-UA · REST · Ignition&lt;br&gt;Stratum 3 NTP for PLCs)" vertex="1">
           <mxGeometry height="60" width="220" x="40" y="570" as="geometry" />
         </mxCell>
         <mxCell id="c1-node1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Node 1&#xa;NIC1: line-side&#xa;NIC2: DC VLAN" vertex="1">
