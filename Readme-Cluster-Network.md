@@ -463,19 +463,7 @@ The architecture enforces strict domain separation between OT and IT.
 
 ---
 
-## 9. Legend
 
-The following color conventions are used consistently across all three diagrams:
-
-| Color | Meaning |
-|---|---|
-| 🔴 **Red solid** | Line-side traffic (NIC 1) — OT network / PLC gateway path |
-| 🔴 **Red dashed** | BAS4 NIC 2 traffic crossing the Palo Alto firewall to DC VLAN |
-| 🟡 **Gold / Orange** | DC VLAN transit traffic / NIC 2 path |
-| 🔵 **Blue** | IT hub path via IT ExpressRoute |
-| 🔴 **Red arrow (Azure)** | OT hub path via OT ExpressRoute |
-| 🟢 **Green** | Edge components (no Azure dependency) — resilient / offline-capable |
-| 🟡 **Yellow fill** | Open design decision — pending resolution |
 
 ---
 
