@@ -335,7 +335,7 @@
         <mxCell id="5kvt1SimKbw7i0JJoSgu-1" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Private_Endpoints.svg;" value="" vertex="1">
           <mxGeometry height="42.68" width="44.88" x="2325" y="800" as="geometry" />
         </mxCell>
-        <mxCell id="5kvt1SimKbw7i0JJoSgu-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Azure Databricks Private Endpoint&lt;div&gt;for access to ADB in IT Spoke&lt;/div&gt;&lt;div&gt;Allow K3 node access to Databricks&lt;/div&gt;" vertex="1">
+        <mxCell id="5kvt1SimKbw7i0JJoSgu-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Azure Databricks Private Endpoint&lt;div&gt;for access to ADB in IT Spoke&lt;/div&gt;&lt;div&gt;Allow K3 node access to Databricks&lt;br&gt;ADFS Integration Runtime&amp;nbsp; access to ADB&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="240" x="2080" y="790" as="geometry" />
         </mxCell>
         <mxCell id="5kvt1SimKbw7i0JJoSgu-3" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="">
@@ -362,7 +362,7 @@
           <mxGeometry height="39" width="362" x="358" y="293.75" as="geometry" />
         </mxCell>
         <mxCell id="LSV9G3DFTzpRh1lZptsy-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="IDMZ VLAN - On-Prem&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="172" width="319" x="867" y="863" as="geometry" />
+          <mxGeometry height="242" width="319" x="867" y="863" as="geometry" />
         </mxCell>
         <mxCell id="LSV9G3DFTzpRh1lZptsy-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ADFS Integration Run-Time" vertex="1">
           <mxGeometry height="60" width="240" x="906.5" y="915" as="geometry" />
@@ -378,8 +378,8 @@
             <mxPoint x="930" y="155" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LSV9G3DFTzpRh1lZptsy-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Design decision:&amp;nbsp; Can on-prem IDMZ access Azure IT Spoke through vWAN Peer?" vertex="1">
-          <mxGeometry height="28" width="230" x="916.5" y="990" as="geometry" />
+        <mxCell id="LSV9G3DFTzpRh1lZptsy-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Design decision:&amp;nbsp; Can on-prem IDMZ access Azure IT Spoke through vWAN Peer?&lt;br&gt;Can a IRT be deplooyed in Azure iDMZ Vnet" vertex="1">
+          <mxGeometry height="71" width="230" x="916.5" y="990" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
