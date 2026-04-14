@@ -1,0 +1,650 @@
+<mxfile host="app.diagrams.net" pages="6">
+  <diagram id="JNR54lT1CfdcHy-MjOif" name="Data Access">
+    <mxGraphModel dx="1690" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kPV_PHt50KahIQ7stYgY-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Managed Identity" vertex="1">
+          <mxGeometry height="30" width="330" x="52" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="210" width="492" x="50" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-3" parent="kPV_PHt50KahIQ7stYgY-2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="table" vertex="1">
+          <mxGeometry height="80" width="60" x="33" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-4" parent="kPV_PHt50KahIQ7stYgY-2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="table" vertex="1">
+          <mxGeometry height="80" width="60" x="122" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-5" edge="1" parent="kPV_PHt50KahIQ7stYgY-2" source="kPV_PHt50KahIQ7stYgY-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="-160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-6" parent="kPV_PHt50KahIQ7stYgY-2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="table" vertex="1">
+          <mxGeometry height="80" width="60" x="212" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-7" parent="kPV_PHt50KahIQ7stYgY-2" style="rounded=0;whiteSpace=wrap;html=1;" value="Databricks Serverless Compute" vertex="1">
+          <mxGeometry height="60" width="458" x="12" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-8" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Storage Account" vertex="1">
+          <mxGeometry height="230" width="322" x="50" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-9" parent="kPV_PHt50KahIQ7stYgY-8" style="swimlane;whiteSpace=wrap;html=1;" value="Storage Counter" vertex="1">
+          <mxGeometry height="184" width="302" x="8" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-10" parent="kPV_PHt50KahIQ7stYgY-9" style="swimlane;whiteSpace=wrap;html=1;" value="Catalog/Schema Directory" vertex="1">
+          <mxGeometry height="136" width="280" x="10" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-11" parent="kPV_PHt50KahIQ7stYgY-10" style="whiteSpace=wrap;html=1;aspect=fixed;" value="table directory" vertex="1">
+          <mxGeometry height="54" width="54" x="18" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-12" parent="kPV_PHt50KahIQ7stYgY-10" style="whiteSpace=wrap;html=1;aspect=fixed;" value="table directory" vertex="1">
+          <mxGeometry height="54" width="54" x="107" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-13" parent="kPV_PHt50KahIQ7stYgY-10" style="whiteSpace=wrap;html=1;aspect=fixed;" value="table directory" vertex="1">
+          <mxGeometry height="54" width="54" x="193" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-14" edge="1" parent="1" source="kPV_PHt50KahIQ7stYgY-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="kPV_PHt50KahIQ7stYgY-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-15" connectable="0" parent="kPV_PHt50KahIQ7stYgY-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Private Endpoint" vertex="1">
+          <mxGeometry relative="1" x="0.25" y="5" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Power BI" vertex="1">
+          <mxGeometry height="60" width="120" x="50" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Data Purge Process" vertex="1">
+          <mxGeometry height="60" width="120" x="368" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-18" edge="1" parent="1" source="kPV_PHt50KahIQ7stYgY-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.103;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" target="kPV_PHt50KahIQ7stYgY-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-19" connectable="0" parent="kPV_PHt50KahIQ7stYgY-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ODBC" vertex="1">
+          <mxGeometry relative="1" x="-0.1356" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-20" edge="1" parent="1" source="kPV_PHt50KahIQ7stYgY-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.799;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" target="kPV_PHt50KahIQ7stYgY-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-21" connectable="0" parent="kPV_PHt50KahIQ7stYgY-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ODBC" vertex="1">
+          <mxGeometry relative="1" x="0.0151" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Databricks uses the concept of external locations to use storage accounts. An external location is a pairing of storage account path and a managed identity to access it. The managed identity is used by Databricks as a proxy for access to the storage account.&amp;nbsp; All access to the external path are managed by Databricks and must obey the ACLs that are in place.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;The storage for the tables will be defined at the catalog level, which will be set to a external location on the target storage account.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="390" x="392" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Using serverless compute, any client is able to query the delta tables." vertex="1">
+          <mxGeometry height="50" width="240" x="572" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-24" edge="1" parent="1" source="kPV_PHt50KahIQ7stYgY-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="kPV_PHt50KahIQ7stYgY-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-27" edge="1" parent="1" source="kPV_PHt50KahIQ7stYgY-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.474;entryY=1.05;entryDx=0;entryDy=0;entryPerimeter=0;" target="kPV_PHt50KahIQ7stYgY-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ALT-API (future)" vertex="1">
+          <mxGeometry height="60" width="120" x="220" y="759.9991620303962" as="geometry" />
+        </mxCell>
+        <mxCell id="kPV_PHt50KahIQ7stYgY-26" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ODBC" vertex="1">
+          <mxGeometry x="278.8853839040912" y="691.09" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="CDC Data Flow" id="xHQpAgGzx8T4W5MIcefK">
+    <mxGraphModel dx="1690" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sunaBllP7nnyacauEjNJ-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ALT API" vertex="1">
+          <mxGeometry height="50" width="120" x="173" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-2" edge="1" parent="1" source="sunaBllP7nnyacauEjNJ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250.14285714285734" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Postgresql" vertex="1">
+          <mxGeometry height="300" width="460" x="20" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-4" parent="sunaBllP7nnyacauEjNJ-3" style="swimlane;whiteSpace=wrap;html=1;" value="PLMS (master data and LETS)" vertex="1">
+          <mxGeometry height="200" width="200" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-5" parent="sunaBllP7nnyacauEjNJ-4" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-6" parent="sunaBllP7nnyacauEjNJ-3" style="swimlane;whiteSpace=wrap;html=1;" value="PLMS_&amp;lt;site&amp;gt;" vertex="1">
+          <mxGeometry height="200" width="200" x="241" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-7" parent="sunaBllP7nnyacauEjNJ-6" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="LINE" vertex="1">
+          <mxGeometry height="80" width="60" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-8" edge="1" parent="1" source="sunaBllP7nnyacauEjNJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.462;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="sunaBllP7nnyacauEjNJ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-9" connectable="0" parent="sunaBllP7nnyacauEjNJ-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ODBC" vertex="1">
+          <mxGeometry relative="1" x="-0.3012" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="182" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-11" edge="1" parent="1" source="sunaBllP7nnyacauEjNJ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="263" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Transaction Log" vertex="1">
+          <mxGeometry height="60" width="120" x="212" y="602" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-13" edge="1" parent="1" source="sunaBllP7nnyacauEjNJ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="sunaBllP7nnyacauEjNJ-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-14" connectable="0" parent="sunaBllP7nnyacauEjNJ-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="JSON Message" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="-6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-15" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="CDC Reader&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="193" y="702" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Azure Event Hub (one topic per database)" vertex="1">
+          <mxGeometry height="60" width="120" x="193" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-17" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="As ALT performs inserts, updates, and deletes in the source databases, the transaction logs will be read by debezium, translated to JSON, and pushed to Azure Event Hub" vertex="1">
+          <mxGeometry height="132" width="132" x="40" y="702" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;pre data-processed=&quot;true&quot; style=&quot;color: rgb(10, 10, 10); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;code data-processed=&quot;true&quot; style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;{&lt;br&gt;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;before&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: {&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;first_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Sally&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;last_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Thomas&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;sally.thomas@acme.com&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;&lt;br&gt;  },&lt;br&gt;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;after&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: {&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;first_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Sally&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;last_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Thomas&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;sally.t@example.com&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;&lt;br&gt;  },&lt;br&gt;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: {&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;2.4.0.Final&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;connector&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;mysql&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;dbserver1&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;ts_ms&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1625842521000&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;snapshot&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;db&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;inventory&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;table&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;customers&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;server_id&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;223344&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;gtid&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mexSqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(147, 52, 230);&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;file&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;postgres-bin.000003&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;pos&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;364&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;row&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;thread&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;query&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mexSqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(147, 52, 230);&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;&lt;br&gt;  },&lt;br&gt;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;op&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;u&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;ts_ms&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1625842526500&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;,&lt;br&gt;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;transaction&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mexSqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(147, 52, 230);&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot; style=&quot;&quot;&gt;&lt;br&gt;}&lt;/span&gt;&lt;/font&gt;&lt;/code&gt;&lt;/pre&gt;" link="&lt;pre data-processed=&quot;true&quot; style=&quot;color: rgb(10, 10, 10); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;code data-processed=&quot;true&quot;&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;{&#xa;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;before&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: {&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;first_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Sally&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;last_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Thomas&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;sally.thomas@acme.com&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;&#xa;  },&#xa;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;after&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: {&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;first_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Sally&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;last_name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;Thomas&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;sally.t@example.com&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;&#xa;  },&#xa;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: {&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;2.4.0.Final&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;connector&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;mysql&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;dbserver1&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;ts_ms&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1625842521000&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;snapshot&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;db&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;inventory&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;table&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;customers&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;server_id&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;223344&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;gtid&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mexSqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(147, 52, 230);&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;file&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;mysql-bin.000003&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;pos&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;364&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;row&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;thread&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;    &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;query&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mexSqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(147, 52, 230);&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;&#xa;  },&#xa;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;op&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;u&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;ts_ms&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;tnfcCf&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(180, 89, 8);&quot;&gt;1625842526500&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;,&#xa;  &lt;/span&gt;&lt;span class=&quot;CS0cqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(24, 128, 56);&quot;&gt;&quot;transaction&quot;&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mexSqb&quot; data-processed=&quot;true&quot; style=&quot;color: rgb(147, 52, 230);&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;undefined&quot; data-processed=&quot;true&quot;&gt;&#xa;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;" id="sunaBllP7nnyacauEjNJ-18">
+          <mxCell parent="1" style="text;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="500" width="310" x="370" y="545" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="sunaBllP7nnyacauEjNJ-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Azure Event Hub (one topic per database)" vertex="1">
+          <mxGeometry height="60" width="120" x="857" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-20" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="600" width="420" x="840" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-21" parent="sunaBllP7nnyacauEjNJ-20" style="swimlane;whiteSpace=wrap;html=1;" value="Streaming Jobs" vertex="1">
+          <mxGeometry height="490" width="160" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-22" edge="1" parent="sunaBllP7nnyacauEjNJ-21" source="sunaBllP7nnyacauEjNJ-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="sunaBllP7nnyacauEjNJ-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-23" parent="sunaBllP7nnyacauEjNJ-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Pull out source DB and table from JSON" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-24" edge="1" parent="sunaBllP7nnyacauEjNJ-21" source="sunaBllP7nnyacauEjNJ-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="sunaBllP7nnyacauEjNJ-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-25" parent="sunaBllP7nnyacauEjNJ-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Group by source DB and table" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-26" edge="1" parent="sunaBllP7nnyacauEjNJ-21" source="sunaBllP7nnyacauEjNJ-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-27" parent="sunaBllP7nnyacauEjNJ-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Query metadata for target table (PK, schema)" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-28" parent="sunaBllP7nnyacauEjNJ-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Query metadata for target table (PK, schema)" vertex="1">
+          <mxGeometry height="60" width="120" x="11" y="261" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-29" edge="1" parent="sunaBllP7nnyacauEjNJ-21" source="sunaBllP7nnyacauEjNJ-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="sunaBllP7nnyacauEjNJ-31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-30" parent="sunaBllP7nnyacauEjNJ-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Upsert to target table" vertex="1">
+          <mxGeometry height="60" width="120" x="11" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-31" parent="sunaBllP7nnyacauEjNJ-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Apply target schema to JSON" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-32" edge="1" parent="sunaBllP7nnyacauEjNJ-21" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="69.79999999999995" y="320" as="sourcePoint" />
+            <mxPoint x="69.79999999999995" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-33" edge="1" parent="sunaBllP7nnyacauEjNJ-21" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="70.79999999999995" y="398" as="sourcePoint" />
+            <mxPoint x="70.79999999999995" y="418" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-34" edge="1" parent="sunaBllP7nnyacauEjNJ-21" style="endArrow=classic;html=1;rounded=0;entryX=0.003;entryY=0.583;entryDx=0;entryDy=0;entryPerimeter=0;" target="sunaBllP7nnyacauEjNJ-39" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="131" y="450" as="sourcePoint" />
+            <mxPoint x="181" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-35" edge="1" parent="sunaBllP7nnyacauEjNJ-21" style="endArrow=classic;html=1;rounded=0;entryX=0.05;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;" target="sunaBllP7nnyacauEjNJ-43" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="131" y="450" as="sourcePoint" />
+            <mxPoint x="181" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-36" edge="1" parent="sunaBllP7nnyacauEjNJ-21" style="endArrow=classic;html=1;rounded=0;entryX=0.05;entryY=0.508;entryDx=0;entryDy=0;entryPerimeter=0;" target="sunaBllP7nnyacauEjNJ-44" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="131" y="449" as="sourcePoint" />
+            <mxPoint x="191" y="489" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-37" parent="sunaBllP7nnyacauEjNJ-20" style="swimlane;whiteSpace=wrap;html=1;" value="Databricks Tables" vertex="1">
+          <mxGeometry height="540" width="210" x="197" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-38" parent="sunaBllP7nnyacauEjNJ-37" style="swimlane;whiteSpace=wrap;html=1;" value="PLMS" vertex="1">
+          <mxGeometry height="248" width="180" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-39" parent="sunaBllP7nnyacauEjNJ-38" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-40" parent="sunaBllP7nnyacauEjNJ-38" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-41" edge="1" parent="sunaBllP7nnyacauEjNJ-38" source="sunaBllP7nnyacauEjNJ-30" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="10" y="136" as="sourcePoint" />
+            <mxPoint x="60" y="86" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-42" parent="sunaBllP7nnyacauEjNJ-37" style="swimlane;whiteSpace=wrap;html=1;" value="PLMS_&amp;lt;site&amp;gt;" vertex="1">
+          <mxGeometry height="230" width="180" x="10" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-43" parent="sunaBllP7nnyacauEjNJ-42" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-44" parent="sunaBllP7nnyacauEjNJ-42" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-45" edge="1" parent="1" source="sunaBllP7nnyacauEjNJ-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.354;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;" target="sunaBllP7nnyacauEjNJ-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sunaBllP7nnyacauEjNJ-47" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;We will be using tags on the table level to to drive some of the logic on the Databricks side.&amp;nbsp; Each table will have a primary key that will be used for insert/update/delete operations, an optional &#39;pruned&#39; indicator, TTL for the pruned tables, and the column used for TTL.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;If a table is marked as &#39;pruned&#39; at the table level or schema level the delete messages will be ignored.&amp;nbsp; It will just upsert data to the target tables (with have the schema name/table name as the sources).&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;otherwise, the code will apply deletes then upsert the new data.&amp;nbsp;&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="260" width="260" x="570" y="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="KuFVso-n1QOs_ETAFyY9" name="MQTT Data Flow">
+    <mxGraphModel dx="1690" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TW96XBMcRI3XgClJGMH6-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ALT API" vertex="1">
+          <mxGeometry height="50" width="120" x="188" y="39" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="AIO" vertex="1">
+          <mxGeometry height="81" width="304" x="190" y="149" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-13" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TW96XBMcRI3XgClJGMH6-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="325" y="230" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-14" connectable="0" parent="TW96XBMcRI3XgClJGMH6-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="JSON Message" vertex="1">
+          <mxGeometry relative="1" x="0.1" y="-6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Azure Event Hub&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="265" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Azure Event Hub&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="568" y="39" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-20" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="471" width="448" x="523" y="149" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-21" parent="TW96XBMcRI3XgClJGMH6-20" style="swimlane;whiteSpace=wrap;html=1;" value="Streaming Jobs" vertex="1">
+          <mxGeometry height="370" width="160" x="49" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-22" edge="1" parent="TW96XBMcRI3XgClJGMH6-21" source="TW96XBMcRI3XgClJGMH6-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TW96XBMcRI3XgClJGMH6-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-23" parent="TW96XBMcRI3XgClJGMH6-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Extract metadata from JSON" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-24" edge="1" parent="TW96XBMcRI3XgClJGMH6-21" source="TW96XBMcRI3XgClJGMH6-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="186" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-25" parent="TW96XBMcRI3XgClJGMH6-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Group by target table (mqtt_bronze.\&amp;lt;site&amp;gt;_mqtt_events)" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-30" parent="TW96XBMcRI3XgClJGMH6-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Append to target table" vertex="1">
+          <mxGeometry height="60" width="120" x="11" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="DEcdiCLI9GPVdYK1tR4p-4" edge="1" parent="TW96XBMcRI3XgClJGMH6-21" source="DEcdiCLI9GPVdYK1tR4p-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="279" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DEcdiCLI9GPVdYK1tR4p-3" parent="TW96XBMcRI3XgClJGMH6-21" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Form output record" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="191" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-37" parent="TW96XBMcRI3XgClJGMH6-20" style="swimlane;whiteSpace=wrap;html=1;" value="Databricks Tables" vertex="1">
+          <mxGeometry height="200" width="210" x="221" y="243.5" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-42" parent="TW96XBMcRI3XgClJGMH6-37" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="mqtt_bronze" vertex="1">
+          <mxGeometry height="140" width="180" x="15" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-43" parent="TW96XBMcRI3XgClJGMH6-42" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="&lt;div&gt;mqtt_bronze.&amp;lt;site&amp;gt;_mqtt_events&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="43" as="geometry" />
+        </mxCell>
+        <mxCell id="DEcdiCLI9GPVdYK1tR4p-10" edge="1" parent="TW96XBMcRI3XgClJGMH6-20" source="TW96XBMcRI3XgClJGMH6-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" target="TW96XBMcRI3XgClJGMH6-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-45" edge="1" parent="1" source="TW96XBMcRI3XgClJGMH6-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.354;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;" target="TW96XBMcRI3XgClJGMH6-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Other Sources" vertex="1">
+          <mxGeometry height="50" width="120" x="328" y="39" as="geometry" />
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-51" edge="1" parent="1" source="TW96XBMcRI3XgClJGMH6-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.191;entryY=-0.025;entryDx=0;entryDy=0;entryPerimeter=0;" target="TW96XBMcRI3XgClJGMH6-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DEcdiCLI9GPVdYK1tR4p-11" connectable="0" parent="TW96XBMcRI3XgClJGMH6-51" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="MQTT Messages" vertex="1">
+          <mxGeometry relative="1" x="0.1403" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TW96XBMcRI3XgClJGMH6-53" edge="1" parent="1" source="TW96XBMcRI3XgClJGMH6-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.651;entryY=0.012;entryDx=0;entryDy=0;entryPerimeter=0;" target="TW96XBMcRI3XgClJGMH6-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DEcdiCLI9GPVdYK1tR4p-12" connectable="0" parent="TW96XBMcRI3XgClJGMH6-53" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="MQTT Messages" vertex="1">
+          <mxGeometry relative="1" x="-0.1813" y="-2" as="geometry">
+            <mxPoint y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="T54PmGAj4SeAYD0O15z9" name="Historical Data Load">
+    <mxGraphModel dx="1690" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="J_HFCkc2tgUC85SRGRda-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="Historical Data Loading — SQL Server to Azure&#xa;Maryville DMTN · Non-archived data (less than 90 days)" vertex="1">
+          <mxGeometry height="36" width="1360" x="150" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="On-premises — Maryville DMTN" vertex="1">
+          <mxGeometry height="740" width="560" x="150" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="SQL Server AG&#xa;4 nodes · 96 cores · 3TB RAM&#xa;Source of all historical data&#xa;Total size: pending [CLIENT] Rob/Hank" vertex="1">
+          <mxGeometry height="70" width="280" x="290" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="Data is split at 90-day boundary" vertex="1">
+          <mxGeometry height="30" width="280" x="290" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Less than 90 days&#xa;(recent / warm data)" vertex="1">
+          <mxGeometry height="40" width="160" x="210" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;" value="Older than 90 days&#xa;(cold archive)" vertex="1">
+          <mxGeometry height="40" width="160" x="490" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Self-hosted Integration Runtime&#xa;On-prem · reads directly from SQL Server AG&#xa;Existing deployment — reused for this pipeline" vertex="1">
+          <mxGeometry height="60" width="280" x="210" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Azure Data Factory (ADF)&#xa;Orchestrates extraction and export&#xa;Converts SQL data to Parquet format&#xa;Manages pipeline retry and scheduling" vertex="1">
+          <mxGeometry height="70" width="280" x="210" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Parquet files&#xa;(target schema / table / data.parquet)&#xa;Compressed · Databricks native format" vertex="1">
+          <mxGeometry height="70" width="280" x="210" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Archive path (older than 90 days)&#xa;Migration method TBD&#xa;Size confirmation pending [CLIENT] Rob/Hank&#xa;Options: ExpressRoute or Azure Data Box" vertex="1">
+          <mxGeometry height="97" width="188" x="500" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin · IT Hub&#xa;(ADLS container co-located with Databricks for performance)" vertex="1">
+          <mxGeometry height="740" width="740" x="750" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="ADLS Gen2 Container&#xa;(historical load · Parquet files)&#xa;Co-located in IT hub with Databricks&#xa;Avoids double hop on Databricks reads" vertex="1">
+          <mxGeometry height="70" width="280" x="790" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="ADLS Gen2 Archive Tier&#xa;Data older than 90 days&#xa;Long-term cold storage&#xa;400 days hot · 50 years cold" vertex="1">
+          <mxGeometry height="70" width="280" x="1130" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure Databricks · IT Hub" vertex="1">
+          <mxGeometry height="360" width="560" x="770" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Databricks Ingestion Job&#xa;Reads Parquet files from ADLS container&#xa;Validates schema · applies transformations&#xa;Writes to Delta format" vertex="1">
+          <mxGeometry height="70" width="280" x="790" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="Target Schema&#xa;Delta Lake format" vertex="1">
+          <mxGeometry height="50" width="240" x="790" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Target Delta Tables&#xa;Queryable by Databricks + Power BI" vertex="1">
+          <mxGeometry height="68" width="241" x="790" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Power BI&lt;br&gt;Historical dashboards&lt;br&gt;Reads from Delta silver layer" vertex="1">
+          <mxGeometry height="70" width="240" x="1079" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-19" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-20" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-21" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-22" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-23" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-24" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-25" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-26" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;" target="J_HFCkc2tgUC85SRGRda-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-27" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="J_HFCkc2tgUC85SRGRda-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-28" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="901" y="354" />
+              <mxPoint x="901" y="354" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-29" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="903" y="550" />
+              <mxPoint x="903" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-30" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-31" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-32" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="24" width="100" x="150" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="On-premises infrastructure" vertex="1">
+          <mxGeometry height="28" width="200" x="150" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;" value="Azure IT hub service" vertex="1">
+          <mxGeometry height="28" width="200" x="360" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Recent data path (less than 90 days)" vertex="1">
+          <mxGeometry height="28" width="240" x="570" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Archive path (older than 90 days) · method TBD" vertex="1">
+          <mxGeometry height="28" width="280" x="820" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Open item — pending confirmation" vertex="1">
+          <mxGeometry height="28" width="220" x="1110" y="858" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="WfWZa33cO3sI7ZGNncGg" name="Non-PLMS parts purge">
+    <mxGraphModel dx="1690" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Purge Process" vertex="1">
+          <mxGeometry height="560" width="370" x="40" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-2" edge="1" parent="5UJ0Bj-MiNNcy7XntuKL-1" source="5UJ0Bj-MiNNcy7XntuKL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="5UJ0Bj-MiNNcy7XntuKL-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-3" parent="5UJ0Bj-MiNNcy7XntuKL-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="query table_tags for all tables with &#39;purged&#39; tag" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-4" edge="1" parent="5UJ0Bj-MiNNcy7XntuKL-1" source="5UJ0Bj-MiNNcy7XntuKL-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="223" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-5" parent="5UJ0Bj-MiNNcy7XntuKL-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="select TTL and PK values from table_tags" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-6" parent="5UJ0Bj-MiNNcy7XntuKL-1" style="swimlane;whiteSpace=wrap;html=1;" value="For each table" vertex="1">
+          <mxGeometry height="240" width="320" x="30" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-7" parent="5UJ0Bj-MiNNcy7XntuKL-6" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Query Databricks table to see if the record exists" vertex="1">
+          <mxGeometry height="60" width="170" x="20" y="47" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-8" parent="5UJ0Bj-MiNNcy7XntuKL-6" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="If record exists in Databricks delete from edge database" vertex="1">
+          <mxGeometry height="60" width="170" x="20" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-9" parent="5UJ0Bj-MiNNcy7XntuKL-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="query all records from edge database that are greater than the TTL" vertex="1">
+          <mxGeometry height="60" width="170" x="30" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-10" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="300" width="330" x="480" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-11" parent="5UJ0Bj-MiNNcy7XntuKL-10" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="informational_schema.table_tags" vertex="1">
+          <mxGeometry height="60" width="210" x="40" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-12" parent="5UJ0Bj-MiNNcy7XntuKL-10" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="110" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-13" edge="1" parent="1" source="5UJ0Bj-MiNNcy7XntuKL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.033;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;" target="5UJ0Bj-MiNNcy7XntuKL-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-14" edge="1" parent="1" source="5UJ0Bj-MiNNcy7XntuKL-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.462;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" target="5UJ0Bj-MiNNcy7XntuKL-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-15" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Edge Database" vertex="1">
+          <mxGeometry height="200" width="200" x="440" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-16" parent="5UJ0Bj-MiNNcy7XntuKL-15" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-17" edge="1" parent="1" source="5UJ0Bj-MiNNcy7XntuKL-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="5UJ0Bj-MiNNcy7XntuKL-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="The idea is to have the purge logic coupled to the edge as well as the cloud so data does not get lost when not connected to Azure." vertex="1">
+          <mxGeometry height="80" width="310" x="40" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-19" edge="1" parent="1" source="5UJ0Bj-MiNNcy7XntuKL-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="5UJ0Bj-MiNNcy7XntuKL-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="320" as="sourcePoint" />
+            <mxPoint x="530" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5UJ0Bj-MiNNcy7XntuKL-20" edge="1" parent="1" source="5UJ0Bj-MiNNcy7XntuKL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" target="5UJ0Bj-MiNNcy7XntuKL-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="1fWNKaDTbf4MUjp1JaF6" name="PLMS Parts Purge">
+    <mxGraphModel dx="1690" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Purge Process" vertex="1">
+          <mxGeometry height="640" width="370" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-2" edge="1" parent="8YEIlzMJ7vuOsWjefSJR-1" source="8YEIlzMJ7vuOsWjefSJR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="8YEIlzMJ7vuOsWjefSJR-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-3" parent="8YEIlzMJ7vuOsWjefSJR-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="query table_tags for all tables with &#39;purged&#39; tag" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-4" edge="1" parent="8YEIlzMJ7vuOsWjefSJR-1" source="8YEIlzMJ7vuOsWjefSJR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="223" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-5" parent="8YEIlzMJ7vuOsWjefSJR-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="select TTL and PK values from table_tags" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-6" parent="8YEIlzMJ7vuOsWjefSJR-1" style="swimlane;whiteSpace=wrap;html=1;" value="For each table" vertex="1">
+          <mxGeometry height="220" width="320" x="30" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-7" parent="8YEIlzMJ7vuOsWjefSJR-6" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Query Databricks table to see if the record exists" vertex="1">
+          <mxGeometry height="60" width="170" x="20" y="41" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-8" parent="8YEIlzMJ7vuOsWjefSJR-6" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="If record exists in Databricks delete from edge database" vertex="1">
+          <mxGeometry height="60" width="170" x="20" y="117" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-9" parent="8YEIlzMJ7vuOsWjefSJR-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="query all records from edge database that are greater than the TTL that are marked &#39;complete&#39;" vertex="1">
+          <mxGeometry height="126" width="170" x="30" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-10" edge="1" parent="8YEIlzMJ7vuOsWjefSJR-1" source="8YEIlzMJ7vuOsWjefSJR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.275;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" target="8YEIlzMJ7vuOsWjefSJR-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="300" width="330" x="480" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-12" parent="8YEIlzMJ7vuOsWjefSJR-11" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="informational_schema.table_tags" vertex="1">
+          <mxGeometry height="60" width="210" x="40" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-13" parent="8YEIlzMJ7vuOsWjefSJR-11" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="110" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-14" edge="1" parent="1" source="8YEIlzMJ7vuOsWjefSJR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.033;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;" target="8YEIlzMJ7vuOsWjefSJR-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-15" edge="1" parent="1" source="8YEIlzMJ7vuOsWjefSJR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.462;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" target="8YEIlzMJ7vuOsWjefSJR-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-16" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Edge Database (PLMS_&amp;lt;site&amp;gt;)" vertex="1">
+          <mxGeometry height="200" width="200" x="440" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-17" parent="8YEIlzMJ7vuOsWjefSJR-16" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-18" edge="1" parent="1" source="8YEIlzMJ7vuOsWjefSJR-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="8YEIlzMJ7vuOsWjefSJR-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="The idea is to have the purge logic coupled to the edge as well as the cloud so data does not get lost when not connected to Azure." vertex="1">
+          <mxGeometry height="80" width="310" x="40" y="709" as="geometry" />
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-20" edge="1" parent="1" source="8YEIlzMJ7vuOsWjefSJR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="8YEIlzMJ7vuOsWjefSJR-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="330" as="sourcePoint" />
+            <mxPoint x="530" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8YEIlzMJ7vuOsWjefSJR-21" edge="1" parent="1" source="8YEIlzMJ7vuOsWjefSJR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" target="8YEIlzMJ7vuOsWjefSJR-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

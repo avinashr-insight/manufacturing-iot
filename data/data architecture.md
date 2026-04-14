@@ -10,13 +10,20 @@ Due to a maximum number of concurrent jobs (1000) and other resoruce limits in D
 one line's data at once.  All streaming jobs will use job compute and each job cluster will have a defined minimum (1) and max 
 nubmer of workers to read the assigned topics.  
 
-
 All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called 
 Declarative Automation Bundles).
 
 # Fast Path and Slow Path
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
+
+# Visualization
+
+There will three tools for visulaizations:
+- AIO cluster hosted ALT UI
+- Azure Log Analytics/Grafana (ALT-API stats only)
+- Power BI (Dashboards based on Databricks data)
+  - Two dashboards :TBD
 
 # Edge Database 
 
@@ -48,7 +55,7 @@ The Databricks data will be synced to the edge database with close to near real 
 
 # Edge to Databricks Synch
 
-(see diagram _data flow detailed.drawio)
+(see 'CDC Data Flow' tab of Data Diagram.dawio)
 
 To provide a low latency way to extract data that doesn't depend on watermark queries, the system will utilize a change data capture process.
 As the edge database processes inserts, deletes, and updates the edge database will populate the transaction log. The sync process will 
@@ -88,8 +95,9 @@ sequenceDiagram
 
 ```
 
-
 # MQTT Data
+
+(see 'MQTT Data Flow' tab of Data Diagram.dawio)
 
 MQTT Data for each line will be stored in it's own table under the mqtt_bronze schema.  It's considered bronze due to it being unprocessed MQTT events.
 
@@ -104,7 +112,7 @@ Each MQTT job will have the following parameters:
 
 MQTT events will be forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  
 First, it'll extract a set of fields from the JSON (message type, timestamp, machine) if they exist.  Next it will append to 
-the mqtt_bronze.\<line\>_mqtt_events.
+the mqtt_bronze.\<site>_mqtt_events.
 
 ```mermaid
 sequenceDiagram
@@ -148,7 +156,7 @@ sequenceDiagram
 
 # One time loads
 
-(see Historical Data Loading.drawio)
+(see 'Historical Data Load' tab of Data Diagram.dawio)
 
 There will be several one time loads that will be needed:
 1. Histrocial data (data from 0-90 days in the large on-prem database)
@@ -165,7 +173,7 @@ inside of databricks using sql.
 
 # Purge process
 
-(see purge process.drawio)
+(see 'Non-PLMS parts purge' tab of Data Diagram.dawio)
 
 To keep the data in the edge database small, there will be a purge process with two facets:
 1. Purge PLMS non-part data
@@ -192,9 +200,10 @@ sequenceDiagram
 
 ```
 
-
 For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are above the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
+
+(see 'PLMS Parts Purge' tab of Data Diagram.dawio)
 
 ```mermaid
 sequenceDiagram
@@ -217,11 +226,12 @@ the line will be scheduled during the line downtime.
 
 # Data Access
 
-(See Data access.drawio)
+(see 'Data Access' tab of Data Diagram.dawio)
 
 ## ALT API
 
-ALT API will not have direct access to the historical data in Databricks due to it's current archiecture.  A dashboard will be constructed to lookup part data from 0 90 days.
+ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to it's current archiecture.  However, it's possible for an ALT-API 
+instance to be set up to query the Databricks instance.
 
 ## storage
 
@@ -268,13 +278,10 @@ For each table in the PLMS_\<site\> schemas:
 - Insert the records in the coorsponding table in the PLMS_\<site\>_archive schema
 - Delete the records that were inserted into the archive table from the source table.
 
-
-
 for the tables in the PLMS schema that need to be archived (tagged with the 'archive' tag):
 - Select all records from the table that are greater than 100 days old
 - Insert the records in the coorsponding table in the PLMS_archive schema
 - Delete the records that were inserted into the archive table from the source table.
-
 
 
 ## Long Term Archive Plan ( data older than 100 days, long term)
@@ -285,14 +292,6 @@ Recommendations:
 1. Once data is bundled into the final JSON format, have a table that contains paths references with a minimal number of columns to make
    searching simpler without incurring unnecessary warm up costs.
 2. Run the process in Databricks environment to utilize parallel compute.  
-
-## Loading Historical Databricks Data
-
-An storage container will be created with a directories 
-organized by schema and table.  Using the current ADF installation, data can be read and saved in parquet format in the container in the 
-appropiate directory.  An external location will be configured in the Databricks workspace to allow Databricks jobs to  access to the directory.  
-Once the data is written, a Databricks job will create the desintation table based on the parquet data (which will match the columns/types of 
-the soruce table exactly).
 
 ## Seeding the Edge Databases
 
@@ -312,4 +311,23 @@ in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
 
 Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
 catalog to allow the new archive process to be developed.
+
+## Service Principals, groups, and Authenication
+
+### Service Principals
+
+We will be using three service principals:
+- The 'run as' principal for the jobs
+- The principal that Power BI will use access Databricks
+- A principal for the on prem purge jobs to query the warehouse endpoint.
+
+### Service Principals Authenication
+
+For both service principals, we will need OAuth secrets created.  
+
+### Groups
+
+We will need at least two groups defined:
+- Owner for the target schemas and tables
+- Read only group for users to access the data
 
