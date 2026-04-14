@@ -53,7 +53,7 @@ to keep processing regardless of Azure connectivity.
 
 This assumes:
 1. ALT API does not use any MSSQL only features
-2. There is no need for stored procedures (even though PostgreSQL does suppor them)
+2. There is no need for stored procedures (even though PostgreSQL does support them)
 
 # Databricks
 
