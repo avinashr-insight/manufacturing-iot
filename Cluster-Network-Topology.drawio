@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" pages="3">
   <diagram name="Cluster Network Topology" id="qTOlw2gOdShMVgrJY-iz">
-    <mxGraphModel dx="2575" dy="3403" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="2698" dy="2871" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="0" page="1" pageScale="1" pageWidth="2600" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -22,7 +22,7 @@
         <mxCell id="atlas-plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Atlas/103 PLCs&#xa;(IT network · no OT firewall crossing)&#xa;192.168.xx" vertex="1">
           <mxGeometry height="50" width="220" x="40" y="110" as="geometry" />
         </mxCell>
-        <mxCell id="atlas-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Contoso Gateway&#xa;(OPC-UA · REST · Ignition&#xa;Stratum 3 NTP for PLCs)" vertex="1">
+        <mxCell id="atlas-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Gateway&lt;br&gt;(OPC-UA · REST · Ignition&lt;br&gt;Stratum 3 NTP for PLCs)" vertex="1">
           <mxGeometry height="60" width="220" x="40" y="200" as="geometry" />
         </mxCell>
         <mxCell id="ot-bas4-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="OT Factory Floor — BAS4&#xa;(OT network on-prem · BAS4 line side)" vertex="1">
