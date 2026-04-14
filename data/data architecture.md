@@ -17,7 +17,8 @@ Declarative Automation Bundles).
 Tables in the Databricks environment will be built directly from the source schemas.  Tags will be utilized to provide additional information such as:
 - The primary key of the table (used for merges)
 - Whether the table has a purge process removing data from it on the edge.
-- A time to live value for the data on the edge (if purged). 
+- A time to live value for the data on the edge (if purged).
+- Whether the table should be included in the archive process.
 
 Jobs will be tagged with the following information:
 - What line do they monitor (each line will be attached to a topic)
@@ -280,6 +281,8 @@ also be connected to show near real time dashboards.
 
 ## Archiving Data (data older than 100 days, short term)
 
+Since the existing JSON archive process is tied to the on prem database, the Databricks side will have it's own archiving.
+
 For each table in the PLMS_\<site\> schemas:
 - Select all records from the table that are greater than 90 days old
 - Insert the records in the coorsponding table in the PLMS_\<site\>_archive schema
@@ -290,6 +293,9 @@ for the tables in the PLMS schema that need to be archived (tagged with the 'arc
 - Insert the records in the coorsponding table in the PLMS_archive schema
 - Delete the records that were inserted into the archive table from the source table.
 
+## Archiving Data (data older than 100 days, long term)
+
+The current ADF process will need to be adapted to extract it's data from the Databricks instance.
 
 ## Long Term Archive Plan ( data older than 100 days, long term)
 
