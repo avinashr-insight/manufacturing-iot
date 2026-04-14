@@ -1078,7 +1078,7 @@
         <mxCell id="dt_bronze" parent="dt" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e8d5f5;strokeColor=#9673a6;fontSize=11;startSize=26;snapToPoint=0;" value="mqtt_bronze" vertex="1">
           <mxGeometry height="202" width="242" x="25" y="39" as="geometry" />
         </mxCell>
-        <mxCell id="dt_cyl" parent="dt_bronze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5b8e0;strokeColor=#9673a6;fontSize=9;snapToPoint=0;" value="&lt;site&gt;_mqtt_events" vertex="1">
+        <mxCell id="dt_cyl" parent="dt_bronze" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5b8e0;strokeColor=#9673a6;fontSize=11;snapToPoint=0;" value="_mqtt_events" vertex="1">
           <mxGeometry height="100" width="100" x="74" y="54" as="geometry" />
         </mxCell>
         <mxCell id="1-JTIOJJuMIM4ydrAh3m-1" parent="dt" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Azure_Databricks.svg;" value="" vertex="1">
