@@ -89,22 +89,22 @@
           <mxGeometry height="89" width="220" x="1056" y="207" as="geometry" />
         </mxCell>
         <mxCell id="dc-admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="Admin / Management access&#xa;Secure Link / VDI · kubectl :6443&#xa;Insight + client ops team access path" vertex="1">
-          <mxGeometry height="50" width="360" x="860" y="310" as="geometry" />
+          <mxGeometry height="50" width="358" x="862" y="310" as="geometry" />
         </mxCell>
         <mxCell id="dc-vlan-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;New routable VLAN required for NIC 2 of both clusters&lt;br&gt;Current 10.140.45.xx non-unique and non-routable · [CLIENT] to allocate&lt;/span&gt;" vertex="1">
-          <mxGeometry height="44" width="360" x="860" y="368" as="geometry" />
+          <mxGeometry height="44" width="359" x="861" y="368" as="geometry" />
         </mxCell>
         <mxCell id="dc-closed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" value="Closed network — no internet in or out&#xa;Patches via on-prem satellite server (Red Hat)&#xa;Containers via ACR private endpoint in Azure" vertex="1">
-          <mxGeometry height="50" width="360" x="863" y="417" as="geometry" />
+          <mxGeometry height="50" width="361" x="862" y="417" as="geometry" />
         </mxCell>
         <mxCell id="dc-er-ot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;OT ExpressRoute · Cisco SD WAN&lt;br&gt;Equinix · ~15-17ms&lt;br&gt;Both clusters use this path to OT hub&lt;/span&gt;" vertex="1">
-          <mxGeometry height="52" width="360" x="860" y="474" as="geometry" />
+          <mxGeometry height="52" width="358" x="862" y="474" as="geometry" />
         </mxCell>
         <mxCell id="dc-er-it" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="IT ExpressRoute&lt;br&gt;~30-40ms · IT hub path&lt;br&gt;(Databricks)" vertex="1">
-          <mxGeometry height="50" width="356" x="871" y="539" as="geometry" />
+          <mxGeometry height="50" width="364" x="863" y="539" as="geometry" />
         </mxCell>
         <mxCell id="dc-double-hop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=center;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;OT to IT traffic: OT ExpressRoute → Equinix → IT ExpressRoute&lt;br&gt;Cannot peer hubs directly — Azure VWAN&lt;br&gt;Databricks reads from OT hub traverse both express routes&lt;/font&gt;&lt;/span&gt;" vertex="1">
-          <mxGeometry height="60" width="360" x="875" y="600" as="geometry" />
+          <mxGeometry height="60" width="364" x="863" y="600" as="geometry" />
         </mxCell>
         <mxCell id="az-ot-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;snapToPoint=0;fixDash=0;movable=1;pointerEvents=0;" value="OT Hub · OT Spoke&lt;br&gt;(both clusters register and send data here)&lt;div&gt;CIDR: xxx.xxx.xxx/28&lt;/div&gt;" vertex="1">
           <mxGeometry height="210" width="546" x="1355" y="141" as="geometry" />
