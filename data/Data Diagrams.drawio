@@ -727,7 +727,7 @@
         </mxCell>
         <mxCell id="lbl3" connectable="0" parent="e3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fillOpacity=100;" value="Private Endpoint" vertex="1">
           <mxGeometry relative="0.5" as="geometry">
-            <mxPoint y="-2" as="offset" />
+            <mxPoint y="-6" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e4" edge="1" parent="1" source="pbi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=1.5;endArrow=block;endFill=1;snapToPoint=0;fillOpacity=100;" target="srv">
