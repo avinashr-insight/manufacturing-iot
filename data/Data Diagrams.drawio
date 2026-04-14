@@ -374,6 +374,12 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="J_HFCkc2tgUC85SRGRda-26" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;" target="J_HFCkc2tgUC85SRGRda-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-27" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="J_HFCkc2tgUC85SRGRda-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="J_HFCkc2tgUC85SRGRda-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;" value="Historical Data Loading — SQL Server to Azure&#xa;Maryville DMTN · Non-archived data (less than 90 days)" vertex="1">
           <mxGeometry height="36" width="1360" x="102" y="-14" as="geometry" />
         </mxCell>
@@ -416,11 +422,11 @@
         <mxCell id="J_HFCkc2tgUC85SRGRda-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure Databricks · IT Hub" vertex="1">
           <mxGeometry height="360" width="560" x="770" y="390" as="geometry" />
         </mxCell>
-        <mxCell id="J_HFCkc2tgUC85SRGRda-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Databricks Ingestion Job&#xa;Reads Parquet files from ADLS container&#xa;Validates schema · applies transformations&#xa;Writes to Delta format" vertex="1">
-          <mxGeometry height="70" width="280" x="790" y="430" as="geometry" />
-        </mxCell>
         <mxCell id="J_HFCkc2tgUC85SRGRda-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;" value="Target Schema&#xa;Delta Lake format" vertex="1">
           <mxGeometry height="50" width="240" x="790" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="J_HFCkc2tgUC85SRGRda-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Databricks Ingestion Job&#xa;Reads Parquet files from ADLS container&#xa;Validates schema · applies transformations&#xa;Writes to Delta format" vertex="1">
+          <mxGeometry height="70" width="280" x="790" y="430" as="geometry" />
         </mxCell>
         <mxCell id="J_HFCkc2tgUC85SRGRda-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;" value="Target Delta Tables&#xa;Queryable by Databricks + Power BI" vertex="1">
           <mxGeometry height="68" width="241" x="790" y="660" as="geometry" />
@@ -447,12 +453,6 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="J_HFCkc2tgUC85SRGRda-25" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="J_HFCkc2tgUC85SRGRda-26" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;" target="J_HFCkc2tgUC85SRGRda-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="J_HFCkc2tgUC85SRGRda-27" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" target="J_HFCkc2tgUC85SRGRda-13">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="J_HFCkc2tgUC85SRGRda-28" edge="1" parent="1" source="J_HFCkc2tgUC85SRGRda-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="J_HFCkc2tgUC85SRGRda-15">
