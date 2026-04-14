@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="5">
   <diagram name="Architecture" id="0Gjpr2_W_JzVRyyCFl5s">
-    <mxGraphModel dx="2194" dy="1694" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
+    <mxGraphModel dx="1501" dy="1285" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -214,8 +214,8 @@
         <mxCell id="e-alt-broker" edge="1" parent="1" source="alt-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=3;" target="aio-broker">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="360" y="716" />
-              <mxPoint x="395" y="716" />
+              <mxPoint x="247" y="756" />
+              <mxPoint x="247" y="642" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -319,7 +319,7 @@
         <mxCell id="e-broker-df" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-df">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Ls16daa4_6WEmIlyrRyQ-2" edge="1" parent="1" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="">
+        <mxCell id="Ls16daa4_6WEmIlyrRyQ-2" edge="1" parent="1" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="netpol-aio-alt" value="">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="966.9785082174462" y="642.0256410256411" as="sourcePoint" />
             <mxPoint x="688.1200000000001" y="691" as="targetPoint" />
@@ -377,7 +377,13 @@
           <mxGeometry height="28" width="1055.2573839662448" x="11.371308016877638" y="80" as="geometry" />
         </mxCell>
         <mxCell id="e-lets-broker" edge="1" parent="1" source="alt-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-broker">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="902" y="722" />
+              <mxPoint x="264" y="722" />
+              <mxPoint x="264" y="653" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-otel-azmon" edge="1" parent="1" source="alt-otel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-mon">
           <mxGeometry relative="1" as="geometry">
@@ -391,8 +397,8 @@
         <mxCell id="e-contoso-alt" edge="1" parent="1" source="contoso-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="alt-core">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="246" y="315" />
-              <mxPoint x="246" y="773" />
+              <mxPoint x="230" y="315" />
+              <mxPoint x="230" y="773" />
             </Array>
           </mxGeometry>
         </mxCell>
