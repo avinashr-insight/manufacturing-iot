@@ -1,0 +1,324 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="PVSfIor1cz3egGINNkNB">
+    <mxGraphModel dx="1461" dy="5113" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-1" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="DevOps Pipeline — Azure DevOps · Flux Image Controller · Flux Source Controller · GitOps Deployment" vertex="1">
+          <mxGeometry height="48" width="1140" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;strokeWidth=2;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="844" width="520" x="10" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#0078d4;fontColor=#ffffff;fontSize=13;fontStyle=1;align=center;snapToPoint=0;" value="Azure DevOps Pipeline" vertex="1">
+          <mxGeometry height="36" width="520" x="10" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-71" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/devops/Azure_DevOps.svg;sketch=1;hachureGap=4;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="48" width="48" x="22" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Code Committed to Repo" vertex="1">
+          <mxGeometry height="44" width="200" x="160" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-75" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Repos.svg;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="36.67" width="33" x="172" y="131.66" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Pipeline Triggered" vertex="1">
+          <mxGeometry height="44" width="200" x="160" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-74" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Pipelines.svg;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="199" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Build Application&lt;br&gt;(ALT Core API · ALT UI · Flux UI)" vertex="1">
+          <mxGeometry height="56" width="200" x="160" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-73" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Pipelines.svg;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="170" y="269" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Run Tests" vertex="1">
+          <mxGeometry height="44" width="200" x="160" y="332" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-72" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Test_Plans.svg;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="33.33" width="30" x="173.5" y="337.34" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-9" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Tests Pass?" vertex="1">
+          <mxGeometry height="80" width="170" x="175" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;snapToPoint=0;" value="Notify Dev&#xa;(pipeline failure alert)" vertex="1">
+          <mxGeometry height="54" width="140" x="190" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Create Container Image" vertex="1">
+          <mxGeometry height="44" width="148" x="370" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;snapToPoint=0;" value="Tag Image With Version" vertex="1">
+          <mxGeometry height="44" width="148" x="364" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Push Image to Azure&#xa;Container Registry (ACR)" vertex="1">
+          <mxGeometry height="56" width="148" x="364" y="542" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Deploy cadence — Monday 11AM to DMTN first (canary)&#xa;1-hour observation window · then remaining campuses" vertex="1">
+          <mxGeometry height="44" width="490" x="22" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;align=left;snapToPoint=0;" value="ADO pipeline does NOT deploy to cluster directly&#xa;Deployment is owned entirely by Flux CD (GitOps)" vertex="1">
+          <mxGeometry height="44" width="490" x="25" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;strokeWidth=2;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="844" width="280" x="550" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Flux Image Controller" vertex="1">
+          <mxGeometry height="36" width="280" x="550" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=2;align=center;snapToPoint=0;" value="Watches ACR for new image tags&#xa;Polls on a configurable interval&#xa;(default: every 5 minutes)" vertex="1">
+          <mxGeometry height="56" width="260" x="560" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-78" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/containers/Container_Registries.svg;sketch=1;hachureGap=4;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="44.85" width="50" x="767" y="538.18" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;snapToPoint=0;" value="Image Published to ACR" vertex="1">
+          <mxGeometry height="44" width="260" x="560" y="538" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;snapToPoint=0;" value="Flux Detects New Image Tag" vertex="1">
+          <mxGeometry height="44" width="260" x="560" y="602" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;snapToPoint=0;" value="Updates Image Reference in YAML" vertex="1">
+          <mxGeometry height="44" width="260" x="560" y="666" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Commits Changes to&#xa;Kustomization / Helm Repo" vertex="1">
+          <mxGeometry height="56" width="260" x="560" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;strokeWidth=2;snapToPoint=0;" value="" vertex="1">
+          <mxGeometry height="846" width="700" x="850" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Flux Source Controller · Kustomize / Helm Controller · Continuous Reconciliation" vertex="1">
+          <mxGeometry height="36" width="680" x="860" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Triggered by: (1) direct Helm/Kustomization config commit from ADO pipeline  ·  (2) image tag update committed by Flux Image Controller" vertex="1">
+          <mxGeometry height="30" width="680" x="860" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=center;snapToPoint=0;" value="Changes Detected in&#xa;Kustomization / Helm Repo" vertex="1">
+          <mxGeometry height="50" width="260" x="990" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=center;snapToPoint=0;" value="Flux Detects Repository Changes" vertex="1">
+          <mxGeometry height="44" width="260" x="990" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=center;snapToPoint=0;" value="Fetches Latest Configuration" vertex="1">
+          <mxGeometry height="44" width="260" x="990" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Flux Kustomize / Helm Controller&#xa;Reconciles Configuration" vertex="1">
+          <mxGeometry height="56" width="260" x="990" y="362" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=center;snapToPoint=0;" value="Deploy to Cluster" vertex="1">
+          <mxGeometry height="44" width="200" x="1020" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-31" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Deployment&#xa;Successful?" vertex="1">
+          <mxGeometry height="80" width="180" x="1030" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;align=center;snapToPoint=0;" value="Application Running" vertex="1">
+          <mxGeometry height="42" width="190" x="1060" y="648" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;snapToPoint=0;" value="Continuous Monitoring&#xa;and Reconciliation" vertex="1">
+          <mxGeometry height="80" width="100" x="860" y="627" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;snapToPoint=0;" value="Alerts&#xa;(Teams webhook · email)" vertex="1">
+          <mxGeometry height="56" width="200" x="1330" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;snapToPoint=0;" value="Manual Intervention" vertex="1">
+          <mxGeometry height="44" width="200" x="1330" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Drift detected — Flux automatically reconciles cluster back to desired state defined in repo&#xa;Manual kubectl changes are overwritten on the next sync cycle — GitOps is the single source of truth" vertex="1">
+          <mxGeometry height="44" width="570" x="900" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Alerting on deployment failures via OpsGenie ← Grafana ← Prometheus · consistent with monitoring architecture" vertex="1">
+          <mxGeometry height="36" width="570" x="900" y="828" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;align=left;snapToPoint=0;" value="ADO pipeline builds, tests, containerises, and pushes to ACR. It never deploys directly. Flux CD is the only deployment mechanism — ensuring all cluster state is traceable to a git commit." vertex="1">
+          <mxGeometry height="64" width="770" x="40" y="1004" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;snapToPoint=0;" value="Flux continuously reconciles — any manual kubectl apply is overwritten on the next sync. NetworkPolicy changes require a PR merge before Flux applies them. GitOps is the single source of truth." vertex="1">
+          <mxGeometry height="64" width="650" x="850" y="1004" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-39" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#0078d4;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="172" as="sourcePoint" />
+            <mxPoint x="260" y="192" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-40" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#0078d4;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="236" as="sourcePoint" />
+            <mxPoint x="260" y="256" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-41" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#0078d4;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="312" as="sourcePoint" />
+            <mxPoint x="260" y="332" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-42" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="376" as="sourcePoint" />
+            <mxPoint x="260" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-8" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;endFill=1;strokeColor=#82B366;strokeWidth=2;" target="wryrJOJxzpBS4IdmS-bF-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-43" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-9" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wryrJOJxzpBS4IdmS-bF-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-44" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-43" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#b85450;fontStyle=1;" value="No" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-45" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-10" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="555" />
+              <mxPoint x="100" y="150" />
+            </Array>
+            <mxPoint x="190" y="555" as="sourcePoint" />
+            <mxPoint x="160" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-46" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-45" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#b85450;fontStyle=2;" value="Fix and recommit" vertex="1">
+          <mxGeometry relative="0.3" x="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-47" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#0078d4;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="438" y="462" as="sourcePoint" />
+            <mxPoint x="438" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-48" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="438" y="524" as="sourcePoint" />
+            <mxPoint x="438" y="542" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-49" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#0078d4;strokeWidth=1.5;dashed=1;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="150" />
+              <mxPoint x="400" y="150" />
+              <mxPoint x="400" y="48" />
+              <mxPoint x="1120" y="48" />
+            </Array>
+            <mxPoint x="260" y="150" as="sourcePoint" />
+            <mxPoint x="1120" y="164" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-50" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-49" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#0078d4;fontStyle=1;" value="Direct Helm / Kustomization config change (no image rebuild)" vertex="1">
+          <mxGeometry relative="0.5" y="-14" as="geometry">
+            <mxPoint y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-51" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="536" y="570" />
+              <mxPoint x="560" y="570" />
+            </Array>
+            <mxPoint x="512" y="570" as="sourcePoint" />
+            <mxPoint x="560" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-52" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-51" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="Image pushed to ACR" vertex="1">
+          <mxGeometry relative="0.5" y="-14" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-53" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="582" as="sourcePoint" />
+            <mxPoint x="690" y="602" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-54" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="646" as="sourcePoint" />
+            <mxPoint x="690" y="666" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-55" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="710" as="sourcePoint" />
+            <mxPoint x="690" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-56" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="758" />
+              <mxPoint x="840" y="189" />
+            </Array>
+            <mxPoint x="820" y="758" as="sourcePoint" />
+            <mxPoint x="990" y="189" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-57" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-56" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#82b366;fontStyle=1;" value="Kustomization / Helm repo updated" vertex="1">
+          <mxGeometry relative="0.3" x="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-58" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="214" as="sourcePoint" />
+            <mxPoint x="1120" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-59" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="278" as="sourcePoint" />
+            <mxPoint x="1120" y="298" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-60" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="342" as="sourcePoint" />
+            <mxPoint x="1120" y="362" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-70" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-29" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="428" as="sourcePoint" />
+            <mxPoint x="1120" y="448" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-61" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-30" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wryrJOJxzpBS4IdmS-bF-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-62" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-31" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wryrJOJxzpBS4IdmS-bF-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-63" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1210" y="568" as="sourcePoint" />
+            <mxPoint x="1330" y="568" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-64" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-63" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#b85450;fontStyle=1;" value="No" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-65" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1430" y="596" as="sourcePoint" />
+            <mxPoint x="1430" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-32" edge="1" parent="1" source="wryrJOJxzpBS4IdmS-bF-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82B366;strokeWidth=2;" target="wryrJOJxzpBS4IdmS-bF-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-66" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.407;entryDx=0;entryDy=0;entryPerimeter=0;" target="wryrJOJxzpBS4IdmS-bF-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="390" />
+              <mxPoint x="970" y="390" />
+            </Array>
+            <mxPoint x="860" y="667" as="sourcePoint" />
+            <mxPoint x="970" y="385" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wryrJOJxzpBS4IdmS-bF-67" connectable="0" parent="wryrJOJxzpBS4IdmS-bF-66" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontColor=#9673a6;fontStyle=1;" value="Drift detected — auto reconcile" vertex="1">
+          <mxGeometry relative="0.4" x="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
