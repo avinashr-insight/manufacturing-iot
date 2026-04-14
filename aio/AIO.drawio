@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" pages="5">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="5">
   <diagram name="Architecture" id="0Gjpr2_W_JzVRyyCFl5s">
-    <mxGraphModel dx="1141" dy="1073" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
+    <mxGraphModel dx="2194" dy="1694" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,7 +14,7 @@
           <mxGeometry height="46" width="185" x="35" y="100" as="geometry" />
         </mxCell>
         <mxCell id="ls-switch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Line-side Switch&#xa;(redundant 1G / 10G uplink)" vertex="1">
-          <mxGeometry height="46" width="185" x="35" y="190" as="geometry" />
+          <mxGeometry height="46" width="185" x="35" y="193" as="geometry" />
         </mxCell>
         <mxCell id="contoso-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Ignition Gateway&amp;nbsp;&lt;div&gt;stays separate for POC&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="185" x="35" y="285" as="geometry" />
@@ -29,76 +29,76 @@
           <mxGeometry height="1060" width="1110" x="258" y="60" as="geometry" />
         </mxCell>
         <mxCell id="node1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;verticalAlign=top;strokeWidth=2;" value="" vertex="1">
-          <mxGeometry height="249" width="330" x="270" y="88" as="geometry" />
+          <mxGeometry height="249" width="330" x="298" y="92" as="geometry" />
         </mxCell>
         <mxCell id="node1-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" value="Dell Node 1 — Ubuntu 24.04 LTS" vertex="1">
-          <mxGeometry height="24" width="330" x="270" y="90" as="geometry" />
+          <mxGeometry height="24" width="330" x="298" y="94" as="geometry" />
         </mxCell>
         <mxCell id="node1-k3s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="K3s Server Role&#xa;(control plane + workloads)" vertex="1">
-          <mxGeometry height="44" width="150" x="280" y="118" as="geometry" />
+          <mxGeometry height="44" width="150" x="308" y="122" as="geometry" />
         </mxCell>
         <mxCell id="node1-etcd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="etcd Member #1&#xa;(2/3 quorum required)" vertex="1">
-          <mxGeometry height="44" width="150" x="440" y="118" as="geometry" />
+          <mxGeometry height="44" width="150" x="468" y="122" as="geometry" />
         </mxCell>
         <mxCell id="node1-kvip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Kube-VIP Speaker&lt;br&gt;ACTIVE — ARP Owner" vertex="1">
-          <mxGeometry height="44" width="150" x="280" y="172" as="geometry" />
+          <mxGeometry height="44" width="150" x="308" y="176" as="geometry" />
         </mxCell>
         <mxCell id="node1-cilium" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Cilium Agent&#xa;(eBPF dataplane)" vertex="1">
-          <mxGeometry height="44" width="150" x="440" y="172" as="geometry" />
+          <mxGeometry height="44" width="150" x="468" y="176" as="geometry" />
         </mxCell>
         <mxCell id="node1-nic1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="NIC 1 → OT Switch · 192.168.xx.10" vertex="1">
-          <mxGeometry height="30" width="310" x="280" y="226" as="geometry" />
+          <mxGeometry height="30" width="310" x="308" y="230" as="geometry" />
         </mxCell>
         <mxCell id="node1-nic2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="NIC 2 → DC VLAN · 10.x.x.10 [TBC: Brandon]" vertex="1">
-          <mxGeometry height="30" width="310" x="280" y="264" as="geometry" />
+          <mxGeometry height="30" width="310" x="308" y="268" as="geometry" />
         </mxCell>
         <mxCell id="node2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;verticalAlign=top;strokeWidth=2;" value="" vertex="1">
-          <mxGeometry height="249" width="330" x="620" y="88" as="geometry" />
+          <mxGeometry height="249" width="330" x="648" y="92" as="geometry" />
         </mxCell>
         <mxCell id="node2-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" value="Dell Node 2 — Ubuntu 24.04 LTS" vertex="1">
-          <mxGeometry height="24" width="330" x="620" y="90" as="geometry" />
+          <mxGeometry height="24" width="330" x="648" y="94" as="geometry" />
         </mxCell>
         <mxCell id="node2-k3s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="K3s Server Role&#xa;(control plane + workloads)" vertex="1">
-          <mxGeometry height="44" width="150" x="630" y="118" as="geometry" />
+          <mxGeometry height="44" width="150" x="658" y="122" as="geometry" />
         </mxCell>
         <mxCell id="node2-etcd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="etcd Member #2&#xa;(2/3 quorum required)" vertex="1">
-          <mxGeometry height="44" width="150" x="790" y="118" as="geometry" />
+          <mxGeometry height="44" width="150" x="818" y="122" as="geometry" />
         </mxCell>
         <mxCell id="node2-kvip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Speaker&lt;br&gt;&amp;nbsp;STANDBY" vertex="1">
-          <mxGeometry height="44" width="150" x="630" y="172" as="geometry" />
+          <mxGeometry height="44" width="150" x="658" y="176" as="geometry" />
         </mxCell>
         <mxCell id="node2-cilium" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Cilium Agent&#xa;(eBPF dataplane)" vertex="1">
-          <mxGeometry height="44" width="150" x="790" y="172" as="geometry" />
+          <mxGeometry height="44" width="150" x="818" y="176" as="geometry" />
         </mxCell>
         <mxCell id="node2-nic1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="NIC 1 → OT Switch · 192.168.xx.11" vertex="1">
-          <mxGeometry height="30" width="310" x="630" y="226" as="geometry" />
+          <mxGeometry height="30" width="310" x="658" y="230" as="geometry" />
         </mxCell>
         <mxCell id="node2-nic2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="NIC 2 → DC VLAN · 10.x.x.11 [TBC: Brandon]&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="30" width="310" x="630" y="264" as="geometry" />
+          <mxGeometry height="30" width="310" x="658" y="268" as="geometry" />
         </mxCell>
         <mxCell id="node3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;verticalAlign=top;strokeWidth=2;" value="" vertex="1">
-          <mxGeometry height="248" width="330" x="970" y="88" as="geometry" />
+          <mxGeometry height="248" width="330" x="998" y="92" as="geometry" />
         </mxCell>
         <mxCell id="node3-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=1;" value="Dell Node 3 — Ubuntu 24.04 LTS" vertex="1">
-          <mxGeometry height="24" width="330" x="970" y="90" as="geometry" />
+          <mxGeometry height="24" width="330" x="998" y="94" as="geometry" />
         </mxCell>
         <mxCell id="node3-k3s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="K3s Server Role&#xa;(control plane + workloads)" vertex="1">
-          <mxGeometry height="44" width="150" x="980" y="118" as="geometry" />
+          <mxGeometry height="44" width="150" x="1008" y="122" as="geometry" />
         </mxCell>
         <mxCell id="node3-etcd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="etcd Member #3&#xa;(2/3 quorum required)" vertex="1">
-          <mxGeometry height="44" width="150" x="1140" y="118" as="geometry" />
+          <mxGeometry height="44" width="150" x="1168" y="122" as="geometry" />
         </mxCell>
         <mxCell id="node3-kvip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Speaker&lt;br&gt;STANDBY" vertex="1">
-          <mxGeometry height="44" width="150" x="980" y="172" as="geometry" />
+          <mxGeometry height="44" width="150" x="1008" y="176" as="geometry" />
         </mxCell>
         <mxCell id="node3-cilium" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Cilium Agent&#xa;(eBPF dataplane)" vertex="1">
-          <mxGeometry height="44" width="150" x="1140" y="172" as="geometry" />
+          <mxGeometry height="44" width="150" x="1168" y="176" as="geometry" />
         </mxCell>
         <mxCell id="node3-nic1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="NIC 1 → OT Switch · 192.168.xx.12" vertex="1">
-          <mxGeometry height="30" width="310" x="980" y="226" as="geometry" />
+          <mxGeometry height="30" width="310" x="1008" y="230" as="geometry" />
         </mxCell>
         <mxCell id="node3-nic2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="NIC 2 → DC VLAN · 10.x.x.12 [TBC: Brandon]&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="30" width="310" x="980" y="264" as="geometry" />
+          <mxGeometry height="30" width="310" x="1008" y="268" as="geometry" />
         </mxCell>
         <mxCell id="ann-etcd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="&amp;nbsp;Embedded etcd HA — Quorum requires 2/3 nodes alive. Single node failure: cluster continues. Two simultaneous failures: quorum lost, K3s API server halts." vertex="1">
           <mxGeometry height="28" width="1088" x="270" y="356" as="geometry" />
@@ -127,44 +127,8 @@
         <mxCell id="arc-tls-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Arc requires TLS inspection exemption on Palo Alto — confirm with Brandon [CLIENT]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="468" x="880" y="518" as="geometry" />
         </mxCell>
-        <mxCell id="ns-aio" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: aio-system" vertex="1">
-          <mxGeometry height="90" width="1088" x="270" y="592" as="geometry" />
-        </mxCell>
-        <mxCell id="aio-broker" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="AIO MQTT Broker&#xa;mTLS · MQTT v5 · StatefulSet · VIP :8883" vertex="1">
-          <mxGeometry height="52" width="230" x="280" y="616" as="geometry" />
-        </mxCell>
-        <mxCell id="aio-df" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="AIO Dataflows&lt;br&gt;(replaces MQTTtoEventHub)&lt;div&gt;&lt;br&gt;Traceability · OEE · Kanban → Azure&lt;/div&gt;" vertex="1">
-          <mxGeometry height="52" width="250" x="520" y="616" as="geometry" />
-        </mxCell>
-        <mxCell id="aio-andon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Andon Fast-Path&#xa;LineStateDown/# → Event Grid · Sub-second SLA" vertex="1">
-          <mxGeometry height="52" width="268" x="780" y="616" as="geometry" />
-        </mxCell>
         <mxCell id="netpol-aio-alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Cilium NetworkPolicy: alt-system → aio-system MQTT publish ALLOW (:8883 mTLS) · All other cross-namespace ingress: DENY by default" vertex="1">
           <mxGeometry height="26" width="1064" x="278" y="690" as="geometry" />
-        </mxCell>
-        <mxCell id="ns-alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: alt-system" vertex="1">
-          <mxGeometry height="120" width="1088" x="270" y="724" as="geometry" />
-        </mxCell>
-        <mxCell id="alt-core" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="ALT Core API&#xa;(.NET 8 · Production Critical)" vertex="1">
-          <mxGeometry height="50" width="160" x="280" y="748" as="geometry" />
-        </mxCell>
-        <mxCell id="alt-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="ALT UI&#xa;(Angular)" vertex="1">
-          <mxGeometry height="50" width="120" x="450" y="748" as="geometry" />
-        </mxCell>
-        <mxCell id="alt-flux-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Flux / Andon UI&#xa;(Angular)" vertex="1">
-          <mxGeometry height="50" width="120" x="580" y="748" as="geometry" />
-        </mxCell>
-        <mxCell id="alt-lets" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="LETSStateService&#xa;CurrentLineState" vertex="1">
-          <mxGeometry height="50" width="148" x="710" y="748" as="geometry" />
-        </mxCell>
-        <mxCell id="alt-otel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="OTEL Collector&#xa;(replaces Filebeat + Graylog&#xa;instrumented — deploy only)" vertex="1">
-          <mxGeometry height="50" width="170" x="868" y="748" as="geometry" />
-        </mxCell>
-        <mxCell id="alt-iotbasics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="IoT Basics&#xa;(OTEL_Only mode · :8000)" vertex="1">
-          <mxGeometry height="50" width="160" x="1048" y="748" as="geometry" />
-        </mxCell>
-        <mxCell id="netpol-iotbasics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;" value="&amp;nbsp;Cilium NetworkPolicy: all alt-system pods → IoT Basics :8000 ALLOW · ⚠ NLog blocker: NA_Data_API writes to c:\temp\logs\ — must replace with OTEL before containerising" vertex="1">
-          <mxGeometry height="28" width="928" x="280" y="804" as="geometry" />
         </mxCell>
         <mxCell id="ns-edgedb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: edge-db" vertex="1">
           <mxGeometry height="90" width="540" x="270" y="860" as="geometry" />
@@ -180,18 +144,6 @@
         </mxCell>
         <mxCell id="cert-mgr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="cert-manager · TLS lifecycle · mTLS per-client certs for AIO MQTT broker" vertex="1">
           <mxGeometry height="50" width="516" x="828" y="883" as="geometry" />
-        </mxCell>
-        <mxCell id="ns-kvip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: kube-system · Kube-VIP DaemonSet (pod on every node — ARP leader election)" vertex="1">
-          <mxGeometry height="60" width="698" x="660" y="962" as="geometry" />
-        </mxCell>
-        <mxCell id="kvip-n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Kube-VIP Pod · Node 1&amp;nbsp; ACTIVE" vertex="1">
-          <mxGeometry height="32" width="200" x="670" y="980" as="geometry" />
-        </mxCell>
-        <mxCell id="kvip-n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 2 STANDBY" vertex="1">
-          <mxGeometry height="32" width="220" x="880" y="980" as="geometry" />
-        </mxCell>
-        <mxCell id="kvip-n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 3 STANDBY" vertex="1">
-          <mxGeometry height="32" width="220" x="1110" y="980" as="geometry" />
         </mxCell>
         <mxCell id="ann-failover" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" value="Failover: Node failure → Kube-VIP standby wins ARP election ~1-2s · K3s reschedules pods ~40-60s (separate events) · etcd quorum survives if ≥2 nodes healthy · NTP hard requirement: timestamp drift = video forensic correlation failure (250M tx/week at DMTN)" vertex="1">
           <mxGeometry height="30" width="933" x="351" y="1032" as="geometry" />
@@ -215,10 +167,10 @@
           <mxGeometry height="66" width="240" x="1416" y="418" as="geometry" />
         </mxCell>
         <mxCell id="dc-er" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ExpressRoute · Equinix Ashburn&#xa;→ Azure NA Aladdin IT tenant&#xa;~30-40ms latency" vertex="1">
-          <mxGeometry height="56" width="240" x="1416" y="532" as="geometry" />
+          <mxGeometry height="56" width="240" x="1416" y="507" as="geometry" />
         </mxCell>
         <mxCell id="az-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin (IT Tenant)" vertex="1">
-          <mxGeometry height="590" width="268" x="1402" y="694" as="geometry" />
+          <mxGeometry height="536" width="268" x="1402" y="694" as="geometry" />
         </mxCell>
         <mxCell id="az-arc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Arc&#xa;(cluster registration · GitOps)" vertex="1">
           <mxGeometry height="46" width="240" x="1416" y="732" as="geometry" />
@@ -271,31 +223,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e-lets-broker" edge="1" parent="1" source="alt-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-broker">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e-broker-df" edge="1" parent="1" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-df">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e-broker-andon" edge="1" parent="1" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#b85450;strokeWidth=3;curved=0;" target="aio-andon">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="e-alt-edgedb" edge="1" parent="1" source="alt-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;strokeWidth=2;" target="edgedb-pg">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-df-eh" edge="1" parent="1" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="az-eh">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-df-adls" edge="1" parent="1" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="az-adls">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="e-andon-eg" edge="1" parent="1" source="aio-andon" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="az-eg">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e-arc-az" edge="1" parent="1" source="arc-agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-arc">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e-otel-azmon" edge="1" parent="1" source="alt-otel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-mon">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-dc-sql" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-sql">
@@ -352,11 +286,91 @@
         <mxCell id="leg-a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" value="Grey — K8s internal (metrics, logs)" vertex="1">
           <mxGeometry height="32" width="240" x="870" y="1289" as="geometry" />
         </mxCell>
+        <mxCell id="Ls16daa4_6WEmIlyrRyQ-3" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="90" width="1081" x="270" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-aio" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: aio-system" vertex="1">
+          <mxGeometry height="90" width="1081" as="geometry" />
+        </mxCell>
+        <mxCell id="aio-broker" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="AIO MQTT Broker&#xa;mTLS · MQTT v5 · StatefulSet · VIP :8883" vertex="1">
+          <mxGeometry height="52" width="314.3236409608091" x="13.666245259165613" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="aio-df" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="AIO Dataflows&lt;br&gt;(replaces MQTTtoEventHub)&lt;div&gt;&lt;br&gt;Traceability · OEE · Kanban → Azure&lt;/div&gt;" vertex="1">
+          <mxGeometry height="52" width="341.6561314791403" x="341.6561314791403" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="aio-andon" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Andon Fast-Path&#xa;LineStateDown/# → Event Grid · Sub-second SLA" vertex="1">
+          <mxGeometry height="52" width="366.25537294563844" x="696.9785082174462" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e-df-adls" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="az-adls">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-broker-df" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-df">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-broker-andon" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#b85450;strokeWidth=3;curved=0;" target="aio-andon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ls16daa4_6WEmIlyrRyQ-2" edge="1" parent="1" source="aio-andon" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="688.1200000000001" y="691" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ns-kvip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: kube-system · Kube-VIP DaemonSet (pod on every node — ARP leader election)" vertex="1">
+          <mxGeometry height="62.00000000000001" width="1059" x="286" y="961" as="geometry" />
+        </mxCell>
+        <mxCell id="kvip-n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="Kube-VIP Pod · Node 1&amp;nbsp; ACTIVE" vertex="1">
+          <mxGeometry height="33.06666666666667" width="303.43839541547277" x="301.1719197707736" y="982.5333333333333" as="geometry" />
+        </mxCell>
+        <mxCell id="kvip-n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 2 STANDBY" vertex="1">
+          <mxGeometry height="33.06666666666667" width="333.78223495702" x="619.78223495702" y="982.5333333333333" as="geometry" />
+        </mxCell>
+        <mxCell id="kvip-n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Kube-VIP Pod · Node 3 STANDBY" vertex="1">
+          <mxGeometry height="33.06666666666667" width="333.78223495702" x="968.7363896848137" y="982.5333333333333" as="geometry" />
+        </mxCell>
+        <mxCell id="9BYp14ogOgfr1R5yTq4C-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="OpsGenie" vertex="1">
+          <mxGeometry height="59" width="240" x="1414" y="573" as="geometry" />
+        </mxCell>
+        <mxCell id="e-arc-az" edge="1" parent="1" source="arc-agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-arc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9BYp14ogOgfr1R5yTq4C-2" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="120" width="1078" x="270" y="724" as="geometry" />
+        </mxCell>
+        <mxCell id="ns-alt" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: alt-system" vertex="1">
+          <mxGeometry height="120" width="1078" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-core" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="ALT Core API&#xa;(.NET 8 · Production Critical)" vertex="1">
+          <mxGeometry height="50" width="181.9409282700422" x="11.371308016877638" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-ui" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="ALT UI&#xa;(Angular)" vertex="1">
+          <mxGeometry height="50" width="136.45569620253164" x="204.68354430379748" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-flux-ui" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="Flux / Andon UI&#xa;(Angular)" vertex="1">
+          <mxGeometry height="50" width="136.45569620253164" x="352.51054852320675" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-lets" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="LETSStateService&#xa;CurrentLineState" vertex="1">
+          <mxGeometry height="50" width="168.29535864978902" x="500.337552742616" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-otel" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="OTEL Collector&#xa;(replaces Filebeat + Graylog&#xa;instrumented — deploy only)" vertex="1">
+          <mxGeometry height="50" width="193.31223628691984" x="680.0042194092827" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-iotbasics" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=11;" value="IoT Basics&#xa;(OTEL_Only mode · :8000)" vertex="1">
+          <mxGeometry height="50" width="181.9409282700422" x="884.6877637130801" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="netpol-iotbasics" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;" value="&amp;nbsp;Cilium NetworkPolicy: all alt-system pods → IoT Basics :8000 ALLOW · ⚠ NLog blocker: NA_Data_API writes to c:\temp\logs\ — must replace with OTEL before containerising" vertex="1">
+          <mxGeometry height="28" width="1055.2573839662448" x="11.371308016877638" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e-lets-broker" edge="1" parent="1" source="alt-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-broker">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-otel-azmon" edge="1" parent="1" source="alt-otel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-mon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="dshMmnLv2Q3h4nMkggqa" name="Dataflow">
-    <mxGraphModel dx="1443" dy="1080" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="828" dy="989" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -524,6 +538,9 @@
         <mxCell id="VRSNAis56ns_jy04sDDi-51" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-50">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="j8PKrbqMslWm7U7utZEP-2" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="j8PKrbqMslWm7U7utZEP-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Grafana + Loki" vertex="1">
           <mxGeometry height="44" width="185" x="1370" y="745" as="geometry" />
         </mxCell>
@@ -573,11 +590,14 @@
         <mxCell id="9jFyGmmevRr9nWgc4gq7-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="IoT Basics" vertex="1">
           <mxGeometry height="44" width="150" x="1710" y="328.5" as="geometry" />
         </mxCell>
+        <mxCell id="j8PKrbqMslWm7U7utZEP-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="OpsGenie" vertex="1">
+          <mxGeometry height="44" width="185" x="1140" y="745" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="EtPgmnxiUdQBlKvqYYRm" name="MQTT">
-    <mxGraphModel dx="1097" dy="647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1296" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -745,6 +765,9 @@
         <mxCell id="I8bLp5rxbzeuoI7irztr-142" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ADLS Gen2&#xa;(archive + historical)" vertex="1">
           <mxGeometry height="44" width="188" x="1125" y="620" as="geometry" />
         </mxCell>
+        <mxCell id="5-8XqKOoOifB8OqVvIFu-2" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="5-8XqKOoOifB8OqVvIFu-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-143" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Grafana + Loki" vertex="1">
           <mxGeometry height="44" width="188" x="1125" y="680" as="geometry" />
         </mxCell>
@@ -839,6 +862,9 @@
         </mxCell>
         <mxCell id="QRRk4if1chkVHxJNFgQE-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="IoT Basics" vertex="1">
           <mxGeometry height="44" width="153" x="968" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="5-8XqKOoOifB8OqVvIFu-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="OpsGenie" vertex="1">
+          <mxGeometry height="44" width="188" x="1380" y="680" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
