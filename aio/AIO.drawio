@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="5">
   <diagram name="Architecture" id="0Gjpr2_W_JzVRyyCFl5s">
-    <mxGraphModel dx="1783" dy="1451" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
+    <mxGraphModel dx="2194" dy="1694" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -203,7 +203,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-nic2-dc" edge="1" parent="1" source="node1-nic2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;" target="dc-switch">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="463" y="347" />
+              <mxPoint x="1383" y="347" />
+              <mxPoint x="1383" y="123" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-alt-broker" edge="1" parent="1" source="alt-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=3;" target="aio-broker">
           <mxGeometry relative="1" as="geometry">
@@ -214,19 +220,39 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="e-df-eh" edge="1" parent="1" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="az-eh">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1389" y="632" />
+              <mxPoint x="1389" y="875" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-dc-sql" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-sql">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-dc-dns" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-dns">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1689" y="135" />
+              <mxPoint x="1689" y="344" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-dc-ntp" edge="1" parent="1" source="dc-switch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;" target="dc-ntp">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1725" y="123" />
+              <mxPoint x="1725" y="451" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-er-az" edge="1" parent="1" source="dc-er" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=3;" target="az-arc">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1705" y="534.9999999999998" />
+              <mxPoint x="1705" y="754.9999999999998" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="leg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" value="Component Legend" vertex="1">
           <mxGeometry height="24" width="200" x="270" y="1150" as="geometry" />
@@ -283,7 +309,12 @@
           <mxGeometry height="52" width="526" x="548" y="24" as="geometry" />
         </mxCell>
         <mxCell id="e-df-adls" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="az-adls">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1107" y="50" />
+              <mxPoint x="1107" y="342" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-broker-df" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-df">
           <mxGeometry relative="1" as="geometry" />
@@ -310,7 +341,13 @@
           <mxGeometry height="59" width="240" x="1414" y="573" as="geometry" />
         </mxCell>
         <mxCell id="e-arc-az" edge="1" parent="1" source="arc-agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-arc">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="589" />
+              <mxPoint x="1401" y="589" />
+              <mxPoint x="1401" y="755" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="9BYp14ogOgfr1R5yTq4C-2" connectable="0" parent="1" style="group" value="" vertex="1">
           <mxGeometry height="120" width="1078" x="270" y="724" as="geometry" />
@@ -343,12 +380,19 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-otel-azmon" edge="1" parent="1" source="alt-otel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="az-mon">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1047" y="735" />
+              <mxPoint x="1356" y="735" />
+              <mxPoint x="1356" y="994" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e-contoso-alt" edge="1" parent="1" source="contoso-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=3;" target="alt-core">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="351" y="315" />
+              <mxPoint x="246" y="315" />
+              <mxPoint x="246" y="773" />
             </Array>
           </mxGeometry>
         </mxCell>
