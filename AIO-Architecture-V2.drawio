@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" pages="8">
+<mxfile host="app.diagrams.net" pages="9">
   <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
     <mxGraphModel dx="1882" dy="928" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -2405,6 +2405,20 @@
         </mxCell>
         <mxCell id="311" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
           <mxGeometry height="656" width="1" x="1500" y="914" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="o3aUnhJe_ij5ycmQzqGO" name="Notes">
+    <mxGraphModel dx="1622" dy="713" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hi6X_d0BzHIbB2ZtCyMh-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#FFF2CC;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;72 Hours Degradation Rule&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;AIO can operate offline for a maximum of 72 hours, with possible degradation during that period. Our edge-db is configured for &lt;strong style=&quot;&quot;&gt;8-hour retention&lt;/strong&gt;. These are two different things — AIO&#39;s broker can buffer for 72h, but the edge-db purges data at 8h. If the site loses WAN for longer than 8 hours, edge-db data is gone even though AIO itself is still running. Worth documenting explicitly for the client as an operational boundary.&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="191" width="467" x="-275" y="49" as="geometry" />
+        </mxCell>
+        <mxCell id="hi6X_d0BzHIbB2ZtCyMh-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#E6D0DE;align=center;verticalAlign=middle;rounded=0;" value="&lt;p class=&quot;font-claude-response-body break-words whitespace-normal leading-[1.7]&quot;&gt;&lt;strong&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Dataflow message buffering during WAN loss&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;p class=&quot;font-claude-response-body break-words whitespace-normal leading-[1.7]&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;If connectivity between the data flow and Azure Event Hubs is lost, the MQTT broker subscriber message queue stores the messages. When connectivity is restored, the data flow sends the messages in the subscriber message queue to Azure Event Hubs. This confirms our &lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot; style=&quot;&quot;&gt;disk buffer: ON&lt;/code&gt; configuration was the right call — without it, messages in-flight to Event Hubs during a WAN blip would be lost. Good client-facing justification for that setting.&lt;/font&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="189" width="546" x="232" y="49" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
