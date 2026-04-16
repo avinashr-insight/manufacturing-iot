@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" pages="9">
   <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
-    <mxGraphModel dx="1743" dy="860" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2018" dy="994" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -119,7 +119,7 @@
         <mxCell id="yhA_NecXZdExneI3ux-p-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;" value="Kube-VIP L2 ARP Mode (DaemonSet) — VIPs (placeholder — final range from Brandon Hill):    K3s API VIP: 192.168.1.100   |   MQTT Broker VIP: 192.168.1.101 (:8883)   |   HTTPS / API VIP: 192.168.1.102 (:443)   |   Recommend reserving /28 for growth" vertex="1">
           <mxGeometry height="28" width="1088" x="-347" y="323" as="geometry" />
         </mxCell>
-        <mxCell id="yhA_NecXZdExneI3ux-p-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;" value="Cilium CNI — eBPF dataplane (Ubuntu 24.04 / kernel 6.x) · Replaces kube-proxy entirely · Native NetworkPolicy L3/L4/L7 · Hubble observability · K3s flags: --flannel-backend=none --disable-network-policy" vertex="1">
+        <mxCell id="yhA_NecXZdExneI3ux-p-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;" value="Cilium CNI — eBPF dataplane (RHEL 9) · Replaces kube-proxy entirely · Native NetworkPolicy L3/L4/L7 · Hubble observability · K3s flags: --flannel-backend=none --disable-network-policy" vertex="1">
           <mxGeometry height="28" width="1088" x="-347" y="357" as="geometry" />
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;" value="CoreDNS (K3s default) — Forwards to on-prem AD DNS · Split-brain: internal cluster FQDNs + Azure private DNS zones (ADLS / Event Hubs / Key Vault / Arc) · NTP: all nodes sync to on-prem Stratum 2 via NIC 2" vertex="1">
@@ -427,6 +427,9 @@
         </mxCell>
         <mxCell id="dc-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Data Center (DMTN)" vertex="1">
           <mxGeometry height="605" width="310" x="785" y="-7" as="geometry" />
+        </mxCell>
+        <mxCell id="vvd5WtAZ3ZM0z4TQn_-g-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="OPC UA&amp;nbsp;" vertex="1">
+          <mxGeometry height="52" width="187" x="-745" y="555" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
