@@ -1,13 +1,13 @@
 <mxfile host="app.diagrams.net" pages="9">
   <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
-    <mxGraphModel dx="1928" dy="875" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1743" dy="860" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="az-idmz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3eeff;strokeColor=#9673a6;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1.5;" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;IDMZ VNet (/27)&lt;/span&gt;" vertex="1">
           <mxGeometry height="318" width="300" x="793" y="829" as="geometry" />
         </mxCell>
-        <mxCell id="az-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin (Single Denso Tenant)" vertex="1">
+        <mxCell id="az-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin&amp;nbsp;" vertex="1">
           <mxGeometry height="794" width="317" x="785" y="618" as="geometry" />
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-99" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-80">
@@ -367,14 +367,14 @@
         <mxCell id="yhA_NecXZdExneI3ux-p-102" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-78">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="930" y="471" />
+              <mxPoint x="936" y="471" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-100" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-82">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="908" y="581" />
+              <mxPoint x="990" y="581" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -407,9 +407,6 @@
         <mxCell id="yhA_NecXZdExneI3ux-p-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Key Vault&amp;#xa;(cluster secrets · mTLS certs)" vertex="1">
           <mxGeometry height="44" width="268" x="806" y="735" as="geometry" />
         </mxCell>
-        <mxCell id="dc-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Data Center (DMTN)" vertex="1">
-          <mxGeometry height="605" width="310" x="785" y="-7" as="geometry" />
-        </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Monitor + Log Analytics&amp;nbsp;" vertex="1">
           <mxGeometry height="38" width="268" x="809" y="947" as="geometry" />
         </mxCell>
@@ -427,6 +424,9 @@
         </mxCell>
         <mxCell id="G3Zj4ZOULYvS8A-8iuwf-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Az Managed Grafana –&amp;gt; OpsGenie" vertex="1">
           <mxGeometry height="37" width="234" x="813" y="992" as="geometry" />
+        </mxCell>
+        <mxCell id="dc-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Data Center (DMTN)" vertex="1">
+          <mxGeometry height="605" width="310" x="785" y="-7" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
