@@ -2110,7 +2110,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="QSIscWExb9h6PslpStHh" name="Page-8">
-    <mxGraphModel dx="1461" dy="1113" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1538" dy="1048" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2131,7 +2131,7 @@
           <mxGeometry height="30" width="1360" x="370" y="-50" as="geometry" />
         </mxCell>
         <mxCell id="ns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;strokeWidth=3;dashed=1;fontSize=12;fontStyle=1;fontColor=#9673a6;verticalAlign=top;snapToPoint=0;" value="namespace: azure-iot-operations" vertex="1">
-          <mxGeometry height="815" width="1360" x="10" y="155" as="geometry" />
+          <mxGeometry height="785" width="1360" x="10" y="155" as="geometry" />
         </mxCell>
         <mxCell id="ext_alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;strokeWidth=2;fontSize=11;fontStyle=1;snapToPoint=0;" value="ALT Core API&#xa;(alt-system namespace)" vertex="1">
           <mxGeometry height="54" width="180" x="480" y="50" as="geometry" />
@@ -2212,13 +2212,13 @@
           <mxGeometry height="48" width="400" x="890" y="462" as="geometry" />
         </mxCell>
         <mxCell id="be_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;snapToPoint=0;" value="Backend Tier — Vault + Replication Engine" vertex="1">
-          <mxGeometry height="270" width="1300" x="30" y="580" as="geometry" />
+          <mxGeometry height="308" width="1300" x="30" y="580" as="geometry" />
         </mxCell>
         <mxCell id="be_card" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;fontColor=#ffffff;fontSize=10;fontStyle=1;snapToPoint=0;" value="partitions=3 · workers=1 · redundancy factor=3 · memory=Medium · persistence=ON · disk buffer=ON" vertex="1">
           <mxGeometry height="24" width="1300" x="30" y="580" as="geometry" />
         </mxCell>
         <mxCell id="be1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5b8e0;strokeColor=#9673a6;strokeWidth=1.5;fontSize=11;fontStyle=1;verticalAlign=top;snapToPoint=0;" value="Backend Partition 0 — Node 1" vertex="1">
-          <mxGeometry height="206" width="370" x="50" y="624" as="geometry" />
+          <mxGeometry height="246" width="370" x="50" y="624" as="geometry" />
         </mxCell>
         <mxCell id="be1_shard" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5f5;strokeColor=#9673a6;fontSize=10;align=left;snapToPoint=0;" value="Shard key: hash(topic + session)&#xa;Handles messages for assigned partitions&#xa;Owns session state for its clients" vertex="1">
           <mxGeometry height="48" width="340" x="60" y="648" as="geometry" />
@@ -2230,10 +2230,10 @@
           <mxGeometry height="48" width="340" x="60" y="756" as="geometry" />
         </mxCell>
         <mxCell id="be1_rep" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;snapToPoint=0;" value="Redundancy factor=3&#xa;Replicated to Partition 1 + Partition 2" vertex="1">
-          <mxGeometry height="18" width="340" x="60" y="810" as="geometry" />
+          <mxGeometry height="50" width="340" x="60" y="810" as="geometry" />
         </mxCell>
         <mxCell id="be2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5b8e0;strokeColor=#9673a6;strokeWidth=1.5;fontSize=11;fontStyle=1;verticalAlign=top;snapToPoint=0;" value="Backend Partition 1 — Node 2" vertex="1">
-          <mxGeometry height="206" width="370" x="465" y="624" as="geometry" />
+          <mxGeometry height="244" width="370" x="465" y="624" as="geometry" />
         </mxCell>
         <mxCell id="be2_shard" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5f5;strokeColor=#9673a6;fontSize=10;align=left;snapToPoint=0;" value="Shard key: hash(topic + session)&#xa;Handles messages for assigned partitions&#xa;Owns session state for its clients" vertex="1">
           <mxGeometry height="48" width="340" x="475" y="648" as="geometry" />
@@ -2245,10 +2245,10 @@
           <mxGeometry height="48" width="340" x="475" y="756" as="geometry" />
         </mxCell>
         <mxCell id="be2_rep" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;snapToPoint=0;" value="Redundancy factor=3&#xa;Replicated to Partition 0 + Partition 2" vertex="1">
-          <mxGeometry height="18" width="340" x="475" y="810" as="geometry" />
+          <mxGeometry height="48" width="340" x="475" y="810" as="geometry" />
         </mxCell>
         <mxCell id="be3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5b8e0;strokeColor=#9673a6;strokeWidth=1.5;fontSize=11;fontStyle=1;verticalAlign=top;snapToPoint=0;" value="Backend Partition 2 — Node 3" vertex="1">
-          <mxGeometry height="206" width="430" x="880" y="624" as="geometry" />
+          <mxGeometry height="241" width="430" x="880" y="624" as="geometry" />
         </mxCell>
         <mxCell id="be3_shard" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5f5;strokeColor=#9673a6;fontSize=10;align=left;snapToPoint=0;" value="Shard key: hash(topic + session)&#xa;Handles messages for assigned partitions&#xa;Owns session state for its clients" vertex="1">
           <mxGeometry height="48" width="400" x="890" y="648" as="geometry" />
@@ -2260,37 +2260,37 @@
           <mxGeometry height="48" width="400" x="890" y="756" as="geometry" />
         </mxCell>
         <mxCell id="be3_rep" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;snapToPoint=0;" value="Redundancy factor=3&#xa;Replicated to Partition 0 + Partition 1" vertex="1">
-          <mxGeometry height="18" width="400" x="890" y="810" as="geometry" />
+          <mxGeometry height="47" width="400" x="890" y="810" as="geometry" />
         </mxCell>
         <mxCell id="ann1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Cardinality is IMMUTABLE post-deploy — cannot change frontend replicas, backend partitions, or redundancy factor after AIO install. Plan before deploy." vertex="1">
-          <mxGeometry height="28" width="1300" x="30" y="870" as="geometry" />
+          <mxGeometry height="28" width="1300" x="27" y="965" as="geometry" />
         </mxCell>
         <mxCell id="ann2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="frontend replicas=3 required because Kube-VIP DaemonSet runs on all 3 nodes — any node can win the ARP election at any time. Every node must be able to accept connections immediately without pod scheduling delay." vertex="1">
-          <mxGeometry height="28" width="1300" x="30" y="902" as="geometry" />
+          <mxGeometry height="28" width="1300" x="30" y="999" as="geometry" />
         </mxCell>
         <mxCell id="ann3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Internal ClusterIP :18883 avoids Kube-VIP ARP overhead for AIO Dataflows and internal subscribers — direct pod-to-pod routing via Cilium eBPF, no load balancer hop." vertex="1">
-          <mxGeometry height="28" width="1300" x="30" y="934" as="geometry" />
+          <mxGeometry height="28" width="1300" x="30" y="1038" as="geometry" />
         </mxCell>
         <mxCell id="leg0" parent="1" style="text;html=1;fontSize=12;fontStyle=1;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="Legend" vertex="1">
-          <mxGeometry height="24" width="80" x="30" y="990" as="geometry" />
+          <mxGeometry height="24" width="80" x="30" y="1084" as="geometry" />
         </mxCell>
         <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;align=center;snapToPoint=0;" value="Frontend Tier&#xa;Security Gate + Router" vertex="1">
-          <mxGeometry height="34" width="220" x="30" y="1018" as="geometry" />
+          <mxGeometry height="34" width="220" x="30" y="1112" as="geometry" />
         </mxCell>
         <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=10;align=center;snapToPoint=0;" value="Backend Tier&#xa;Vault + Replication Engine" vertex="1">
-          <mxGeometry height="34" width="220" x="260" y="1018" as="geometry" />
+          <mxGeometry height="34" width="220" x="260" y="1112" as="geometry" />
         </mxCell>
         <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=10;align=center;snapToPoint=0;" value="Persistence / Security&#xa;Cert validation, session state" vertex="1">
-          <mxGeometry height="34" width="220" x="490" y="1018" as="geometry" />
+          <mxGeometry height="34" width="220" x="490" y="1112" as="geometry" />
         </mxCell>
         <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=10;align=center;snapToPoint=0;" value="AuthN / AuthZ&#xa;BrokerAuthentication + ACL" vertex="1">
-          <mxGeometry height="34" width="220" x="720" y="1018" as="geometry" />
+          <mxGeometry height="34" width="220" x="720" y="1112" as="geometry" />
         </mxCell>
         <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=2;fontSize=10;align=center;snapToPoint=0;" value="Disk Buffer&#xa;In-flight message safety net" vertex="1">
-          <mxGeometry height="34" width="220" x="950" y="1018" as="geometry" />
+          <mxGeometry height="34" width="220" x="950" y="1112" as="geometry" />
         </mxCell>
         <mxCell id="leg6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;strokeWidth=2;fontSize=10;align=center;snapToPoint=0;" value="External LoadBalancer :8883&#xa;Kube-VIP VIP — OT clients" vertex="1">
-          <mxGeometry height="34" width="150" x="1180" y="1018" as="geometry" />
+          <mxGeometry height="34" width="150" x="1180" y="1112" as="geometry" />
         </mxCell>
         <mxCell id="e2" edge="1" parent="1" source="ext_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;snapToPoint=0;" target="lext_bg">
           <mxGeometry relative="1" as="geometry" />
@@ -2313,13 +2313,17 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e6l" connectable="0" parent="e6" style="edgeLabel;html=1;fontSize=9;fontStyle=1;" value="MQTT :18883" vertex="1">
-          <mxGeometry relative="0.5" y="-12" as="geometry" />
+          <mxGeometry relative="0.5" y="-12" as="geometry">
+            <mxPoint x="5" y="-6" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="e7" edge="1" parent="1" source="int_sub" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#9673a6;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;snapToPoint=0;" target="lint_bg">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e7l" connectable="0" parent="e7" style="edgeLabel;html=1;fontSize=9;fontStyle=1;" value="MQTT :18883" vertex="1">
-          <mxGeometry relative="0.5" y="-12" as="geometry" />
+        <mxCell id="e7l" connectable="0" parent="e7" style="edgeLabel;html=1;fontSize=9;fontStyle=1;labelBackgroundColor=none;" value="MQTT :18883" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry">
+            <mxPoint x="-28" y="-33" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="e8" edge="1" parent="1" source="lint_bg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#9673a6;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;snapToPoint=0;" target="fe3">
           <mxGeometry relative="1" as="geometry">
@@ -2341,15 +2345,17 @@
         <mxCell id="e12" edge="1" parent="1" source="be1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;endArrow=block;endFill=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;snapToPoint=0;" target="be2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e12l" connectable="0" parent="e12" style="edgeLabel;html=1;fontSize=9;fontStyle=2;" value="replication" vertex="1">
-          <mxGeometry relative="0.5" y="-12" as="geometry" />
+        <mxCell id="e12l" connectable="0" parent="e12" style="edgeLabel;html=1;fontSize=9;fontStyle=2;labelBackgroundColor=none;" value="replication" vertex="1">
+          <mxGeometry relative="0.5" y="-12" as="geometry">
+            <mxPoint x="-34" y="1" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="e13" edge="1" parent="1" source="be2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;endArrow=block;endFill=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;snapToPoint=0;" target="be3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e13l" connectable="0" parent="e13" style="edgeLabel;html=1;fontSize=10;fontStyle=2;labelBackgroundColor=none;" value="replication" vertex="1">
           <mxGeometry relative="0.5" y="-12" as="geometry">
-            <mxPoint x="-22" as="offset" />
+            <mxPoint x="-30" y="1" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
