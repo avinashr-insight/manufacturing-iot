@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="hAch0k28v4YPxkYnEPXb">
-    <mxGraphModel dx="1162" dy="1670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1461" dy="1813" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -26,7 +26,7 @@
         <mxCell id="ext_alt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;strokeWidth=2;fontSize=11;fontStyle=1;snapToPoint=0;" value="ALT Core API&#xa;(alt-system namespace)" vertex="1">
           <mxGeometry height="54" width="180" x="480" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="ext_gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=11;fontStyle=1;snapToPoint=0;" value="Contoso Gateway&#xa;(OT floor device)" vertex="1">
+        <mxCell id="ext_gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=11;fontStyle=1;snapToPoint=0;" value="Gateway&lt;br&gt;(OT floor device)" vertex="1">
           <mxGeometry height="54" width="180" x="135" y="40" as="geometry" />
         </mxCell>
         <mxCell id="int_df" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=11;fontStyle=1;snapToPoint=0;" value="AIO Dataflows&#xa;(same namespace)" vertex="1">
