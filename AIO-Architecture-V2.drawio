@@ -411,22 +411,22 @@
           <mxGeometry height="605" width="310" x="785" y="-7" as="geometry" />
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Monitor + Log Analytics&amp;nbsp;" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="950" as="geometry" />
+          <mxGeometry height="38" width="268" x="809" y="947" as="geometry" />
         </mxCell>
         <mxCell id="az-acr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ACR (Azure Container Registry)&amp;nbsp;" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="995" as="geometry" />
+          <mxGeometry height="38" width="268" x="809" y="1015" as="geometry" />
         </mxCell>
         <mxCell id="az-ado" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ADO Self-Hosted Agent&amp;#xa;(CI/CD pipelines · in IDMZ not IT Hub)" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="1039" as="geometry" />
+          <mxGeometry height="38" width="268" x="809" y="1058" as="geometry" />
         </mxCell>
         <mxCell id="az-dbx-pe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Databricks Private Endpoint&amp;#xa;(K3s nodes reach Databricks — no double hop)" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="1084" as="geometry" />
+          <mxGeometry height="38" width="268" x="809.5" y="1101" as="geometry" />
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Databricks&amp;#xa;(Delta Live Tables · analytics)" vertex="1">
           <mxGeometry height="44" width="268" x="809" y="1266" as="geometry" />
         </mxCell>
         <mxCell id="G3Zj4ZOULYvS8A-8iuwf-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Az Managed Grafana –&amp;gt; OpsGenie" vertex="1">
-          <mxGeometry height="37" width="234" x="1174" y="1039" as="geometry" />
+          <mxGeometry height="37" width="234" x="813" y="992" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
