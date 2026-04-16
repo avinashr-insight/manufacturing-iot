@@ -1,9 +1,12 @@
 <mxfile host="app.diagrams.net" pages="8">
   <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
-    <mxGraphModel dx="2338" dy="1048" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1911" dy="1048" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="az-idmz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3eeff;strokeColor=#9673a6;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1.5;" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;IDMZ VNet (/27)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="318" width="300" x="793" y="829" as="geometry" />
+        </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-99" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-80">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -359,29 +362,11 @@
         <mxCell id="az-ot-hub" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce8e8;strokeColor=#b85450;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1.5;" value="OT Hub / Spoke (NAIOT.com · /28)" vertex="1">
           <mxGeometry height="142" width="300" x="790" y="657" as="geometry" />
         </mxCell>
-        <mxCell id="az-idmz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3eeff;strokeColor=#9673a6;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1.5;" value="IDMZ VNet (/27)" vertex="1">
-          <mxGeometry height="318" width="300" x="793" y="829" as="geometry" />
-        </mxCell>
         <mxCell id="az-it-hub" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f0fe;strokeColor=#0078d4;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1.5;" value="IT Hub / Spoke (NA.Denso.com)" vertex="1">
-          <mxGeometry height="130" width="300" x="790" y="1167" as="geometry" />
-        </mxCell>
-        <mxCell id="yhA_NecXZdExneI3ux-p-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Monitor + Log Analytics&amp;#xa;(Grafana · Loki · replaces Graylog)" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="945" as="geometry" />
-        </mxCell>
-        <mxCell id="az-acr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ACR (Azure Container Registry)&amp;#xa;(private endpoint — confirm Jason [CLIENT])" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="989" as="geometry" />
-        </mxCell>
-        <mxCell id="az-ado" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ADO Self-Hosted Agent&amp;#xa;(CI/CD pipelines · in IDMZ not IT Hub)" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="1033" as="geometry" />
-        </mxCell>
-        <mxCell id="az-dbx-pe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Databricks Private Endpoint&amp;#xa;(K3s nodes reach Databricks — no double hop)" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="1077" as="geometry" />
-        </mxCell>
-        <mxCell id="yhA_NecXZdExneI3ux-p-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Databricks&amp;#xa;(Delta Live Tables · analytics)" vertex="1">
-          <mxGeometry height="44" width="268" x="806" y="1187" as="geometry" />
+          <mxGeometry height="143" width="300" x="790" y="1167" as="geometry" />
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ADLS Gen2&amp;#xa;(bronze/gold · 400d hot · ~25-50yr cold est.)" vertex="1">
-          <mxGeometry height="44" width="268" x="806" y="1245" as="geometry" />
+          <mxGeometry height="44" width="268" x="806" y="1252" as="geometry" />
         </mxCell>
         <mxCell id="e-ot-er-arc" edge="1" parent="1" source="dc-ot-er" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-78">
           <mxGeometry relative="1" as="geometry" />
@@ -395,7 +380,7 @@
         <mxCell id="yhA_NecXZdExneI3ux-p-100" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-82">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="963" y="581" />
+              <mxPoint x="923" y="581" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -405,7 +390,7 @@
         <mxCell id="yhA_NecXZdExneI3ux-p-103" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-83">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="993" y="706" />
+              <mxPoint x="838" y="706" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -423,6 +408,21 @@
         </mxCell>
         <mxCell id="dc-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Data Center (DMTN)" vertex="1">
           <mxGeometry height="605" width="310" x="785" y="-7" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Monitor + Log Analytics&amp;#xa;(Grafana · Loki · replaces Graylog)" vertex="1">
+          <mxGeometry height="38" width="268" x="809" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="az-acr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ACR (Azure Container Registry)&amp;#xa;(private endpoint — confirm Jason [CLIENT])" vertex="1">
+          <mxGeometry height="38" width="268" x="809" y="995" as="geometry" />
+        </mxCell>
+        <mxCell id="az-ado" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="ADO Self-Hosted Agent&amp;#xa;(CI/CD pipelines · in IDMZ not IT Hub)" vertex="1">
+          <mxGeometry height="38" width="268" x="809" y="1039" as="geometry" />
+        </mxCell>
+        <mxCell id="az-dbx-pe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Databricks Private Endpoint&amp;#xa;(K3s nodes reach Databricks — no double hop)" vertex="1">
+          <mxGeometry height="38" width="268" x="809" y="1084" as="geometry" />
+        </mxCell>
+        <mxCell id="yhA_NecXZdExneI3ux-p-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Azure Databricks&amp;#xa;(Delta Live Tables · analytics)" vertex="1">
+          <mxGeometry height="44" width="268" x="806" y="1187" as="geometry" />
         </mxCell>
         <mxCell id="az-outer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="Azure — NA Aladdin (Single Denso Tenant)" vertex="1">
           <mxGeometry height="717" width="310" x="785" y="618" as="geometry" />
