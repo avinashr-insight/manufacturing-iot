@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" pages="9">
   <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
-    <mxGraphModel dx="1498" dy="807" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3093" dy="1480" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -370,14 +370,14 @@
         <mxCell id="yhA_NecXZdExneI3ux-p-102" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;dashed=1;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-78">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="936" y="471" />
+              <mxPoint x="820" y="471" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-100" edge="1" parent="1" source="yhA_NecXZdExneI3ux-p-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="yhA_NecXZdExneI3ux-p-82">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="990" y="581" />
+              <mxPoint x="1046" y="581" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -385,7 +385,9 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="498" y="592" />
-              <mxPoint x="880" y="592" />
+              <mxPoint x="842" y="592" />
+              <mxPoint x="842" y="842" />
+              <mxPoint x="880" y="842" />
             </Array>
             <mxPoint x="501" y="592" as="sourcePoint" />
             <mxPoint x="880" y="895" as="targetPoint" />
@@ -399,7 +401,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Event Hubs&amp;#xa;(real-time telemetry ingestion)" vertex="1">
-          <mxGeometry height="38" width="268" x="809" y="853" as="geometry" />
+          <mxGeometry height="38" width="268" x="809" y="849" as="geometry" />
         </mxCell>
         <mxCell id="yhA_NecXZdExneI3ux-p-81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Event Grid&amp;#xa;(Andon fast-path · sub-second)" vertex="1">
           <mxGeometry height="38" width="268" x="809" y="895" as="geometry" />
