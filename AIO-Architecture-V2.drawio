@@ -2090,306 +2090,306 @@
     </mxGraphModel>
   </diagram>
   <diagram id="j98sy_85u2fPn72C-q4b" name="Failover">
-    <mxGraphModel dx="2248" dy="2197" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2293" dy="2180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="100" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="Failover: Fast Events · T=0 to T=5s · Kube-VIP · etcd · Cilium" vertex="1">
-          <mxGeometry height="28" width="1510" x="480" y="-28" as="geometry" />
+          <mxGeometry height="28" width="670" x="460" y="-10" as="geometry" />
         </mxCell>
         <mxCell id="101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;snapToPoint=0;" value="The first 5 seconds after Node 1 failure. VIPs move in ~1-2s. etcd elects a new Leader in ~2s. Cilium agents on Nodes 2+3 are unaffected. Clients experience only a brief TCP reconnect — not a full outage." vertex="1">
-          <mxGeometry height="28" width="1510" x="260" y="90" as="geometry" />
+          <mxGeometry height="28" width="1510" x="10" y="42" as="geometry" />
         </mxCell>
         <mxCell id="102" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Component" vertex="1">
-          <mxGeometry height="50" width="160" x="260" y="124" as="geometry" />
+          <mxGeometry height="50" width="160" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="103" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T = 0&#xa;Node 1 fails" vertex="1">
-          <mxGeometry height="50" width="260" x="420" y="124" as="geometry" />
+          <mxGeometry height="50" width="260" x="170" y="74" as="geometry" />
         </mxCell>
         <mxCell id="104" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 300ms&#xa;Detection" vertex="1">
-          <mxGeometry height="50" width="260" x="680" y="124" as="geometry" />
+          <mxGeometry height="50" width="260" x="430" y="74" as="geometry" />
         </mxCell>
         <mxCell id="105" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 1-2s&#xa;VIPs moved" vertex="1">
-          <mxGeometry height="50" width="260" x="940" y="124" as="geometry" />
+          <mxGeometry height="50" width="260" x="690" y="74" as="geometry" />
         </mxCell>
         <mxCell id="106" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 2s&#xa;etcd new Leader" vertex="1">
-          <mxGeometry height="50" width="260" x="1200" y="124" as="geometry" />
+          <mxGeometry height="50" width="260" x="950" y="74" as="geometry" />
         </mxCell>
         <mxCell id="107" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 5s&#xa;Arc detects" vertex="1">
-          <mxGeometry height="50" width="310" x="1460" y="124" as="geometry" />
+          <mxGeometry height="50" width="310" x="1210" y="74" as="geometry" />
         </mxCell>
         <mxCell id="110" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Node 1&#xa;State" vertex="1">
-          <mxGeometry height="100" width="160" x="260" y="174" as="geometry" />
+          <mxGeometry height="100" width="160" x="10" y="124" as="geometry" />
         </mxCell>
         <mxCell id="111" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="NODE 1 FAILS&#xa;Hardware crash · OS failure&#xa;planned maintenance" vertex="1">
-          <mxGeometry height="100" width="260" x="420" y="174" as="geometry" />
+          <mxGeometry height="100" width="260" x="170" y="124" as="geometry" />
         </mxCell>
         <mxCell id="112" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;snapToPoint=0;" value="Node 1 unreachable&#xa;All processes stopped&#xa;No heartbeats sent" vertex="1">
-          <mxGeometry height="100" width="260" x="680" y="174" as="geometry" />
+          <mxGeometry height="100" width="260" x="430" y="124" as="geometry" />
         </mxCell>
         <mxCell id="113" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;snapToPoint=0;" value="Node 1 still DOWN&#xa;Nodes 2+3 fully operational" vertex="1">
-          <mxGeometry height="100" width="260" x="940" y="174" as="geometry" />
+          <mxGeometry height="100" width="260" x="690" y="124" as="geometry" />
         </mxCell>
         <mxCell id="114" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;snapToPoint=0;" value="Node 1 still DOWN&#xa;Cluster operating normally&#xa;on 2 remaining nodes" vertex="1">
-          <mxGeometry height="100" width="260" x="1200" y="174" as="geometry" />
+          <mxGeometry height="100" width="260" x="950" y="124" as="geometry" />
         </mxCell>
         <mxCell id="115" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;snapToPoint=0;" value="Node 1 still DOWN&#xa;Azure Portal notified&#xa;Ops team alerted" vertex="1">
-          <mxGeometry height="100" width="310" x="1460" y="174" as="geometry" />
+          <mxGeometry height="100" width="310" x="1210" y="124" as="geometry" />
         </mxCell>
         <mxCell id="116" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Kube-VIP&#xa;(VIPs)" vertex="1">
-          <mxGeometry height="100" width="160" x="260" y="274" as="geometry" />
+          <mxGeometry height="100" width="160" x="10" y="224" as="geometry" />
         </mxCell>
         <mxCell id="117" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Node 1 was ACTIVE&#xa;Held all 3 VIPs via ARP&#xa;API · MQTT · HTTPS" vertex="1">
-          <mxGeometry height="100" width="260" x="420" y="274" as="geometry" />
+          <mxGeometry height="100" width="260" x="170" y="224" as="geometry" />
         </mxCell>
         <mxCell id="118" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="Node 2 + 3 speakers&#xa;detect no heartbeat&#xa;from Node 1 ACTIVE" vertex="1">
-          <mxGeometry height="100" width="260" x="680" y="274" as="geometry" />
+          <mxGeometry height="100" width="260" x="430" y="224" as="geometry" />
         </mxCell>
         <mxCell id="119" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Node 2 wins election&#xa;Broadcasts GARP on OT /27&#xa;Switch ARP table updated&#xa;All 3 VIPs now on Node 2" vertex="1">
-          <mxGeometry height="100" width="260" x="940" y="274" as="geometry" />
+          <mxGeometry height="100" width="260" x="690" y="224" as="geometry" />
         </mxCell>
         <mxCell id="120" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Node 2 ACTIVE — stable&#xa;VIPs fully operational&#xa;Clients reconnect to&#xa;same VIP addresses" vertex="1">
-          <mxGeometry height="100" width="260" x="1200" y="274" as="geometry" />
+          <mxGeometry height="100" width="260" x="950" y="224" as="geometry" />
         </mxCell>
         <mxCell id="121" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Node 2 ACTIVE — stable&#xa;No change — VIPs settled" vertex="1">
-          <mxGeometry height="100" width="310" x="1460" y="274" as="geometry" />
+          <mxGeometry height="100" width="310" x="1210" y="224" as="geometry" />
         </mxCell>
         <mxCell id="122" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="etcd&#xa;(Raft)" vertex="1">
-          <mxGeometry height="100" width="160" x="260" y="374" as="geometry" />
+          <mxGeometry height="100" width="160" x="10" y="324" as="geometry" />
         </mxCell>
         <mxCell id="123" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;snapToPoint=0;" value="Node 1 was Leader&#xa;Nodes 2+3 were Followers&#xa;Raft quorum = 3 of 3" vertex="1">
-          <mxGeometry height="100" width="260" x="420" y="374" as="geometry" />
+          <mxGeometry height="100" width="260" x="170" y="324" as="geometry" />
         </mxCell>
         <mxCell id="124" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="Followers miss heartbeat&#xa;Election timeout fires&#xa;150-300ms randomised&#xa;Node 2 becomes Candidate" vertex="1">
-          <mxGeometry height="100" width="260" x="680" y="374" as="geometry" />
+          <mxGeometry height="100" width="260" x="430" y="324" as="geometry" />
         </mxCell>
         <mxCell id="125" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;snapToPoint=0;" value="Node 2 sends RequestVote&#xa;Wins 2 of 3 votes (self + Node 3)&#xa;Sends heartbeats immediately&#xa;Quorum maintained" vertex="1">
-          <mxGeometry height="100" width="260" x="940" y="374" as="geometry" />
+          <mxGeometry height="100" width="260" x="690" y="324" as="geometry" />
         </mxCell>
         <mxCell id="126" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Node 2 = NEW LEADER&#xa;Node 3 = Follower&#xa;All writes proceed&#xa;K3s API fully operational" vertex="1">
-          <mxGeometry height="100" width="260" x="1200" y="374" as="geometry" />
+          <mxGeometry height="100" width="260" x="950" y="324" as="geometry" />
         </mxCell>
         <mxCell id="127" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;snapToPoint=0;" value="Node 2 Leader — stable&#xa;No change — etcd healthy" vertex="1">
-          <mxGeometry height="100" width="310" x="1460" y="374" as="geometry" />
+          <mxGeometry height="100" width="310" x="1210" y="324" as="geometry" />
         </mxCell>
         <mxCell id="128" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Cilium&#xa;(eBPF)" vertex="1">
-          <mxGeometry height="100" width="160" x="260" y="474" as="geometry" />
+          <mxGeometry height="100" width="160" x="10" y="424" as="geometry" />
         </mxCell>
         <mxCell id="129" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;snapToPoint=0;" value="Agents healthy on all 3&#xa;eBPF policy enforced&#xa;Hubble relay active" vertex="1">
-          <mxGeometry height="100" width="260" x="420" y="474" as="geometry" />
+          <mxGeometry height="100" width="260" x="170" y="424" as="geometry" />
         </mxCell>
         <mxCell id="130" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;snapToPoint=0;" value="Node 1 agent offline&#xa;eBPF maps on Node 1 gone&#xa;Node 1 pod routes lost" vertex="1">
-          <mxGeometry height="100" width="260" x="680" y="474" as="geometry" />
+          <mxGeometry height="100" width="260" x="430" y="424" as="geometry" />
         </mxCell>
         <mxCell id="131" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;snapToPoint=0;" value="Nodes 2+3 agents unaffected&#xa;eBPF policy continues&#xa;NetworkPolicy enforced&#xa;Hubble relay continues" vertex="1">
-          <mxGeometry height="100" width="260" x="940" y="474" as="geometry" />
+          <mxGeometry height="100" width="260" x="690" y="424" as="geometry" />
         </mxCell>
         <mxCell id="132" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;snapToPoint=0;" value="No change — Nodes 2+3&#xa;fully operational&#xa;Cilium does not require&#xa;all 3 agents to function" vertex="1">
-          <mxGeometry height="100" width="260" x="1200" y="474" as="geometry" />
+          <mxGeometry height="100" width="260" x="950" y="424" as="geometry" />
         </mxCell>
         <mxCell id="133" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;align=center;snapToPoint=0;" value="No change — stable&#xa;All flows visible via&#xa;Hubble on Nodes 2+3" vertex="1">
-          <mxGeometry height="100" width="310" x="1460" y="474" as="geometry" />
+          <mxGeometry height="100" width="310" x="1210" y="424" as="geometry" />
         </mxCell>
         <mxCell id="134" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Client&#xa;Experience" vertex="1">
-          <mxGeometry height="100" width="160" x="260" y="574" as="geometry" />
+          <mxGeometry height="100" width="160" x="10" y="524" as="geometry" />
         </mxCell>
         <mxCell id="135" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;snapToPoint=0;" value="In-flight TCP connections&#xa;to Node 1 VIPs are dropped&#xa;MQTT publish fails briefly" vertex="1">
-          <mxGeometry height="100" width="260" x="420" y="574" as="geometry" />
+          <mxGeometry height="100" width="260" x="170" y="524" as="geometry" />
         </mxCell>
         <mxCell id="136" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="Clients retry connection&#xa;to same VIP addresses&#xa;VIP not yet moved&#xa;retries may fail" vertex="1">
-          <mxGeometry height="100" width="260" x="680" y="574" as="geometry" />
+          <mxGeometry height="100" width="260" x="430" y="524" as="geometry" />
         </mxCell>
         <mxCell id="137" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="VIPs now on Node 2&#xa;Client reconnects succeed&#xa;MQTT publishing resumes&#xa;kubectl works via API VIP" vertex="1">
-          <mxGeometry height="100" width="260" x="940" y="574" as="geometry" />
+          <mxGeometry height="100" width="260" x="690" y="524" as="geometry" />
         </mxCell>
         <mxCell id="138" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Fully reconnected&#xa;200ms SLA met&#xa;No config change needed&#xa;Same VIP addresses" vertex="1">
-          <mxGeometry height="100" width="260" x="1200" y="574" as="geometry" />
+          <mxGeometry height="100" width="260" x="950" y="524" as="geometry" />
         </mxCell>
         <mxCell id="139" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Fully operational&#xa;No client impact&#xa;200ms SLA maintained" vertex="1">
-          <mxGeometry height="100" width="310" x="1460" y="574" as="geometry" />
+          <mxGeometry height="100" width="310" x="1210" y="524" as="geometry" />
         </mxCell>
         <mxCell id="140" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Azure Arc&#xa;(GitOps)" vertex="1">
-          <mxGeometry height="100" width="160" x="260" y="674" as="geometry" />
+          <mxGeometry height="100" width="160" x="10" y="624" as="geometry" />
         </mxCell>
         <mxCell id="141" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="Arc agents healthy&#xa;GitOps sync active&#xa;Using API VIP :6443" vertex="1">
-          <mxGeometry height="100" width="260" x="420" y="674" as="geometry" />
+          <mxGeometry height="100" width="260" x="170" y="624" as="geometry" />
         </mxCell>
         <mxCell id="142" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="Arc agent on Node 1&#xa;goes offline&#xa;Node 2+3 Arc agents&#xa;continue normally" vertex="1">
-          <mxGeometry height="100" width="260" x="680" y="674" as="geometry" />
+          <mxGeometry height="100" width="260" x="430" y="624" as="geometry" />
         </mxCell>
         <mxCell id="143" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="GitOps continues via&#xa;API VIP now on Node 2&#xa;Flux reconciliation&#xa;unaffected" vertex="1">
-          <mxGeometry height="100" width="260" x="940" y="674" as="geometry" />
+          <mxGeometry height="100" width="260" x="690" y="624" as="geometry" />
         </mxCell>
         <mxCell id="144" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="GitOps stable&#xa;No disruption to&#xa;config reconciliation" vertex="1">
-          <mxGeometry height="100" width="260" x="1200" y="674" as="geometry" />
+          <mxGeometry height="100" width="260" x="950" y="624" as="geometry" />
         </mxCell>
         <mxCell id="145" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Node 1 agent offline&#xa;detected by Azure Portal&#xa;Health alert raised&#xa;Ops team notified" vertex="1">
-          <mxGeometry height="100" width="310" x="1460" y="674" as="geometry" />
+          <mxGeometry height="100" width="310" x="1210" y="624" as="geometry" />
         </mxCell>
         <mxCell id="146" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;snapToPoint=0;" value="All four systems respond independently and in parallel. Kube-VIP does not wait for etcd. etcd does not wait for Kube-VIP. The VIP moves fast (~1-2s). The new etcd Leader is elected fast (~2s). Clients are reconnected before pods are rescheduled." vertex="1">
-          <mxGeometry height="28" width="1510" x="260" y="776" as="geometry" />
+          <mxGeometry height="34" width="1510" x="10" y="726" as="geometry" />
         </mxCell>
         <mxCell id="200" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="Failover: Slow Events · T=40s to T=60s+ · Pod Rescheduling · Storage · Full Recovery" vertex="1">
-          <mxGeometry height="28" width="1510" x="260" y="850" as="geometry" />
+          <mxGeometry height="28" width="960" x="400" y="790" as="geometry" />
         </mxCell>
         <mxCell id="201" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;snapToPoint=0;" value="VIPs already moved and etcd already has a new Leader (see 8A above). This section covers what happens to workloads, storage, and the ALT production pipeline in the 40-60 seconds after Node 1 fails." vertex="1">
-          <mxGeometry height="28" width="1510" x="260" y="882" as="geometry" />
+          <mxGeometry height="28" width="1510" x="10" y="832" as="geometry" />
         </mxCell>
         <mxCell id="202" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Component" vertex="1">
-          <mxGeometry height="50" width="160" x="260" y="914" as="geometry" />
+          <mxGeometry height="50" width="160" x="10" y="864" as="geometry" />
         </mxCell>
         <mxCell id="203" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="Context from 8A&#xa;(T=0 to T=5s)" vertex="1">
-          <mxGeometry height="50" width="280" x="420" y="914" as="geometry" />
+          <mxGeometry height="50" width="280" x="170" y="864" as="geometry" />
         </mxCell>
         <mxCell id="204" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 40s&#xa;kubelet timeout" vertex="1">
-          <mxGeometry height="50" width="280" x="700" y="914" as="geometry" />
+          <mxGeometry height="50" width="280" x="450" y="864" as="geometry" />
         </mxCell>
         <mxCell id="205" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 50s&#xa;Pods rescheduling" vertex="1">
-          <mxGeometry height="50" width="280" x="980" y="914" as="geometry" />
+          <mxGeometry height="50" width="280" x="730" y="864" as="geometry" />
         </mxCell>
         <mxCell id="206" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 60s&#xa;Pods Ready" vertex="1">
-          <mxGeometry height="50" width="240" x="1260" y="914" as="geometry" />
+          <mxGeometry height="50" width="240" x="1010" y="864" as="geometry" />
         </mxCell>
         <mxCell id="207" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="T ~ 60s+&#xa;Fully Recovered" vertex="1">
-          <mxGeometry height="50" width="270" x="1500" y="914" as="geometry" />
+          <mxGeometry height="50" width="270" x="1250" y="864" as="geometry" />
         </mxCell>
         <mxCell id="208" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=2;align=center;snapToPoint=0;" value="Already&#xa;resolved" vertex="1">
-          <mxGeometry height="36" width="160" x="260" y="964" as="geometry" />
+          <mxGeometry height="36" width="160" x="10" y="914" as="geometry" />
         </mxCell>
         <mxCell id="209" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=2;align=center;snapToPoint=0;" value="VIPs on Node 2 (since T~1-2s) · etcd Leader on Node 2 (since T~2s) · Clients reconnected (since T~2s) · Arc alerted (since T~5s)" vertex="1">
-          <mxGeometry height="36" width="1350" x="420" y="964" as="geometry" />
+          <mxGeometry height="36" width="1350" x="170" y="914" as="geometry" />
         </mxCell>
         <mxCell id="210" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="K3s&#xa;Scheduler" vertex="1">
-          <mxGeometry height="110" width="160" x="260" y="1000" as="geometry" />
+          <mxGeometry height="110" width="160" x="10" y="950" as="geometry" />
         </mxCell>
         <mxCell id="211" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="Scheduler running on Node 2&#xa;(etcd Leader since T~2s)&#xa;Watching for node health" vertex="1">
-          <mxGeometry height="110" width="280" x="420" y="1000" as="geometry" />
+          <mxGeometry height="110" width="280" x="170" y="950" as="geometry" />
         </mxCell>
         <mxCell id="212" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="kubelet heartbeat from&#xa;Node 1 timeout expires&#xa;Node 1 marked NotReady&#xa;Pods flagged for eviction" vertex="1">
-          <mxGeometry height="110" width="280" x="700" y="1000" as="geometry" />
+          <mxGeometry height="110" width="280" x="450" y="950" as="geometry" />
         </mxCell>
         <mxCell id="213" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="Scheduler selects&#xa;Node 2 or Node 3&#xa;for each evicted pod&#xa;Binding written to etcd" vertex="1">
-          <mxGeometry height="110" width="280" x="980" y="1000" as="geometry" />
+          <mxGeometry height="110" width="280" x="730" y="950" as="geometry" />
         </mxCell>
         <mxCell id="214" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="All pods scheduled&#xa;to surviving nodes&#xa;containerd pulling&#xa;and starting images" vertex="1">
-          <mxGeometry height="110" width="240" x="1260" y="1000" as="geometry" />
+          <mxGeometry height="110" width="240" x="1010" y="950" as="geometry" />
         </mxCell>
         <mxCell id="215" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="All pods Running&#xa;Full replica count restored&#xa;Scheduler idle" vertex="1">
-          <mxGeometry height="110" width="270" x="1500" y="1000" as="geometry" />
+          <mxGeometry height="110" width="270" x="1250" y="950" as="geometry" />
         </mxCell>
         <mxCell id="216" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="ALT Services&#xa;(alt-system)" vertex="1">
-          <mxGeometry height="110" width="160" x="260" y="1110" as="geometry" />
+          <mxGeometry height="110" width="160" x="10" y="1060" as="geometry" />
         </mxCell>
         <mxCell id="217" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="Pods on Node 1 stopped at T=0&#xa;Pods on Nodes 2+3 still running&#xa;Partial capacity since T=0" vertex="1">
-          <mxGeometry height="110" width="280" x="420" y="1110" as="geometry" />
+          <mxGeometry height="110" width="280" x="170" y="1060" as="geometry" />
         </mxCell>
         <mxCell id="218" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="Node 1 pods marked&#xa;for eviction by scheduler&#xa;Nodes 2+3 pods&#xa;continue serving" vertex="1">
-          <mxGeometry height="110" width="280" x="700" y="1110" as="geometry" />
+          <mxGeometry height="110" width="280" x="450" y="1060" as="geometry" />
         </mxCell>
         <mxCell id="219" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="New pods being created&#xa;on Nodes 2+3&#xa;containerd starts&#xa;ALT containers from ACR" vertex="1">
-          <mxGeometry height="110" width="280" x="980" y="1110" as="geometry" />
+          <mxGeometry height="110" width="280" x="730" y="1060" as="geometry" />
         </mxCell>
         <mxCell id="220" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="New pods become Ready&#xa;Full replica count restored&#xa;ALT Core API · ALT UI&#xa;NA Data API all running" vertex="1">
-          <mxGeometry height="110" width="240" x="1260" y="1110" as="geometry" />
+          <mxGeometry height="110" width="240" x="1010" y="1060" as="geometry" />
         </mxCell>
         <mxCell id="221" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Full capacity&#xa;All services running&#xa;200ms SLA met" vertex="1">
-          <mxGeometry height="110" width="270" x="1500" y="1110" as="geometry" />
+          <mxGeometry height="110" width="270" x="1250" y="1060" as="geometry" />
         </mxCell>
         <mxCell id="222" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="edge-db&#xa;(PostgreSQL)" vertex="1">
-          <mxGeometry height="130" width="160" x="260" y="1220" as="geometry" />
+          <mxGeometry height="130" width="160" x="10" y="1170" as="geometry" />
         </mxCell>
         <mxCell id="223" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="edge-db-0 (Node 1) stopped at T=0&#xa;PVC bound to Node 1 disk&#xa;edge-db-1 + edge-db-2&#xa;still running on Nodes 2+3" vertex="1">
-          <mxGeometry height="130" width="280" x="420" y="1220" as="geometry" />
+          <mxGeometry height="130" width="280" x="170" y="1170" as="geometry" />
         </mxCell>
         <mxCell id="224" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="edge-db-0 pod evicted&#xa;Scheduler tries to place&#xa;edge-db-0 — cannot&#xa;PVC bound to Node 1 disk&#xa;pod stays PENDING" vertex="1">
-          <mxGeometry height="130" width="280" x="700" y="1220" as="geometry" />
+          <mxGeometry height="130" width="280" x="450" y="1170" as="geometry" />
         </mxCell>
         <mxCell id="225" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="edge-db-0 PENDING&#xa;2 of 3 replicas serving&#xa;PostgreSQL tolerates&#xa;1 replica loss&#xa;Reads + writes continue" vertex="1">
-          <mxGeometry height="130" width="280" x="980" y="1220" as="geometry" />
+          <mxGeometry height="130" width="280" x="730" y="1170" as="geometry" />
         </mxCell>
         <mxCell id="226" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="edge-db-0 still PENDING&#xa;2 of 3 replicas continue&#xa;Data on Node 1 disk&#xa;intact — not lost&#xa;reclaimPolicy: Retain" vertex="1">
-          <mxGeometry height="130" width="240" x="1260" y="1220" as="geometry" />
+          <mxGeometry height="130" width="240" x="1010" y="1170" as="geometry" />
         </mxCell>
         <mxCell id="227" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="edge-db-0 resumes ONLY&#xa;when Node 1 disk&#xa;is accessible again&#xa;Full 3-replica replication&#xa;restored on node recovery" vertex="1">
-          <mxGeometry height="130" width="270" x="1500" y="1220" as="geometry" />
+          <mxGeometry height="130" width="270" x="1250" y="1170" as="geometry" />
         </mxCell>
-        <mxCell id="228" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="ACSA&#xa;(Storage)" vertex="1">
-          <mxGeometry height="110" width="160" x="260" y="1350" as="geometry" />
+        <mxCell id="228" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Longhorn&#xa;(Storage)" vertex="1">
+          <mxGeometry height="110" width="160" x="10" y="1300" as="geometry" />
         </mxCell>
-        <mxCell id="229" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="PV on Node 1 inaccessible&#xa;PVs on Nodes 2+3 healthy&#xa;reclaimPolicy: Retain active" vertex="1">
-          <mxGeometry height="110" width="280" x="420" y="1350" as="geometry" />
+        <mxCell id="229" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="Longhorn replication factor=3&#xa;All 3 nodes hold volume blocks&#xa;Node 1 engine + replica offline&#xa;Nodes 2+3 replicas healthy" vertex="1">
+          <mxGeometry height="110" width="280" x="170" y="1300" as="geometry" />
         </mxCell>
-        <mxCell id="230" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="ACSA operator cannot&#xa;remount Node 1 PV&#xa;on another node&#xa;RWO — node-local only" vertex="1">
-          <mxGeometry height="110" width="280" x="700" y="1350" as="geometry" />
+        <mxCell id="230" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="Longhorn marks Node 1&#xa;replica as degraded&#xa;Volume stays accessible via&#xa;Nodes 2+3 surviving replicas" vertex="1">
+          <mxGeometry height="110" width="280" x="450" y="1300" as="geometry" />
         </mxCell>
-        <mxCell id="231" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Nodes 2+3 PVs unaffected&#xa;edge-db-1 and edge-db-2&#xa;reading and writing normally&#xa;to their local disks" vertex="1">
-          <mxGeometry height="110" width="280" x="980" y="1350" as="geometry" />
+        <mxCell id="231" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;snapToPoint=0;" value="edge-db-0 rescheduled to&#xa;Node 2 or Node 3&#xa;Longhorn starts new engine&#xa;on rescheduled node&#xa;Connects to surviving replicas" vertex="1">
+          <mxGeometry height="110" width="280" x="730" y="1300" as="geometry" />
         </mxCell>
-        <mxCell id="232" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;align=center;snapToPoint=0;" value="No change — Node 1&#xa;PV still inaccessible&#xa;Data protected by&#xa;reclaimPolicy: Retain" vertex="1">
-          <mxGeometry height="110" width="240" x="1260" y="1350" as="geometry" />
+        <mxCell id="232" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="edge-db-0 engine running&#xa;on new node — volume healthy&#xa;2 replicas active (degraded mode)&#xa;Longhorn begins rebuilding&#xa;Node 1 replica in background" vertex="1">
+          <mxGeometry height="110" width="240" x="1010" y="1300" as="geometry" />
         </mxCell>
-        <mxCell id="233" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Storage fully recovered&#xa;only when Node 1 disk&#xa;accessible and edge-db-0&#xa;pod can remount PV" vertex="1">
-          <mxGeometry height="110" width="270" x="1500" y="1350" as="geometry" />
+        <mxCell id="233" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Storage fully recovered&#xa;on surviving nodes&#xa;Full replication factor=3&#xa;restored when Node 1&#xa;disk comes back online" vertex="1">
+          <mxGeometry height="110" width="270" x="1250" y="1300" as="geometry" />
         </mxCell>
         <mxCell id="234" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Client&#xa;Experience" vertex="1">
-          <mxGeometry height="110" width="160" x="260" y="1460" as="geometry" />
+          <mxGeometry height="110" width="160" x="10" y="1410" as="geometry" />
         </mxCell>
         <mxCell id="235" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=2;align=center;snapToPoint=0;" value="Clients reconnected to VIP&#xa;on Node 2 since T~2s&#xa;200ms SLA met&#xa;No client impact" vertex="1">
-          <mxGeometry height="110" width="280" x="420" y="1460" as="geometry" />
+          <mxGeometry height="110" width="280" x="170" y="1410" as="geometry" />
         </mxCell>
         <mxCell id="236" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="No additional client impact&#xa;VIP stable on Node 2&#xa;Partial ALT replica count&#xa;but requests still served" vertex="1">
-          <mxGeometry height="110" width="280" x="700" y="1460" as="geometry" />
+          <mxGeometry height="110" width="280" x="450" y="1410" as="geometry" />
         </mxCell>
         <mxCell id="237" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="No client impact&#xa;New pods coming online&#xa;Load balanced across&#xa;Nodes 2+3" vertex="1">
-          <mxGeometry height="110" width="280" x="980" y="1460" as="geometry" />
+          <mxGeometry height="110" width="280" x="730" y="1410" as="geometry" />
         </mxCell>
         <mxCell id="238" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;snapToPoint=0;" value="Full capacity restored&#xa;All services Running&#xa;200ms SLA maintained&#xa;No config change needed" vertex="1">
-          <mxGeometry height="110" width="240" x="1260" y="1460" as="geometry" />
+          <mxGeometry height="110" width="240" x="1010" y="1410" as="geometry" />
         </mxCell>
         <mxCell id="239" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Fully recovered&#xa;Cluster operating normally&#xa;on 2 nodes until&#xa;Node 1 is restored" vertex="1">
-          <mxGeometry height="110" width="270" x="1500" y="1460" as="geometry" />
+          <mxGeometry height="110" width="270" x="1250" y="1410" as="geometry" />
         </mxCell>
-        <mxCell id="240" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;snapToPoint=0;" value="edge-db-0 is the only component that does NOT fully recover within 60s. It remains PENDING until Node 1 disk is accessible. This is by design — ACSA RWO local disk cannot be remounted elsewhere. PostgreSQL continues with 2 replicas — no data loss." vertex="1">
-          <mxGeometry height="28" width="1510" x="260" y="1572" as="geometry" />
+        <mxCell id="240" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;snapToPoint=0;" value="Longhorn storage: edge-db-0 DOES recover within ~60s. Longhorn cross-node block replication means the volume is not node-local — surviving replicas on Nodes 2+3 allow the engine to restart on a rescheduled node. Volume operates in degraded mode (2 of 3 replicas) until Node 1 returns, at which point Longhorn rebuilds the third replica automatically." vertex="1">
+          <mxGeometry height="40" width="1510" x="10" y="1540" as="geometry" />
         </mxCell>
         <mxCell id="241" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;snapToPoint=0;" value="Client-visible impact: brief TCP reconnect at T~1-2s only. The 40-60s pod rescheduling window has no additional client impact because VIPs were already moved to Node 2 at T~1-2s and pods on Nodes 2+3 continued serving throughout." vertex="1">
-          <mxGeometry height="28" width="1510" x="260" y="1604" as="geometry" />
+          <mxGeometry height="40" width="1510" x="10" y="1580" as="geometry" />
         </mxCell>
         <mxCell id="300" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#555555;strokeWidth=2;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="650" width="1510" x="260" y="124" as="geometry" />
+          <mxGeometry height="650" width="1510" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="301" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#888888;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="650" width="2" x="420" y="124" as="geometry" />
+          <mxGeometry height="650" width="2" x="170" y="74" as="geometry" />
         </mxCell>
         <mxCell id="302" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="650" width="1" x="680" y="124" as="geometry" />
+          <mxGeometry height="650" width="1" x="430" y="74" as="geometry" />
         </mxCell>
         <mxCell id="303" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="650" width="1" x="940" y="124" as="geometry" />
+          <mxGeometry height="650" width="1" x="690" y="74" as="geometry" />
         </mxCell>
         <mxCell id="304" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="650" width="1" x="1200" y="124" as="geometry" />
+          <mxGeometry height="650" width="1" x="950" y="74" as="geometry" />
         </mxCell>
         <mxCell id="305" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="650" width="1" x="1460" y="124" as="geometry" />
+          <mxGeometry height="650" width="1" x="1210" y="74" as="geometry" />
         </mxCell>
         <mxCell id="306" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#555555;strokeWidth=2;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="656" width="1510" x="260" y="914" as="geometry" />
+          <mxGeometry height="656" width="1510" x="10" y="864" as="geometry" />
         </mxCell>
         <mxCell id="307" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#888888;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="656" width="2" x="420" y="914" as="geometry" />
+          <mxGeometry height="656" width="2" x="170" y="864" as="geometry" />
         </mxCell>
         <mxCell id="308" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="656" width="1" x="700" y="914" as="geometry" />
+          <mxGeometry height="656" width="1" x="450" y="864" as="geometry" />
         </mxCell>
         <mxCell id="309" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="656" width="1" x="980" y="914" as="geometry" />
+          <mxGeometry height="656" width="1" x="730" y="864" as="geometry" />
         </mxCell>
         <mxCell id="310" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="656" width="1" x="1260" y="914" as="geometry" />
+          <mxGeometry height="656" width="1" x="1010" y="864" as="geometry" />
         </mxCell>
         <mxCell id="311" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;snapToPoint=0;" value="" vertex="1">
-          <mxGeometry height="656" width="1" x="1500" y="914" as="geometry" />
+          <mxGeometry height="656" width="1" x="1250" y="864" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
