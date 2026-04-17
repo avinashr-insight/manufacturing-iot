@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="6">
   <diagram name="Architecture" id="0Gjpr2_W_JzVRyyCFl5s">
-    <mxGraphModel dx="1141" dy="1073" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="1241" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,13 +8,23 @@
           <mxGeometry height="44" width="1400" x="193" y="-17" as="geometry" />
         </mxCell>
         <mxCell id="ot-zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;strokeWidth=2;" value="OT Factory Floor" vertex="1">
-          <mxGeometry height="520" width="215" x="20" y="60" as="geometry" />
+          <mxGeometry height="704" width="215" x="20" y="60" as="geometry" />
         </mxCell>
         <mxCell id="plc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="PLC Machines&#xa;(~46 in POC scope)" vertex="1">
           <mxGeometry height="46" width="185" x="35" y="100" as="geometry" />
         </mxCell>
         <mxCell id="ls-switch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Line-side Switch&#xa;(redundant 1G / 10G uplink)" vertex="1">
           <mxGeometry height="46" width="185" x="35" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="_YcnrvhJNhzK5Wo2Qo8y-10" edge="1" parent="1" source="contoso-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#b85450;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;entryX=0.393;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;" target="_YcnrvhJNhzK5Wo2Qo8y-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="245" y="330" />
+              <mxPoint x="245" y="595" />
+              <mxPoint x="487" y="595" />
+              <mxPoint x="487" y="615" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="contoso-gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Ignition Gateway&amp;nbsp;&lt;div&gt;stays separate for POC&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="185" x="35" y="285" as="geometry" />
@@ -184,7 +194,7 @@
         <mxCell id="az-adls" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="ADLS Gen2&#xa;(bronze/gold · 400d hot · 50yr cold)" vertex="1">
           <mxGeometry height="46" width="240" x="1416" y="911" as="geometry" />
         </mxCell>
-        <mxCell id="az-mon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Grafana + Loki&lt;br&gt;(replaces Graylog + Elasticsearch)" vertex="1">
+        <mxCell id="az-mon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Monitor/Log Analytics&lt;br&gt;(replaces Graylog + Elasticsearch)" vertex="1">
           <mxGeometry height="46" width="240" x="1416" y="971" as="geometry" />
         </mxCell>
         <mxCell id="az-databricks" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Databricks&#xa;(Delta Live Tables · analytics)" vertex="1">
@@ -211,11 +221,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e-alt-broker" edge="1" parent="1" source="alt-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=3;" target="aio-broker">
+        <mxCell id="e-alt-broker" edge="1" parent="1" source="alt-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=3;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="_YcnrvhJNhzK5Wo2Qo8y-7">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="247" y="756" />
-              <mxPoint x="247" y="642" />
+              <mxPoint x="247" y="686" />
+              <mxPoint x="645" y="686" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -303,10 +314,10 @@
           <mxGeometry height="90" width="1081" as="geometry" />
         </mxCell>
         <mxCell id="aio-broker" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="AIO MQTT Broker&#xa;mTLS · MQTT v5 · StatefulSet · VIP :8883" vertex="1">
-          <mxGeometry height="52" width="511.33" x="13.67" y="24" as="geometry" />
+          <mxGeometry height="52" width="260" x="566" y="24" as="geometry" />
         </mxCell>
         <mxCell id="aio-df" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="AIO Dataflows&lt;br&gt;(replaces MQTTtoEventHub)&lt;div&gt;&lt;br&gt;Traceability · OEE · Kanban → Azure&lt;/div&gt;" vertex="1">
-          <mxGeometry height="52" width="526" x="548" y="24" as="geometry" />
+          <mxGeometry height="52" width="228" x="846" y="24" as="geometry" />
         </mxCell>
         <mxCell id="e-df-adls" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#0078d4;strokeWidth=2;" target="az-adls">
           <mxGeometry relative="1" as="geometry">
@@ -319,11 +330,28 @@
         <mxCell id="e-broker-df" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="aio-broker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-df">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Ls16daa4_6WEmIlyrRyQ-2" edge="1" parent="1" source="aio-df" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="netpol-aio-alt" value="">
+        <mxCell id="_YcnrvhJNhzK5Wo2Qo8y-8" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="_YcnrvhJNhzK5Wo2Qo8y-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6c8ebf;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" target="aio-broker">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_YcnrvhJNhzK5Wo2Qo8y-7" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="Internal Broker Listener&lt;br&gt;mTLS · VIP :18883" vertex="1">
+          <mxGeometry height="51" width="225" x="319" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="_YcnrvhJNhzK5Wo2Qo8y-9" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="External Broker Listener&lt;br&gt;mTLS · VIP :8883" vertex="1">
+          <mxGeometry height="51" width="152" x="157" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="_YcnrvhJNhzK5Wo2Qo8y-12" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="_YcnrvhJNhzK5Wo2Qo8y-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6c8ebf;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" target="aio-broker">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GmAJMUrvQ2VjXw3qmNvl-3" edge="1" parent="Ls16daa4_6WEmIlyrRyQ-3" source="cX4fzzZ13Jp1oW4qAsG8-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;strokeColor=#6c8ebf;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" target="aio-broker">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="966.9785082174462" y="642.0256410256411" as="sourcePoint" />
-            <mxPoint x="688.1200000000001" y="691" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="80" y="7" />
+              <mxPoint x="631" y="7" />
+            </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="cX4fzzZ13Jp1oW4qAsG8-13" parent="Ls16daa4_6WEmIlyrRyQ-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="OPC UA Broker&lt;div&gt;TCP · VIP :4840&lt;/div&gt;" vertex="1">
+          <mxGeometry height="51" width="138" x="11" y="24" as="geometry" />
         </mxCell>
         <mxCell id="ns-kvip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;fontSize=11;fontStyle=1;verticalAlign=top;strokeWidth=1;" value="namespace: kube-system · Kube-VIP DaemonSet (pod on every node — ARP leader election)" vertex="1">
           <mxGeometry height="62.00000000000001" width="1059" x="286" y="961" as="geometry" />
@@ -376,12 +404,13 @@
         <mxCell id="netpol-iotbasics" parent="9BYp14ogOgfr1R5yTq4C-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=left;" value="&amp;nbsp;Cilium NetworkPolicy: all alt-system pods → IoT Basics :8000 ALLOW · ⚠ NLog blocker: NA_Data_API writes to c:\temp\logs\ — must replace with OTEL before containerising" vertex="1">
           <mxGeometry height="28" width="1055.2573839662448" x="11.371308016877638" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="e-lets-broker" edge="1" parent="1" source="alt-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;" target="aio-broker">
+        <mxCell id="e-lets-broker" edge="1" parent="1" source="alt-lets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="_YcnrvhJNhzK5Wo2Qo8y-7">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="902" y="722" />
               <mxPoint x="264" y="722" />
-              <mxPoint x="264" y="653" />
+              <mxPoint x="264" y="683" />
+              <mxPoint x="758" y="683" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -405,11 +434,32 @@
         <mxCell id="e-alt-edgedb" edge="1" parent="1" source="alt-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;strokeWidth=2;" target="edgedb-pg">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="cX4fzzZ13Jp1oW4qAsG8-2" edge="1" parent="1" source="cX4fzzZ13Jp1oW4qAsG8-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;strokeColor=#b85450;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;startArrow=classic;startFill=1;endFill=0;" target="_YcnrvhJNhzK5Wo2Qo8y-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="609" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cX4fzzZ13Jp1oW4qAsG8-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Offline Alerts Subscribers" vertex="1">
+          <mxGeometry height="82" width="181" x="35" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="GmAJMUrvQ2VjXw3qmNvl-2" edge="1" parent="1" source="GmAJMUrvQ2VjXw3qmNvl-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#b85450;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;endFill=1;" target="cX4fzzZ13Jp1oW4qAsG8-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="703" />
+              <mxPoint x="240" y="642" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GmAJMUrvQ2VjXw3qmNvl-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="OPC UA Devices" vertex="1">
+          <mxGeometry height="82" width="181" x="35" y="662" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="dshMmnLv2Q3h4nMkggqa" name="Dataflow">
-    <mxGraphModel dx="1555" dy="1051" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="878" dy="989" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -454,12 +504,11 @@
         <mxCell id="VRSNAis56ns_jy04sDDi-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Flux / ALT UI&lt;/font&gt;" vertex="1">
           <mxGeometry height="44" width="150" x="1491" y="409" as="geometry" />
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-14" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.923;entryY=0.915;entryDx=0;entryDy=0;entryPerimeter=0;" target="VRSNAis56ns_jy04sDDi-9">
+        <mxCell id="VRSNAis56ns_jy04sDDi-14" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-9">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1746" y="420" />
-              <mxPoint x="1746" y="380" />
-              <mxPoint x="1629" y="380" />
+              <mxPoint x="1736" y="390" />
+              <mxPoint x="1604" y="390" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -474,9 +523,6 @@
         <mxCell id="VRSNAis56ns_jy04sDDi-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;LETSStateService&lt;br&gt;CurrentLineState&lt;/font&gt;" vertex="1">
           <mxGeometry height="44" width="150" x="1661" y="409" as="geometry" />
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-17" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-49">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-19" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-52">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -488,11 +534,11 @@
         <mxCell id="VRSNAis56ns_jy04sDDi-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;" value="OTEL Collector" vertex="1">
           <mxGeometry height="44" width="150" x="1841" y="409" as="geometry" />
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-21" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-49" value="CDC Monitor">
+        <mxCell id="VRSNAis56ns_jy04sDDi-21" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-49" value="CDC Monitor">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="2081" y="180" />
-              <mxPoint x="2081" y="658" />
+              <mxPoint x="2081" y="647" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -522,7 +568,7 @@
         <mxCell id="VRSNAis56ns_jy04sDDi-30" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;fillColor=#1ba1e2;strokeColor=#006EAF;" target="VRSNAis56ns_jy04sDDi-26">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=12;fontStyle=1;fontColor=#ffffff;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;AIO OPC UA Broker&lt;br&gt;&lt;/font&gt;&lt;/span&gt;" vertex="1">
+        <mxCell id="VRSNAis56ns_jy04sDDi-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=12;fontStyle=1;fontColor=#ffffff;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;OPC UA Broker&lt;br&gt;&lt;/font&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="67" width="170" x="1030" y="328.5" as="geometry" />
         </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-32" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=classic;startFill=1;fillColor=#1ba1e2;strokeColor=#006EAF;" target="VRSNAis56ns_jy04sDDi-31">
@@ -553,14 +599,14 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="gateway&lt;br&gt;(Ignition — separate)" vertex="1">
+        <mxCell id="VRSNAis56ns_jy04sDDi-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Gateway&lt;br&gt;(Ignition — separate)" vertex="1">
           <mxGeometry height="44" width="160" x="1123.5" y="90" as="geometry" />
         </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-39" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" target="VRSNAis56ns_jy04sDDi-38">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;" value="Azure — NA Aladdin (IT tenant)" vertex="1">
-          <mxGeometry height="215" width="205" x="1491" y="590" as="geometry" />
+          <mxGeometry height="268" width="205" x="1491" y="590" as="geometry" />
         </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-48" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-50">
           <mxGeometry relative="1" as="geometry" />
@@ -571,13 +617,13 @@
         <mxCell id="VRSNAis56ns_jy04sDDi-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Databricks&lt;br&gt;(archive + historical)" vertex="1">
           <mxGeometry height="44" width="185" x="1501" y="685" as="geometry" />
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-51" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-50">
+        <mxCell id="j8PKrbqMslWm7U7utZEP-2" edge="1" parent="1" source="qsyVfJ5mp-wE7U0u2AYr-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="j8PKrbqMslWm7U7utZEP-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="j8PKrbqMslWm7U7utZEP-2" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="j8PKrbqMslWm7U7utZEP-1">
+        <mxCell id="qsyVfJ5mp-wE7U0u2AYr-2" edge="1" parent="1" source="VRSNAis56ns_jy04sDDi-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qsyVfJ5mp-wE7U0u2AYr-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="VRSNAis56ns_jy04sDDi-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Grafana + Loki" vertex="1">
+        <mxCell id="VRSNAis56ns_jy04sDDi-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Azure Monitor/Log Analytics" vertex="1">
           <mxGeometry height="44" width="185" x="1501" y="745" as="geometry" />
         </mxCell>
         <mxCell id="VRSNAis56ns_jy04sDDi-53" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" value="Legend" vertex="1">
@@ -630,7 +676,7 @@
           <mxGeometry height="44" width="150" x="1841" y="328.5" as="geometry" />
         </mxCell>
         <mxCell id="j8PKrbqMslWm7U7utZEP-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;" value="OpsGenie" vertex="1">
-          <mxGeometry height="44" width="185" x="1271" y="745" as="geometry" />
+          <mxGeometry height="44" width="185" x="1287.5" y="802" as="geometry" />
         </mxCell>
         <mxCell id="pIoTAlugHUbQPmWlo4aA-10" edge="1" parent="1" source="pIoTAlugHUbQPmWlo4aA-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="VRSNAis56ns_jy04sDDi-26">
           <mxGeometry relative="1" as="geometry" />
@@ -647,17 +693,20 @@
         <mxCell id="pIoTAlugHUbQPmWlo4aA-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-size: 10px; font-weight: 400;&quot;&gt;MQTT External Broker Listener&lt;/span&gt;" vertex="1">
           <mxGeometry height="54" width="100" x="1220" y="335" as="geometry" />
         </mxCell>
-        <mxCell id="NbTQHai1PvAbDKXWdp1e-2" edge="1" parent="1" source="NbTQHai1PvAbDKXWdp1e-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="pIoTAlugHUbQPmWlo4aA-3">
+        <mxCell id="NbTQHai1PvAbDKXWdp1e-2" edge="1" parent="1" source="NbTQHai1PvAbDKXWdp1e-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="pIoTAlugHUbQPmWlo4aA-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="NbTQHai1PvAbDKXWdp1e-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Offline Alerts Subscribers" vertex="1">
           <mxGeometry height="44" width="130" x="1290" y="30" as="geometry" />
         </mxCell>
+        <mxCell id="qsyVfJ5mp-wE7U0u2AYr-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Grafana" vertex="1">
+          <mxGeometry height="44" width="185" x="1501" y="802" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="EtPgmnxiUdQBlKvqYYRm" name="MQTT">
-    <mxGraphModel dx="2216" dy="989" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1678" dy="989" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -679,7 +728,7 @@
         <mxCell id="I8bLp5rxbzeuoI7irztr-89" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000;" value="PLC machines" vertex="1">
           <mxGeometry height="44" width="160" x="42" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="I8bLp5rxbzeuoI7irztr-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000;" value="Contoso gateway&#xa;(Ignition)" vertex="1">
+        <mxCell id="I8bLp5rxbzeuoI7irztr-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000;" value="Gateway&lt;br&gt;(Ignition)" vertex="1">
           <mxGeometry height="44" width="160" x="42" y="140" as="geometry" />
         </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-91" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;fontColor=#000000;" value="Production zone" vertex="1">
@@ -818,7 +867,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="I8bLp5rxbzeuoI7irztr-119" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000;" value="Contoso gateway&#xa;(Ignition — separate)" vertex="1">
+        <mxCell id="I8bLp5rxbzeuoI7irztr-119" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000;" value="Gateway&lt;br&gt;(Ignition — separate)" vertex="1">
           <mxGeometry height="44" width="163" x="777" y="140" as="geometry" />
         </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-121" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;fontSize=10;verticalAlign=top;strokeWidth=1;fontColor=#000000;" value="alt-system namespace" vertex="1">
@@ -855,14 +904,6 @@
         <mxCell id="I8bLp5rxbzeuoI7irztr-125" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontColor=#000000;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;LETSStateService&lt;br&gt;CurrentLineState&lt;/font&gt;" vertex="1">
           <mxGeometry height="44" width="153" x="982" y="380" as="geometry" />
         </mxCell>
-        <mxCell id="B_MPApUUftPUnk0gFwwn-9" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="I8bLp5rxbzeuoI7irztr-141">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="B_MPApUUftPUnk0gFwwn-12" connectable="0" parent="B_MPApUUftPUnk0gFwwn-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Telemetry/Logs" vertex="1">
-          <mxGeometry relative="1" x="-0.4666" y="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-126" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontColor=#000000;" value="OTEL Collector" vertex="1">
           <mxGeometry height="44" width="153" x="985" y="320" as="geometry" />
         </mxCell>
@@ -898,12 +939,9 @@
           <mxGeometry height="31" width="313" x="885" y="707" as="geometry" />
         </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-139" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0078d4;dashed=1;fontSize=11;verticalAlign=top;strokeWidth=1;fontColor=#000000;" value="Azure — NA Aladdin (IT tenant)" vertex="1">
-          <mxGeometry height="205" width="208" x="1132" y="475" as="geometry" />
+          <mxGeometry height="254" width="208" x="1132" y="426" as="geometry" />
         </mxCell>
         <mxCell id="B_MPApUUftPUnk0gFwwn-7" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="I8bLp5rxbzeuoI7irztr-142">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="B_MPApUUftPUnk0gFwwn-11" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="I8bLp5rxbzeuoI7irztr-143">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-141" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#000000;" value="Event Hubs" vertex="1">
@@ -915,7 +953,7 @@
         <mxCell id="5-8XqKOoOifB8OqVvIFu-2" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#000000;" target="5-8XqKOoOifB8OqVvIFu-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="I8bLp5rxbzeuoI7irztr-143" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#000000;" value="Grafana + Loki" vertex="1">
+        <mxCell id="I8bLp5rxbzeuoI7irztr-143" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#000000;" value="Grafana" vertex="1">
           <mxGeometry height="44" width="188" x="1142" y="502" as="geometry" />
         </mxCell>
         <mxCell id="I8bLp5rxbzeuoI7irztr-144" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontColor=#000000;" target="I8bLp5rxbzeuoI7irztr-119">
@@ -1048,6 +1086,20 @@
         <mxCell id="B_MPApUUftPUnk0gFwwn-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="&lt;span style=&quot;font-size: 10px; font-weight: 400;&quot;&gt;MQTT Internal Broker Listener&lt;/span&gt;" vertex="1">
           <mxGeometry height="50" width="98" x="1002" y="503" as="geometry" />
         </mxCell>
+        <mxCell id="jhblz3WRMhAO521_06RH-2" edge="1" parent="1" source="7BjFwZr-84MsQ4BmQSwb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="I8bLp5rxbzeuoI7irztr-143">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7BjFwZr-84MsQ4BmQSwb-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#000000;" value="Azure Monitor/Log Analytics" vertex="1">
+          <mxGeometry height="44" width="188" x="1144" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="jhblz3WRMhAO521_06RH-1" edge="1" parent="1" source="I8bLp5rxbzeuoI7irztr-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.976;entryY=0.163;entryDx=0;entryDy=0;entryPerimeter=0;" target="I8bLp5rxbzeuoI7irztr-139">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1364" y="342" />
+              <mxPoint x="1364" y="467" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
@@ -1059,7 +1111,7 @@
         <mxCell id="OZm9z_edTWAgUUqV0pyF-3" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=0;glass=0;shadow=0;fillColor=#fad7ac;strokeColor=#b46504;" value="&lt;h2&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/h2&gt;&lt;h2&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/h2&gt;&lt;h2&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/h2&gt;&lt;h2&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/h2&gt;&lt;h2&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/h2&gt;&lt;h2&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;Current State — VM MQTT Broker&lt;/font&gt;&lt;/h2&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;p style=&quot;text-align: left;&quot;&gt;&lt;strong&gt;Publishers:&lt;/strong&gt;&lt;/p&gt;&lt;pre style=&quot;text-align: left;&quot;&gt;&lt;code style=&quot;&quot;&gt;├── ALT Core API        → Traceability/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── ALT Core API        → TraceabilityV2/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── ALT Core API        → ProcessRequest/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── LETSStateService    → LineStateDown/TN/DMTN/{Line}&lt;br&gt;├── LETSStateService    → OEE/TN/DMTN/{Line}&lt;br&gt;├── CurrentLineState    → LineState/{LineID}/{Process}          ← 1s loop&lt;br&gt;├── HourlyAttainment    → HourlyAttainment/TN/DMTN/{Display}&lt;br&gt;├── HourlyAttainment    → HourlyAttainmentActTwo/{Line}&lt;br&gt;└── KanbanStorage       → KanbanShipStatus/{Line}&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;p style=&quot;font-family: Helvetica; white-space: normal;&quot;&gt;&lt;strong&gt;Subscribers:&lt;/strong&gt;&lt;/p&gt;&lt;pre style=&quot;&quot;&gt;&lt;code&gt;├── LETSStateService    ← LineState/TN/DMTN/#          → SetNewLineState()&lt;br&gt;├── LETSStateService    ← Traceability/TN/DMTN/#       → UpdateMachineCycle()&lt;br&gt;├── LETSStateService    ← LineSettings/TN/DMTN/#       → UpdateLineSettings()&lt;br&gt;├── CurrentLineState    ← UpdateLineState/#             → UpdateCurrentState()&lt;br&gt;├── CurrentLineState    ← TagLineState/#                → RetagLineState()&lt;br&gt;├── CurrentLineState    ← ReloadLineInfo/#              → RefreshLineConfigOnly()&lt;br&gt;└── MQTTtoEventHub      ← KanbanShipStatus/#            → forward to Event Hubs&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p style=&quot;font-family: Helvetica; white-space: normal;&quot;&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;font-family: Helvetica; white-space: normal;&quot;&gt;&lt;strong style=&quot;&quot;&gt;Broker:&lt;/strong&gt;&amp;nbsp;&lt;code style=&quot;&quot;&gt;20x-lnxmqtt-cl.dmtnprod.lan&lt;/code&gt;&amp;nbsp;–– VM-based, HA proxy clustered, no mTLS&lt;br&gt;&lt;strong style=&quot;&quot;&gt;Library:&lt;/strong&gt;&amp;nbsp;MQTTnet via&amp;nbsp;&lt;code style=&quot;&quot;&gt;MQTTClientService.cs&lt;/code&gt;&lt;br&gt;&lt;strong style=&quot;&quot;&gt;Logging path:&lt;/strong&gt;&amp;nbsp;IoT Basics → ClientLogger ––&amp;gt; Filebeat ––&amp;gt; ES ––&amp;gt; Graylog (does NOT go via MQTT)&lt;/p&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot; size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br style=&quot;text-align: left;&quot;&gt;&lt;/font&gt;&lt;p style=&quot;text-align: left;&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;font size=&quot;3&quot;&gt;&lt;br style=&quot;text-align: left;&quot;&gt;&lt;/font&gt;&lt;p style=&quot;text-align: left;&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="1176" width="1176" x="10" y="-1" as="geometry" />
         </mxCell>
-        <mxCell id="OZm9z_edTWAgUUqV0pyF-4" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;Target State — AIO MQTT Broker (Single Instance)&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;h2&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;strong&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Publishers (all internal to K3s cluster · alt-system namespace · mTLS):&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;&lt;pre style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;code&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;├── ALT Core API        → Traceability/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── ALT Core API        → TraceabilityV2/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── ALT Core API        → ProcessRequest/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── LETSStateService    → LineStateDown/TN/DMTN/{Line}&lt;br&gt;├── LETSStateService    → OEE/TN/DMTN/{Line}&lt;br&gt;├── CurrentLineState    → LineState/{LineID}/{Process}          ← 1s loop&lt;br&gt;├── HourlyAttainment    → HourlyAttainment/TN/DMTN/{Display}&lt;br&gt;├── HourlyAttainment    → HourlyAttainmentActTwo/{Line}&lt;br&gt;└── KanbanStorage       → KanbanShipStatus/{Line}&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/h2&gt;&lt;h2&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;strong&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Subscribers:&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;&lt;pre style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;code&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;├── LETSStateService    ← LineState/TN/DMTN/#          → SetNewLineState()         (unchanged)&lt;br&gt;├── LETSStateService    ← Traceability/TN/DMTN/#       → UpdateMachineCycle()      (unchanged)&lt;br&gt;├── LETSStateService    ← LineSettings/TN/DMTN/#       → UpdateLineSettings()      (unchanged)&lt;br&gt;├── CurrentLineState    ← UpdateLineState/#             → UpdateCurrentState()      (unchanged)&lt;br&gt;├── CurrentLineState    ← TagLineState/#                → RetagLineState()          (unchanged)&lt;br&gt;├── CurrentLineState    ← ReloadLineInfo/#              → RefreshLineConfigOnly()   (unchanged)&lt;br&gt;│&lt;br&gt;│   ── MQTTtoEventHub RETIRED — replaced by AIO dataflows ──&lt;br&gt;│&lt;br&gt;├── AIO dataflows       ← Traceability/#                → Event Hubs (real-time telemetry)&lt;br&gt;├── AIO dataflows       ← TraceabilityV2/#              → ADLS Gen2 (archive · JSON book of record)&lt;br&gt;├── AIO dataflows       ← LineStateDown/#               → Event Grid (Andon fast-path · sub-second)&lt;br&gt;├── AIO dataflows       ← OEE/#                         → Event Hubs (operational metrics)&lt;br&gt;├── AIO dataflows       ← HourlyAttainment/#            → Event Hubs (production reporting)&lt;br&gt;└── AIO dataflows       ← KanbanShipStatus/#            → Event Hubs (replaces MQTTtoEventHub)&lt;br&gt;&lt;/font&gt;&lt;/code&gt;&lt;/pre&gt;&lt;font size=&quot;3&quot;&gt;&lt;br style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;/font&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;strong&gt;Broker:&lt;/strong&gt;&amp;nbsp;AIO MQTT broker ·&amp;nbsp;&lt;code&gt;aio-system&lt;/code&gt;&amp;nbsp;namespace · K3s cluster · MetalLB VIP&lt;br&gt;&lt;strong&gt;Security:&lt;/strong&gt;&amp;nbsp;mTLS — certificate per publisher client · topic-level authorisation&lt;br&gt;&lt;strong&gt;Logging path:&lt;/strong&gt;&amp;nbsp;IoT Basics → OTEL Collector → Loki / Grafana (does NOT go via MQTT)&lt;/font&gt;&lt;/p&gt;&lt;/h2&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;h2&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;br style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;/font&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/h2&gt;" vertex="1">
+        <mxCell id="OZm9z_edTWAgUUqV0pyF-4" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h2&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;Target State — AIO MQTT Broker (Single Instance)&lt;/font&gt;&lt;/span&gt;&lt;/h2&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;h2&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;strong&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Publishers (all internal to K3s cluster · alt-system namespace · mTLS):&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;&lt;pre style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;code&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;├── ALT Core API        → Traceability/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── ALT Core API        → TraceabilityV2/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── ALT Core API        → ProcessRequest/TN/DMTN/{Line}/{Proc}/{Mach}&lt;br&gt;├── LETSStateService    → LineStateDown/TN/DMTN/{Line}&lt;br&gt;├── LETSStateService    → OEE/TN/DMTN/{Line}&lt;br&gt;├── CurrentLineState    → LineState/{LineID}/{Process}          ← 1s loop&lt;br&gt;├── HourlyAttainment    → HourlyAttainment/TN/DMTN/{Display}&lt;br&gt;├── HourlyAttainment    → HourlyAttainmentActTwo/{Line}&lt;br&gt;└── KanbanStorage       → KanbanShipStatus/{Line}&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/h2&gt;&lt;h2&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;strong&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Subscribers:&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;&lt;pre style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;code&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;├── LETSStateService    ← LineState/TN/DMTN/#          → SetNewLineState()         (unchanged)&lt;br&gt;├── LETSStateService    ← Traceability/TN/DMTN/#       → UpdateMachineCycle()      (unchanged)&lt;br&gt;├── LETSStateService    ← LineSettings/TN/DMTN/#       → UpdateLineSettings()      (unchanged)&lt;br&gt;├── CurrentLineState    ← UpdateLineState/#             → UpdateCurrentState()      (unchanged)&lt;br&gt;├── CurrentLineState    ← TagLineState/#                → RetagLineState()          (unchanged)&lt;br&gt;├── CurrentLineState    ← ReloadLineInfo/#              → RefreshLineConfigOnly()   (unchanged)&lt;br&gt;│&lt;br&gt;│   ── MQTTtoEventHub RETIRED — replaced by AIO dataflows ──&lt;br&gt;│&lt;br&gt;├── AIO dataflows       ← Traceability/#                → Event Hubs (real-time telemetry)&lt;br&gt;├── AIO dataflows       ← TraceabilityV2/#              → ADLS Gen2 (archive · JSON book of record)&lt;br&gt;├── AIO dataflows       ← LineStateDown/#               → Event Grid (Andon fast-path · sub-second)&lt;br&gt;├── AIO dataflows       ← OEE/#                         → Event Hubs (operational metrics)&lt;br&gt;├── AIO dataflows       ← HourlyAttainment/#            → Event Hubs (production reporting)&lt;br&gt;└── AIO dataflows       ← KanbanShipStatus/#            → Event Hubs (replaces MQTTtoEventHub)&lt;br&gt;&lt;/font&gt;&lt;/code&gt;&lt;/pre&gt;&lt;font size=&quot;3&quot;&gt;&lt;br style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;/font&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;strong&gt;Broker:&lt;/strong&gt;&amp;nbsp;AIO MQTT broker ·&amp;nbsp;&lt;code&gt;aio-system&lt;/code&gt;&amp;nbsp;namespace · K3s cluster · MetalLB VIP&lt;br&gt;&lt;strong&gt;Security:&lt;/strong&gt;&amp;nbsp;mTLS — certificate per publisher client · topic-level authorisation&lt;br&gt;&lt;strong&gt;Logging path:&lt;/strong&gt;&amp;nbsp;IoT Basics → OTEL Collector → Azure Monitor / Log Analytics (does NOT go via MQTT)&lt;/font&gt;&lt;/p&gt;&lt;/h2&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;h2&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;br style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;/font&gt;&lt;p style=&quot;font-weight: 400; text-align: left;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/h2&gt;" vertex="1">
           <mxGeometry height="1173" width="1173" x="1192" as="geometry" />
         </mxCell>
       </root>
