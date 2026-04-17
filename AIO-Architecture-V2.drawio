@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" pages="9">
+<mxfile host="app.diagrams.net" pages="10">
   <diagram id="M_sJJIZhTHJgalGSBD6J" name="AIO Overview">
     <mxGraphModel dx="3093" dy="1480" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -2379,6 +2379,322 @@
         </mxCell>
         <mxCell id="hi6X_d0BzHIbB2ZtCyMh-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=#E6D0DE;align=center;verticalAlign=middle;rounded=0;" value="&lt;p class=&quot;font-claude-response-body break-words whitespace-normal leading-[1.7]&quot;&gt;&lt;strong&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Dataflow message buffering during WAN loss&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;p class=&quot;font-claude-response-body break-words whitespace-normal leading-[1.7]&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;If connectivity between the data flow and Azure Event Hubs is lost, the MQTT broker subscriber message queue stores the messages. When connectivity is restored, the data flow sends the messages in the subscriber message queue to Azure Event Hubs.&amp;nbsp;&lt;br&gt;&lt;br&gt;**It helps to understand the size of the data per hour **&lt;/font&gt;&lt;/p&gt;" vertex="1">
           <mxGeometry height="189" width="546" x="255" y="49" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Bp9L7WEwoS9j676cgUbt" name="Longhorn-Arch">
+    <mxGraphModel dx="1692" dy="1929" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t0" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="Longhorn Storage Architecture — Volume Provisioning · Engine Co-location · Replica HA" vertex="1">
+          <mxGeometry height="28" width="1480" x="322" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Longhorn replaces ACSA as the storage layer for edge-db (PostgreSQL StatefulSet) and AIO MQTT broker disk buffer. Deployed via Helm (Flux HelmRelease) in longhorn-system namespace. Replication factor=3 — all volume blocks held across all 3 Dell nodes." vertex="1">
+          <mxGeometry height="30" width="1480" x="10" y="42" as="geometry" />
+        </mxCell>
+        <mxCell id="sa" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="Volume Provisioning Flow — PVC Request to PV Bound" vertex="1">
+          <mxGeometry height="210" width="700" x="10" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sa1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="① StatefulSet PVC Request&#xa;edge-db requests PVC:&#xa;data-edge-db-0 (10Gi)&#xa;StorageClass: longhorn" vertex="1">
+          <mxGeometry height="72" width="152" x="20" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sa1a" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="172" y="144" as="sourcePoint" />
+            <mxPoint x="190" y="144" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sa2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="② K8s API Server&#xa;Holds PVC — no PV&#xa;exists yet · triggers&#xa;dynamic provisioning" vertex="1">
+          <mxGeometry height="72" width="152" x="192" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sa2a" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="344" y="144" as="sourcePoint" />
+            <mxPoint x="362" y="144" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sa3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="③ Longhorn CSI Controller&#xa;Detects pending PVC&#xa;Forwards volume create&#xa;request to LH Manager" vertex="1">
+          <mxGeometry height="72" width="152" x="364" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sa3a" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="516" y="144" as="sourcePoint" />
+            <mxPoint x="534" y="144" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sa4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="④ Longhorn Manager&#xa;Plans replica placement&#xa;Anti-affinity: one replica&#xa;per node — never co-located" vertex="1">
+          <mxGeometry height="72" width="158" x="536" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sa5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="⑤ Instance Manager&#xa;Starts replica process&#xa;on Node 1 · Node 2&#xa;· Node 3 simultaneously" vertex="1">
+          <mxGeometry height="72" width="152" x="20" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="sa5a" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="172" y="232" as="sourcePoint" />
+            <mxPoint x="190" y="232" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sa6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="⑥ Engine Started&#xa;Co-located with pod&#xa;on Node 1 · connects&#xa;to all 3 replicas" vertex="1">
+          <mxGeometry height="72" width="152" x="192" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="sa6a" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="344" y="232" as="sourcePoint" />
+            <mxPoint x="362" y="232" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sa7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="⑦ PV Created + Bound&#xa;PVC → PV bound&#xa;Pod mounts volume&#xa;I/O begins" vertex="1">
+          <mxGeometry height="72" width="152" x="364" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="sa_link" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="694" y="144" />
+              <mxPoint x="694" y="189" />
+              <mxPoint x="16" y="189" />
+            </Array>
+            <mxPoint x="694" y="144" as="sourcePoint" />
+            <mxPoint x="20" y="196" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="Replica Distribution — 3 PVCs × 3 Nodes (edge-db StatefulSet)" vertex="1">
+          <mxGeometry height="210" width="760" x="730" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_h0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="PVC" vertex="1">
+          <mxGeometry height="28" width="130" x="740" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_h1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="Node 1" vertex="1">
+          <mxGeometry height="28" width="180" x="876" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_h2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="Node 2" vertex="1">
+          <mxGeometry height="28" width="180" x="1062" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_h3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="Node 3" vertex="1">
+          <mxGeometry height="28" width="180" x="1248" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_htot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="Disk/node" vertex="1">
+          <mxGeometry height="28" width="48" x="1434" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r1l" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="data-edge-db-0&#xa;10 Gi" vertex="1">
+          <mxGeometry height="52" width="130" x="740" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r1n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="ENGINE + Primary&#xa;Replica A · 10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="876" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r1n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica B&#xa;10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="1062" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r1n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica C&#xa;10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="1248" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r1tot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=center;snapToPoint=0;" value="30 GB" vertex="1">
+          <mxGeometry height="52" width="48" x="1434" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r2l" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="data-edge-db-1&#xa;10 Gi" vertex="1">
+          <mxGeometry height="52" width="130" x="740" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r2n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica A&#xa;10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="876" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r2n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="ENGINE + Primary&#xa;Replica B · 10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="1062" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r2n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica C&#xa;10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="1248" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r2tot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=center;snapToPoint=0;" value="30 GB" vertex="1">
+          <mxGeometry height="52" width="48" x="1434" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r3l" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=left;snapToPoint=0;" value="data-edge-db-2&#xa;10 Gi" vertex="1">
+          <mxGeometry height="52" width="130" x="740" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r3n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica A&#xa;10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="876" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r3n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica B&#xa;10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="1062" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r3n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="ENGINE + Primary&#xa;Replica C · 10 GB" vertex="1">
+          <mxGeometry height="52" width="180" x="1248" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_r3tot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;align=center;snapToPoint=0;" value="30 GB" vertex="1">
+          <mxGeometry height="52" width="48" x="1434" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_tot_lbl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="Per-node total" vertex="1">
+          <mxGeometry height="28" width="130" x="740" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_tot_n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="30 GB Longhorn data" vertex="1">
+          <mxGeometry height="28" width="180" x="876" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_tot_n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="30 GB Longhorn data" vertex="1">
+          <mxGeometry height="28" width="180" x="1062" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_tot_n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="30 GB Longhorn data" vertex="1">
+          <mxGeometry height="28" width="180" x="1248" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_tot_tot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="90 GB" vertex="1">
+          <mxGeometry height="28" width="48" x="1434" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="Healthy — edge-db-0 Running on Node 1" vertex="1">
+          <mxGeometry height="220" width="470" x="10" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 1" vertex="1">
+          <mxGeometry height="182" width="148" x="20" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_pod" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="edge-db-0 Pod&#xa;(PostgreSQL primary)" vertex="1">
+          <mxGeometry height="38" width="136" x="26" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_eng" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="Longhorn Engine&#xa;(co-located with pod)" vertex="1">
+          <mxGeometry height="38" width="136" x="26" y="464" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_ra" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica A&#xa;(primary copy)" vertex="1">
+          <mxGeometry height="38" width="136" x="26" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 2" vertex="1">
+          <mxGeometry height="182" width="140" x="182" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_rb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica B&#xa;(block copy)" vertex="1">
+          <mxGeometry height="38" width="128" x="188" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 3" vertex="1">
+          <mxGeometry height="182" width="136" x="336" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_rc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica C&#xa;(block copy)" vertex="1">
+          <mxGeometry height="38" width="124" x="342" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1_e1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="162" y="483" as="sourcePoint" />
+            <mxPoint x="188" y="467" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sc1_e2" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="162" y="483" as="sourcePoint" />
+            <mxPoint x="342" y="467" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sc1_note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff9ef;strokeColor=#82b366;fontSize=9;fontStyle=2;align=left;snapToPoint=0;" value="All writes: engine syncs to ALL 3 replicas simultaneously (synchronous replication · write quorum=2)" vertex="1">
+          <mxGeometry height="26" width="452" x="20" y="556" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="Node 1 Fails — T=0 · Engine Offline" vertex="1">
+          <mxGeometry height="220" width="470" x="498" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#b85450;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 1 ✗ DOWN" vertex="1">
+          <mxGeometry height="182" width="148" x="508" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_pod_off" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;snapToPoint=0;" value="edge-db-0 Pod&#xa;✗ STOPPED" vertex="1">
+          <mxGeometry height="38" width="136" x="514" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_eng_off" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;snapToPoint=0;" value="Engine&#xa;✗ OFFLINE" vertex="1">
+          <mxGeometry height="38" width="136" x="514" y="464" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_ra_deg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;align=center;snapToPoint=0;" value="Replica A&#xa;⚠ DEGRADED" vertex="1">
+          <mxGeometry height="38" width="136" x="514" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 2 ✓ OK" vertex="1">
+          <mxGeometry height="182" width="140" x="670" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_rb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica B&#xa;✓ ACTIVE" vertex="1">
+          <mxGeometry height="38" width="128" x="676" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 3 ✓ OK" vertex="1">
+          <mxGeometry height="182" width="136" x="824" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_rc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica C&#xa;✓ ACTIVE" vertex="1">
+          <mxGeometry height="38" width="124" x="830" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2_note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontStyle=2;align=left;snapToPoint=0;" value="2 of 3 replicas remain — write quorum maintained · Volume still accessible · K3s scheduler detects pod failure" vertex="1">
+          <mxGeometry height="26" width="452" x="508" y="556" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="Recovery — T~60s · Pod Rescheduled · Engine Restarted" vertex="1">
+          <mxGeometry height="220" width="504" x="986" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 1 ⟳ Rebuilding" vertex="1">
+          <mxGeometry height="182" width="148" x="996" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_ra_reb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontStyle=2;align=center;snapToPoint=0;" value="Replica A&#xa;⟳ Rebuilding from B+C&#xa;(when node returns)" vertex="1">
+          <mxGeometry height="52" width="136" x="1002" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_n2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 2 ✓ Active" vertex="1">
+          <mxGeometry height="182" width="160" x="1158" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_pod_new" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="edge-db-0 Pod&#xa;(rescheduled here)" vertex="1">
+          <mxGeometry height="34" width="148" x="1164" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_eng_new" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;snapToPoint=0;" value="New Engine&#xa;(co-located on Node 2)" vertex="1">
+          <mxGeometry height="34" width="148" x="1164" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_rb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica B&#xa;✓ ACTIVE" vertex="1">
+          <mxGeometry height="34" width="148" x="1164" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;fontStyle=1;verticalAlign=top;align=center;snapToPoint=0;" value="Node 3 ✓ Active" vertex="1">
+          <mxGeometry height="182" width="150" x="1332" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_rc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica C&#xa;✓ ACTIVE" vertex="1">
+          <mxGeometry height="38" width="138" x="1338" y="448" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3_e1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;strokeWidth=1.5;snapToPoint=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1312" y="475" as="sourcePoint" />
+            <mxPoint x="1338" y="467" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sc3_note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;fontStyle=2;align=left;snapToPoint=0;" value="New engine connects to Replicas B+C · Volume fully operational · Replica A rebuilt automatically when Node 1 returns" vertex="1">
+          <mxGeometry height="26" width="486" x="996" y="556" as="geometry" />
+        </mxCell>
+        <mxCell id="sd_hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Volume Health States" vertex="1">
+          <mxGeometry height="26" width="1480" x="10" y="608" as="geometry" />
+        </mxCell>
+        <mxCell id="sd1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=11;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="HEALTHY — 3 of 3 replicas online" vertex="1">
+          <mxGeometry height="80" width="486" x="10" y="638" as="geometry" />
+        </mxCell>
+        <mxCell id="sd1_d" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="· All writes synchronised to 3 replicas&#xa;· Reads served from nearest replica (lowest latency)&#xa;· Full write quorum — no performance impact" vertex="1">
+          <mxGeometry height="52" width="474" x="16" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="sd2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=11;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="DEGRADED — 2 of 3 replicas online (1 node down)" vertex="1">
+          <mxGeometry height="80" width="486" x="506" y="638" as="geometry" />
+        </mxCell>
+        <mxCell id="sd2_d" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="· Volume still fully accessible — reads and writes continue&#xa;· Longhorn queues rebuild — starts automatically when node returns&#xa;· Pod reschedules — new engine restarts and connects to surviving replicas" vertex="1">
+          <mxGeometry height="52" width="474" x="512" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="sd3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=11;fontStyle=1;verticalAlign=top;align=left;snapToPoint=0;" value="CRITICAL — 1 of 3 replicas (2 nodes down)" vertex="1">
+          <mxGeometry height="80" width="488" x="1002" y="638" as="geometry" />
+        </mxCell>
+        <mxCell id="sd3_d" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="· Write quorum lost — volume becomes read-only or unavailable&#xa;· etcd also loses quorum — cluster control plane unavailable&#xa;· This scenario requires 2 simultaneous node failures — extremely unlikely" vertex="1">
+          <mxGeometry height="52" width="476" x="1008" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="ann1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Why 30 GB per node for 10 GB of data per PVC: replication factor=3 means each node stores one replica block for every PVC. 3 PVCs × 10 GB = 30 GB Longhorn data per node. This is the expected and correct behaviour — the cost of cross-node HA. No SAN or NFS required — all blocks are stored on local NVMe." vertex="1">
+          <mxGeometry height="30" width="1480" x="10" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="ann2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;fontSize=11;fontStyle=2;align=left;snapToPoint=0;" value="Install order matters: Longhorn must be fully healthy (all pods Running in longhorn-system) before the edge-db StatefulSet is deployed. Longhorn is managed by Flux HelmRelease — not an Arc extension. PostgreSQL streaming replication operates above Longhorn, providing database-level HA independently of the storage layer." vertex="1">
+          <mxGeometry height="30" width="1480" x="10" y="764" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_hdr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#444441;strokeColor=#2c2c2a;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;snapToPoint=0;" value="Legend" vertex="1">
+          <mxGeometry height="26" width="120" x="10" y="806" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;fontColor=#ffffff;fontSize=10;align=center;snapToPoint=0;" value="Engine + Primary replica" vertex="1">
+          <mxGeometry height="26" width="200" x="10" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;snapToPoint=0;" value="Replica — healthy" vertex="1">
+          <mxGeometry height="26" width="200" x="218" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;align=center;snapToPoint=0;" value="Replica — degraded / rebuilding" vertex="1">
+          <mxGeometry height="26" width="200" x="426" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;snapToPoint=0;" value="Node / component — failed" vertex="1">
+          <mxGeometry height="26" width="200" x="634" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;align=center;snapToPoint=0;" value="PostgreSQL pod (StatefulSet)" vertex="1">
+          <mxGeometry height="26" width="200" x="842" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078d4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=10;align=center;snapToPoint=0;" value="Kubernetes node (healthy)" vertex="1">
+          <mxGeometry height="26" width="200" x="1050" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="leg7" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="──── Green arrow: synchronous write to replica (all 3 on every write)" vertex="1">
+          <mxGeometry height="26" width="340" x="1258" y="836" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
