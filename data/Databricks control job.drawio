@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="_F5CY5_QLQn05U5J8R7j">
+    <mxGraphModel dx="1888" dy="1775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-3" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=left;fillColor=none;strokeColor=none;snapToPoint=0;" value="Azure Event Hub · Databricks Control Job" vertex="1">
+          <mxGeometry height="36" width="810" x="376" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;strokeWidth=2;fontSize=12;fontStyle=1;align=left;snapToPoint=0;" value="Legend" vertex="1">
+          <mxGeometry height="24" width="340" x="60" y="771" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-5" parent="1" style="text;html=1;fontSize=10;align=left;snapToPoint=0;fillColor=#DAE8FC;" value="── Blue arrow:&amp;nbsp; Azure Event Hub publish" vertex="1">
+          <mxGeometry height="30" width="340" x="60" y="832" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-6" parent="1" style="text;html=1;fontSize=10;align=left;snapToPoint=0;fillColor=#eeeeee;strokeColor=#36393d;" value="── Gray arrow:   Controller job" vertex="1">
+          <mxGeometry height="24" width="340" x="60" y="807" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-7" parent="1" style="text;html=1;fontSize=10;align=left;snapToPoint=0;fillColor=#d0cee2;strokeColor=#56517e;" value="── Purple arrow: Databricks stream CDC/MQTT monitors" vertex="1">
+          <mxGeometry height="26" width="340" x="60" y="863" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-8" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;strokeWidth=2;fontStyle=1;fontSize=12;startSize=30;snapToPoint=0;" value="Azure Databricks" vertex="1">
+          <mxGeometry height="578" width="1052" x="395" y="176" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-9" parent="HddTzzx_CyOJT0ubdRPU-8" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Azure_Databricks.svg;" value="" vertex="1">
+          <mxGeometry height="68" width="62.8" x="30" y="496" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-10" parent="HddTzzx_CyOJT0ubdRPU-8" style="swimlane;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Controller Job" vertex="1">
+          <mxGeometry height="423" width="700" x="43" y="54" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-11" edge="1" parent="HddTzzx_CyOJT0ubdRPU-10" source="HddTzzx_CyOJT0ubdRPU-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-12" parent="HddTzzx_CyOJT0ubdRPU-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Filter for line start/end MQTT events" vertex="1">
+          <mxGeometry height="60" width="169" x="16" y="41.09" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-13" edge="1" parent="HddTzzx_CyOJT0ubdRPU-10" source="HddTzzx_CyOJT0ubdRPU-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-14" connectable="0" parent="HddTzzx_CyOJT0ubdRPU-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="No" vertex="1">
+          <mxGeometry relative="1" x="-0.0545" y="-6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-15" edge="1" parent="HddTzzx_CyOJT0ubdRPU-10" source="HddTzzx_CyOJT0ubdRPU-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-16" parent="HddTzzx_CyOJT0ubdRPU-10" style="rhombus;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Is it line start&amp;nbsp; event?" vertex="1">
+          <mxGeometry height="80" width="108.5" x="45.5" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-17" edge="1" parent="HddTzzx_CyOJT0ubdRPU-10" source="HddTzzx_CyOJT0ubdRPU-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-22" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-18" parent="HddTzzx_CyOJT0ubdRPU-10" style="rhombus;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Is it line end&amp;nbsp;&amp;nbsp;&lt;div&gt;event?&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="108.5" x="45.5" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-19" edge="1" parent="HddTzzx_CyOJT0ubdRPU-10" source="HddTzzx_CyOJT0ubdRPU-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-20" parent="HddTzzx_CyOJT0ubdRPU-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#eeeeee;strokeColor=#36393d;fontStyle=1" value="Find CDC/MQTT jobs for line (via REST call)" vertex="1">
+          <mxGeometry height="60" width="169" x="203" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-21" edge="1" parent="HddTzzx_CyOJT0ubdRPU-10" source="HddTzzx_CyOJT0ubdRPU-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-22" parent="HddTzzx_CyOJT0ubdRPU-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Find CDC/MQTT jobs for line (via REST call)" vertex="1">
+          <mxGeometry height="60" width="169" x="203" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-23" parent="HddTzzx_CyOJT0ubdRPU-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Start jobs if not running (Via REST call)" vertex="1">
+          <mxGeometry height="60" width="169" x="406" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-24" parent="HddTzzx_CyOJT0ubdRPU-10" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#eeeeee;strokeColor=#36393d;" value="Stop jobs if running (Via REST call)" vertex="1">
+          <mxGeometry height="60" width="169" x="406" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-25" parent="HddTzzx_CyOJT0ubdRPU-8" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=11;fontStyle=1;startSize=28;snapToPoint=0;" value="Data Streaming Jobs" vertex="1">
+          <mxGeometry height="342" width="220" x="782" y="121" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-26" parent="HddTzzx_CyOJT0ubdRPU-25" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=10;snapToPoint=0;" value="Read CDC&lt;br&gt;lines:  123,456" vertex="1">
+          <mxGeometry height="54" width="196" x="10" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-27" parent="HddTzzx_CyOJT0ubdRPU-25" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=10;snapToPoint=0;" value="Read MQTT&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;lines:&amp;nbsp; 123,456&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="54" width="196" x="10" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-28" parent="HddTzzx_CyOJT0ubdRPU-25" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=10;snapToPoint=0;" value="Read CDC&lt;br&gt;lines:  789" vertex="1">
+          <mxGeometry height="54" width="196" x="14" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-29" parent="HddTzzx_CyOJT0ubdRPU-25" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=10;snapToPoint=0;" value="Read MQTT&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;lines:&amp;nbsp; 789&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="54" width="196" x="14" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-30" edge="1" parent="HddTzzx_CyOJT0ubdRPU-8" source="HddTzzx_CyOJT0ubdRPU-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-31" edge="1" parent="HddTzzx_CyOJT0ubdRPU-8" source="HddTzzx_CyOJT0ubdRPU-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="HddTzzx_CyOJT0ubdRPU-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-32" connectable="0" parent="HddTzzx_CyOJT0ubdRPU-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="REST Call" vertex="1">
+          <mxGeometry relative="1" x="-0.5755" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-33" edge="1" parent="HddTzzx_CyOJT0ubdRPU-8" source="HddTzzx_CyOJT0ubdRPU-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HddTzzx_CyOJT0ubdRPU-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-34" edge="1" parent="HddTzzx_CyOJT0ubdRPU-8" source="HddTzzx_CyOJT0ubdRPU-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="HddTzzx_CyOJT0ubdRPU-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-35" connectable="0" parent="HddTzzx_CyOJT0ubdRPU-34" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="REST Call" vertex="1">
+          <mxGeometry relative="1" x="-0.7126" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-36" edge="1" parent="1" source="HddTzzx_CyOJT0ubdRPU-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HddTzzx_CyOJT0ubdRPU-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#0078d4;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#0078d4;snapToPoint=0;" value="Azure Event Hub&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="185" y="272" as="geometry" />
+        </mxCell>
+        <mxCell id="HddTzzx_CyOJT0ubdRPU-38" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/Event_Hubs.svg;" value="" vertex="1">
+          <mxGeometry height="44.17" width="49.31" x="161" y="254" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

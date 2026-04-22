@@ -20,9 +20,9 @@ This document consolidates the security and governance controls from the uploade
 
 ## Ordered implementation checklist
 
-### Phase 0 – Architecture decisions and scope lock
+### Step 0 – Architecture decisions and scope lock
 
-### Phase 0
+### Step 0
 - [ ] **AZ-001 – Define POC site, environment, and criticality boundary**  
   - Service / Component: Program / Platform  
   - Primary owner: Platform  
@@ -40,7 +40,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: App  
   - Source documents: ADLS; Databricks
 
-### Phase 1
+### Step 1
 - [ ] **GOV-001 – Create dedicated subscription and/or resource group aligned to site boundary**  
   - Service / Component: Azure Landing Zone  
   - Primary owner: Platform  
@@ -70,7 +70,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Security  
   - Source documents: AIO Governance; Key Vault; Azure Monitor
 
-### Phase 2
+### Step 2
 - [ ] **K3S-001 – Build Arc-enabled K3s cluster on hardened supported host baseline**  
   - Service / Component: K3s / Arc  
   - Primary owner: Platform  
@@ -104,7 +104,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Platform  
   - Source documents: AIO Governance; PostgreSQL
 
-### Phase 3
+### Step 3
 - [ ] **PKI-001 – Adopt enterprise or plant-controlled CA / issuer for production-style AIO and DB trust**  
   - Service / Component: PKI / Certificates  
   - Primary owner: Security  
@@ -122,7 +122,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Security  
   - Source documents: AIO Governance; Key Vault; Event Grid; Event Hubs; PostgreSQL
 
-### Phase 4
+### Step 4
 - [ ] **KV-001 – Create dedicated Key Vault boundary for POC / non-prod and separate from prod**  
   - Service / Component: Azure Key Vault  
   - Primary owner: Security  
@@ -148,7 +148,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Security  
   - Source documents: Key Vault
 
-### Phase 5
+### Step 5
 - [ ] **GIT-001 – Enable Flux v2 GitOps and make Git the source of truth for baseline config**  
   - Service / Component: Azure Arc / Flux  
   - Primary owner: Platform  
@@ -170,7 +170,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Security  
   - Source documents: AIO Governance; Event Hubs; Event Grid; ADLS
 
-### Phase 6
+### Step 6
 - [ ] **NET-001 – Implement default-deny Kubernetes NetworkPolicy in workload namespaces**  
   - Service / Component: Kubernetes Networking  
   - Primary owner: Platform  
@@ -188,7 +188,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: OT  
   - Source documents: AIO Governance; Azure Monitor; Event Hubs; Event Grid; ADLS
 
-### Phase 7
+### Step 7
 - [ ] **MON-001 – Pre-create and govern Azure Monitor workspace, Log Analytics workspace, Managed Grafana, and alert resources**  
   - Service / Component: Azure Monitor  
   - Primary owner: Platform  
@@ -206,7 +206,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Platform  
   - Source documents: Azure Monitor
 
-### Phase 8
+### Step 8
 - [ ] **AIO-001 – Deploy AIO with secure settings on the Arc-enabled K3s cluster**  
   - Service / Component: Azure IoT Operations  
   - Primary owner: Platform  
@@ -220,7 +220,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: OT  
   - Source documents: AIO Governance; Event Hubs; Event Grid; ADLS
 
-### Phase 9
+### Step 9
 - [ ] **MSG-001 – For Event Hubs path, deploy Standard or Premium namespace, not Basic**  
   - Service / Component: Azure Event Hubs  
   - Primary owner: App  
@@ -246,7 +246,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: App  
   - Source documents: Event Grid
 
-### Phase 10
+### Step 10
 - [ ] **STO-001 – Create ADLS Gen2 account with HNS enabled and managed-identity-first access**  
   - Service / Component: ADLS Gen2  
   - Primary owner: App  
@@ -264,7 +264,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Security  
   - Source documents: ADLS
 
-### Phase 11
+### Step 11
 - [ ] **ANA-001 – If analytics is in scope, deploy Databricks Premium with Unity Catalog enabled from day one**  
   - Service / Component: Azure Databricks  
   - Primary owner: App  
@@ -278,7 +278,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: Security  
   - Source documents: Databricks
 
-### Phase 12
+### Step 12
 - [ ] **DB-001 – PostgreSQL path: deploy dedicated db-postgres and db-postgres-backup namespaces with ClusterIP-only exposure**  
   - Service / Component: PostgreSQL  
   - Primary owner: App  
@@ -288,7 +288,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: App  
   - Source documents: PostgreSQL
 
-### Phase 13
+### Step 13
 - [ ] **RES-001 – Test cluster rebuild from code + Arc registration + extension deployment**  
   - Service / Component: Arc / GitOps  
   - Primary owner: Platform  
@@ -306,7 +306,7 @@ This document consolidates the security and governance controls from the uploade
   - Primary owner: OT  
   - Source documents: Key Vault; Event Hubs; Event Grid; ADLS; Azure Monitor
 
-### Phase 14
+### Step 14
 - [ ] **OPS-001 – Publish runbooks for cluster onboarding, AIO deployment, secret sync failures, certificate rotation, eventing changes, storage recovery, monitoring failures, and DB restore/failover**  
   - Service / Component: Operational Runbooks  
   - Primary owner: Platform  

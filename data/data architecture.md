@@ -1,8 +1,7 @@
-
 # Topics
 
-Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  Lines can share CDC lines or MQTT topics, but data must be segregated
-by message type (CDC or MQTT).
+Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  Lines can share CDC 
+lines or MQTT topics, but data must be segregated by message type (CDC or MQTT).
 
 # Databricks Jobs
 
@@ -12,6 +11,17 @@ nubmer of workers to read the assigned topics.
 
 All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called 
 Declarative Automation Bundles).
+
+# Tags
+
+Tables in the Databricks environment will be built directly from the source schemas.  Tags will be utilized to provide additional information such as:
+- The primary key of the table (used for merges)
+- Whether the table has a purge process removing data from it on the edge.
+- A time to live value for the data on the edge (if purged).
+- Whether the table should be included in the archive process.
+
+Jobs will be tagged with the following information:
+- What line do they monitor (each line will be attached to a topic)
 
 # Fast Path and Slow Path
 
@@ -43,7 +53,7 @@ to keep processing regardless of Azure connectivity.
 
 This assumes:
 1. ALT API does not use any MSSQL only features
-2. There is no need for stored procedures (even though PostgreSQL does suppor them)
+2. There is no need for stored procedures (even though PostgreSQL does support them)
 
 # Databricks
 
@@ -67,10 +77,9 @@ schema in the edge database will have it's own CDC monitor.
 The jobs that read CDC information will have the following paramters:
 1. Lines to monitor
 2. topics to monitor
-3. Hours of operation for each line
-4. Target catalog
-5. broker URL
-6. Secret name with broker access key
+3. Target catalog
+4. broker URL
+5. Secret name with broker access key
 
 Once the data is in the topic, it will be read by a Databricks process that will:
 - Determine the target table and group records by the table they will be getting sent to (each message will have source schema and source table)
@@ -230,8 +239,7 @@ the line will be scheduled during the line downtime.
 
 ## ALT API
 
-ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to it's current archiecture.  However, it's possible for an ALT-API 
-instance to be set up to query the Databricks instance.
+ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to it's current archiecture.  However, it's possible for an ALT-API instance to be set up to query the Databricks instance.
 
 ## storage
 
@@ -273,6 +281,8 @@ also be connected to show near real time dashboards.
 
 ## Archiving Data (data older than 100 days, short term)
 
+Since the existing JSON archive process is tied to the on prem database, the Databricks side will have it's own archiving.
+
 For each table in the PLMS_\<site\> schemas:
 - Select all records from the table that are greater than 90 days old
 - Insert the records in the coorsponding table in the PLMS_\<site\>_archive schema
@@ -283,6 +293,9 @@ for the tables in the PLMS schema that need to be archived (tagged with the 'arc
 - Insert the records in the coorsponding table in the PLMS_archive schema
 - Delete the records that were inserted into the archive table from the source table.
 
+## Archiving Data (data older than 100 days, long term)
+
+The current ADF process will need to be adapted to extract it's data from the Databricks instance.
 
 ## Long Term Archive Plan ( data older than 100 days, long term)
 
