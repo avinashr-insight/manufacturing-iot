@@ -93,7 +93,7 @@ Once the data is in the topic, it will be read by a Databricks process that will
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
 
-This flow will no use a bronze table because the data is considered finished state data (silver).
+The data will be considered silver (ready to use).
 
 ```mermaid
 sequenceDiagram
