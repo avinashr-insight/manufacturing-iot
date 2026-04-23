@@ -29,7 +29,7 @@ Jobs will be tagged with the following information:
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
 
-![Databricks Data Access](data access.drawio.png)
+![Databricks Data Access](data%20access.drawio.png)
 
 ## Visualization
 
@@ -69,7 +69,7 @@ The Databricks data will be synced to the edge database with close to near real 
 
 ## Edge to Databricks Synch
 
-(see 'CDC Data Flow' tab of Data Diagram.dawio)
+![CDC Data Flow](CDC_Data_Flow.drawio.png)
 
 To provide a low latency way to extract data that doesn't depend on watermark queries, the system will utilize a change data capture process.
 As the edge database processes inserts, deletes, and updates the edge database will populate the transaction log. The sync process will 
