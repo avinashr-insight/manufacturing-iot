@@ -1,9 +1,11 @@
-# Topics
+# Data Design
+
+## Topics
 
 Each line will have two dedicated Azure Event Hub topics: one for MQTT and one for edge database replication.  Lines can share CDC 
 lines or MQTT topics, but data must be segregated by message type (CDC or MQTT).
 
-# Databricks Jobs
+## Databricks Jobs
 
 Due to a maximum number of concurrent jobs (1000) and other resoruce limits in Databricks, each CDC and MQTT streaming job will read more than
 one line's data at once.  All streaming jobs will use job compute and each job cluster will have a defined minimum (1) and max 
@@ -12,7 +14,7 @@ nubmer of workers to read the assigned topics.
 All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called 
 Declarative Automation Bundles).
 
-# Tags
+## Tags
 
 Tables in the Databricks environment will be built directly from the source schemas.  Tags will be utilized to provide additional information such as:
 - The primary key of the table (used for merges)
@@ -23,11 +25,13 @@ Tables in the Databricks environment will be built directly from the source sche
 Jobs will be tagged with the following information:
 - What line do they monitor (each line will be attached to a topic)
 
-# Fast Path and Slow Path
+## Fast Path and Slow Path
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
 
-# Visualization
+![Databricks Data Access](data%20access.drawio.png)
+
+## Visualization
 
 There will three tools for visulaizations:
 - AIO cluster hosted ALT UI
@@ -35,7 +39,7 @@ There will three tools for visulaizations:
 - Power BI (Dashboards based on Databricks data)
   - Two dashboards :TBD
 
-# Edge Database 
+## Edge Database 
 
 The edge database will have a limited number of clients and contain the minimal amount of data to keep access as fast as possible.  
 The ALT API and data purging processes should be the only clients with direct access.  For reporting, users should use the Databricks
@@ -55,17 +59,17 @@ This assumes:
 1. ALT API does not use any MSSQL only features
 2. There is no need for stored procedures (even though PostgreSQL does support them)
 
-# Databricks
+## Databricks
 
 The Databricks data will be synced to the edge database with close to near real time latency (5 minutes or less) to allow:
 1. Operational dashboards to utilize the data without impacting the edge database
 2. Future curated reporting tables to be bult on top of near real time data instead of daily snapshots 
 3. Machine learning operations
-4. Any operation that may need to utilize a large amount of data (planned storage will be 90-100 days) 
+4. Any operation that may need to utilize a large amount of data (planned storage will be 90 days) 
 
-# Edge to Databricks Synch
+## Edge to Databricks Synch
 
-(see 'CDC Data Flow' tab of Data Diagram.dawio)
+![CDC Data Flow](CDC_Data_Flow.drawio.png)
 
 To provide a low latency way to extract data that doesn't depend on watermark queries, the system will utilize a change data capture process.
 As the edge database processes inserts, deletes, and updates the edge database will populate the transaction log. The sync process will 
@@ -89,7 +93,7 @@ Once the data is in the topic, it will be read by a Databricks process that will
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
 
-This flow will no use a bronze table because the data is considered finished state data (silver).
+The data will be considered silver (ready to use).
 
 ```mermaid
 sequenceDiagram
@@ -104,7 +108,7 @@ sequenceDiagram
 
 ```
 
-# MQTT Data
+## MQTT Data
 
 (see 'MQTT Data Flow' tab of Data Diagram.dawio)
 
@@ -134,7 +138,7 @@ sequenceDiagram
 
 ```
 
-# Controller Job
+## Controller Job
 
 A controller job will run on a 10 minute interval schedule When triggered, the job will:
 - Query the Databricks jobs API endpoint and find all the streaming jobs (tagged with the 'streaming' tag)
@@ -163,7 +167,7 @@ sequenceDiagram
 
 ```
 
-# One time loads
+## One time loads
 
 (see 'Historical Data Load' tab of Data Diagram.dawio)
 
@@ -180,7 +184,7 @@ For 2: The edge database will need to be loaded with the data that is specific t
 For 3 (if needed): Depends on archive size, data will be loaded into a specific storage container.  Once in, data can be queried
 inside of databricks using sql.
 
-# Purge process
+## Purge process
 
 (see 'Non-PLMS parts purge' tab of Data Diagram.dawio)
 
@@ -233,15 +237,15 @@ sequenceDiagram
 If the connection to Azure is not available, both purge processes will not run.  If a line has offline time, the purge process for 
 the line will be scheduled during the line downtime.
 
-# Data Access
+## Data Access
 
 (see 'Data Access' tab of Data Diagram.dawio)
 
-## ALT API
+### ALT API
 
 ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to it's current archiecture.  However, it's possible for an ALT-API instance to be set up to query the Databricks instance.
 
-## storage
+### storage
 
 We will be utilizing ADLS Gen2 storage accounts to store the 'warm data' (data in Databricks).  Databricks access to storage accounts
 is done via a managed identity known as a 'Access Connector for Databricks'.  Once this created, the connector is given the 'Storage Blob Data 
@@ -267,7 +271,7 @@ sequenceDiagram
     
 ```
 
-## Serverless Compute
+### Serverless Compute
 
 The data will be accessable via two methods: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless compute 
 with private endpoints requires configuration in the Databricks account console, see 
@@ -279,7 +283,7 @@ appropiate drivers.  Note: serverless warehouses can take 5-10 seconds to spin u
 also be connected to show near real time dashboards.
 
 
-## Archiving Data (data older than 100 days, short term)
+### Archiving Data (data older than 90 days, short term)
 
 Since the existing JSON archive process is tied to the on prem database, the Databricks side will have it's own archiving.
 
@@ -293,11 +297,11 @@ for the tables in the PLMS schema that need to be archived (tagged with the 'arc
 - Insert the records in the coorsponding table in the PLMS_archive schema
 - Delete the records that were inserted into the archive table from the source table.
 
-## Archiving Data (data older than 100 days, long term)
+### Archiving Data (data older than 100 days, long term)
 
 The current ADF process will need to be adapted to extract it's data from the Databricks instance.
 
-## Long Term Archive Plan ( data older than 100 days, long term)
+### Long Term Archive Plan ( data older than 100 days, long term)
 
 Once data is older than 100 days, it will be moved to a cold tier and stored in JSON format.  
 
@@ -306,7 +310,7 @@ Recommendations:
    searching simpler without incurring unnecessary warm up costs.
 2. Run the process in Databricks environment to utilize parallel compute.  
 
-## Seeding the Edge Databases
+### Seeding the Edge Databases
 
 Using the exported schema from the SQL server database, All the PLMS tables will be created in the edge database.  For the site and line the 
 appropate PLMS_\<site\> tables will be created.
@@ -315,12 +319,12 @@ Each edge database will need to be seeded with:
 1. A copy of all the tables in the PLMS Database (with some historical data)
 2. Any tables from the PLMS_\<site\> schema that store the part related data for the line.
 
-## Updating Control Data on the Edge Database
+### Updating Control Data on the Edge Database
 
 The K3s cluster will not have access to original SQL Server database, updates to configuration will be done via the ALT API instance running 
 in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
 
-## Loading Archived Data
+### Loading Archived Data
 
 Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
 catalog to allow the new archive process to be developed.
