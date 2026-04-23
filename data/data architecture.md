@@ -50,7 +50,8 @@ For the edge database, we have chosen Postgresql.  Features include:
 2. Good ANSI SQL support
 3. Stored procedures (if needed)
 4. Widely used and well documented
-5. Mature CDC implementation
+5. Mature CDC implementation (https://debezium.io/documentation/reference/3.4/)
+6. A CDC implementation that can forward to Azure Event Hubs out of the box (https://debezium.io/documentation/reference/3.4/operations/debezium-server.html#_azure_event_hubs)
 
 Since the critical data is all in the edge database (PLMS operational data and PLMS_\<site\> in process part processing) all the entries will be able
 to keep processing regardless of Azure connectivity.  
@@ -110,7 +111,7 @@ sequenceDiagram
 
 ## MQTT Data
 
-(see 'MQTT Data Flow' tab of Data Diagram.dawio)
+![MQTT Data Flow](MQTT.drawio.png)
 
 MQTT Data for each line will be stored in it's own table under the mqtt_bronze schema.  It's considered bronze due to it being unprocessed MQTT events.
 
