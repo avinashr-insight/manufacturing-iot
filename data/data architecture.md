@@ -7,12 +7,11 @@ lines or MQTT topics, but data must be segregated by message type (CDC or MQTT).
 
 ## Databricks Jobs
 
-Due to a maximum number of concurrent jobs (1000) and other resoruce limits in Databricks, each CDC and MQTT streaming job will read more than
+Due to a maximum number of concurrent jobs (1000) and other resource limits in Databricks, each CDC and MQTT streaming job will read more than
 one line's data at once.  All streaming jobs will use job compute and each job cluster will have a defined minimum (1) and max 
 nubmer of workers to read the assigned topics.  
 
-All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called 
-Declarative Automation Bundles).
+All jobs will run as a service principal user (in accordance with best practices).  They will also be deployed using Databricks Asset Bundles (now called Declarative Automation Bundles).
 
 ## Tags
 
@@ -139,6 +138,8 @@ sequenceDiagram
 
 ## Controller Job
 
+Note: Due to there not being a clearly defined signal of when a line is up/down at this time, this job will be placeholder logic.
+
 A controller job will run on a 10 minute interval schedule When triggered, the job will:
 - Query the Databricks jobs API endpoint and find all the streaming jobs (tagged with the 'streaming' tag)
 - For each job:
@@ -165,6 +166,9 @@ sequenceDiagram
     Is Running->>+Stop Job: True
 
 ```
+
+Due 
+
 
 ## One time loads
 
