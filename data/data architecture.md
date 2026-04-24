@@ -29,8 +29,6 @@ Jobs will be tagged with the following information:
 
 The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
 
-![Databricks Data Access](data%20access.drawio.png)
-
 ## Visualization
 
 There will three tools for visulaizations:
@@ -187,13 +185,16 @@ inside of databricks using sql.
 
 ## Purge process
 
-(see 'Non-PLMS parts purge' tab of Data Diagram.dawio)
-
 To keep the data in the edge database small, there will be a purge process with two facets:
 1. Purge PLMS non-part data
 2. PLMS part data (PLMS_\<site\> schemas)
 
 Ideally, the purge will run during a time when the line is down.  Due to this not being easily defined, placeholder logic for this will be in the purge process but not enabled.
+
+### Non-parts Data Purge process
+
+![Non-Parts Purge](Non-PLMS%20parts%20purge.drawio.png)
+
 
 For non-part data, each table will have a TTL defined.  When the purge process runs, the process will query databricks
 for the table TTL, the column that determines the TTL, and primary key column.  The process will query the edge database
@@ -216,10 +217,12 @@ sequenceDiagram
 
 ```
 
+### Part Data Purge process
+
+![Parts Purge](PLMS%20Parts%20Purge.drawio.png)
+
 For part data tables (PLMS_\<site\> schema), the process will query all items that are in complete status and are above the TTL value.
 for each record, the process will verify that it exists in Databricks, then delete the local copy.
-
-(see 'PLMS Parts Purge' tab of Data Diagram.dawio)
 
 ```mermaid
 sequenceDiagram
@@ -242,7 +245,7 @@ the line will be scheduled during the line downtime.
 
 ## Data Access
 
-(see 'Data Access' tab of Data Diagram.dawio)
+![Databricks Data Access](data%20access.drawio.png)
 
 ### ALT API
 
@@ -300,11 +303,11 @@ for the tables in the PLMS schema that need to be archived (tagged with the 'arc
 - Insert the records in the coorsponding table in the PLMS_archive schema
 - Delete the records that were inserted into the archive table from the source table.
 
+![Archive Near Term](Data%20Archive%20Near%20Term.drawio.png)
+
 ### Archiving Data (data older than 100 days, long term)
 
 The current ADF process will need to be adapted to extract it's data from the Databricks instance.
-
-### Long Term Archive Plan ( data older than 100 days, long term)
 
 Once data is older than 100 days, it will be moved to a cold tier and stored in JSON format.  
 
@@ -312,6 +315,8 @@ Recommendations:
 1. Once data is bundled into the final JSON format, have a table that contains paths references with a minimal number of columns to make
    searching simpler without incurring unnecessary warm up costs.
 2. Run the process in Databricks environment to utilize parallel compute.  
+
+![Archive Long Term](Data%20Archive%20Long%20Term.drawio.png)
 
 ### Seeding the Edge Databases
 
