@@ -193,6 +193,8 @@ To keep the data in the edge database small, there will be a purge process with 
 1. Purge PLMS non-part data
 2. PLMS part data (PLMS_\<site\> schemas)
 
+Ideally, the purge will run during a time when the line is down.  Due to this not being easily defined, placeholder logic for this will be in the purge process but not enabled.
+
 For non-part data, each table will have a TTL defined.  When the purge process runs, the process will query databricks
 for the table TTL, the column that determines the TTL, and primary key column.  The process will query the edge database
 table for all the potential deletes.  For each delete canidate the process will check if the value is in Databricks.  if it 
