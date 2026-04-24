@@ -170,6 +170,8 @@ sequenceDiagram
 
 (see 'Historical Data Load' tab of Data Diagram.dawio)
 
+![Historical Data Load](Historical%20Data%20Load.drawio.png)
+
 There will be several one time loads that will be needed:
 1. Histrocial data (data from 0-90 days in the large on-prem database)
 2. Edge database (in process parts, master data) 
