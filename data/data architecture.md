@@ -15,32 +15,20 @@ All jobs will run as a service principal user (in accordance with best practices
 
 ## Tags
 
-Tables in the Databricks environment will be built directly from the source schemas.  Tags will be utilized to provide additional information such as:
+Tags will be utilized to provide additional information such as:
 - The primary key of the table (used for merges)
 - Whether the table has a purge process removing data from it on the edge.
 - A time to live value for the data on the edge (if purged).
 - Whether the table should be included in the archive process.
 
 Jobs will be tagged with the following information:
-- What line do they monitor (each line will be attached to a topic)
-
-## Fast Path and Slow Path
-
-The dataset will be broken up into two sepearte datasets: the edge database (low latency and operational data access) and Databricks (historical data).  The schemas for the tables on the edge databases will mirror the tables on Databricks.
-
-## Visualization
-
-There will three tools for visulaizations:
-- AIO cluster hosted ALT UI
-- Azure Log Analytics/Grafana (ALT-API stats only)
-- Power BI (Dashboards based on Databricks data)
-  - Two dashboards :TBD
+- What lines do they monitor (each line will be attached to a topic)
+- An indicator if the job is streaming (used by controller job).
 
 ## Edge Database 
 
 The edge database will have a limited number of clients and contain the minimal amount of data to keep access as fast as possible.  
-The ALT API and data purging processes should be the only clients with direct access.  For reporting, users should use the Databricks
-tables with will have a near real time copy of the edge database data.
+For reporting, users should use the Databricks tables with will have a near real time copy of the edge database data.
 
 For the edge database, we have chosen Postgresql.  Features include:
 1. A better query optimizer than MySQL
@@ -50,8 +38,7 @@ For the edge database, we have chosen Postgresql.  Features include:
 5. Mature CDC implementation (https://debezium.io/documentation/reference/3.4/)
 6. A CDC implementation that can forward to Azure Event Hubs out of the box (https://debezium.io/documentation/reference/3.4/operations/debezium-server.html#_azure_event_hubs)
 
-Since the critical data is all in the edge database (PLMS operational data and PLMS_\<site\> in process part processing) all the entries will be able
-to keep processing regardless of Azure connectivity.  
+Since the critical data is all in the edge database (PLMS operational data and PLMS_\<site\> in process part processing) all the entries will be able to keep processing regardless of Azure connectivity.  
 
 This assumes:
 1. ALT API does not use any MSSQL only features
@@ -59,11 +46,10 @@ This assumes:
 
 ## Databricks
 
-The Databricks data will be synced to the edge database with close to near real time latency (5 minutes or less) to allow:
+The Databricks data will be synced to the edge database with close to near real time latency (depending on network traffic and latency) to allow:
 1. Operational dashboards to utilize the data without impacting the edge database
 2. Future curated reporting tables to be bult on top of near real time data instead of daily snapshots 
-3. Machine learning operations
-4. Any operation that may need to utilize a large amount of data (planned storage will be 90 days) 
+3. Machine learning or any operation that may need to utilize a large amount of data (planned storage will be 90 days) 
 
 ## Edge to Databricks Synch
 
@@ -73,19 +59,16 @@ To provide a low latency way to extract data that doesn't depend on watermark qu
 As the edge database processes inserts, deletes, and updates the edge database will populate the transaction log. The sync process will 
 utilize debezium to read the transaction log entries and translate them into JSON.  Once the data is in JSON format the events will
 be sent to an Azure Event Hub topic.  Once sent, the process will move on to the next entry.  If access to Azure is interrupted, the changes
-will queue up locally until it is reestablished.  Once that happens, all changes will be sent to the topic to be processed by databricks.  Each 
-schema in the edge database will have it's own CDC monitor.  
+will queue up locally until it is reestablished.  Once that happens, all changes will be sent to the topic to be processed by databricks.  Each schema in the edge database will have it's own CDC monitor.  
 
 The jobs that read CDC information will have the following paramters:
-1. Lines to monitor
-2. topics to monitor
-3. Target catalog
-4. broker URL
-5. Secret name with broker access key
+1. topics to monitor
+2. Target catalog
+3. broker URL secret name
 
 Once the data is in the topic, it will be read by a Databricks process that will:
 - Determine the target table and group records by the table they will be getting sent to (each message will have source schema and source table)
-- Look up the schema (neeeded to convert the JSON data to a reecord to insert), primary key, and if the table is purged.
+- Look up the schema (neeeded to convert the JSON data to a record to insert), primary key, and if the table is purged.
   These values will be set via table level tags and looked up by querying the informamtion_schema.table_tags table.  
 - If the table is purged filter out delete entries
 - Apply the table schema to the JSON data
@@ -113,13 +96,10 @@ sequenceDiagram
 MQTT Data for each line will be stored in it's own table under the mqtt_bronze schema.  It's considered bronze due to it being unprocessed MQTT events.
 
 Each MQTT job will have the following parameters:
-1. Lines to monitor
-2. Topics to monitor
-3. Hours of operation for each line
-4. Target Catalog
-5. Target schema (defaults to mqtt_data)
-6. broker URL
-7. Secret name with broker access key
+1. Topics to monitor
+2. Target Catalog
+3. Target schema (defaults to mqtt_data)
+4. Broker URL secret name
 
 MQTT events will be forwarded from AIO into Azure Event Hub (in JSON format).  A Databricks job will read the events from the topic.  
 First, it'll extract a set of fields from the JSON (message type, timestamp, machine) if they exist.  Next it will append to 
@@ -138,7 +118,7 @@ sequenceDiagram
 
 ## Controller Job
 
-Note: Due to there not being a clearly defined signal of when a line is up/down at this time, this job will be placeholder logic.
+Note: Due to there not being a clearly defined signal of when a line is up or down at this time, this job will be placeholder logic.
 
 A controller job will run on a 10 minute interval schedule When triggered, the job will:
 - Query the Databricks jobs API endpoint and find all the streaming jobs (tagged with the 'streaming' tag)
@@ -167,9 +147,6 @@ sequenceDiagram
 
 ```
 
-Due 
-
-
 ## One time loads
 
 ![Historical Data Load](Historical%20Data%20Load.drawio.png)
@@ -182,7 +159,7 @@ There will be several one time loads that will be needed:
 For 1: We will use Azure Data Factory to load the contents of the tables SQL Server database into parquet files in a dedicated 
 storage container.  Once there, a dedicated process will ingest the parquet files and create the tables.
 
-For 2: The edge database will need to be loaded with the data that is specific to the line.
+For 2: The edge database will need to be loaded with the data that is specific to the line.  The data will be pulled from Databricks.
 
 For 3 (if needed): Depends on archive size, data will be loaded into a specific storage container.  Once in, data can be queried
 inside of databricks using sql.
@@ -241,11 +218,17 @@ sequenceDiagram
     Purge Table ->>+Records greater than TTL that are complete: Records to archive
     Records greater than TTL that are complete ->>+Insert into archive schema table: Records to archive
     Records greater than TTL that are complete ->>+delete from original table: Records to archive
-    
-```
+    ```
 
-If the connection to Azure is not available, both purge processes will not run.  If a line has offline time, the purge process for 
-the line will be scheduled during the line downtime.
+If the connection to Azure is not available, both purge processes will not run.  
+
+## Visualization
+
+There will three tools for visulaizations:
+- AIO cluster hosted ALT UI
+- Azure Log Analytics/Grafana (ALT-API stats only)
+- Power BI (Dashboards based on Databricks data)
+  - Two dashboards :TBD
 
 ## Data Access
 
@@ -258,16 +241,10 @@ ALT API instances on the AIO cluster will not have direct access to the historic
 ### storage
 
 We will be utilizing ADLS Gen2 storage accounts to store the 'warm data' (data in Databricks).  Databricks access to storage accounts
-is done via a managed identity known as a 'Access Connector for Databricks'.  Once this created, the connector is given the 'Storage Blob Data 
-Contributor' role.  When granted, Databricks uses this managed identity to access the storage account.  Once done, a external location is 
-established.  This is a storage account URL that is associated with the access connector managed identity.  Once established, Databricks
-will access the storage URL on behalf of users, functioning as the access proxy.  Via this mechanism Databricks can enforce all data access ACLs.  
+is done via a managed identity known as a 'Access Connector for Databricks'.  Once this created, the connector is given the 'Storage Blob Data Contributor' role.  When granted, Databricks uses this managed identity to access the storage account.  Inside Databricks, a credential object is created that maps to the Access Connector.  The next step is to create an external location.  This is a storage account URL, which gets associated with the credential created in the previous step.  Once established, Databricks will be able access the storage URL on behalf of users, functioning as the access proxy.  Via this mechanism Databricks can enforce all data access ACLs.  
 
 Once the external location is established (container@storage account/directory) a catalog will be created using the external location as
-the default storage location.  Once created, the lower schemas are created (PLMS, PLMS_<site>), then the tables (mirroring the schema
-that is in the edge tables).  This setup takes advantage of Databricks managed tables, which enables using features such as Predictive 
-optimization.  All tables will be under the container@storage account/directory/<catalog>/ directory with UUID directory names.  
-It's not recommended to read these directories directly, but to go through the table entities.  
+the default storage location for table.  Once created, the lower schemas are created (PLMS, PLMS_<site>), then the tables.  This setup takes advantage of Databricks managed tables, which enables using features such as Predictive optimization.  
 
 ```mermaid
 sequenceDiagram
@@ -345,10 +322,9 @@ catalog to allow the new archive process to be developed.
 
 ### Service Principals
 
-We will be using three service principals:
+We will be using two service principals:
 - The 'run as' principal for the jobs
 - The principal that Power BI will use access Databricks
-- A principal for the on prem purge jobs to query the warehouse endpoint.
 
 ### Service Principals Authenication
 
