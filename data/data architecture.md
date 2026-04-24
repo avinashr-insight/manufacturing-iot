@@ -168,8 +168,6 @@ sequenceDiagram
 
 ## One time loads
 
-(see 'Historical Data Load' tab of Data Diagram.dawio)
-
 ![Historical Data Load](Historical%20Data%20Load.drawio.png)
 
 There will be several one time loads that will be needed:
