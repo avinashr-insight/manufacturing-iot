@@ -218,7 +218,8 @@ sequenceDiagram
     Purge Table ->>+Records greater than TTL that are complete: Records to archive
     Records greater than TTL that are complete ->>+Insert into archive schema table: Records to archive
     Records greater than TTL that are complete ->>+delete from original table: Records to archive
-    ```
+
+```
 
 If the connection to Azure is not available, both purge processes will not run.  
 
