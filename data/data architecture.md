@@ -68,8 +68,8 @@ The jobs that read CDC information will have the following paramters:
 
 Once the data is in the topic, it will be read by a Databricks process that will:
 - Determine the target table and group records by the table they will be getting sent to (each message will have source schema and source table)
-- Look up the schema (neeeded to convert the JSON data to a record to insert), primary key, and if the table is purged.
-  These values will be set via table level tags and looked up by querying the informamtion_schema.table_tags table.  
+- Look up the schema (needed to convert the JSON data to a record to insert), primary key, and if the table is purged.
+  These values will be set via table level tags and looked up by querying the information_schema.table_tags table.  
 - If the table is purged filter out delete entries
 - Apply the table schema to the JSON data
 - Insert new records/Update existing records 
@@ -179,7 +179,7 @@ Ideally, the purge will run during a time when the line is down.  Due to this no
 
 For non-part data, each table will have a TTL defined.  When the purge process runs, the process will query databricks
 for the table TTL, the column that determines the TTL, and primary key column.  The process will query the edge database
-table for all the potential deletes.  For each delete canidate the process will check if the value is in Databricks.  if it 
+table for all the potential deletes.  For each delete candidate the process will check if the value is in Databricks.  if it 
 exists, the edge database record is deleted.
 
 ```mermaid
@@ -224,7 +224,7 @@ If the connection to Azure is not available, both purge processes will not run.
 
 ## Visualization
 
-There will three tools for visulaizations:
+There will three tools for visualizing data:
 - AIO cluster hosted ALT UI
 - Azure Log Analytics/Grafana (ALT-API stats only)
 - Power BI (Dashboards based on Databricks data)
@@ -236,7 +236,7 @@ There will three tools for visulaizations:
 
 ### ALT API
 
-ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to it's current archiecture.  However, it's possible for an ALT-API instance to be set up to query the Databricks instance.
+ALT API instances on the AIO cluster will not have direct access to the historical data in Databricks due to its current architecture.  However, it's possible for an ALT-API instance to be set up to query the Databricks instance.
 
 ### storage
 
@@ -260,13 +260,12 @@ sequenceDiagram
 
 ### Serverless Compute
 
-The data will be accessable via two methods: Datbricks Jobs and Databricks serverless warehouses.  Note: using serverless compute 
+The data will be accessible via two methods: Databricks Jobs and Databricks serverless warehouses.  Note: using serverless compute 
 with private endpoints requires configuration in the Databricks account console, see 
 https://learn.microsoft.com/en-us/azure/databricks/security/network/serverless-network-security/serverless-private-link
 
-Serverless compute will spin up compute quickly as needed to handle incoming queries and will shut down after a set amount of time if
-there are no requests.  External applications that need to query data will connect to connect to a Databricks endpoint using the 
-appropiate drivers.  Note: serverless warehouses can take 5-10 seconds to spin up, timeouts may need to be adjusted.  Power BI will 
+Serverless compute will spin up resources quickly as needed to handle incoming queries and will shut down after a set amount of idle time.  External applications that need to query data will connect to connect to a Databricks endpoint using the 
+appropriate drivers.  Note: serverless warehouses can take 5-10 seconds to spin up, timeouts may need to be adjusted.  Power BI will 
 also be connected to show near real time dashboards.
 
 
@@ -276,7 +275,7 @@ Since the existing JSON archive process is tied to the on prem database, the Dat
 
 For each table in the PLMS_\<site\> schemas:
 - Select all records from the table that are greater than 90 days old
-- Insert the records in the coorsponding table in the PLMS_\<site\>_archive schema
+- Insert the records in the corresponding table in the PLMS_\<site\>_archive schema
 - Delete the records that were inserted into the archive table from the source table.
 
 for the tables in the PLMS schema that need to be archived (tagged with the 'archive' tag):
@@ -302,7 +301,7 @@ Recommendations:
 ### Seeding the Edge Databases
 
 Using the exported schema from the SQL server database, All the PLMS tables will be created in the edge database.  For the site and line the 
-appropate PLMS_\<site\> tables will be created.
+appropriate PLMS_\<site\> tables will be populated.
 
 Each edge database will need to be seeded with:
 1. A copy of all the tables in the PLMS Database (with some historical data)
@@ -311,14 +310,14 @@ Each edge database will need to be seeded with:
 ### Updating Control Data on the Edge Database
 
 The K3s cluster will not have access to original SQL Server database, updates to configuration will be done via the ALT API instance running 
-in the k3s cluster.  All updates will flow to Databricks via the CDC procss.
+in the k3s cluster.  All updates will flow to Databricks via the CDC process.
 
 ### Loading Archived Data
 
 Depending on the data size, a solution such as Azure Data Box may be used.  Once in the storage account the data can be loaded into it's own
 catalog to allow the new archive process to be developed.
 
-## Service Principals, groups, and Authenication
+## Service Principals, Groups, and Authentication
 
 ### Service Principals
 
@@ -326,13 +325,13 @@ We will be using two service principals:
 - The 'run as' principal for the jobs
 - The principal that Power BI will use access Databricks
 
-### Service Principals Authenication
+### Service Principals Authentication
 
 For both service principals, we will need OAuth secrets created.  
 
 ### Groups
 
-We will need at least two groups defined:
+We will need at least two groups:
 - Owner for the target schemas and tables
 - Read only group for users to access the data
 
